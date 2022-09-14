@@ -36,11 +36,18 @@ module.exports = function (config) {
           functions: 70,
           lines: 70
         }
+      },
+       watermarks: {
+        statements: [ 50, 75 ],
+        functions: [ 50, 75 ],
+        branches: [ 50, 75 ],
+        lines: [ 50, 75 ]
       }
+      
     },
     // port: 9876,
     colors: true,
-    logLevel: config.LOG_DISABLE,
+    logLevel: config.LOG_INFO,
     autoWatch: false,
     browsers: ['Chrome'],
     singleRun: true,
