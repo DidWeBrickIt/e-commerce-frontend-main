@@ -97,7 +97,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "codeCoverage": false
+            "codeCoverage": true
           }
         }
       }
