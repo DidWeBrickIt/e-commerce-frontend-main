@@ -21,6 +21,7 @@ export class ProductCardComponent implements OnInit{
   quantities: number[] = [];
   amount: number = 0;
 
+
   @Input() productInfo!: Product;
 
   constructor(private productService: ProductService) { }
@@ -44,7 +45,9 @@ export class ProductCardComponent implements OnInit{
     }
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: Product, ev: Event): void {
+
+    ev.stopPropagation();
     let inCart = false;
 
     this.products.forEach(
@@ -81,6 +84,14 @@ export class ProductCardComponent implements OnInit{
       this.updateQuantity();
     }
       
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
+  }
+
+  stopProp(ev: Event) {
+    ev.stopPropagation();
   }
 
   ngOnDestroy() {
