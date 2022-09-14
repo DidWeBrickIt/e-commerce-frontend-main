@@ -17,7 +17,7 @@
         <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
       </div>
     <div class="card-body">
-        <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
+        <button class="btn btn-outline-success" (click)="addToCart(productInfo, $event)">Add to Cart</button>
     </div>
   </div>
   <div id="infoBackground" *ngIf="showInfo" (click)="toggleInfo()">
@@ -27,6 +27,6 @@
       <h5>{{productInfo.name}}</h5>
       <p>{{productInfo.description}}</p>
       <p>Product quantity: {{productInfo.quantity}}</p>
-      <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
+      <button class="btn btn-outline-success" (click)="addToCart(productInfo, $event)">Add to Cart</button>
     </div>
   </div>
