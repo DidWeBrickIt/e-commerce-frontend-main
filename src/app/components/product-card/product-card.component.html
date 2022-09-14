@@ -21,6 +21,6 @@
           <option [ngValue]="0" [disabled]="true" [selected] = "true" [hidden] = "true">Select Amount</option>
           <option *ngFor = "let num of this.quantities">{{num}}</option>
         </select>
-        <button *ngIf = "this.amount !== 0" class="btn btn-outline-success" (click)="addToCart(productInfo, this.amount)">Add to Cart</button>
+        <button *ngIf = "this.amount !== 0" class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
     </div>
   </div>
