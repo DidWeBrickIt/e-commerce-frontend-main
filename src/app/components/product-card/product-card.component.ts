@@ -17,6 +17,9 @@ export class ProductCardComponent implements OnInit{
   }[] = [];
   subscription!: Subscription;
   totalPrice: number = 0;
+  showInfo: boolean = false;
+  quantities: number[] = [];
+  amount: number = 0;
 
   @Input() productInfo!: Product;
 
@@ -30,20 +33,23 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    for(let i = 1; i < this.productInfo.quantity + 1; i++){
+      this.quantities.push(i);
+    }
   }
 
-  addToCart(product: Product): void {
-
+  addToCart(product: Product, num : number): void {
+    console.log(this.amount);
     let inCart = false;
 
     this.products.forEach(
       (element) => {
         if(element.product == product){
-          ++element.quantity;
+          element.quantity = +element.quantity + +num;
           let cart = {
             cartCount: this.cartCount + 1,
             products: this.products,
-            totalPrice: this.totalPrice + product.price
+            totalPrice: this.totalPrice + (product.price * num)
           };
           this.productService.setCart(cart);
           inCart=true;
@@ -55,13 +61,13 @@ export class ProductCardComponent implements OnInit{
     if(inCart == false){
       let newProduct = {
         product: product,
-        quantity: 1
+        quantity: num
       };
       this.products.push(newProduct);
       let cart = {
         cartCount: this.cartCount + 1,
         products: this.products,
-        totalPrice: this.totalPrice + product.price
+        totalPrice: this.totalPrice + (product.price * num)
       }
       this.productService.setCart(cart);
     }

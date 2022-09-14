@@ -52,6 +52,7 @@ export class CheckoutComponent implements OnInit {
         const id = element.product.id;
         const quantity = element.quantity
         this.finalProducts.push({id, quantity})
+        console.log(element);
       } 
     );
 
