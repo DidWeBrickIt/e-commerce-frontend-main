@@ -25,20 +25,25 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/e-commerce'),
-      subdir: '.',
+     
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+        { type: 'none' }
+      ],
+      check: {
+        global: {
+          statements: 70,
+          branches: 70,
+          functions: 70,
+          lines: 70
+        }
+      }
     },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
+    // port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
+    logLevel: config.LOG_DISABLE,
+    autoWatch: false,
     browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    singleRun: true,
+    restartOnFileChange: false
   });
 };
