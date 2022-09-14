@@ -33,8 +33,9 @@ export class ProductCardComponent implements OnInit{
     );
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: Product, ev: Event): void {
 
+    ev.stopPropagation();
     let inCart = false;
 
     this.products.forEach(
