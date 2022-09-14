@@ -27,7 +27,7 @@ module.exports = function (config) {
     coverageReporter: {
      
       reporters: [
-        { type: 'none' }
+        { type: 'text' }
       ],
       check: {
         global: {
@@ -38,10 +38,10 @@ module.exports = function (config) {
         }
       },
        watermarks: {
-        statements: [ 50, 75 ],
-        functions: [ 50, 75 ],
-        branches: [ 50, 75 ],
-        lines: [ 50, 75 ]
+        statements: [ 50, 70 ],
+        functions: [ 50, 70 ],
+        branches: [ 50, 70 ],
+        lines: [ 50, 70 ]
       }
       
     },
