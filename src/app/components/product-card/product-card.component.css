@@ -41,7 +41,7 @@
 
   #infoContent {
     position: relative;
-    z-index: 100000;
+    z-index: 2;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -49,3 +49,12 @@
     width: 80%;
     height: 50%;
   }
+
+  #closeBtn {
+    float: right;
+  }
+
+  #infoImg {
+    float: left;
+  }
+  
