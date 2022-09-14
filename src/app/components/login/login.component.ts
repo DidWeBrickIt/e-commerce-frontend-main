@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Jwt } from 'src/app/models/jwt';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -23,11 +24,11 @@ export class LoginComponent implements OnInit {
   
   onSubmit(): void {
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
-      () => {
-        this.authService.loggedIn=true;
+      (response : Jwt) => {
+        this.authService.setJWT(response);
+        this.router.navigate(['home'])
       },
       (err) => console.log(err),
-      () => this.router.navigate(['home'])
     );
   }
 
