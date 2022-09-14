@@ -17,7 +17,11 @@
         <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
       </div>
     <div class="card-body">
-        <button class="btn btn-outline-success" (click)="addToCart(productInfo, $event)">Add to Cart</button>
+        <select [(ngModel)] = "amount" required *ngIf = "productInfo.quantity !== 0">
+          <option [ngValue]="0" [disabled]="true" [selected] = "true" [hidden] = "true">Select Amount</option>
+          <option *ngFor = "let num of this.quantities">{{num}}</option>
+        </select>
+        <button *ngIf = "this.amount !== 0" class="btn btn-outline-success" (click)="addToCart(productInfo, $event)">Add to Cart</button>
     </div>
   </div>
   <div id="infoBackground" *ngIf="showInfo" (click)="toggleInfo()">
