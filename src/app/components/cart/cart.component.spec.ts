@@ -24,4 +24,11 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should reset', () => {
+    component.totalPrice= 5.00;
+    component.emptyCart();
+    expect(component.totalPrice).toEqual;
+  });
+
 });
