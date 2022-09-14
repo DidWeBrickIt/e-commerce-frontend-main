@@ -50,9 +50,8 @@ export class CheckoutComponent implements OnInit {
      this.products.forEach(
       (element) => {
         const id = element.product.id;
-        const quantity = element.quantity
-        this.finalProducts.push({id, quantity})
-        console.log(element);
+        const quantity = element.quantity;
+        this.finalProducts.push({id, quantity});
       } 
     );
 
