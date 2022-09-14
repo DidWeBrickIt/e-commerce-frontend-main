@@ -31,6 +31,9 @@ describe('ProductCardComponent', () => {
       });
       return testCart;
     }
+
+    setCart(latestValue: Cart) {}
+
   }
 
 
@@ -55,11 +58,19 @@ describe('ProductCardComponent', () => {
   });
 
   it('should add to product quantity', () => {
-    
+    const testProduct1 = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    const testProduct2 = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    component.addToCart(testProduct1);
+    component.addToCart(testProduct1);
+    expect(component.products.length).toBe(1);
   });
 
-  it('should add to product quantity', () => {
-
+  it('should add new product', () => {
+    const testProduct1 = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    const testProduct2 = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    component.addToCart(testProduct1);
+    component.addToCart(testProduct2);
+    expect(component.products.length).toBe(2);
   });
 
 });
