@@ -1,4 +1,4 @@
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;" (click)="toggleInfo()">
     <img class="card-img-top" [src]="productInfo.image" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{productInfo.name}}</h5>
@@ -18,5 +18,11 @@
       </div>
     <div class="card-body">
         <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
+    </div>
+  </div>
+  <div id="infoBackground" *ngIf="showInfo" (click)="toggleInfo()">
+    <div id="infoContent" (click)="stopProp($event)">
+      <button id="closeBtn" (click)="toggleInfo()">X</button>
+      <p>Hello!</p>
     </div>
   </div>

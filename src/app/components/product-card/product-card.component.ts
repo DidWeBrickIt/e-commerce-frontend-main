@@ -17,6 +17,7 @@ export class ProductCardComponent implements OnInit{
   }[] = [];
   subscription!: Subscription;
   totalPrice: number = 0;
+  showInfo: boolean = false;
 
   @Input() productInfo!: Product;
 
@@ -66,6 +67,14 @@ export class ProductCardComponent implements OnInit{
       this.productService.setCart(cart);
     }
       
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
+  }
+
+  stopProp(ev: Event) {
+    ev.stopPropagation();
   }
 
   ngOnDestroy() {
