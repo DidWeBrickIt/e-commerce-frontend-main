@@ -47,7 +47,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.products.forEach(
+     this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity

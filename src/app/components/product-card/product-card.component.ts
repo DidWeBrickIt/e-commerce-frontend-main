@@ -33,13 +33,18 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    this.updateQuantity();
+  }
+
+  updateQuantity(){
+   this.quantities = [];
+   this.amount = 0;
     for(let i = 1; i < this.productInfo.quantity + 1; i++){
       this.quantities.push(i);
     }
   }
 
   addToCart(product: Product): void {
-    console.log(this.amount);
     let inCart = false;
 
     this.products.forEach(
@@ -47,11 +52,13 @@ export class ProductCardComponent implements OnInit{
         if(element.product == product){
           element.quantity = +element.quantity + +this.amount;
           let cart = {
-            cartCount: this.cartCount + 1,
+            cartCount: +this.cartCount + +this.amount,
             products: this.products,
             totalPrice: this.totalPrice + (product.price * this.amount)
           };
           this.productService.setCart(cart);
+          this.productInfo.quantity -= this.amount;
+          this.updateQuantity();
           inCart=true;
           return;
         };
@@ -65,11 +72,13 @@ export class ProductCardComponent implements OnInit{
       };
       this.products.push(newProduct);
       let cart = {
-        cartCount: this.cartCount + 1,
+        cartCount: +this.cartCount + +this.amount,
         products: this.products,
         totalPrice: this.totalPrice + (product.price * this.amount)
       }
       this.productService.setCart(cart);
+      this.productInfo.quantity -= newProduct.quantity;
+      this.updateQuantity();
     }
       
   }
