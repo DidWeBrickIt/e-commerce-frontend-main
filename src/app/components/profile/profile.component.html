@@ -1,1 +1,60 @@
-<p>profile works!</p>
+<h1>Hello {{ firstName }}</h1>
+
+<img src="" alt="" id="profileImg">
+<form [formGroup]="" (ngSubmit)="onSubmit">
+    <div>
+        <h3>User Info</h3>
+        <!--<span class="">Username</span>
+        <input id="username" type="text" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">-->
+    
+        <span class="">First name</span>
+        <input id="firstName" type="text" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Last name</span>
+        <input id="firstName" type="text" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Email</span>
+        <input id="email" type="text" [(ngModel)]="email" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Password</span>
+        <input id="password" type="text" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
+    </div>
+    
+    <div>
+        <h3>Shipping/Billing</h3>
+        <span class="">Street Address</span>
+        <input id="address" type="text" [(ngModel)]="address" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Unit</span>
+        <input id="unit" type="text" [(ngModel)]="unit" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">City</span>
+        <input id="city" type="text" [(ngModel)]="city" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">State</span>
+        <input id="state" type="text" [(ngModel)]="state" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Zip</span>
+        <input id="zip" type="text" [(ngModel)]="zip" [ngModelOptions]="{ standalone: true }">
+    
+    
+    </div>
+    
+    <div>
+        <h3>Payment</h3>
+        <span class="">Credit Card Number</span>
+        <input id="ccnum" type="text" [(ngModel)]="CCNum" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">CVV</span>
+        <input id="cvv" type="text" [(ngModel)]="cvv" [ngModelOptions]="{ standalone: true }">
+    
+        <span class="">Exp.</span>
+        <input id="exp" type="text" [(ngModel)]="exp" [ngModelOptions]="{ standalone: true }">
+    
+    </div>
+    
+    <div>
+        <button id="updateBtn" class="" (click)="">Submit</button>
+    </div>
+</form>
+
