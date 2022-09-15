@@ -19,6 +19,7 @@ export class AccountService {
 
   public updateProfile(address:Address): Observable<Address> {
     const payload = JSON.stringify(address)
+    console.log("updateProfile: " + payload);
     return this.http.put<Address>(environment.baseUrl+"/profile", payload, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 }

@@ -12,15 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  profileFormGroup = this.fb.group({firstName: "",
-  lastName: "",
-  address1: "",
-  address2: "",
-  city: "",
-  state: "",
-  zip: "",
-  country: "",
-  email: ""})
+
 
   info: Profile = { firstName: '', lastName: '', email: '', password: '' };
   address : Address = {
@@ -32,7 +24,7 @@ export class ProfileComponent implements OnInit {
     state: "",
     zip: "",
     country: "",
-    
+
     
   }
   
@@ -43,14 +35,7 @@ export class ProfileComponent implements OnInit {
     cvv: "",
     exp: ""
 }
-  firstName: String = ""
-    lastName: String = ""
-    address1: String = ""
-    address2: String = ""
-    city: String = ""
-    state: String = ""
-    zip: String = ""
-    country: String = ""
+
 
   constructor(private accountService: AccountService, private fb: FormBuilder) {}
 
@@ -63,8 +48,8 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(): void {
-    console.log(this.profileFormGroup);
-    console.log("hello " + this.address.address1);
+    
+    console.log("hello " + this.address.firstName);
     this.accountService.updateProfile(this.address);
     //location.reload();
   }
