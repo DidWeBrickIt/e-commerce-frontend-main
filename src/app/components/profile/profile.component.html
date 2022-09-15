@@ -1,4 +1,16 @@
-<div class="profile-form-container" style="width: 21%;">
+<h3> Welcome {{ address.firstName }}</h3>
+
+<img src="" alt="profile picture">
+<h3>First Name: {{ address.firstName }}</h3>
+<h3>Last Name: {{ address.lastName }}</h3>
+<h3>Address:  {{ address.address1 }}</h3>
+<h3>Address:  {{ address.address2 }}</h3>
+<h3>City:  {{ address.city }}</h3>
+<h3>State: {{address.state}}</h3>
+<h3>Country: {{address.country}}</h3>
+
+
+<div class="profile-form-container" style="width: 50%;">
     <h1 class="mt-3" style="text-align: center;">Welcome, {{address.firstName}}!</h1>
     <form style="width: 85%; margin: auto;" (ngSubmit)="updateProfile()">
 
