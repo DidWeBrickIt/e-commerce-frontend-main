@@ -2,6 +2,8 @@
 
 https://green-plant-0ac64be10.1.azurestaticapps.net/
 
+(WiP)
+
 Prerequisite Technologies used to start the application
  -> VSCode
 
@@ -12,7 +14,7 @@ General E-Commerce-Frontend information
 
 Currently on the front-end
 
--> Quantity Select: A feature to directly select the amount of a product the user or guest wishes to add to the cart to be purchased.
+-> Quantity Select: A feature to directly select the amount of a product the user or guest wishes to add to the cart to be purchased. 
 
 -> Product Details View: As a user, there must be functionality to click on an image of the product available on the display products page and gain access to more details about the product.
 
@@ -25,5 +27,5 @@ Supplementary technologies used to run the application
     -> http://localhost:8080/swagger-ui/index.html#/
     
  - Azure Static Websites
-    -> Means of hosting the front-end of the application on azure with it's functionality intact so that the contents of the database can be accessed without the back-end running.
+    -> Means of hosting the front-end of the application on Azure with it's functionality intact so that the contents of the database can be accessed without the back-end running.
     
