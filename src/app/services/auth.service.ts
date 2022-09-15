@@ -13,25 +13,41 @@ export class AuthService {
   loggedIn: boolean = false;
   userAccess: string = '';
 
-  constructor(private http: HttpClient) { }
-
-  login(email: string, password: string): Observable<any> {
-    const payload = {email:email, password:password};
-    return this.http.post<Jwt>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
+  constructor(private http: HttpClient) {
+    this.getJwtFromStorage();
   }
 
-  setJWT(jwt: Jwt) : void
-  {
+  login(email: string, password: string): Observable<any> {
+    const payload = { email: email, password: password };
+    return this.http.post<Jwt>(`${this.authUrl}/login`, payload, { headers: environment.headers, withCredentials: environment.withCredentials });
+  }
+
+  getJwtFromStorage() {
+    let storedJwt: string | null = localStorage.getItem("jwt");
+
+    if (storedJwt === null) {
+      environment.headers.auth = '';
+      this.userAccess = '';
+      return;
+    }
+    let jwt: Jwt = JSON.parse(storedJwt);
     environment.headers.auth = jwt.jwt;
     this.userAccess = jwt.userAccess;
   }
 
-  logout(): void{
+  setJWT(jwt: Jwt): void {
+    environment.headers.auth = jwt.jwt;
+    this.userAccess = jwt.userAccess;
+    localStorage.setItem("jwt", JSON.stringify(jwt));
+  }
+
+  logout(): void {
     environment.headers.auth = ' ';
+    localStorage.removeItem('jwt');
   }
 
   register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
-    const payload = {firstName: firstName, lastName: lastName, email: email, password: password};
-    return this.http.post<any>(`${this.authUrl}/register`, payload, {headers: environment.headers});
+    const payload = { firstName: firstName, lastName: lastName, email: email, password: password };
+    return this.http.post<any>(`${this.authUrl}/register`, payload, { headers: environment.headers });
   }
 }
