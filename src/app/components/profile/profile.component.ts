@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/models/address';
 import { Profile } from 'src/app/models/profile';
 import { Payment } from 'src/app/models/payment';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-profile',
@@ -33,17 +34,14 @@ export class ProfileComponent implements OnInit {
   constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.accountService.getUserInfo().subscribe((info) => {
-      this.info = info;
-    });
     this.accountService.getAddressInfo().subscribe((address) => {
       this.address = address;
+      this.info = {firstName:address.firstName, lastName:address.lastName, email:"", password:""};
     });
   }
 
   updateProfile(): void {
-    let profile = {};
-    this.accountService.updateProfile(profile);
+    this.accountService.updateProfile(this.address);
     location.reload();
   }
 }

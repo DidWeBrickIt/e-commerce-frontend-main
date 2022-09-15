@@ -1,11 +1,11 @@
-<h1>Hello {{ firstName }}</h1>
+<h1>Hello {{ address.firstName }}</h1>
 
 <img src="" alt="" id="profileImg">
 <form [formGroup]="" (ngSubmit)="onSubmit">
     <div>
         <h3>User Info</h3>
-        <!--<span class="">Username</span>
-        <input id="username" type="text" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">-->
+        <span class="">Username</span>
+        <input id="username" type="text" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">
     
         <span class="">First name</span>
         <input id="firstName" type="text" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }">
