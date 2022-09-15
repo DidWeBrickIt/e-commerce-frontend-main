@@ -52,11 +52,12 @@ export class CartComponent implements OnInit {
     this.products.forEach(
       (element) => {
         if(element.product == product){
-          --element.quantity; 
+          let x: number = element.quantity;
+          element.quantity -= element.quantity; 
           let cart = {
-            cartCount: this.cartCount - 1,
+            cartCount: this.cartCount - x,
             products: this.products,
-            totalPrice: this.totalPrice - product.price
+            totalPrice: this.totalPrice - x * product.price
           };
           if (element.quantity === 0) {
             cart.products = cart.products.filter(p => !(p.product == product));
