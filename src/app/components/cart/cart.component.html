@@ -13,7 +13,12 @@
         <tr *ngFor="let product of products;">
             <td>{{product.product.id}}</td>
             <td>{{product.product.name}}</td>
-            <td>{{product.quantity}}</td>
+            <td>
+              <select [(ngModel)]="product.quantity" (ngModelChange)="updateQuantity($event, product.product)">
+                <option [ngValue]="product.quantity" [hidden] = "true" [selected] = "true">{{product.quantity}}</option>
+                <option *ngFor='let in of counter(product.product.quantity) ;let i = index'>{{i+1}}</option>
+              </select>
+            </td>
             <td>{{product.product.description}}</td>
             <td><button class="btn-danger" (click)="removeFromCart(product.product)">Remove from Cart</button></td> 
         </tr>
