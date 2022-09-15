@@ -1,61 +1,80 @@
-<h1>Hello {{ address.firstName }}</h1>
+<div class="profile-form-container" style="width: 21%;">
+    <h1 class="mt-3" style="text-align: center;">Welcome, {{address.firstName}}!</h1>
+    <form style="width: 85%; margin: auto;" (ngSubmit)="updateProfile()">
 
-<img src="" alt="" id="profileImg">
+        <div class="mb-4 mt-4">
+            <label for="firstName-input">First Name: </label>
+            <input type="text"
+                   id="firstName-input"
+                   class="form-control"
+                   [(ngModel)]="address.firstName"
+                   name="firstName" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="lastName-input">Last Name: </label>
+            <input type="text"
+                   id="lastName-input"
+                   class="form-control"
+                   [(ngModel)]="address.lastName"
+                   name="lastName" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="address1-input">Address: </label>
+            <input type="text"
+                   id="address1-input"
+                   class="form-control"
+                   placeholder="address1"
+                   [(ngModel)]="address.address1"
+                   name="address1" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <input type="text"
+                   id="address2-input"
+                   class="form-control"
+                   placeholder="address2"
+                   [(ngModel)]="address.address2"
+                   name="address2" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="city-input">City: </label>
+            <input type="text"
+                   id="city-input"
+                   class="form-control"
+                   placeholder="city"
+                   [(ngModel)]="address.city"
+                   name="city" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="state-input">State: </label>
+            <input type="text"
+                   id="state-input"
+                   class="form-control"
+                   placeholder="state"
+                   [(ngModel)]="address.state"
+                   name="state" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="zip-input">Zip: </label>
+            <input type="text"
+                   id="zip-input"
+                   class="form-control"
+                   placeholder="zip"
+                   [(ngModel)]="address.zip"
+                   name="zip" required/>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="country-input">Country: </label>
+            <input type="text"
+                   id="country-input"
+                   class="form-control"
+                   placeholder="country"
+                   [(ngModel)]="address.country"
+                   name="country" required/>
+        </div>
 
-<form formGroup="profileFormGroup" (ngSubmit)="updateProfile()">
-    <div>
-        <h3>User Info</h3>
-        <!--<span class="">Username</span>
-        <input id="username" type="text" formControl="username" [ngModelOptions]="{ standalone: true }">-->
-    
-        <span class="">First name</span>
-        <input id="firstName" type="text" formControl="firstName">
-    
-        <span class="">Last name</span>
-        <input id="lastName" type="text" formControl="lastName">
-    
-        <span class="">Email</span>
-        <input id="email" type="text" formControl="email">
-    
-        <span class="">Password</span>
-        <input id="password" type="text" formControl="password">
-    </div>
-    
-    <div>
-        <h3>Shipping/Billing</h3>
-        <span class="">Street Address</span>
-        <input id="address" type="text" formControl="address1">
-    
-        <span class="">Unit</span>
-        <input id="unit" type="text" formControl="unit">
-    
-        <span class="">City</span>
-        <input id="city" type="text" formControl="city">
-    
-        <span class="">State</span>
-        <input id="state" type="text" formControl="state">
-    
-        <span class="">Zip</span>
-        <input id="zip" type="text" formControl="zip">
-    
-    
-    </div>
-    
-    <div>
-        <h3>Payment</h3>
-        <span class="">Credit Card Number</span>
-        <input id="ccnum" type="text" formControl="CCNum">
-    
-        <span class="">CVV</span>
-        <input id="cvv" type="text" formControl="cvv">
-    
-        <span class="">Exp.</span>
-        <input id="exp" type="text" formControl="exp">
-    
-    </div>
-    
-    <div>
-        <button id="updateBtn" class="">Submit</button>
-    </div>
-</form>
 
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-primary btn-block mb-4 " style="width: 32%;">Update</button>
+        </div>
+    </form>
+</div>

@@ -61,7 +61,8 @@ export class ProfileComponent implements OnInit {
 
   updateProfile(): void {
     console.log(this.profileFormGroup);
+    console.log("hello " + this.address.address1);
     this.accountService.updateProfile(this.address);
-    location.reload();
+    //location.reload();
   }
 }
