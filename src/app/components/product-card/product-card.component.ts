@@ -19,7 +19,7 @@ export class ProductCardComponent implements OnInit{
   totalPrice: number = 0;
   showInfo: boolean = false;
   quantities: number[] = [];
-  amount: number = 0;
+  amount: number = 1;
 
 
   @Input() productInfo!: Product;
@@ -38,9 +38,14 @@ export class ProductCardComponent implements OnInit{
   }
 
   updateQuantity(){
-   this.quantities = [];
-   this.amount = 0;
-    for(let i = 1; i < this.productInfo.quantity + 1; i++){
+    this.quantities = [];
+    let num = this.productInfo.quantity;
+    this.products.forEach((element) => {
+      if(this.productInfo.name === element.product.name){
+        num -= element.quantity;
+      }
+    });
+    for(let i = 1; i < num + 1; i++){
       this.quantities.push(i);
     }
   }
@@ -60,7 +65,6 @@ export class ProductCardComponent implements OnInit{
             totalPrice: this.totalPrice + (product.price * this.amount)
           };
           this.productService.setCart(cart);
-          this.productInfo.quantity -= this.amount;
           this.updateQuantity();
           inCart=true;
           return;
@@ -80,10 +84,8 @@ export class ProductCardComponent implements OnInit{
         totalPrice: this.totalPrice + (product.price * this.amount)
       }
       this.productService.setCart(cart);
-      this.productInfo.quantity -= newProduct.quantity;
       this.updateQuantity();
     }
-      
   }
 
   toggleInfo() {

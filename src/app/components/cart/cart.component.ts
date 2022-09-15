@@ -15,6 +15,10 @@ export class CartComponent implements OnInit {
     product: Product,
     quantity: number
   }[] = [];
+  productsCopy: {
+    product: Product,
+    quantity: number
+  }[] = [];
   totalPrice!: number;
   cartProducts: Product[] = [];
 
@@ -30,9 +34,29 @@ export class CartComponent implements OnInit {
         this.products.forEach(
           (element) => this.cartProducts.push(element.product)
         );
+        this.productsCopy = JSON.parse(JSON.stringify(this.products));
         this.totalPrice = cart.totalPrice;
       }
     );
+  }
+
+  counter(i: number){
+    return new Array(i);
+  }
+
+  updateQuantity(newValue: number, product: Product){
+    this.productsCopy.forEach((element) => {
+      if(element.product.id == product.id){
+        let temp: number = element.quantity;
+        element.quantity = newValue;
+        let cart = {
+          cartCount: +this.cartCount - temp + +element.quantity,
+          products: this.products,
+          totalPrice: this.totalPrice - (temp * product.price) + (element.quantity * product.price)
+        };
+        this.productService.setCart(cart);
+      }
+    });
   }
 
   emptyCart(): void {
