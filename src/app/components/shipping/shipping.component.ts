@@ -1,17 +1,15 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Address } from 'src/app/models/address';
 import { Profile } from 'src/app/models/profile';
-import { Payment } from 'src/app/models/payment';
 import { AccountService } from 'src/app/services/account.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  selector: 'app-shipping',
+  templateUrl: './shipping.component.html',
+  styleUrls: ['./shipping.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ShippingComponent implements OnInit {
   profileFormGroup = this.fb.group({firstName: "",
   lastName: "",
   address1: "",
@@ -19,8 +17,7 @@ export class ProfileComponent implements OnInit {
   city: "",
   state: "",
   zip: "",
-  country: "",
-  email: ""})
+  country: ""})
 
   info: Profile = { firstName: '', lastName: '', email: '', password: '' };
   address : Address = {
@@ -31,31 +28,12 @@ export class ProfileComponent implements OnInit {
     city: "",
     state: "",
     zip: "",
-    country: "",
-    
-    
+    country: ""
   }
-  
-  payment : Payment = {
-    id: "",
-    userId: "",
-    cCNum: "",
-    cvv: "",
-    exp: ""
-}
-  firstName: String = ""
-    lastName: String = ""
-    address1: String = ""
-    address2: String = ""
-    city: String = ""
-    state: String = ""
-    zip: String = ""
-    country: String = ""
 
-  constructor(private accountService: AccountService, private fb: FormBuilder) {}
+  constructor(private accountService: AccountService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-
     this.accountService.getAddressInfo().subscribe((address) => {
       this.address = address;
       this.info = {firstName:address.firstName, lastName:address.lastName, email:"", password:""};
@@ -68,4 +46,5 @@ export class ProfileComponent implements OnInit {
     this.accountService.updateProfile(this.address);
     //location.reload();
   }
+
 }
