@@ -1,0 +1,61 @@
+<h1>Hello {{ address.firstName }}</h1>
+
+<img src="" alt="" id="profileImg">
+
+<form formGroup="profileFormGroup" (ngSubmit)="updateProfile()">
+    <div>
+        <h3>User Info</h3>
+        <!--<span class="">Username</span>
+        <input id="username" type="text" formControl="username" [ngModelOptions]="{ standalone: true }">-->
+    
+        <span class="">First name</span>
+        <input id="firstName" type="text" formControl="firstName">
+    
+        <span class="">Last name</span>
+        <input id="lastName" type="text" formControl="lastName">
+    
+        <span class="">Email</span>
+        <input id="email" type="text" formControl="email">
+    
+        <span class="">Password</span>
+        <input id="password" type="text" formControl="password">
+    </div>
+    
+    <div>
+        <h3>Shipping/Billing</h3>
+        <span class="">Street Address</span>
+        <input id="address" type="text" formControl="address1">
+    
+        <span class="">Unit</span>
+        <input id="unit" type="text" formControl="unit">
+    
+        <span class="">City</span>
+        <input id="city" type="text" formControl="city">
+    
+        <span class="">State</span>
+        <input id="state" type="text" formControl="state">
+    
+        <span class="">Zip</span>
+        <input id="zip" type="text" formControl="zip">
+    
+    
+    </div>
+    
+    <div>
+        <h3>Payment</h3>
+        <span class="">Credit Card Number</span>
+        <input id="ccnum" type="text" formControl="CCNum">
+    
+        <span class="">CVV</span>
+        <input id="cvv" type="text" formControl="cvv">
+    
+        <span class="">Exp.</span>
+        <input id="exp" type="text" formControl="exp">
+    
+    </div>
+    
+    <div>
+        <button id="updateBtn" class="">Submit</button>
+    </div>
+</form>
+

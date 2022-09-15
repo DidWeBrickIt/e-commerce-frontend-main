@@ -1,9 +1,18 @@
 export class Payment {
-    name: string
-    detail: string
+    id: string
+    userId: string
+    cCNum: string
+    cvv: string
+    exp: string
 
-    constructor (name: string, detail: string) {
-        this.name = name;
-        this.detail = detail;
+
+
+
+    constructor (id: string, userId: string, cCNum: string, cvv: string, exp: string) {
+        this.id = id
+        this.userId = userId
+        this.cCNum = cCNum
+        this.cvv = cvv
+        this.exp = exp
     }
 }
