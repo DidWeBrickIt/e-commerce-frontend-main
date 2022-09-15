@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartComponent } from './cart.component';
@@ -8,7 +9,8 @@ describe('CartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartComponent ]
+      declarations: [ CartComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });
@@ -22,4 +24,11 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should reset', () => {
+    component.totalPrice= 5.00;
+    component.emptyCart();
+    expect(component.totalPrice).toEqual;
+  });
+
 });
