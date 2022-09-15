@@ -18,6 +18,9 @@ export class ProductCardComponent implements OnInit{
   subscription!: Subscription;
   totalPrice: number = 0;
   showInfo: boolean = false;
+  quantities: number[] = [];
+  amount: number = 0;
+
 
   @Input() productInfo!: Product;
 
@@ -31,6 +34,15 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    this.updateQuantity();
+  }
+
+  updateQuantity(){
+   this.quantities = [];
+   this.amount = 0;
+    for(let i = 1; i < this.productInfo.quantity + 1; i++){
+      this.quantities.push(i);
+    }
   }
 
   addToCart(product: Product, ev: Event): void {
@@ -41,13 +53,15 @@ export class ProductCardComponent implements OnInit{
     this.products.forEach(
       (element) => {
         if(element.product == product){
-          ++element.quantity;
+          element.quantity = +element.quantity + +this.amount;
           let cart = {
-            cartCount: this.cartCount + 1,
+            cartCount: +this.cartCount + +this.amount,
             products: this.products,
-            totalPrice: this.totalPrice + product.price
+            totalPrice: this.totalPrice + (product.price * this.amount)
           };
           this.productService.setCart(cart);
+          this.productInfo.quantity -= this.amount;
+          this.updateQuantity();
           inCart=true;
           return;
         };
@@ -57,15 +71,17 @@ export class ProductCardComponent implements OnInit{
     if(inCart == false){
       let newProduct = {
         product: product,
-        quantity: 1
+        quantity: this.amount
       };
       this.products.push(newProduct);
       let cart = {
-        cartCount: this.cartCount + 1,
+        cartCount: +this.cartCount + +this.amount,
         products: this.products,
-        totalPrice: this.totalPrice + product.price
+        totalPrice: this.totalPrice + (product.price * this.amount)
       }
       this.productService.setCart(cart);
+      this.productInfo.quantity -= newProduct.quantity;
+      this.updateQuantity();
     }
       
   }
