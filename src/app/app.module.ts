@@ -12,6 +12,12 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
+
+import { ShippingComponent } from './components/shipping/shipping.component';
+
+import { PaymentComponent } from './components/payment/payment.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductCardComponent,
     CartComponent,
     CheckoutComponent,
-    DisplayProductsComponent
+    DisplayProductsComponent,
+    ProfileComponent,
+    ShippingComponent,
+    PaymentComponent
+
   ],
   imports: [
     BrowserModule,
