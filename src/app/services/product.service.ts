@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { environment } from 'src/environments/environment';
+import { Order } from '../models/order';
+import { Jwt } from '../models/jwt';
 
 interface Cart {
   cartCount: number;
@@ -44,6 +46,19 @@ export class ProductService {
 
   public getSingleProduct(id: number): Observable<Product> {
     return this.http.get<Product>(environment.baseUrl+id);
+  }
+
+  public getUserId() : Observable<any>{
+    return this.http.get<any>(environment.baseUrl+`/auth`, {headers: environment.headers, withCredentials: environment.withCredentials});
+  }
+
+  public makeOrder(orders: Order[]){
+    const payload = JSON.stringify(orders);
+    return this.http.post<Order[]>(environment.baseUrl+`/api/order`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
+  }
+
+  public getOrdersByUserId(id: number){
+    return this.http.get<Order[]>(environment.baseUrl+`/api/order/${id}`, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 
   public purchase(products: {id:number, quantity:number}[]): Observable<any> {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-checkout',
@@ -18,6 +19,8 @@ export class CheckoutComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
   finalProducts: {id: number, quantity: number}[] = []; 
+  orders: Order[] = [];
+  userId!: number;
 
   checkoutForm = new UntypedFormGroup({
     fname: new UntypedFormControl('', Validators.required),
@@ -54,25 +57,39 @@ export class CheckoutComponent implements OnInit {
         this.finalProducts.push({id, quantity});
       } 
     );
-
-    if(this.finalProducts.length > 0) {
-      this.productService.purchase(this.finalProducts).subscribe(
-        (resp) => console.log(resp),
-        (err) => console.log(err),
-        () => {
-          let cart = {
-            cartCount: 0,
-            products: [],
-            totalPrice: 0.00
-          };
-          this.productService.setCart(cart);
-          this.router.navigate(['/home']);
-        } 
-      );
-
-    } else {
-      this.router.navigate(['/home']);
+    
+    if(this.finalProducts.length > 0){
+      this.productService.getUserId().subscribe((response) => {
+        this.userId = response;
+        this.finalProducts.forEach((product) => {
+          let order: Order = new Order(0,this.userId,product.id,product.quantity,new Date().getTime()/1000);
+          this.orders.push(order);
+        });
+        this.productService.makeOrder(this.orders).subscribe();
+        this.productService.getOrdersByUserId(this.userId).subscribe((data) => {
+          console.log(data);
+        });
+      });
     }
-  }
 
+  //   if(this.finalProducts.length > 0) {
+  //     this.productService.purchase(this.finalProducts).subscribe(
+  //       (resp) => console.log(resp),
+  //       (err) => console.log(err),
+  //       () => {
+  //         let cart = {
+  //           cartCount: 0,
+  //           products: [],
+  //           totalPrice: 0.00
+  //         };
+  //         this.productService.setCart(cart);
+  //         this.router.navigate(['/home']);
+  //       } 
+  //     );
+
+  //   } else {
+  //     this.router.navigate(['/home']);
+  //   }
+  // }
+  }
 }

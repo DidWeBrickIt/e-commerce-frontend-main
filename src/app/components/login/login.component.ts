@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       (response : Jwt) => {
         this.authService.setJWT(response);
-        this.router.navigate(['home'])
+        this.router.navigate(['home']);
       },
       (err) => console.log(err),
     );

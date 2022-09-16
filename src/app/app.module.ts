@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
 
 import { PaymentComponent } from './components/payment/payment.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     DisplayProductsComponent,
     ProfileComponent,
     ShippingComponent,
-    PaymentComponent
+    PaymentComponent,
+    OrdersComponent
 
   ],
   imports: [
