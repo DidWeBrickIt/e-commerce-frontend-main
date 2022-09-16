@@ -1,14 +1,22 @@
-<nav class="navbar navbar-light bg-light">
-    <h4>
+<nav class="navbar">
+    <h4 class="word">
         <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature">
         Revature Swag Shop
     </h4>
     <form class="form-inline">
+      <span class="word">Light</span>
+      <label class="switch">
+        <input type="checkbox" (click)="toggleDarkTheme()" >
+        <span class="slider round"></span>
+      </label>
+      <span class="word">Dark</span>
+
         <button class="btn btn-light" [routerLink]="['/cart']">
             Cart
             <span class="badge badge-info">{{cartCount}}</span>
         </button>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
-    <button routerLink="/profile">hello</button>
+        <button routerLink="/profile">Profile</button>
+
     </form>
 </nav>

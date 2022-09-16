@@ -14,11 +14,11 @@ export class ShippingComponent implements OnInit {
   currentMsgToParent='';
   shippingData: Address[] = [];
 
-  info: Profile = { firstName: '', lastName: '', email: '', password: '' };
+
 
   address : Address = {
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     address1: "",
     address2: "",
     city: "",
@@ -34,7 +34,7 @@ export class ShippingComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.getAddressInfo().subscribe((address) => {
       this.address = address;
-      this.info = {firstName:address.firstName, lastName:address.lastName, email:"", password:""};
+      
     });
   }
   

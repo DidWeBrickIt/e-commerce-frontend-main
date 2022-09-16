@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit{
 
   cartCount!: number;
   subscription!: Subscription;
+  isDark: Boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
   
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit{
     this.subscription = this.productService.getCart().subscribe(
       (cart) => this.cartCount = cart.cartCount
     );
+    this.getThemePref();
   }
 
   ngOnDestroy() {
@@ -30,5 +32,27 @@ export class NavbarComponent implements OnInit{
     this.authService.logout();
     this.router.navigate(['login']);
   }
+
+  toggleDarkTheme():void{
+    document.body.classList.toggle('dark-theme');
+    this.isDark = !this.isDark; 
+    localStorage.setItem("isDark", this.isDark.toString());
+  }
+
+  getThemePref()
+  {
+    console.log("getThemePref called")
+    let themePref : string | null = localStorage.getItem("isDark");
+
+    if (themePref === 'true')
+    {
+      document.body.classList.add('dark-theme');
+      this.isDark = true;
+      
+    }else{
+      document.body.classList.remove('dark-theme');
+    }
+  }
+
 
 }

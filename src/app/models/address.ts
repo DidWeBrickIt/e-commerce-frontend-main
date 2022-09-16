@@ -1,6 +1,6 @@
 export class Address {
-    firstName: string
-    lastName: string
+    firstname: string
+    lastname: string
     address1: string
     address2: string
     city: string
@@ -9,8 +9,8 @@ export class Address {
     country: string
   
     constructor (
-      firstName: string,
-      lastName: string,
+      firstname: string,
+      lastname: string,
       address1: string,
       address2: string,
       city: string,
@@ -18,8 +18,8 @@ export class Address {
       zip: string,
       country: string
     ) {
-      this.firstName = firstName
-      this.lastName = lastName
+      this.firstname = firstname
+      this.lastname = lastname
       this.address1 = address1
       this.address2 = address2
       this.city = city
