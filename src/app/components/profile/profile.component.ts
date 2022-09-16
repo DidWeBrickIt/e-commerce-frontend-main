@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
   payment : Payment = {
     id: "",
     userId: "",
-    cCNum: "",
+    ccNum: "",
     cvv: "",
     exp: ""
 }

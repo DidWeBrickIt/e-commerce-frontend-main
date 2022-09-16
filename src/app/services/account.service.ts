@@ -25,12 +25,12 @@ export class AccountService {
 
   //Payment services
 
-  public getPaymentInfo(): Observable<Payment>{ //What to do about baseURL?
-    return this.http.get<Payment>(environment.baseUrl+"/profile?", {headers: environment.headers, withCredentials:environment.withCredentials}); 
+  public getPaymentInfo(): Observable<Payment>{ 
+    return this.http.get<Payment>(environment.baseUrl+"/payment", {headers: environment.headers, withCredentials:environment.withCredentials}); 
   }
 
   public updatePaymentInfo(payment:Payment): Observable<Payment>{ 
-    const payload = JSON.stringify(payment) //What to do about baseURL?
-    return this.http.put<Payment>(environment.baseUrl+"/profile?", {headers: environment.headers, withCredentials:environment.withCredentials})
+    const payload = JSON.stringify(payment) 
+    return this.http.put<Payment>(environment.baseUrl+"/payment", payload, {headers: environment.headers, withCredentials:environment.withCredentials})
   }
 }
