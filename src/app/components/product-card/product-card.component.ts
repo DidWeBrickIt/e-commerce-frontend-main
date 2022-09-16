@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/models/product/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -68,11 +68,11 @@ export class ProductCardComponent implements OnInit{
           this.updateQuantity();
           inCart=true;
           return;
-        };
+        }
       }
     );
 
-    if(inCart == false){
+    if(!inCart){
       let newProduct = {
         product: product,
         quantity: this.amount

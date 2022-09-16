@@ -12,11 +12,12 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { ProfileComponent } from './components/profile/profile.component';
-
-import { ShippingComponent } from './components/shipping/shipping.component';
-
+import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { UserComponent } from './components/user/user.component';
+
 
 
 @NgModule({
@@ -30,10 +31,11 @@ import { PaymentComponent } from './components/payment/payment.component';
     CheckoutComponent,
     DisplayProductsComponent,
     ProfileComponent,
-    ShippingComponent,
-    PaymentComponent
-
+    AddressComponent,
+    PaymentComponent,
+    UserComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,7 +43,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     FormsModule,
     ReactiveFormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
