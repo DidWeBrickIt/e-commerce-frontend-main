@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,25 +10,52 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm = new UntypedFormGroup({
-    fname: new UntypedFormControl(''),
-    lname: new UntypedFormControl(''),
-    email: new UntypedFormControl(''),
-    password: new UntypedFormControl('')
+  submitted: boolean = false;
+
+  registerForm: FormGroup= this.formBuilder.group({
+    fname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
+    lname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required]]
   })
   
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
   }
   
   onSubmit(): void {
-    this.authService.register(this.registerForm.get('fname')?.value, this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).subscribe(
-      () => console.log("New user registered"),
-      (err) => console.log(err),
-      () => this.router.navigate(['login'])
-    );
+    this.submitted = true;
+    this.validateAllFormFields(this.registerForm);
+    
+    if (!this.registerForm.valid) {
+      return;
+    }
+
+    console.log('form submitted');
+      this.authService.register(this.registerForm.get('fname')?.value, this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).subscribe(
+        () => console.log("New user registered"),
+        (err) => console.log(err),
+        () => this.router.navigate(['login'])
+      );
+
+  }
+
+  //just makes accessing form easier
+  get f() { return this.registerForm.controls; }
+
+  //marks all fields as touched 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
 }
