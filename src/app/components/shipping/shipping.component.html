@@ -1,0 +1,25 @@
+<div class="mb-4 mt-4">
+    <form style="width: 85%; margin: auto;" (ngSubmit)="msgToParent()">
+    <h3>Shipping/Billing</h3>
+    <span class="">Street Address</span>
+    <input id="address" type="text" class="form-control" [(ngModel)]="address.address1" [ngModelOptions]="{ standalone: true }">
+
+    <span class="">Unit</span>
+    <input id="unit" type="text" class="form-control" [(ngModel)]="address.address2" [ngModelOptions]="{ standalone: true }">
+
+    <span class="">City</span>
+    <input id="city" type="text" class="form-control" [(ngModel)]="address.city" [ngModelOptions]="{ standalone: true }">
+
+    <span class="">State</span>
+    <input id="state" type="text" class="form-control" [(ngModel)]="address.state" [ngModelOptions]="{ standalone: true }">
+
+    <span class="">Zip</span>
+    <input id="zip" type="text" class="form-control" [(ngModel)]="address.zip" [ngModelOptions]="{ standalone: true }">
+    
+    <span class="">Country</span>
+    <input id="country" type="text" class="form-control" [(ngModel)]="address.country" [ngModelOptions]="{ standalone: true }">
+    
+    
+</form>
+
+</div>
