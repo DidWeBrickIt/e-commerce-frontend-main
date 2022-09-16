@@ -26,6 +26,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   shippingComponent!: ShippingComponent;
   ngAfterViewInit() {this.shippingData = this.shippingComponent.shippingData}
   shippingData: any;
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to retrieve your account information";
   // do not delete
 
 
@@ -39,7 +41,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     zip: "",
     country: ""
   }
-
 
   
 
@@ -67,7 +68,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
 
     this.accountService.getAddressInfo().subscribe(
-        (address) => {this.address = address;});
+        (address) => {this.address = address;},
+        (err) => {
+          console.log(err)
+          this.hasError = true;
+        }
+        );
   }
 
   updateProfile(): void {

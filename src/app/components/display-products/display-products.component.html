@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
+    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <div class="row align-items-start">
        <div class="col" *ngFor="let product of allProducts">
             <app-product-card

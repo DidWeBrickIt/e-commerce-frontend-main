@@ -17,6 +17,7 @@
       <label for="inputPassword">Password</label>
       <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password">
     </div>
+    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <button class="btn btn-primary" (click)="onSubmit()">Register</button>
 </form>
 

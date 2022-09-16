@@ -15,8 +15,8 @@
 <h3>State: {{address.state}}</h3>
 <h3>Country: {{address.country}}</h3>-->
 
-
-<div class="profile-form-container" style="width: 50%;">
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<div *ngIf="!hasError" class="profile-form-container" style="width: 50%;">
     <h1 class="mt-3" style="text-align: center;">Welcome, {{address.firstname}}!</h1>
     <form style="width: 85%; margin: auto;" (ngSubmit)="updateProfile()">
         <div>
