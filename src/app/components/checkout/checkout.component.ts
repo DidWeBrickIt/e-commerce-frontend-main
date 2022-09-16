@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { NotificationService } from 'src/app/services/notification.service';
+import { Notification } from 'src/app/models/notification';
 
 @Component({
   selector: 'app-checkout',
@@ -32,7 +34,7 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -66,6 +68,7 @@ export class CheckoutComponent implements OnInit {
             totalPrice: 0.00
           };
           this.productService.setCart(cart);
+          this.createNotification();
           this.router.navigate(['/home']);
         } 
       );
@@ -73,6 +76,13 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.router.navigate(['/home']);
     }
+  }
+
+  createNotification():void {
+    let currentTime: Date = new Date();
+    let message: string = "Your order has been processed";
+    let notification: Notification = new Notification(message, currentTime);
+    this.notificationService.addNotification(notification);
   }
 
 }

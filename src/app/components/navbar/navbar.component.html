@@ -11,6 +11,13 @@
       </label>
       <span class="word">Dark</span>
 
+      <button type="button" matBadge="{{listSize}}" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()">Notif</button>
+      <div *ngIf="isHidden" id="infoBackground">
+        <ul *ngFor="let notification of notificationList">
+          <li>{{notification.date | date :'short'}}<br>{{notification.message}}</li>
+        </ul>
+      </div>
+
         <button class="btn btn-light" [routerLink]="['/cart']">
             Cart
             <span class="badge badge-info">{{cartCount}}</span>
