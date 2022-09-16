@@ -3,35 +3,31 @@
 <form id="register-form" [formGroup]="registerForm">
     
   <div class="form-group">
-    <div class="col-sm-12">
-      <label for="inputFirstName" class="control-label required">First Name</label>
-      <input type="text" id="inputFirstName" class="form-control" formControlName="fname"  placeholder="Enter First Name">
-      
-      
-      <div *ngIf="submitted && f.fname.errors" >
-        <div *ngIf="f.fname.errors.required" class="error-msg">
-          Please enter your first name
-        </div>
-        <div *ngIf="f.fname.errors.pattern" class="error-msg">
-          Only letters are allowed
-        </div>
+    <label for="inputFirstName" class="control-label required">First Name</label>
+    <input type="text" id="inputFirstName" class="form-control" formControlName="fname"  placeholder="Enter First Name">
+    
+    
+    <div *ngIf="f.fname.touched && f.fname.errors" >
+      <div *ngIf="f.fname.errors.required" class="error-msg">
+        Please enter your first name
+      </div>
+      <div *ngIf="f.fname.errors.pattern" class="error-msg">
+        Only letters are allowed
       </div>
     </div>
   </div>
 
 
     <div class="form-group">
-      <div class="col-sm-12">
-        <label for="inputLastName" class="control-label required">Last Name</label>
-        <input type="text" class="form-control" formControlName="lname" id="inputLastName" placeholder="Enter Last Name">
-      
-        <div *ngIf="submitted && f.lname.errors" >
-          <div *ngIf="f.lname.errors.required" class="error-msg">
-            Please enter your last name
-          </div>
-          <div *ngIf="f.lname.errors.pattern" class="error-msg">
-            Only letters are allowed
-          </div>
+      <label for="inputLastName" class="control-label required">Last Name</label>
+      <input type="text" class="form-control" formControlName="lname" id="inputLastName" placeholder="Enter Last Name">
+    
+      <div *ngIf="f.lname.touched && f.lname.errors" >
+        <div *ngIf="f.lname.errors.required" class="error-msg">
+          Please enter your last name
+        </div>
+        <div *ngIf="f.lname.errors.pattern" class="error-msg">
+          Only letters are allowed
         </div>
       </div>
         
@@ -39,12 +35,11 @@
 
 
     <div class="form-group">
-      <div class="col-sm-12">
         <label for="inputEmail" class="control-label required">Email address</label>
         <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
         <small id="emailHelp" class="form-text text-muted">Ensure you enter the correct email</small>
       
-        <div *ngIf="submitted && f.email.errors" >
+        <div *ngIf="f.email.touched && f.email.errors" >
           <div *ngIf="f.email.errors.required" class="error-msg">
             Please enter your email
           </div>
@@ -52,29 +47,25 @@
             This is not a valid email
           </div>
         </div>
-
-      </div>
-      
     </div>
 
 
 
     <div class="form-group">
-      <div class="col-sm-12">
-        <label for="inputPassword" class="control-label required">Password</label>
-        <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password">
+      <label for="inputPassword" class="control-label required">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password">
 
-        <div *ngIf="submitted && f.password.errors" >
-          <div *ngIf="f.password.errors.required" class="error-msg">
-            Please enter your password
-          </div>
+      <div *ngIf="f.password.touched && f.password.errors" >
+        <div *ngIf="f.password.errors.required" class="error-msg">
+          Please enter your password
         </div>
-
+        <div *ngIf="f.password.errors.pattern" class="error-msg">
+          Password requires typical password stuff
+        </div>
       </div>
+
     </div>
-    <div class="col-sm-12">
-      <button class="btn btn-primary" (click)="onSubmit()">Register</button>
-    </div>
+    <button class="btn btn-primary" (click)="onSubmit()">Register</button>
     
 </form>
 
