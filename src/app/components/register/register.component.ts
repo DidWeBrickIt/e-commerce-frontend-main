@@ -10,13 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  submitted: boolean = false;
-
-  registerForm: FormGroup= this.formBuilder.group({
+  registerForm: FormGroup = this.formBuilder.group({
     fname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
     lname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
     email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required]]
+    //add this validator or something like it to password later
+    //Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+
   })
   
 
@@ -26,7 +27,6 @@ export class RegisterComponent implements OnInit {
   }
   
   onSubmit(): void {
-    this.submitted = true;
     this.validateAllFormFields(this.registerForm);
     
     if (!this.registerForm.valid) {
