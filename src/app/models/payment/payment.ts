@@ -1,12 +1,12 @@
 export class Payment {
 
-  ccn: string;
-  cvv: string;
-  exp: string;
+  credit_card_number: string;
+  security_code: string;
+  expiration: string;
 
   constructor(ccn: string, cvv: string, exp: string) {
-    this.ccn = ccn;
-    this.cvv = cvv;
-    this.exp = exp;
+    this.credit_card_number = ccn;
+    this.security_code = cvv;
+    this.expiration = exp;
   }
 }
