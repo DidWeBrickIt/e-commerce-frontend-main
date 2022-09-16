@@ -1,5 +1,5 @@
 <div class="mb-4 mt-4">
-    <form style="width: 85%; margin: auto;" (ngSubmit)="updateProfile()">
+    <form style="width: 85%; margin: auto;" (ngSubmit)="msgToParent()">
     <h3>Shipping/Billing</h3>
     <span class="">Street Address</span>
     <input id="address" type="text" class="form-control" [(ngModel)]="address.address1" [ngModelOptions]="{ standalone: true }">
@@ -18,11 +18,7 @@
     
     <span class="">Country</span>
     <input id="country" type="text" class="form-control" [(ngModel)]="address.country" [ngModelOptions]="{ standalone: true }">
-    <input type=”text” [(ngModel)]="shippingData">
-    <button (click)="msgToParent()">send</button>
-    <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-outline-primary btn-block mb-4 " style="width: 32%;">Update</button>
-    </div>
+    
     
 </form>
 

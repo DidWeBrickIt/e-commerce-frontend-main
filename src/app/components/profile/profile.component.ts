@@ -15,11 +15,12 @@ import { AfterViewInit } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
+  // Do not delete
   @ViewChild(ShippingComponent, { static: false })
   shippingComponent!: ShippingComponent;
   ngAfterViewInit() {this.shippingData = this.shippingComponent.shippingData}
-  
   shippingData: any;
+  // do not delete
 
   address : Address = {
     firstName: "",
@@ -59,8 +60,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   updateProfile(): void {
+    //do not delete
+    this.shippingComponent.msgToParent()
     console.log("shipping Data: " + this.shippingData.address1);
     this.address = this.shippingData;
+    // do not delete
     
     console.log("hello " + this.address.firstName);
     this.accountService.updateProfile(this.address);

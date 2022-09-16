@@ -14,27 +14,8 @@ export class ShippingComponent implements OnInit {
   currentMsgToParent='';
   shippingData: Address[] = [];
 
-
-  profileFormGroup = this.fb.group({firstName: "",
-  lastName: "",
-  address1: "",
-  address2: "",
-  city: "",
-  state: "",
-  zip: "",
-  country: ""})
-
   info: Profile = { firstName: '', lastName: '', email: '', password: '' };
-  shippingAddress :  Address = {
-    firstName: "",
-    lastName: "",
-    address1: "",
-    address2: "",
-    city: "",
-    state: "",
-    zip: "",
-    country: ""
-  }
+
   address : Address = {
     firstName: "",
     lastName: "",
@@ -57,11 +38,6 @@ export class ShippingComponent implements OnInit {
     });
   }
   
-  updateProfile(): void {
-    console.log(this.profileFormGroup);
-    console.log("hello " + this.address.address1);
-    this.accountService.updateProfile(this.address).subscribe();
-    //location.reload();
-  }
+  
 
 }
