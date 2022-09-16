@@ -59,7 +59,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   updateProfile(): void {
-    console.log("shipping Data: " + this.shippingData);
+    console.log("shipping Data: " + this.shippingData.address1);
+    this.address = this.shippingData;
     
     console.log("hello " + this.address.firstName);
     this.accountService.updateProfile(this.address);

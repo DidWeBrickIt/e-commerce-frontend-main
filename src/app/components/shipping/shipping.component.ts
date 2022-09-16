@@ -12,7 +12,7 @@ import { AccountService } from 'src/app/services/account.service';
 export class ShippingComponent implements OnInit {
 
   currentMsgToParent='';
-  shippingData: string[] = [];
+  shippingData: Address[] = [];
 
 
   profileFormGroup = this.fb.group({firstName: "",
@@ -45,7 +45,7 @@ export class ShippingComponent implements OnInit {
     zip: "",
     country: ""
   }
-  msgToParent() { this.shippingData.push(this.address.address1); }
+  msgToParent() { this.shippingData.push(this.address); }
 
 
   constructor(private accountService: AccountService, private fb: FormBuilder) { }
