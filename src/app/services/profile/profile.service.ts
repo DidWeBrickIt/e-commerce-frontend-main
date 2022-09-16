@@ -19,7 +19,7 @@ export class ProfileService {
   }
 
   public updateProfile(profile: Profile): Observable<Profile> {
-    return this.http.put<Profile>(
+    return this.http.patch<Profile>(
         environment.baseUrl+"/profile",
         profile,
         {headers: environment.headers, withCredentials: environment.withCredentials});

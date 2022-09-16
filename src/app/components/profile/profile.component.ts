@@ -33,11 +33,6 @@ export class ProfileComponent implements OnInit{
       private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.loadProfile();
-  }
-
-  loadProfile(): void{
-
     this.profileService.getProfileInfo().subscribe(
         (profile) => this.profile = profile,
         (err) => console.log(err),
@@ -45,9 +40,10 @@ export class ProfileComponent implements OnInit{
 
   }
 
+
   updateProfile(): void {
-    console.log(this.profileForm.value);
-    this.profileService.updateProfile(this.profile).subscribe();
+    console.log(this.profile);
+    // this.profileService.updateProfile(this.profile).subscribe();
   }
 
 

@@ -1,3 +1,20 @@
-<app-user></app-user>
-<app-address></app-address>
-<app-payment></app-payment>
+<ng-container *ngIf="profile">
+    {{profile.user}}
+    {{profile.address}}
+    {{profile.payment}}
+</ng-container>
+
+<ng-container *ngIf="profile">
+    <app-user [user]="profile.user"></app-user>
+</ng-container>
+
+<ng-container *ngIf="profile">
+    <app-address [address]="profile.address"></app-address>
+</ng-container>
+
+<ng-container *ngIf="profile">
+    <app-payment [payment]="profile.payment"></app-payment>
+</ng-container>
+
+<button routerLink="/home">Back </button>
+<button (click)="updateProfile()">Update</button>
