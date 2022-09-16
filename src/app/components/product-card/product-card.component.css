@@ -4,6 +4,9 @@
     max-width: 200px;
     height: fit-content;
     transition: .2s ease-out;
+    background: var(--bkg-color);
+    border-color: var(--brder-color);
+    color: var(--text-color);
   
   }
   
@@ -23,7 +26,7 @@
   }
   
   .card:hover{
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px var(--bkg-color);
     transform: translate3d(0,-10px,0);
   }
 
@@ -35,17 +38,17 @@
     width: 100%;
     height: 100%; 
     overflow: hidden;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: var(--bkg-color);
+    background-color:  var(--bkg-color);
   }
 
   #infoContent {
     position: relative;
     z-index: 2;
-    background-color: #fefefe;
+    background-color: var(--bkg-color);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid var(--bkg-color);
     width: 80%;
     height: 50%;
   }
@@ -56,5 +59,10 @@
 
   #infoImg {
     float: left;
+  }
+
+  .input-group-text, .form-control{
+    background: var(--bkg-color);
+    color: var(--text-color);
   }
   

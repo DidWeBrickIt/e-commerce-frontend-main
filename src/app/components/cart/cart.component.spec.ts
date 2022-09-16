@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
+
 import { CartComponent } from './cart.component';
 
 describe('CartComponent', () => {
@@ -34,12 +35,22 @@ describe('CartComponent', () => {
     expect(component.totalPrice).toEqual(0);
   });
 
-  it('should remove', () => {
-    const testProduct: Product = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
-    component.products = [ {product:testProduct, quantity:1} ];
-    expect(component.products.length).toBe(1);
-    component.removeFromCart(testProduct);
-    expect(component.products.length).toBe(0);
-  })
+
+  it('should remove product', () => {
+    const testProduct1:Product = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    const testProduct2:Product = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    const event = new Event('click');
+    component.products.push({product:testProduct1, quantity:1});
+    component.products.push({product:testProduct2, quantity:1});
+    component.removeFromCart(testProduct1);
+    expect(component.cartCount).toEqual(1);
+  });
+
+ it('should update quantity', () => {
+    const testProduct1:Product = new Product(1, "dirt", 1, "its dirt", 1000.00, "https://i0.wp.com/christianlydemann.com/wp-content/uploads/2018/10/angular-test-one-does-not.jpg?fit=490%2C288&ssl=1");
+    component.products.push({product:testProduct1, quantity:1});
+    component.updateQuantity(4,testProduct1);
+    expect(component.cartCount).toEqual(4);
+  });
 
 });
