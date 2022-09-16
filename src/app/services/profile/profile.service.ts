@@ -19,6 +19,7 @@ export class ProfileService {
   }
 
   public updateProfile(profile: Profile): Observable<Profile> {
+    console.log(profile);
     return this.http.patch<Profile>(
         environment.baseUrl+"/profile",
         profile,

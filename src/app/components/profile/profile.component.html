@@ -5,16 +5,20 @@
 </ng-container>
 
 <ng-container *ngIf="profile">
-    <app-user [user]="profile.user"></app-user>
+    <app-user [user]="profile.user"
+    (newUserEvent)="updateUser($event)"></app-user>
 </ng-container>
 
 <ng-container *ngIf="profile">
-    <app-address [address]="profile.address"></app-address>
+    <app-address [address]="profile.address"
+    (newAddressEvent)="updateAddress($event)"></app-address>
 </ng-container>
 
 <ng-container *ngIf="profile">
-    <app-payment [payment]="profile.payment"></app-payment>
+    <app-payment [payment]="profile.payment"
+    (newPaymentEvent)="updatePayment($event)"></app-payment>
 </ng-container>
 
+<button (click)="display()">Display</button>
 <button routerLink="/home">Back </button>
 <button (click)="updateProfile()">Update</button>

@@ -5,10 +5,10 @@ import {Address} from "../address/address";
 export class Profile {
 
     user!: User;
-    address!: Address
     payment!: Payment;
+    address!: Address;
 
-    constructor(user: User, address: Address, payment: Payment) {
+    constructor(user: User, payment: Payment, address: Address) {
         this.user = user;
         this.address = address;
         this.payment = payment;

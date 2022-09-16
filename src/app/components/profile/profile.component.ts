@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { ProfileService } from 'src/app/services/profile/profile.service';
-import {FormBuilder, FormControl} from '@angular/forms';
 import {Profile} from "../../models/profile/profile";
 import {User} from "../../models/user/user";
 import {Payment} from "../../models/payment/payment";
@@ -15,12 +14,6 @@ import {Address} from "../../models/address/address";
 
 export class ProfileComponent implements OnInit{
 
-  profileForm = this.fb.group({
-    user: new FormControl(User),
-    address: new FormControl(Address),
-    payment: new FormControl(Payment)
-  })
-
   profile: Profile={
     user: new User('', ''),
     address: new Address('','','','','',''),
@@ -29,8 +22,7 @@ export class ProfileComponent implements OnInit{
   }
 
   constructor(
-      private profileService: ProfileService,
-      private fb: FormBuilder) {}
+      private profileService: ProfileService) {}
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
@@ -40,10 +32,28 @@ export class ProfileComponent implements OnInit{
 
   }
 
+  display(): void{
+    console.log(this.profile);
+  }
+  updatePayment(payment: Payment): void{
+    this.profile.payment = payment;
+    console.log(this.profile.payment);
+  }
+
+  updateAddress(address: Address): void{
+    this.profile.address = address;
+    console.log(this.profile.address);
+  }
+
+  updateUser(user: User): void{
+    this.profile.user = user;
+    console.log(this.profile.user);
+  }
 
   updateProfile(): void {
+    const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
     console.log(this.profile);
-    // this.profileService.updateProfile(this.profile).subscribe();
+    this.profileService.updateProfile(payload).subscribe();
   }
 
 
