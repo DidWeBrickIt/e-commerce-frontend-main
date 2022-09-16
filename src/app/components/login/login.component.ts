@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
     email: new UntypedFormControl(''),
     password: new UntypedFormControl('')
   })
-  
-
+  hasError:boolean = false;
+  errorMessage:string = "Your profile could not be verified. Please check your information and try again.";
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,7 +28,16 @@ export class LoginComponent implements OnInit {
         this.authService.setJWT(response);
         this.router.navigate(['home'])
       },
-      (err) => console.log(err),
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+        if(err.status === 400 || err.status === 403){
+          this.errorMessage = "Your profile could not be verified. Please check your information and try again.";
+        }
+        if(err.status !== 400 && err.status !== 403){
+          this.errorMessage = "Server error, please try again later";
+        }
+      },
     );
   }
 

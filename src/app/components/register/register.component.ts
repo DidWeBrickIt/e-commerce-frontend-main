@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
     email: new UntypedFormControl(''),
     password: new UntypedFormControl('')
   })
-  
+
+  hasError:boolean = false;
+  errorMessage:string = "Server error, please try again later";
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -25,8 +27,20 @@ export class RegisterComponent implements OnInit {
   
   onSubmit(): void {
     this.authService.register(this.registerForm.get('fname')?.value, this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).subscribe(
-      () => console.log("New user registered"),
-      (err) => console.log(err),
+      () => {
+        console.log("New user registered")
+        this.hasError = false;
+    },
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+        if(err.status === 400){
+          this.errorMessage = "Email address already in use";
+        }
+        if(err.status !== 400){
+          this.errorMessage = "Server error, please try again later";
+        }
+      },
       () => this.router.navigate(['login'])
     );
   }

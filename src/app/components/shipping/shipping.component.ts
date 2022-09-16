@@ -32,10 +32,14 @@ export class ShippingComponent implements OnInit {
   constructor(private accountService: AccountService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.accountService.getAddressInfo().subscribe((address) => {
-      this.address = address;
-      
-    });
+    this.accountService.getAddressInfo().subscribe(
+      (address) => {
+      this.address = address;     
+    },
+    (err) => {
+      console.log(err);
+    }
+    );
   }
   
   
