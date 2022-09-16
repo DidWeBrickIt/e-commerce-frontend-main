@@ -10,6 +10,11 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./shipping.component.css']
 })
 export class ShippingComponent implements OnInit {
+
+  currentMsgToParent='';
+  shippingData: string[] = [];
+
+
   profileFormGroup = this.fb.group({firstName: "",
   lastName: "",
   address1: "",
@@ -20,6 +25,16 @@ export class ShippingComponent implements OnInit {
   country: ""})
 
   info: Profile = { firstName: '', lastName: '', email: '', password: '' };
+  shippingAddress :  Address = {
+    firstName: "",
+    lastName: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: ""
+  }
   address : Address = {
     firstName: "",
     lastName: "",
@@ -30,6 +45,8 @@ export class ShippingComponent implements OnInit {
     zip: "",
     country: ""
   }
+  msgToParent() { this.shippingData.push(this.address.address1); }
+
 
   constructor(private accountService: AccountService, private fb: FormBuilder) { }
 
@@ -39,11 +56,11 @@ export class ShippingComponent implements OnInit {
       this.info = {firstName:address.firstName, lastName:address.lastName, email:"", password:""};
     });
   }
-
+  
   updateProfile(): void {
     console.log(this.profileFormGroup);
     console.log("hello " + this.address.address1);
-    this.accountService.updateProfile(this.address);
+    this.accountService.updateProfile(this.address).subscribe();
     //location.reload();
   }
 

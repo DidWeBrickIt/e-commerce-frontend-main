@@ -18,10 +18,12 @@
     
     <span class="">Country</span>
     <input id="country" type="text" class="form-control" [(ngModel)]="address.country" [ngModelOptions]="{ standalone: true }">
-
+    <input type=”text” [(ngModel)]="shippingData">
+    <button (click)="msgToParent()">send</button>
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-outline-primary btn-block mb-4 " style="width: 32%;">Update</button>
     </div>
+    
 </form>
 
 </div>
