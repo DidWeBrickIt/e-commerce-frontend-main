@@ -18,6 +18,12 @@ import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { UserComponent } from './components/user/user.component';
 import {ErrorPopupComponent} from "./components/error-popup/error-popup.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import { ChangeEmailComponent } from './components/change-email/change-email.component';
 import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
 import { StarRatingPipe } from './pipes/star-rating.pipe';
 
@@ -37,9 +43,10 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     PaymentComponent,
     UserComponent,
     ErrorPopupComponent,
+    ChangePasswordComponent,
+    ChangeEmailComponent,
     EpochToDatePipe,
     StarRatingPipe,
-
   ],
 
   imports: [
@@ -47,7 +54,11 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
 
   providers: [],

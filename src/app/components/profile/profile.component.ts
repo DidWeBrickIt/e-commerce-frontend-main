@@ -4,6 +4,11 @@ import {Profile} from "../../models/profile/profile";
 import {User} from "../../models/user/user";
 import {Payment} from "../../models/payment/payment";
 import {Address} from "../../models/address/address";
+import {MatDialog} from "@angular/material/dialog";
+import {ChangePasswordComponent} from "../change-password/change-password.component";
+import {Password} from "../../models/credential/password/password";
+import {ChangeEmailComponent} from "../change-email/change-email.component";
+import {Email} from "../../models/credential/email/email";
 
 
 @Component({
@@ -21,8 +26,21 @@ export class ProfileComponent implements OnInit{
 
   }
 
+  passwordCred: Password={
+    oldPass: '',
+    newPass: '',
+    againPass: ''
+  };
+
+  emailCred: Email={
+    oldEmail: '',
+    newEmail: '',
+    againEmail: ''
+  }
+
   constructor(
-      private profileService: ProfileService) {}
+      private profileService: ProfileService,
+      public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
@@ -54,6 +72,30 @@ export class ProfileComponent implements OnInit{
     const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
     console.log(this.profile);
     this.profileService.updateProfile(payload).subscribe();
+  }
+
+  changePassword(): void{
+    const dialogRef = this.dialog.open(
+        ChangePasswordComponent,
+        {width: '50%', data: this.passwordCred }
+    );
+
+    dialogRef.afterClosed().subscribe(
+        (result) => this.passwordCred = result,
+        (err) => console.log(err),
+        () => console.log(this.passwordCred));
+  }
+
+  changeEmail(): void{
+    const dialogRef = this.dialog.open(
+        ChangeEmailComponent,
+        {width: '50%', data: this.emailCred }
+    );
+
+    dialogRef.afterClosed().subscribe(
+        (result) => this.emailCred = result,
+        (err) => console.log(err),
+        () => console.log(this.emailCred));
   }
 
 
