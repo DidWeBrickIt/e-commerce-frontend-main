@@ -18,6 +18,12 @@ import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { UserComponent } from './components/user/user.component';
 import {ErrorPopupComponent} from "./components/error-popup/error-popup.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import { ChangeEmailComponent } from './components/change-email/change-email.component';
 
 
 @NgModule({
@@ -34,7 +40,9 @@ import {ErrorPopupComponent} from "./components/error-popup/error-popup.componen
     AddressComponent,
     PaymentComponent,
     UserComponent,
-      ErrorPopupComponent
+      ErrorPopupComponent,
+      ChangePasswordComponent,
+      ChangeEmailComponent
   ],
 
   imports: [
@@ -42,7 +50,11 @@ import {ErrorPopupComponent} from "./components/error-popup/error-popup.componen
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
 
   providers: [],
