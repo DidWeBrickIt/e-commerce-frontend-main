@@ -24,6 +24,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
+import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
+import { StarRatingPipe } from './pipes/star-rating.pipe';
 
 
 @NgModule({
@@ -40,9 +42,11 @@ import { ChangeEmailComponent } from './components/change-email/change-email.com
     AddressComponent,
     PaymentComponent,
     UserComponent,
-      ErrorPopupComponent,
-      ChangePasswordComponent,
-      ChangeEmailComponent
+    ErrorPopupComponent,
+    ChangePasswordComponent,
+    ChangeEmailComponent
+    EpochToDatePipe,
+    StarRatingPipe,
   ],
 
   imports: [
