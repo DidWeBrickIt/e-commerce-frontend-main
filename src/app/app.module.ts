@@ -12,15 +12,14 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { ProfileComponent } from './components/profile/profile.component';
-
-import { ShippingComponent } from './components/shipping/shipping.component';
-
+import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
+import { UserComponent } from './components/user/user.component';
+import {ErrorPopupComponent} from "./components/error-popup/error-popup.component";
 import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
 import { StarRatingPipe } from './pipes/star-rating.pipe';
-
 
 
 @NgModule({
@@ -34,13 +33,15 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     CheckoutComponent,
     DisplayProductsComponent,
     ProfileComponent,
-    ShippingComponent,
+    AddressComponent,
     PaymentComponent,
+    UserComponent,
     ErrorPopupComponent,
     EpochToDatePipe,
     StarRatingPipe,
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,7 +49,9 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

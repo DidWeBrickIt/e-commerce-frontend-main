@@ -1,16 +1,9 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Address } from 'src/app/models/address';
-import { Profile } from 'src/app/models/profile';
-import { Payment } from 'src/app/models/payment';
-import { AccountService } from 'src/app/services/account.service';
-
-
-import { ShippingComponent } from '../shipping/shipping.component';
-import { AfterViewInit } from '@angular/core';
-
-
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+import {Profile} from "../../models/profile/profile";
+import {User} from "../../models/user/user";
+import {Payment} from "../../models/payment/payment";
+import {Address} from "../../models/address/address";
 
 
 @Component({
@@ -19,75 +12,48 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./profile.component.css'],
 })
 
-export class ProfileComponent implements OnInit, AfterViewInit {
-  profileForm: FormGroup
-  // Do not delete
-  @ViewChild(ShippingComponent, { static: false })
-  shippingComponent!: ShippingComponent;
-  ngAfterViewInit() {this.shippingData = this.shippingComponent.shippingData}
-  shippingData: any;
-  hasError:boolean = false;
-  errorMessage:string = "Server error, unable to retrieve your account information";
-  // do not delete
+export class ProfileComponent implements OnInit{
 
+  profile: Profile={
+    user: new User('', ''),
+    address: new Address('','','','','',''),
+    payment: new Payment('','','')
 
-  address : Address = {
-    firstname: "",
-    lastname: "",
-    address1: "",
-    address2: "",
-    city: "",
-    state: "",
-    zip: "",
-    country: ""
   }
-
-  
-
-
-
-  
-  
-
 
   constructor(
-      private accountService: AccountService, 
-      private fb: FormBuilder) {
-
-    this.profileForm = this.fb.group({
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      address1: new FormControl(''),
-      address2: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl(''),
-      country: new FormControl('')})
-  }
+      private profileService: ProfileService) {}
 
   ngOnInit(): void {
+    this.profileService.getProfileInfo().subscribe(
+        (profile) => this.profile = profile,
+        (err) => console.log(err),
+        () => console.log("Profile Retrieved"));
 
-    this.accountService.getAddressInfo().subscribe(
-        (address) => {this.address = address;},
-        (err) => {
-          console.log(err)
-          this.hasError = true;
-        }
-        );
+  }
+
+  display(): void{
+    console.log(this.profile);
+  }
+  updatePayment(payment: Payment): void{
+    this.profile.payment = payment;
+    console.log(this.profile.payment);
+  }
+
+  updateAddress(address: Address): void{
+    this.profile.address = address;
+    console.log(this.profile.address);
+  }
+
+  updateUser(user: User): void{
+    this.profile.user = user;
+    console.log(this.profile.user);
   }
 
   updateProfile(): void {
-
-    //do not delete
-    this.shippingComponent.msgToParent()
-    console.log("shipping Data: " + this.shippingData.address1);
-    this.address = this.shippingData;
-    // do not delete
-    
-
-
-    this.accountService.updateProfile(this.profileForm.value).subscribe();
-
+    const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
+    console.log(this.profile);
+    this.profileService.updateProfile(payload).subscribe();
   }
 
 
