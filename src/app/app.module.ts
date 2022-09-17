@@ -44,7 +44,7 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     UserComponent,
     ErrorPopupComponent,
     ChangePasswordComponent,
-    ChangeEmailComponent
+    ChangeEmailComponent,
     EpochToDatePipe,
     StarRatingPipe,
   ],
