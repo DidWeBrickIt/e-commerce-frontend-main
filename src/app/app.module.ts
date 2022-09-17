@@ -18,6 +18,9 @@ import { ShippingComponent } from './components/shipping/shipping.component';
 
 import { PaymentComponent } from './components/payment/payment.component';
 import { ErrorPopupComponent } from './components/error-popup/error-popup.component';
+import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
+import { StarRatingPipe } from './pipes/star-rating.pipe';
+
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { ErrorPopupComponent } from './components/error-popup/error-popup.compon
     ProfileComponent,
     ShippingComponent,
     PaymentComponent,
-    ErrorPopupComponent
+    ErrorPopupComponent,
+    EpochToDatePipe,
+    StarRatingPipe,
 
   ],
   imports: [
