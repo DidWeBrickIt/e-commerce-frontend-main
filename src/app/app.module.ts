@@ -26,7 +26,8 @@ import {MatInputModule} from "@angular/material/input";
 import { ChangeEmailComponent } from './components/change-email/change-email.component';
 import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
 import { StarRatingPipe } from './pipes/star-rating.pipe';
-
+import { DisplayProductReviewsComponent } from './components/display-product-reviews/display-product-reviews.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     ChangeEmailComponent,
     EpochToDatePipe,
     StarRatingPipe,
+    DisplayProductReviewsComponent,
   ],
 
   imports: [
@@ -58,7 +60,8 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     MatDialogModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ScrollingModule
   ],
 
   providers: [],

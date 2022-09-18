@@ -2,8 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
-import { ReadableReview } from 'src/app/models/readable-review';
-import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,15 +18,12 @@ export class ProductCardComponent implements OnInit{
   subscription!: Subscription;
   totalPrice: number = 0;
   showInfo: boolean = false;
-  showReviews: boolean = false;
   quantities: number[] = [];
   amount: number = 1;
 
-  reviews :ReadableReview[] = [];
-
   @Input() productInfo!: Product;
 
-  constructor(private productService: ProductService, private reviewService: ReviewService) { }
+  constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -72,11 +67,11 @@ export class ProductCardComponent implements OnInit{
           this.updateQuantity();
           inCart=true;
           return;
-        }
+        };
       }
     );
 
-    if(!inCart){
+    if(inCart == false){
       let newProduct = {
         product: product,
         quantity: this.amount
@@ -98,24 +93,6 @@ export class ProductCardComponent implements OnInit{
 
   stopProp(ev: Event) {
     ev.stopPropagation();
-  }
-
-  toggleReviews()
-  {
-    this.showReviews = !this.showReviews;
-  }
-
-  getReviewsForProduct()
-  {
-    this.reviews = [];
-    this.reviewService.getReviewsForProduct(this.productInfo.id).subscribe(
-      (reviews : ReadableReview[]) => 
-      {
-        reviews.forEach(element => {
-          this.reviews.push(element);  
-        });
-      }
-    );;
   }
 
   ngOnDestroy() {

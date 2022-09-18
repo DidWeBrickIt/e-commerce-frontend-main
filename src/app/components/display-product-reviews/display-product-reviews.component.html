@@ -1,0 +1,23 @@
+<br><br><br><br>
+<h4 class="word">Reviews for {{this.productInfo.name}}</h4>
+<p *ngIf="this.reviews.length > 0"> Average Rating: {{this.average | starRating}}</p>
+<div *ngIf="this.reviews.length > 0; then reviewList else noReviews"></div>
+  <button>Write a review</button>
+
+  <ng-template #noReviews>
+
+    <h2>Be the first to review this product!</h2>
+  </ng-template>
+
+  <ng-template #reviewList>    
+    <cdk-virtual-scroll-viewport itemSize="50" class="review-viewport">
+      <!-- to remove alternating color background. remove: 'let odd = odd; let even = even" [class.review-alternate]="odd"' -->
+    <div *cdkVirtualFor="let review of reviews; let odd = odd; let even = even" [class.review-alternate]="odd">
+      <div>
+        <h5>{{review.username}} {{review.rating| starRating}}</h5>
+        <h6>{{review.timestamp | epochToDate}}</h6>
+        <p>{{review.description}}</p>
+      </div>
+    </div> 
+  </cdk-virtual-scroll-viewport>
+  </ng-template>
