@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProductService } from 'src/app/services/product.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-navbar',

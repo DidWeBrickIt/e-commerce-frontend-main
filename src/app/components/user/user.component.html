@@ -1,0 +1,30 @@
+<div class="mb-4 mt-4">
+    <form (ngSubmit)="updateUser()">
+        <h3>User</h3>
+
+        <label for="firstname-input">First Name</label>
+        <input id="firstname-input"
+               name="firstname-input"
+               type="text"
+               class="form-control"
+               [(ngModel)]="user.firstName"
+               [ngModelOptions]="{ standalone: true }">
+
+        <label for="lastname-input">Last Name</label>
+        <input id="lastname-input"
+               name="lastname-input"
+               type="text"
+               class="form-control"
+               [(ngModel)]="user.lastName"
+               [ngModelOptions]="{ standalone: true }">
+
+        <div class="d-flex justify-content-center">
+            <button type="submit"
+                    class="btn btn-outline-primary btn-block mb-4 "
+                    style="width: 32%;">
+                Update
+            </button>
+        </div>
+
+    </form>
+</div>
