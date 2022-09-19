@@ -3,15 +3,36 @@
     <thead>
         <tr>
             <th>Order ID</th>
-            <th>Cost</th>
+            <th>Total Cost</th>
             <th>Time Purchased</th>
+            <th>View Order Details</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
+        <p *ngIf = "isLoading">Loading...</p>
+        <tr *ngFor = "let order of consolidatedOrders">
+            <th>{{order.orderNumber}}</th>
+            <th>{{order.totalCost}}</th>
+            <th>{{order.matchingTime}}</th>
+            <th><button (click) = "toggleDetails(order.orderNumber)">Details</button></th>
         </tr>
     </tbody>
 </table>
+
+<div id = "orderBackground" *ngIf = "showDetails">
+    <div id="infoContent" (click)="stopProp($event)">
+        <button id="closeBtn" (click)="toggleDetails()">X</button>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Amount</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor = "let order of consolidatedOrders[orderDetails-1].partsOfSameOrder">
+                <td>{{order.productName}}</td>
+                <td>{{order.productAmount}}</td>
+                <td>{{order.cost}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

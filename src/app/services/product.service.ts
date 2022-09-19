@@ -45,19 +45,19 @@ export class ProductService {
   }
 
   public getSingleProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(environment.baseUrl+id);
+    return this.http.get<Product>(environment.baseUrl+`/api/product/${id}`, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 
   public getUserId() : Observable<any>{
     return this.http.get<any>(environment.baseUrl+`/auth`, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 
-  public makeOrder(orders: Order[]){
+  public makeOrder(orders: Order[]) : Observable<Order[]>{
     const payload = JSON.stringify(orders);
     return this.http.post<Order[]>(environment.baseUrl+`/api/order`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 
-  public getOrdersByUserId(id: number){
+  public getOrdersByUserId(id: number) : Observable<Order[]>{
     return this.http.get<Order[]>(environment.baseUrl+`/api/order/${id}`, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 

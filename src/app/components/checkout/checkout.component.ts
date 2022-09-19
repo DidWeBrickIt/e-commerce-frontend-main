@@ -50,7 +50,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
-     this.products.forEach(
+    this.makeOrder();
+    this.purchase();
+  }
+
+  makeOrder(){
+    this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
@@ -66,30 +71,28 @@ export class CheckoutComponent implements OnInit {
           this.orders.push(order);
         });
         this.productService.makeOrder(this.orders).subscribe();
-        this.productService.getOrdersByUserId(this.userId).subscribe((data) => {
-          console.log(data);
-        });
       });
     }
+  }
 
-  //   if(this.finalProducts.length > 0) {
-  //     this.productService.purchase(this.finalProducts).subscribe(
-  //       (resp) => console.log(resp),
-  //       (err) => console.log(err),
-  //       () => {
-  //         let cart = {
-  //           cartCount: 0,
-  //           products: [],
-  //           totalPrice: 0.00
-  //         };
-  //         this.productService.setCart(cart);
-  //         this.router.navigate(['/home']);
-  //       } 
-  //     );
+  purchase(){
+    if(this.finalProducts.length > 0) {
+      this.productService.purchase(this.finalProducts).subscribe(
+        (resp) => console.log(resp),
+        (err) => console.log(err),
+        () => {
+          let cart = {
+            cartCount: 0,
+            products: [],
+            totalPrice: 0.00
+          };
+          this.productService.setCart(cart);
+          this.router.navigate(['/home']);
+        } 
+      );
 
-  //   } else {
-  //     this.router.navigate(['/home']);
-  //   }
-  // }
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 }
