@@ -19,16 +19,16 @@ export class CheckoutComponent implements OnInit {
   cartProducts: Product[] = [];
   finalProducts: {id: number, quantity: number}[] = []; 
 
+
   checkoutForm: FormGroup = this.formBuilder.group({
     cardName: ["", [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
     cardNum: ["", [Validators.required, Validators.pattern(/^([0-9]{16}|[0-9]{15})$/)]],
     exp: ["", [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$/)]],
-    cvv: ["", [Validators.required, Validators.pattern(/^([0-9]{3})$/)]],
+    cvv: ["", [Validators.required, Validators.pattern(/^([0-9]{3}|[0-9]{4})$/)]],
     addOne: ["", Validators.required],
     city: ["", Validators.required],
     state: ["", Validators.required],
     zipCode: ["", [Validators.required, Validators.pattern(/^([0-9]{5})$/)]]
-    //, Validators.pattern(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/)
   });
 
   constructor(private productService: ProductService, private router: Router, private formBuilder:FormBuilder) { }

@@ -75,7 +75,7 @@ input::-webkit-inner-spin-button {
 }
 
 .inputbox input:valid~span {
-    transform: translateX(-0px) translateY(-15px);
+    transform: translateX(-0px) translateY(-22px);
     font-size: 12px
 }
 
@@ -134,11 +134,6 @@ input::-webkit-inner-spin-button {
 .form-control.ng-invalid.ng-touched{
     border: red 2px solid;
     border-bottom: red 2px solid !important;
-}
-
-input.ng-valid.ng-touched{
-    border: green 2px solid;
-    border-bottom: green 2px solid !important;
 }
 
 .error-msg {
