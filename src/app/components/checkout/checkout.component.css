@@ -70,12 +70,12 @@ input::-webkit-inner-spin-button {
 }
 
 .inputbox input:focus~span {
-    transform: translateX(-0px) translateY(-15px);
+    transform: translateX(-0px) translateY(-22px);
     font-size: 12px
 }
 
 .inputbox input:valid~span {
-    transform: translateX(-0px) translateY(-15px);
+    transform: translateX(-0px) translateY(-22px);
     font-size: 12px
 }
 
@@ -122,3 +122,20 @@ input::-webkit-inner-spin-button {
     text-decoration: none;
     color: #fdcc49; 
 }
+
+.control-label.required:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:1px;
+}
+
+.form-control.ng-invalid.ng-touched{
+    border: red 2px solid;
+    border-bottom: red 2px solid !important;
+}
+
+.error-msg {
+    color: #a94442;
+  }

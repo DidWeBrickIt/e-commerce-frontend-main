@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { Jwt } from 'src/app/models/jwt/jwt';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -11,18 +13,25 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = new UntypedFormGroup({
-    email: new UntypedFormControl(''),
-    password: new UntypedFormControl('')
+  loginForm: FormGroup = this.formBuilder.group({
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required]]
   })
+
   hasError:boolean = false;
   errorMessage:string = "Your profile could not be verified. Please check your information and try again.";
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private formBuilder:FormBuilder) { }
+
 
   ngOnInit(): void {
   }
   
   onSubmit(): void {
+    this.validateAllFormFields(this.loginForm);
+    if(!this.loginForm.valid){
+      return;
+    }
+
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       (response : Jwt) => {
         localStorage.setItem('username', JSON.stringify(this.loginForm.get('email')?.value));
@@ -44,6 +53,20 @@ export class LoginComponent implements OnInit {
 
   register(): void {
     this.router.navigate(['register']);
+  }
+
+  get f() { return this.loginForm.controls; }
+  //marks all fields as touched 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
 }

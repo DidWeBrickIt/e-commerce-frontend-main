@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
@@ -22,20 +23,19 @@ export class CheckoutComponent implements OnInit {
   orders: Order[] = [];
   userId!: number;
 
-  checkoutForm = new UntypedFormGroup({
-    fname: new UntypedFormControl('', Validators.required),
-    lname: new UntypedFormControl('', Validators.required),
-    cardName: new UntypedFormControl('', Validators.required),
-    detail: new UntypedFormControl('', Validators.required),
-    addOne: new UntypedFormControl('', Validators.required),
-    addTwo: new UntypedFormControl(''),
-    city: new UntypedFormControl('', Validators.required),
-    state: new UntypedFormControl('', Validators.required),
-    zipCode: new UntypedFormControl('', Validators.required),
-    country: new UntypedFormControl('', Validators.required)
+
+  checkoutForm: FormGroup = this.formBuilder.group({
+    cardName: ["", [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+    cardNum: ["", [Validators.required, Validators.pattern(/^([0-9]{16}|[0-9]{15})$/)]],
+    exp: ["", [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$/)]],
+    cvv: ["", [Validators.required, Validators.pattern(/^([0-9]{3}|[0-9]{4})$/)]],
+    addOne: ["", Validators.required],
+    city: ["", Validators.required],
+    state: ["", Validators.required],
+    zipCode: ["", [Validators.required, Validators.pattern(/^([0-9]{5})$/)]]
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -56,6 +56,10 @@ export class CheckoutComponent implements OnInit {
 
   makeOrder(){
     this.products.forEach(
+    this.validateAllFormFields(this.checkoutForm);
+    if(!this.checkoutForm.valid){ return; }
+
+     this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
@@ -94,5 +98,21 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.router.navigate(['/home']);
     }
+  }
+
+  //just makes accessing form easier
+  get f() { return this.checkoutForm.controls; }
+
+  //marks all fields as touched 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 }
