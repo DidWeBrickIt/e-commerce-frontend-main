@@ -1,8 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 
