@@ -30,6 +30,7 @@ import { DisplayProductReviewsComponent } from './components/display-product-rev
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { RatingComponent } from './components/rating/rating.component';
     MatButtonModule,
     MatInputModule,
     ScrollingModule,
+    MatExpansionModule
   ],
 
   providers: [],
