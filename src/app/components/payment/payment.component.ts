@@ -1,30 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { Payment } from 'src/app/models/payment';
-import { AccountService } from 'src/app/services/account.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Payment} from "../../models/payment/payment";
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css'],
+  styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  payment: Payment = {
-    id: '',
-    userId: '',
-    ccNum: '',
-    cvv: '',
-    exp: '',
-  };
 
-  constructor(private accountService: AccountService) {}
-
-  ngOnInit(): void {
-    this.accountService.getPaymentInfo().subscribe((payment) => {
-      this.payment = payment;
-    });
+  @Input() payment ={
+    credit_card_number: '',
+    security_code: '',
+    expiration: '',
   }
 
-  updatePayment(): void {
-    this.accountService.updatePaymentInfo(this.payment);
+  updated: Payment = {
+    credit_card_number: '',
+    security_code: '',
+    expiration: '',
+}
+  @Output() newPaymentEvent = new EventEmitter<Payment>();
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.updated = this.payment
+  }
+
+  updatePayment(): void{
+    this.newPaymentEvent.emit(this.updated);
   }
 }

@@ -1,10 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { faTicket } from '@fortawesome/free-solid-svg-icons';
 import { of } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/models/product/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 import { CheckoutComponent } from './checkout.component';
 

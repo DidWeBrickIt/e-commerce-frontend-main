@@ -1,0 +1,5 @@
+<div class="input-group input-group-sm mb-3">
+  <app-rating (ratingUpdated)="onRatingChanged($event)"></app-rating>
+  <textarea matInput rows="3" cols="500" placeholder="Review here" maxlength="200" [(ngModel)]="description"></textarea>
+</div>
+<button [disabled]="this.description === '' || this.rating === 0" (click)="submitReview()">Submit</button>

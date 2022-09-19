@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Notification } from 'src/app/models/notification';
 import { NotificationService } from 'src/app/notification.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProductService } from 'src/app/services/product.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-navbar',

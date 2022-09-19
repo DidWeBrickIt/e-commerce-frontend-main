@@ -12,13 +12,23 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { ProfileComponent } from './components/profile/profile.component';
-
-import { ShippingComponent } from './components/shipping/shipping.component';
-
+import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
-
+import { UserComponent } from './components/user/user.component';
+import { ErrorPopupComponent } from "./components/error-popup/error-popup.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { ChangeEmailComponent } from './components/change-email/change-email.component';
+import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
+import { StarRatingPipe } from './pipes/star-rating.pipe';
+import { DisplayProductReviewsComponent } from './components/display-product-reviews/display-product-reviews.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { RatingComponent } from './components/rating/rating.component';
 import { MatBadgeModule } from '@angular/material/badge';
 
 
@@ -33,19 +43,35 @@ import { MatBadgeModule } from '@angular/material/badge';
     CheckoutComponent,
     DisplayProductsComponent,
     ProfileComponent,
-    ShippingComponent,
-    PaymentComponent
-
+    AddressComponent,
+    PaymentComponent,
+    UserComponent,
+    ErrorPopupComponent,
+    ChangePasswordComponent,
+    ChangeEmailComponent,
+    EpochToDatePipe,
+    StarRatingPipe,
+    DisplayProductReviewsComponent,
+    CreateReviewComponent,
+    RatingComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    ScrollingModule,
     MatBadgeModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

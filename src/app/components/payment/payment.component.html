@@ -1,49 +1,39 @@
-<div class="profile-form-container" style="width: 50%">
-  <form style="width: 85%; margin: auto" (ngSubmit)="updatePayment()">
-    <div class="mb-4 mt-4">
-      <label for="ccNum-input">Credit Card Number</label>
-      <input
-        type="text"
-        id="ccNum-input"
-        class="form-control"
-        [(ngModel)]="payment.ccNum"
-        name="firstName"
-        required
-      />
-    </div>
+<div class="mb-4 mt-4">
+    <form (ngSubmit)="updatePayment()">
+        <h3>Payment</h3>
 
-    <div class="mb-4 mt-4">
-      <label for="cvv-input">CVV</label>
-      <input
-        type="text"
-        id="cvv-input"
-        class="form-control"
-        [(ngModel)]="payment.cvv"
-        name="firstName"
-        required
-      />
-    </div>
+        <label for="ccn-input">Credit Card Number</label>
+        <input id="ccn-input"
+               name="ccn-input"
+               type="text"
+               class="form-control"
+               [(ngModel)]="payment.credit_card_number"
+               [ngModelOptions]="{ standalone: true }">
 
-    <div class="mb-4 mt-4">
-      <label for="exp-input">Exp</label>
-      <input
-        type="text"
-        id="exp-input"
-        class="form-control"
-        [(ngModel)]="payment.exp"
-        name="firstName"
-        required
-      />
-    </div>
+        <label for="cvv-input">CVV</label>
+        <input id="cvv-input"
+               name="cvv-input"
+               type="text"
+               class="form-control"
+               [(ngModel)]="payment.security_code"
+               [ngModelOptions]="{ standalone: true }">
 
-    <div class="d-flex justify-content-center">
-      <button
-        type="submit"
-        class="btn btn-outline-primary btn-block mb-4"
-        style="width: 32%"
-      >
-        Update
-      </button>
-    </div>
-  </form>
+        <label for="expiration-input">Expiration</label>
+        <input id="expiration-input"
+               name="expiration-input"
+               type="text"
+               class="form-control"
+               [(ngModel)]="payment.expiration"
+               [ngModelOptions]="{ standalone: true }">
+
+        <div class="d-flex justify-content-center">
+            <button type="submit"
+                    class="btn btn-outline-primary btn-block mb-4 "
+                    style="width: 32%;">
+                Update
+            </button>
+        </div>
+
+    </form>
+
 </div>

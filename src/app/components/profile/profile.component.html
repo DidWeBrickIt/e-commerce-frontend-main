@@ -1,113 +1,33 @@
-<h3> Welcome {{ address.firstname }}</h3>
+<ng-container *ngIf="profile">
+    <h3>Welcome, {{profile.user.firstName}}!</h3>
+    <p>
+        {{profile.address.address1}}
+        {{profile.address.address2}}
+        {{profile.address.city}}
+        {{profile.address.state}}
+    </p>
+</ng-container>
 
-<img src="" alt="profile picture">
-
-<!--<h3>First Name: {{ address.firstName }}</h3>
-<h3>Last Name: {{ address.lastName }}</h3>
-<h3></h3>
-
-<h3>First name: {{ address.firstname }}</h3>
-<h3>Last name: {{ address.lastname }}</h3>
-
-<h3>Address:  {{ address.address1 }}</h3>
-<h3>Address:  {{ address.address2 }}</h3>
-<h3>City:  {{ address.city }}</h3>
-<h3>State: {{address.state}}</h3>
-<h3>Country: {{address.country}}</h3>-->
+<ng-container>
+    <button mat-button (click)="display()">Display</button>
+    <button mat-button routerLink="/home">Back </button>
+    <button mat-button (click)="updateProfile()">Update</button>
+    <button mat-button (click)="changePassword()">Change Password</button>
+    <button mat-button (click)="changeEmail()">Change E-mail</button>
+</ng-container>
 
 
-<div class="profile-form-container" style="width: 50%;">
-    <h1 class="mt-3" style="text-align: center;">Welcome, {{address.firstname}}!</h1>
-    <form style="width: 85%; margin: auto;" (ngSubmit)="updateProfile()">
-        <div>
-            <h3>User Info</h3>
-            <!--<span class="">Username</span>
-            <input id="username" type="text" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">-->
-            <img src="" alt="" id="profileImg">
-            
+<ng-container *ngIf="profile">
+    <app-user [user]="profile.user"
+    (newUserEvent)="updateUser($event)"></app-user>
+</ng-container>
 
-    
+<ng-container *ngIf="profile">
+    <app-address [address]="profile.address"
+    (newAddressEvent)="updateAddress($event)"></app-address>
+</ng-container>
 
-        </div>
-<!---
-        
-            <label for="firstName-input">First Name: </label>
-
-        <div class="mb-4 mt-4">
-            <label for="firstname-input">First name: </label>
-
-            <input type="text"
-                   id="firstname-input"
-                   class="form-control"
-                   [(ngModel)]="address.firstname"
-                   name="firstname" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="lastname-input">Last name: </label>
-            <input type="text"
-                   id="lastname-input"
-                   class="form-control"
-                   [(ngModel)]="address.lastname"
-                   name="lastname" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="address1-input">Address: </label>
-            <input type="text"
-                   id="address1-input"
-                   class="form-control"
-                   placeholder="address1"
-                   [(ngModel)]="address.address1"
-                   name="address1" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <input type="text"
-                   id="address2-input"
-                   class="form-control"
-                   placeholder="address2"
-                   [(ngModel)]="address.address2"
-                   name="address2" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="city-input">City: </label>
-            <input type="text"
-                   id="city-input"
-                   class="form-control"
-                   placeholder="city"
-                   [(ngModel)]="address.city"
-                   name="city" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="state-input">State: </label>
-            <input type="text"
-                   id="state-input"
-                   class="form-control"
-                   placeholder="state"
-                   [(ngModel)]="address.state"
-                   name="state" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="zip-input">Zip: </label>
-            <input type="text"
-                   id="zip-input"
-                   class="form-control"
-                   placeholder="zip"
-                   [(ngModel)]="address.zip"
-                   name="zip" required/>
-        </div>
-        <div class="mb-4 mt-4">
-            <label for="country-input">Country: </label>
-            <input type="text"
-                   id="country-input"
-                   class="form-control"
-                   placeholder="country"
-                   [(ngModel)]="address.country"
-                   name="country" required/>
-        </div>
-    -->
-    <app-shipping></app-shipping>
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-outline-primary btn-block mb-4 " style="width: 32%;">Update</button>
-        </div>
-    </form>
-</div>
-
+<ng-container *ngIf="profile">
+    <app-payment [payment]="profile.payment"
+    (newPaymentEvent)="updatePayment($event)"></app-payment>
+</ng-container>
