@@ -26,9 +26,11 @@ module.exports = function (config) {
     },
     coverageReporter: {
      
+
       reporters: [
         { type: 'text' }
       ],
+
       check: {
         global: {
           statements: 70,

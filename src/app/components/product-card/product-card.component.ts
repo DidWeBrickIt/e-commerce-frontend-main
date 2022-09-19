@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/models/product/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,7 +20,6 @@ export class ProductCardComponent implements OnInit{
   showInfo: boolean = false;
   quantities: number[] = [];
   amount: number = 1;
-
 
   @Input() productInfo!: Product;
 
@@ -57,7 +56,7 @@ export class ProductCardComponent implements OnInit{
 
     this.products.forEach(
       (element) => {
-        if(element.product == product){
+        if(element.product.id == product.id){
           element.quantity = +element.quantity + +this.amount;
           let cart = {
             cartCount: +this.cartCount + +this.amount,

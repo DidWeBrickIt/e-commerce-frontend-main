@@ -13,6 +13,24 @@ import { DisplayProductsComponent } from './components/display-products/display-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ProfileComponent } from './components/profile/profile.component';
+import { AddressComponent } from './components/address/address.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { UserComponent } from './components/user/user.component';
+import { ErrorPopupComponent } from "./components/error-popup/error-popup.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { ChangeEmailComponent } from './components/change-email/change-email.component';
+import { EpochToDatePipe } from './pipes/epoch-to-date.pipe';
+import { StarRatingPipe } from './pipes/star-rating.pipe';
+import { DisplayProductReviewsComponent } from './components/display-product-reviews/display-product-reviews.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { RatingComponent } from './components/rating/rating.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,16 +40,36 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductCardComponent,
     CartComponent,
     CheckoutComponent,
-    DisplayProductsComponent
+    DisplayProductsComponent,
+    ProfileComponent,
+    AddressComponent,
+    PaymentComponent,
+    UserComponent,
+    ErrorPopupComponent,
+    ChangePasswordComponent,
+    ChangeEmailComponent,
+    EpochToDatePipe,
+    StarRatingPipe,
+    DisplayProductReviewsComponent,
+    CreateReviewComponent,
+    RatingComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    ScrollingModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
