@@ -60,4 +60,9 @@ describe('CheckoutComponent', () => {
     expect(subSpy).toHaveBeenCalled();
     
   }));
+
+  // it('should create notification', () => {
+  //   component.createNotification();
+  //   expect(component.createNotification()).to
+  // });
 });

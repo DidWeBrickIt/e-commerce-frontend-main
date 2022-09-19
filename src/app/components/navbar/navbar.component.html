@@ -11,11 +11,13 @@
       </label>
       <span class="word">Dark</span>
 
-      <button type="button" matBadge="{{listSize}}" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()">Notif</button>
+      <mat-icon type="button" matBadge="{{listSize}}" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()" [ngStyle]="{'color':'red'}">notifications</mat-icon>
       <div *ngIf="isHidden" id="infoBackground">
         <ul *ngFor="let notification of notificationList">
           <li>{{notification.date | date :'short'}}<br>{{notification.message}}</li>
         </ul>
+        <p *ngIf="notificationList.length === 0">No new notifications</p>
+        <button (click)="clearButton()">Clear</button>
       </div>
 
         <button class="btn btn-light" [routerLink]="['/cart']">

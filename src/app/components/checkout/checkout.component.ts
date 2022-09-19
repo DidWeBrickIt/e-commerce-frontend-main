@@ -4,7 +4,7 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Notification } from 'src/app/models/notification';
-import { NotificationService } from 'src/app/notification.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-checkout',

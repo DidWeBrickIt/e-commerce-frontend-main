@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Notification } from './models/notification';
+import { Notification } from '../models/notification';
+
 @Injectable({   providedIn: 'root' }) 
 export class NotificationService {    
   
@@ -8,11 +9,15 @@ export class NotificationService {
   constructor() { }
 
   addNotification(notification: Notification) {
-    this.notificationList.push(notification);
+    this.notificationList.unshift(notification);
   }
       
   getNotificationList(): Notification[] {
     return this.notificationList;
+  }
+
+  clearNotificationList(): void {
+    this.notificationList = [];
   }
 
 }
