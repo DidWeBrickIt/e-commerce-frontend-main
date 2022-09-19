@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
+import { Notification } from 'src/app/models/notification';
+import { NotificationService } from 'src/app/services/notification.service';
 import { Order } from 'src/app/models/order/order';
 
 @Component({
@@ -34,7 +36,7 @@ export class CheckoutComponent implements OnInit {
     zipCode: ["", [Validators.required, Validators.pattern(/^([0-9]{5})$/)]]
   });
 
-  constructor(private productService: ProductService, private router: Router, private formBuilder:FormBuilder) { }
+  constructor(private productService: ProductService, private router: Router, private formBuilder:FormBuilder, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -88,6 +90,7 @@ export class CheckoutComponent implements OnInit {
             totalPrice: 0.00
           };
           this.productService.setCart(cart);
+          this.createNotification();
           this.router.navigate(['/home']);
         } 
       );
@@ -97,19 +100,26 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  //just makes accessing form easier
-  get f() { return this.checkoutForm.controls; }
+    //just makes accessing form easier
+    get f() { return this.checkoutForm.controls; }
 
-  //marks all fields as touched 
-  validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      console.log(field);
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
+    //marks all fields as touched 
+    validateAllFormFields(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).forEach(field => {
+        console.log(field);
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+          control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {
+          this.validateAllFormFields(control);
+        }
+      });
+    }
+
+  createNotification():void {
+    let currentTime: Date = new Date();
+    let message: string = "Your order has been processed";
+    let notification: Notification = new Notification(message, currentTime);
+    this.notificationService.addNotification(notification);
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Notification } from 'src/app/models/notification';
+import { NotificationService } from 'src/app/services/notification.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -14,8 +16,12 @@ export class NavbarComponent implements OnInit{
   cartCount!: number;
   subscription!: Subscription;
   isDark: Boolean = false;
+  isHidden: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
+  constructor(private authService: AuthService, private router: Router, private productService: ProductService, private notificationService: NotificationService) { }
+
+  notificationList: Notification[] = this.notificationService.getNotificationList();
+  listSize: number = this.notificationList.length;
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -54,5 +60,15 @@ export class NavbarComponent implements OnInit{
     }
   }
 
+  toggleBadgeVisibility()
+  {
+    this.isHidden = !this.isHidden;
+  }
+
+  clearButton(){
+    this.notificationService.clearNotificationList();
+    this.notificationList = this.notificationService.getNotificationList();
+    this.listSize = 0;
+  }
 
 }

@@ -4,10 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,11 @@ import { DisplayProductReviewsComponent } from './components/display-product-rev
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +70,9 @@ import { RatingComponent } from './components/rating/rating.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
-    ScrollingModule
+    ScrollingModule,
+    MatBadgeModule,
+    MatIconModule
   ],
 
   providers: [],
