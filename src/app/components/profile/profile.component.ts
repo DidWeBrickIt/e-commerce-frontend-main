@@ -20,7 +20,7 @@ import {Email} from "../../models/credential/email/email";
 export class ProfileComponent implements OnInit{
 
   profile: Profile={
-    user: new User('', ''),
+    user: new User('', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','','')
 

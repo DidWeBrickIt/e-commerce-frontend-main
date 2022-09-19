@@ -1,30 +1,68 @@
 <div class="mb-4 mt-4">
-    <form (ngSubmit)="updateUser()">
-        <h3>User</h3>
+  <h3>User</h3>
 
-        <label for="firstname-input">First Name</label>
-        <input id="firstname-input"
-               name="firstname-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="user.firstName"
-               [ngModelOptions]="{ standalone: true }">
+  <div
+    *ngIf="isDisplayActive"
+    id="user-readOnly"
+    [ngClass]="{ active: isDisplayActive }"
+  >
+    <h5>Name</h5>
+    <p>{{ user.firstName }} {{ user.lastName }}</p>
 
-        <label for="lastname-input">Last Name</label>
-        <input id="lastname-input"
-               name="lastname-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="user.lastName"
-               [ngModelOptions]="{ standalone: true }">
+    <h5>E-mail</h5>
+    <p>{{ user.email }}</p>
 
-        <div class="d-flex justify-content-center">
-            <button type="submit"
-                    class="btn btn-outline-primary btn-block mb-4 "
-                    style="width: 32%;">
-                Update
-            </button>
-        </div>
+    <div class="d-flex justify-content-center">
+      <button
+        type="button"
+        id="hideUserBtn"
+        class="btn btn-outline-primary btn-block mb-4"
+        style="width: 32%"
+        (click)="toggleUserDisplay()"
+      >
+        Update
+      </button>
+    </div>
+  </div>
 
-    </form>
+  <!-- Update User form -->
+  <form *ngIf="isFormActive" (ngSubmit)="updateUser()">
+    <label for="firstname-input">First Name</label>
+    <input
+      id="firstname-input"
+      name="firstname-input"
+      type="text"
+      class="form-control"
+      [(ngModel)]="user.firstName"
+      [ngModelOptions]="{ standalone: true }"
+    />
+
+    <label for="lastname-input">Last Name</label>
+    <input
+      id="lastname-input"
+      name="lastname-input"
+      type="text"
+      class="form-control"
+      [(ngModel)]="user.lastName"
+      [ngModelOptions]="{ standalone: true }"
+    />
+
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-outline-primary btn-block mb-4"
+        style="width: 32%"
+      >
+        Save
+      </button>
+      <button
+        type="click"
+        class="btn btn-outline-primary btn-block mb-4"
+        style="width: 32%"
+        (click)="toggleUserDisplay()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
 </div>

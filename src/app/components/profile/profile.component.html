@@ -1,33 +1,48 @@
+<app-navbar></app-navbar>
 <ng-container *ngIf="profile">
-    <h3>Welcome, {{profile.user.firstName}}!</h3>
-    <p>
-        {{profile.address.address1}}
-        {{profile.address.address2}}
-        {{profile.address.city}}
-        {{profile.address.state}}
-    </p>
+  <h3>Welcome, {{ profile.user.firstName }}!</h3>
+  <p>
+    {{ profile.address.address1 }}
+    {{ profile.address.address2 }}
+    {{ profile.address.city }}
+    {{ profile.address.state }}
+  </p>
 </ng-container>
 
 <ng-container>
-    <button mat-button (click)="display()">Display</button>
-    <button mat-button routerLink="/home">Back </button>
-    <button mat-button (click)="updateProfile()">Update</button>
-    <button mat-button (click)="changePassword()">Change Password</button>
-    <button mat-button (click)="changeEmail()">Change E-mail</button>
+  <button mat-button (click)="display()">Display</button>
+  <button mat-button routerLink="/home">Back</button>
+  <button mat-button (click)="updateProfile()">Update</button>
+  <button mat-button (click)="changePassword()">Change Password</button>
+  <button mat-button (click)="changeEmail()">Change E-mail</button>
 </ng-container>
 
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="temp-border">
+        <ng-container *ngIf="profile">
+          <app-user
+            [user]="profile.user"
+            (newUserEvent)="updateUser($event)"
+          ></app-user>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-6">
+      <ng-container *ngIf="profile">
+        <app-address
+          [address]="profile.address"
+          (newAddressEvent)="updateAddress($event)"
+        ></app-address>
+      </ng-container>
 
-<ng-container *ngIf="profile">
-    <app-user [user]="profile.user"
-    (newUserEvent)="updateUser($event)"></app-user>
-</ng-container>
-
-<ng-container *ngIf="profile">
-    <app-address [address]="profile.address"
-    (newAddressEvent)="updateAddress($event)"></app-address>
-</ng-container>
-
-<ng-container *ngIf="profile">
-    <app-payment [payment]="profile.payment"
-    (newPaymentEvent)="updatePayment($event)"></app-payment>
-</ng-container>
+      <ng-container *ngIf="profile">
+        <app-payment
+          [payment]="profile.payment"
+          (newPaymentEvent)="updatePayment($event)"
+        ></app-payment>
+      </ng-container>
+    </div>
+  </div>
+</div>
