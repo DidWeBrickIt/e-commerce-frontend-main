@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Order } from 'src/app/models/order/order';
 
 @Component({
@@ -55,11 +54,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   makeOrder(){
-    this.products.forEach(
     this.validateAllFormFields(this.checkoutForm);
     if(!this.checkoutForm.valid){ return; }
-
-     this.products.forEach(
+    this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
