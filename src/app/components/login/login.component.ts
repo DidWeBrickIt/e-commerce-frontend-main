@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { Router } from '@angular/router';
-import { Jwt } from 'src/app/models/jwt/jwt';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Jwt } from 'src/app/models/jwt';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +15,9 @@ export class LoginComponent implements OnInit {
     email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required]]
   })
+  
 
-  hasError:boolean = false;
-  errorMessage:string = "Your profile could not be verified. Please check your information and try again.";
   constructor(private authService: AuthService, private router: Router, private formBuilder:FormBuilder) { }
-
 
   ngOnInit(): void {
   }
@@ -34,20 +30,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe(
       (response : Jwt) => {
-        localStorage.setItem('username', JSON.stringify(this.loginForm.get('email')?.value));
         this.authService.setJWT(response);
         this.router.navigate(['home'])
       },
-      (err) => {
-        console.log(err)
-        this.hasError = true;
-        if(err.status === 400 || err.status === 403){
-          this.errorMessage = "Your profile could not be verified. Please check your information and try again.";
-        }
-        if(err.status !== 400 && err.status !== 403){
-          this.errorMessage = "Server error, please try again later";
-        }
-      },
+      (err) => console.log(err),
     );
   }
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/product/product';
-import { ProductService } from 'src/app/services/product/product.service';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -89,7 +89,7 @@ export class CartComponent implements OnInit {
           this.productService.setCart(cart);
           inCart=true;
           return;
-        }
+        };
       }
     );  
   }
