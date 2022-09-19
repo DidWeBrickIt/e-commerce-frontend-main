@@ -20,6 +20,7 @@ export class DisplayProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
       (resp) => {
+       resp.sort((p1:Product, p2:Product) => p1.name.localeCompare(p2.name));
         this.allProducts = resp;
         this.searchProducts = resp;
       },

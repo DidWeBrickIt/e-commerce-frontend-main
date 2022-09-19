@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       (response : Jwt) => {
         localStorage.setItem('username', JSON.stringify(this.loginForm.get('email')?.value));
         this.authService.setJWT(response);
-        this.router.navigate(['home'])
+        this.router.navigate(['home']);
       },
       (err) => {
         console.log(err)

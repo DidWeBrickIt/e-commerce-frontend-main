@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Notification } from 'src/app/models/notification';
 import { NotificationService } from 'src/app/services/notification.service';
+import { Order } from 'src/app/models/order/order';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +21,8 @@ export class CheckoutComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
   finalProducts: {id: number, quantity: number}[] = []; 
+  orders: Order[] = [];
+  userId!: number;
 
 
   checkoutForm: FormGroup = this.formBuilder.group({
@@ -48,18 +51,34 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.makeOrder();
+    this.purchase();
+  }
+
+  makeOrder(){
     this.validateAllFormFields(this.checkoutForm);
     if(!this.checkoutForm.valid){ return; }
-
-
-     this.products.forEach(
+    this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
         this.finalProducts.push({id, quantity});
       } 
     );
+    
+    if(this.finalProducts.length > 0){
+      this.productService.getUserId().subscribe((response) => {
+        this.userId = response;
+        this.finalProducts.forEach((product) => {
+          let order: Order = new Order(0,this.userId,product.id,product.quantity,new Date().getTime()/1000);
+          this.orders.push(order);
+        });
+        this.productService.makeOrder(this.orders).subscribe();
+      });
+    }
+  }
 
+  purchase(){
     if(this.finalProducts.length > 0) {
       this.productService.purchase(this.finalProducts).subscribe(
         (resp) => console.log(resp),
@@ -103,5 +122,4 @@ export class CheckoutComponent implements OnInit {
     let notification: Notification = new Notification(message, currentTime);
     this.notificationService.addNotification(notification);
   }
-
 }
