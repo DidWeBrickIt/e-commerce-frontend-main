@@ -1,29 +1,38 @@
-  h4
-  {
+  h3 {
     display: inline-block;
-    margin-right:  20px;
-    /* margin-bottom: 50px; */
+    margin-right: 20px;
   }
-  h2
-  {
+
+  h4 {
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  h2 {
     margin-top: 100px;
     text-align: center;
   }
-  button
-  {
+
+  button {
     margin-top: 50px;
+    margin-bottom: 20px;
     display: inline-block;
   }
+
   .review-viewport {
     height: 200px;
     width: 1000px;
     border: 1px solid rgb(255, 255, 255);
   }
-  
+
   .review-item-detail {
     height: 18px;
   }
-  
+
   .review-alternate {
     background: rgba(127, 127, 127, 0.3);
+  }
+
+  image {
+    display: inline-block;
   }
