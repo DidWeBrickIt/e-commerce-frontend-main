@@ -32,10 +32,10 @@ export class CreateReviewComponent implements OnInit {
         console.log(response);
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
           this.router.navigate(['home']));
-      },
-      (error) => {
-        console.log(`Received error status: ${error.status}`);
       }
+      // (error) => {
+      //   console.log(`Received error status: ${error.status}`);
+      // }
     );
   }
 }

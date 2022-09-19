@@ -9,7 +9,7 @@ export class RatingComponent implements OnInit {
 
   rating: number = 0;
   max: number = 5;
-  @Output() private ratingUpdated = new EventEmitter();
+  @Output() ratingUpdated = new EventEmitter();
 
   ratingArray: number[] = [1, 2, 3, 4, 5];
   constructor() {
