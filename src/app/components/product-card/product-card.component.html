@@ -32,24 +32,9 @@
       <option *ngFor='let num of quantities' (click)="stopProp($event)">{{num}}</option>
     </select>
     <button class="btn btn-outline-success" [disabled] = "this.quantities.length === 0" (click)="addToCart(productInfo, $event)">Add to Cart</button>
-    <button class="btn btn-outline-success" (click)="toggleReviews(); getReviewsForProduct();">See Reviews</button>
+   
+    <app-display-product-reviews [productInfo]="productInfo"></app-display-product-reviews>
   </div>
 </div>
-<!-- reviews -->
-<div id="infoBackground" *ngIf="showReviews">
-  <div id="infoContent" (click)="stopProp($event)">
-    <h5 class="word">{{productInfo.name}}</h5>
-    <p>-------------------------------------------</p>
-    <section *ngFor="let review of reviews">
-      <div class="infoContent">
-        <p>{{review.username}} {{review.timestamp | epochToDate}}  {{review.rating| starRating}}</p>
-        <p>{{review.description}}</p>
-        <p>-------------------------------------------</p>
-        
-      </div>
-    </section> 
-  
-    <button class="btn btn-outline-success" [disabled] = "this.quantities.length === 0" (click)="toggleReviews()">Go back</button>
 
-  </div>
-</div>
+

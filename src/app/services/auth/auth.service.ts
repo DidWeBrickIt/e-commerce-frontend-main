@@ -44,6 +44,7 @@ export class AuthService {
   logout(): void {
     environment.headers.auth = ' ';
     localStorage.removeItem('jwt');
+    localStorage.removeItem('username');
   }
 
   register(firstName: string, lastName: string, email: string, password: string): Observable<any> {

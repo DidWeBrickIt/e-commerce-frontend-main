@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ReadableReview } from '../models/readable-review';
+import { ReadableReview } from '../../models/readable-review/readable-review';
 import { environment } from 'src/environments/environment';
-import { Review } from '../models/review';
+import { Review } from '../../models/review/review';
 
 @Injectable({
   providedIn: 'root'
