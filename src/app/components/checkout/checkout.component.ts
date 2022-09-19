@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Notification } from 'src/app/models/notification';
-import { NotificationService } from 'src/app/notification.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-checkout',

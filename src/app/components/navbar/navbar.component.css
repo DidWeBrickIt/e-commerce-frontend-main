@@ -12,4 +12,6 @@ button{
     background-color:  var(--bkg-color);
     inline-size: 200px;
     overflow-wrap: break-word;
+    overflow-y: auto;
+    height: 250px;
   }
