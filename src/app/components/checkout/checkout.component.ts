@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
-
-
+import { Order } from 'src/app/models/order/order';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +19,8 @@ export class CheckoutComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
   finalProducts: {id: number, quantity: number}[] = []; 
+  orders: Order[] = [];
+  userId!: number;
 
 
   checkoutForm: FormGroup = this.formBuilder.group({
@@ -48,18 +49,34 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.makeOrder();
+    this.purchase();
+  }
+
+  makeOrder(){
     this.validateAllFormFields(this.checkoutForm);
     if(!this.checkoutForm.valid){ return; }
-
-
-     this.products.forEach(
+    this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
         this.finalProducts.push({id, quantity});
       } 
     );
+    
+    if(this.finalProducts.length > 0){
+      this.productService.getUserId().subscribe((response) => {
+        this.userId = response;
+        this.finalProducts.forEach((product) => {
+          let order: Order = new Order(0,this.userId,product.id,product.quantity,new Date().getTime()/1000);
+          this.orders.push(order);
+        });
+        this.productService.makeOrder(this.orders).subscribe();
+      });
+    }
+  }
 
+  purchase(){
     if(this.finalProducts.length > 0) {
       this.productService.purchase(this.finalProducts).subscribe(
         (resp) => console.log(resp),
@@ -80,20 +97,19 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-    //just makes accessing form easier
-    get f() { return this.checkoutForm.controls; }
+  //just makes accessing form easier
+  get f() { return this.checkoutForm.controls; }
 
-    //marks all fields as touched 
-    validateAllFormFields(formGroup: FormGroup) {
-      Object.keys(formGroup.controls).forEach(field => {
-        console.log(field);
-        const control = formGroup.get(field);
-        if (control instanceof FormControl) {
-          control.markAsTouched({ onlySelf: true });
-        } else if (control instanceof FormGroup) {
-          this.validateAllFormFields(control);
-        }
-      });
-    }
-
+  //marks all fields as touched 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
 }
