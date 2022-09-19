@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../models/product/product';
 import { environment } from 'src/environments/environment';
-import { Order } from '../models/order';
-import { Jwt } from '../models/jwt';
+import { Order } from '../../models/order/order';
+import { Jwt } from '../../models/jwt/jwt';
 
 interface Cart {
   cartCount: number;

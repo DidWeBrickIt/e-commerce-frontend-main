@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Order } from 'src/app/models/order';
+import { Order } from 'src/app/models/order/order';
 
 @Component({
   selector: 'app-checkout',
