@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePicComponent implements OnInit {
   profilePic: string = "";
+  isDisplayActive: boolean = true;
+  isFormActive: boolean = false;
 
   constructor() { }
 
@@ -22,5 +24,10 @@ export class ProfilePicComponent implements OnInit {
     console.log("If you see me, getting the profile pic has not been implimented");
     return "";
   }
+  togglePicDisplay(): void {
+    this.isDisplayActive = !this.isDisplayActive;
+    this.isFormActive = !this.isFormActive;
+  }
+  
 
 }
