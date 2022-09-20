@@ -134,7 +134,7 @@
 
                 <button class="btn btn-danger" [routerLink]="['/cart']">Back to Cart</button>
 
-                <button class="btn btn-success px-3" (click)="onSubmit();">Pay ${{totalPrice}}</button>
+                <button class="btn btn-success px-3" (click)="onSubmit();">Pay {{totalPrice | currency}}</button>
 
             </div>
         </form>
@@ -147,7 +147,7 @@
 
             <span>You have to pay</span>
                 <div class="d-flex flex-row align-items-end mb-3">
-                    <h1 class="mb-0 yellow">${{totalPrice}}</h1>
+                    <h1 class="mb-0 yellow">{{totalPrice | currency}}</h1>
                 </div>
 
                 <div class="hightlight">

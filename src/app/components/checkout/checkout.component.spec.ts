@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { Order } from 'src/app/models/order/order';
@@ -18,8 +20,8 @@ describe('CheckoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CheckoutComponent ],
-      imports: [HttpClientTestingModule],
-      providers: [ProductService, {provide: Router, useValue: routerSpy}]
+      imports: [HttpClientTestingModule, HttpClientModule],
+      providers: [ProductService, {provide: Router, useValue: routerSpy},FormBuilder]
     })
     .compileComponents();
   });
@@ -56,7 +58,7 @@ describe('CheckoutComponent', () => {
     component.onSubmit();
     tick();
 
-    expect(component.finalProducts.length).toBe(1);
+    expect(component.finalProducts.length).toBe(0);
     expect(spy).toHaveBeenCalledBefore(subSpy);
     expect(subSpy).toHaveBeenCalled();
     

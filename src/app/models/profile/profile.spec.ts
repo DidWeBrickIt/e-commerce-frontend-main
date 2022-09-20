@@ -1,7 +1,7 @@
-import { Profile } from './profile';
 import {User} from "../user/user";
 import {Address} from "../address/address";
 import {Payment} from "../payment/payment";
+import { Profile } from "../profile/profile";
 
 describe('Profile', () => {
   it('should create an instance', () => {
