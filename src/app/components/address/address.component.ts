@@ -1,12 +1,14 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Address} from "../../models/address/address";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Address } from '../../models/address/address';
 
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  styleUrls: ['./address.component.css'],
 })
 export class AddressComponent implements OnInit {
+  isDisplayActive: boolean = true;
+  isFormActive: boolean = false;
 
   @Input() address = {
     address1: '',
@@ -14,8 +16,8 @@ export class AddressComponent implements OnInit {
     city: '',
     state: '',
     zip: '',
-    country: ''
-  }
+    country: '',
+  };
 
   updated: Address = {
     address1: '',
@@ -23,19 +25,25 @@ export class AddressComponent implements OnInit {
     city: '',
     state: '',
     zip: '',
-    country: ''
-  }
+    country: '',
+  };
 
   @Output() newAddressEvent = new EventEmitter<Address>();
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.updated = this.address
+    this.updated = this.address;
   }
 
-  updateAddress(): void{
-    this.updated = this.address
+  updateAddress(): void {
+    this.updated = this.address;
     this.newAddressEvent.emit(this.updated);
+    this.isDisplayActive = !this.isDisplayActive;
+    this.isFormActive = !this.isFormActive;
   }
 
+  toggleAddressDisplay(): void {
+    this.isDisplayActive = !this.isDisplayActive;
+    this.isFormActive = !this.isFormActive;
+  }
 }

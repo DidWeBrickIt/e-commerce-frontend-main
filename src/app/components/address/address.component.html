@@ -8,8 +8,47 @@
         <p>View or edit your address.</p>
       </mat-panel-description>
     </mat-expansion-panel-header>
+
+    <div
+      *ngIf="isDisplayActive"
+      id="address-readOnly"
+      [ngClass]="{ active: isDisplayActive }"
+    >
+      <label for="address1">Street Address</label>
+      <p>{{ address.address1 }}</p>
+
+      <label for="address2">Unit</label>
+      <p>{{ address.address2 }}</p>
+
+      <label for="city">City</label>
+      <p>{{ address.city }}</p>
+
+      <label for="state">State</label>
+      <p>{{ address.state }}</p>
+
+      <label for="zip">Zip</label>
+      <p>{{ address.zip }}</p>
+
+      <label for="country">Country</label>
+      <p>{{ address.country }}</p>
+
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          id="hideAddressBtn"
+          class="btn btn-outline-primary btn-block mb-4"
+          style="width: 32%"
+          (click)="toggleAddressDisplay()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+
+    <!-- Update Address form -->
+
     <div class="mb-4 mt-4">
-      <form (ngSubmit)="updateAddress()">
+      <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
         <label for="address-input">Street Address</label>
         <input
           id="address-input"
@@ -77,6 +116,14 @@
             style="width: 32%"
           >
             Update
+          </button>
+          <button
+            type="click"
+            class="btn btn-outline-primary btn-block mb-4"
+            style="width: 32%"
+            (click)="toggleAddressDisplay()"
+          >
+            Cancel
           </button>
         </div>
       </form>
