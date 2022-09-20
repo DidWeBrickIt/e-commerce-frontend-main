@@ -6,6 +6,11 @@ import { ProductService } from 'src/app/services/product/product.service';
 import { Notification } from 'src/app/models/notification';
 import { NotificationService } from 'src/app/services/notification.service';
 import { Order } from 'src/app/models/order/order';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+import { Profile } from 'src/app/models/profile/profile';
+import { User } from 'src/app/models/user/user';
+import { Address } from 'src/app/models/address/address';
+import { Payment } from 'src/app/models/payment/payment';
 
 @Component({
   selector: 'app-checkout',
@@ -36,7 +41,12 @@ export class CheckoutComponent implements OnInit {
     zipCode: ["", [Validators.required, Validators.pattern(/^([0-9]{5})$/)]]
   });
 
-  constructor(private productService: ProductService, private router: Router, private formBuilder:FormBuilder, private notificationService: NotificationService) { }
+  constructor(
+    private productService: ProductService,
+     private router: Router,
+      private formBuilder:FormBuilder,
+       private notificationService: NotificationService,
+       private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -48,6 +58,22 @@ export class CheckoutComponent implements OnInit {
         this.totalPrice = cart.totalPrice;
       }
     );
+
+    this.profileService.getProfileInfo().subscribe(
+      (profile) => {
+        this.checkoutForm.get("cardName")?.setValue(profile.user.firstName + " " + profile.user.lastName);
+        this.checkoutForm.get("cardNum")?.setValue(profile.payment.credit_card_number);
+        this.checkoutForm.get("exp")?.setValue(profile.payment.expiration);
+        this.checkoutForm.get("addOne")?.setValue(profile.address.address1 + " " + profile.address.address2);
+        this.checkoutForm.get("city")?.setValue(profile.address.city);
+        this.checkoutForm.get("state")?.setValue(profile.address.state);
+        this.checkoutForm.get("zipCode")?.setValue(profile.address.zip);
+      },
+      (err) => console.log(err),
+      () => console.log("Profile Retrieved")
+    );
+
+
   }
 
   onSubmit(): void {
