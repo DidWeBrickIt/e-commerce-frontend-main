@@ -51,13 +51,15 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.validateAllFormFields(this.checkoutForm); // leave this here nothing should happen if this fails
+    if(!this.checkoutForm.valid){ return; }        // this too. No touchy touchy!
     this.makeOrder();
     this.purchase();
   }
 
   makeOrder(){
-    this.validateAllFormFields(this.checkoutForm);
-    if(!this.checkoutForm.valid){ return; }
+    
+    
     this.products.forEach(
       (element) => {
         const id = element.product.id;
