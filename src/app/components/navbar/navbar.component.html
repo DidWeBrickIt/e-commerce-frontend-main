@@ -1,34 +1,33 @@
 <nav class="navbar">
-    <h4 class="word">
-        <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature">
-        Revature Swag Shop
-    </h4>
-    <form class="form-inline">
-      <span class="word">Light</span>
-      <label class="switch">
-        <input type="checkbox" (click)="toggleDarkTheme()" >
-        <span class="slider round"></span>
-      </label>
-      <span class="word">Dark</span>
+  <h4 [routerLink]="['/home']" class="word">
+      <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature">
+      Revature Swag Shop
+  </h4>
+  <form class="form-inline">
+    <span class="word">Light</span>
+    <label class="switch">
+      <input type="checkbox" (click)="toggleDarkTheme()" >
+      <span class="slider round"></span>
+    </label>
+    <span class="word">Dark</span>
 
-      <div *ngIf="notificationList.length !== 0">
-        <mat-icon type="button" matBadge="{{listSize}}" *ngIf="notificationList.length !== 0" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()" [ngStyle]="{'color':'red'}">notifications</mat-icon>
-        <div *ngIf="isHidden" id="infoBackground">
-          <ul *ngFor="let notification of notificationList">
-            <li>{{notification.date | date :'short'}}<br>{{notification.message}}</li>
-          </ul>
-          <p *ngIf="notificationList.length === 0">No new notifications</p>
-          <button (click)="clearButton()">Clear</button>
-        </div>
-      </div>
-      <button class= "btn btn-light" [routerLink] = "['/orders']">Past Orders</button>
-        <button class="btn btn-light" [routerLink]="['/cart']">
-            Cart
-            <span class="badge badge-info">{{cartCount}}</span>
-        </button>
-        <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
-        <button routerLink="/profile">Profile</button>
-      
+    <mat-icon type="button" matBadge="{{listSize}}" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()" [ngStyle]="{'color':'red'}">notifications</mat-icon>
+   
+    <button class= "btn btn-light" [routerLink] = "['/orders']">Past Orders</button>
+      <button class="btn btn-light" [routerLink]="['/cart']">
+          Cart
+          <span class="badge badge-info">{{cartCount}}</span>
+      </button>
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+      <button routerLink="/profile">Profile</button>
+    
 
-    </form>
+  </form>
 </nav>
+<div *ngIf="isHidden" id="infoBackground">
+  <ul *ngFor="let notification of notificationList">
+    <li>{{notification.date | date :'short'}}<br>{{notification.message}}</li>
+  </ul>
+  <p *ngIf="notificationList.length === 0">No new notifications</p>
+  <button (click)="clearButton()">Clear</button>
+</div>
