@@ -65,6 +65,7 @@ export class ProductCardComponent implements OnInit{
           };
           this.productService.setCart(cart);
           this.productService.setCartToLocalStorage();
+          this.updateQuantity();
           inCart=true;
           return;
         };

@@ -40,13 +40,13 @@ export class CartComponent implements OnInit {
     );
   }
 
-  counter(i: number){
+  counter(i: number) {
     return new Array(i);
   }
 
-  updateQuantity(newValue: number, product: Product){
+  updateQuantity(newValue: number, product: Product) {
     this.productsCopy.forEach((element) => {
-      if(element.product.id == product.id){
+      if (element.product.id == product.id) {
         let temp: number = element.quantity;
         element.quantity = newValue;
         let cart = {
@@ -66,14 +66,14 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(product: Product): void {
-    
+
     let inCart = true;
-    
+
     this.products.forEach(
       (element) => {
-        if(element.product == product){
+        if (element.product == product) {
           let x: number = element.quantity;
-          element.quantity -= element.quantity; 
+          element.quantity -= element.quantity;
           let cart = {
             cartCount: this.cartCount - x,
             products: this.products,
@@ -84,11 +84,11 @@ export class CartComponent implements OnInit {
           }
           this.productService.setCart(cart);
           this.productService.setCartToLocalStorage();
-          inCart=true;
+          inCart = true;
           return;
         }
       }
-    );  
+    );
   }
 
 }
