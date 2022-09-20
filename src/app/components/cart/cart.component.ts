@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -21,13 +22,14 @@ export class CartComponent implements OnInit {
   }[] = [];
   totalPrice!: number;
   cartProducts: Product[] = [];
+  subscription!: Subscription;
 
   @Input() productInfo!: Product;
 
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
-    this.productService.getCart().subscribe(
+    this.subscription = this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
         this.products = cart.products;
@@ -94,4 +96,7 @@ export class CartComponent implements OnInit {
     );  
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }

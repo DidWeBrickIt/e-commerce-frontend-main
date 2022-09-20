@@ -37,7 +37,7 @@ export class OrdersComponent implements OnInit {
             const productAmount = order.quantity;
             const cost = product.price * order.quantity;
             this.orders.push({orderId, productName, productAmount, cost, time});
-            this.orders.sort((a,b) => a.orderId - b.orderId);
+            this.orders.sort((a,b) => b.orderId - a.orderId);
           });
         });
       });

@@ -12,7 +12,7 @@
         <p *ngIf = "isLoading">Loading...</p>
         <tr *ngFor = "let order of consolidatedOrders">
             <th>{{order.orderNumber}}</th>
-            <th>{{order.totalCost}}</th>
+            <th>{{order.totalCost | currency}}</th>
             <th>{{order.matchingTime}}</th>
             <th><button (click) = "toggleDetails(order.orderNumber)">Details</button></th>
         </tr>
@@ -31,7 +31,7 @@
             <tr *ngFor = "let order of consolidatedOrders[orderDetails-1].partsOfSameOrder">
                 <td>{{order.productName}}</td>
                 <td>{{order.productAmount}}</td>
-                <td>{{order.cost}}</td>
+                <td>{{order.cost | currency}}</td>
             </tr>
         </table>
     </div>
