@@ -55,18 +55,14 @@ export class CartComponent implements OnInit {
           totalPrice: this.totalPrice - (temp * product.price) + (element.quantity * product.price)
         };
         this.productService.setCart(cart);
+        this.productService.setCartToLocalStorage();
       }
     });
   }
 
   emptyCart(): void {
-    let cart = {
-      cartCount: 0,
-      products: [],
-      totalPrice: 0.00
-    };
-    this.productService.setCart(cart);
-    this.router.navigate(['/home']);
+    this.productService.emptyCart();
+    this.productService.setCartToLocalStorage();
   }
 
   removeFromCart(product: Product): void {
@@ -87,6 +83,7 @@ export class CartComponent implements OnInit {
             cart.products = cart.products.filter(p => !(p.product == product));
           }
           this.productService.setCart(cart);
+          this.productService.setCartToLocalStorage();
           inCart=true;
           return;
         }

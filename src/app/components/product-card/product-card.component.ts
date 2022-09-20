@@ -64,7 +64,7 @@ export class ProductCardComponent implements OnInit{
             totalPrice: this.totalPrice + (product.price * this.amount)
           };
           this.productService.setCart(cart);
-          this.updateQuantity();
+          this.productService.setCartToLocalStorage();
           inCart=true;
           return;
         };
@@ -83,6 +83,7 @@ export class ProductCardComponent implements OnInit{
         totalPrice: this.totalPrice + (product.price * this.amount)
       }
       this.productService.setCart(cart);
+      this.productService.setCartToLocalStorage();
       this.updateQuantity();
     }
   }

@@ -37,5 +37,4 @@ export class DisplayProductsComponent implements OnInit {
     this.searchProducts = this.allProducts.filter(p => p.name.toLowerCase().includes(this.searchInput.toLowerCase()));
     this.searchInput = "";
   }
-
 }

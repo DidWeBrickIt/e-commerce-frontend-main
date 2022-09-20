@@ -90,6 +90,7 @@ export class CheckoutComponent implements OnInit {
             totalPrice: 0.00
           };
           this.productService.setCart(cart);
+          this.productService.setCartToLocalStorage();
           this.createNotification();
           this.router.navigate(['/home']);
         } 
