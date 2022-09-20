@@ -82,16 +82,9 @@ export class ProfileComponent implements OnInit{
     this.profileService.updateProfile(payload).subscribe();
   }
 
-  changePassword(): void{
-    const dialogRef = this.dialog.open(
-        ChangePasswordComponent,
-        {width: '50%', data: this.passwordCred }
-    );
-
-    dialogRef.afterClosed().subscribe(
-        (result) => this.passwordCred = result,
-        (err) => console.log(err),
-        () => console.log(this.passwordCred));
+  changePassword(password:Password): void{
+    this.passwordCred= password;
+  
   }
 
   changeEmail(): void{
