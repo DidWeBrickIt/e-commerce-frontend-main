@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit{
       (cart) => this.cartCount = cart.cartCount
     );
     this.getThemePref();
+    this.productService.getCartFromLocalStorage();
   }
 
   ngOnDestroy() {
@@ -35,6 +36,8 @@ export class NavbarComponent implements OnInit{
   }
 
   logout() {
+    this.productService.emptyCart();
+    this.productService.setCartToLocalStorage();
     this.authService.logout();
     this.router.navigate(['login']);
   }
