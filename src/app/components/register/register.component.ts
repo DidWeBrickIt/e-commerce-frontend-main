@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup = this.formBuilder.group({
-    fname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
-    lname: [null, [Validators.required, Validators.pattern("[a-zA-Z]")]],
+    fname: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
+    lname: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
     email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required]]
     //add this validator or something like it to password later
