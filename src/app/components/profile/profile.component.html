@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<ng-container *ngIf="profile">
+<ng-container *ngIf="profile != null">
   <h3>Welcome, {{ profile.user.firstName }}!</h3>
   <p>
     {{ profile.address.address1 }}

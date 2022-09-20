@@ -44,7 +44,15 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
-        (profile) => this.profile = profile,
+        (profile) => {
+          if(profile.address != null){
+            this.profile.address = profile.address;
+          }
+          if(profile.payment != null){
+            this.profile.payment = profile.payment;
+          }
+          this.profile.user = profile.user;
+        },
         (err) => console.log(err),
         () => console.log("Profile Retrieved"));
 
@@ -59,8 +67,8 @@ export class ProfileComponent implements OnInit{
   }
 
   updateAddress(address: Address): void{
-    this.profile.address = address;
     console.log(this.profile.address);
+    this.profile.address = address;
   }
 
   updateUser(user: User): void{
