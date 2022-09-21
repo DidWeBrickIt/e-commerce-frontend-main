@@ -1,3 +1,36 @@
 button{
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+#infoBackground {
+  position: fixed; 
+  z-index: 1;
+  right: 15%;
+  top: 8%;
+  border-style: solid;
+  background-color: var(--bkg-color);
+  background-color:  var(--bkg-color);
+  inline-size: 200px;
+  overflow-wrap: break-word;
+  overflow-y: auto; 
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.navbar{
+  overflow: hidden;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.container {
+  padding-bottom: 5%;
+  margin-left: 0%;
+  padding-left: 0;
+}
+
+ul {
+  list-style: none;
 }

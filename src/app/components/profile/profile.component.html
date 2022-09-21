@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<ng-container *ngIf="profile != null">
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<ng-container *ngIf="profile != null && !hasError">
   <h3>Welcome, {{ profile.user.firstName }}!</h3>
 
   <div class="container">

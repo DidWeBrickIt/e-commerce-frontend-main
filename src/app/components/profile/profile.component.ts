@@ -21,6 +21,9 @@ export class ProfileComponent implements OnInit{
   currentItem = '';
 
 
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to load your profile information, please try again later";
+
   profile: Profile={
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
@@ -48,10 +51,20 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
-        (profile) => this.profile = profile,
-        (err) => console.log(err),
-        () => console.log("Profile Retrieved")
-        );
+        (profile) => {
+          if(profile.address != null){
+            this.profile.address = profile.address;
+          }
+          if(profile.payment != null){
+            this.profile.payment = profile.payment;
+          }
+          this.profile.user = profile.user;
+        },
+        (err) => {
+          console.log(err)
+          this.hasError = true;
+        },
+        () => console.log("Profile Retrieved"));
   }
 
   display(): void{
@@ -80,7 +93,14 @@ export class ProfileComponent implements OnInit{
   updateProfile(): void {
     const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
     console.log(this.profile);
-    this.profileService.updateProfile(payload).subscribe();
+    this.profileService.updateProfile(payload).subscribe(
+      () => {},
+      (error) => {
+        console.log(error);
+        this.errorMessage = "Failed to update your profile informaiton, please try again later"
+        this.hasError = true;
+      }
+    );
   }
 
   changePassword(): void{

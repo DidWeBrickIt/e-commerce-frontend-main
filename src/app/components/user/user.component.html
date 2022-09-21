@@ -47,6 +47,17 @@
       [ngModelOptions]="{ standalone: true }"
     />
 
+    <label for="email-input">Email</label>
+    <input
+      id="email-input"
+      name="email-input"
+      type="text"
+      class="form-control"
+      [(ngModel)]="user.email"
+      [ngModelOptions]="{ standalone: true }"
+    />
+
+
     <div class="d-flex justify-content-center">
       <button
         type="submit"
