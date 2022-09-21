@@ -14,12 +14,14 @@ export class UserComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
+    imageurl: ''
   };
 
   updated: User = {
     firstName: '',
     lastName: '',
     email: '',
+    imageurl: ''
   };
 
   @Output() newUserEvent = new EventEmitter<User>();

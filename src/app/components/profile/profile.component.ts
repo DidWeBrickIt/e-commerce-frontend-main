@@ -18,14 +18,18 @@ import {Email} from "../../models/credential/email/email";
 })
 
 export class ProfileComponent implements OnInit{
+  currentItem = '';
+
 
   hasError:boolean = false;
   errorMessage:string = "Server error, unable to load your profile information, please try again later";
 
   profile: Profile={
-    user: new User('', '', ''),
+    user: new User('', '', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','','')
+    
+
 
   }
 
@@ -61,7 +65,6 @@ export class ProfileComponent implements OnInit{
           this.hasError = true;
         },
         () => console.log("Profile Retrieved"));
-
   }
 
   display(): void{
@@ -73,8 +76,13 @@ export class ProfileComponent implements OnInit{
   }
 
   updateAddress(address: Address): void{
-    console.log(this.profile.address);
     this.profile.address = address;
+    console.log(this.profile.address);
+  }
+
+  updatePic(picture: string): void{
+    this.profile.user.imageurl = picture;
+    console.log(this.profile.user.imageurl);
   }
 
   updateUser(user: User): void{
@@ -95,9 +103,16 @@ export class ProfileComponent implements OnInit{
     );
   }
 
-  changePassword(password:Password): void{
-    this.passwordCred= password;
-  
+  changePassword(): void{
+    const dialogRef = this.dialog.open(
+        ChangePasswordComponent,
+        {width: '50%', data: this.passwordCred }
+    );
+
+    dialogRef.afterClosed().subscribe(
+        (result) => this.passwordCred = result,
+        (err) => console.log(err),
+        () => console.log(this.passwordCred));
   }
 
   changeEmail(): void{

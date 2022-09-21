@@ -8,8 +8,11 @@
       <div class="col-4">
         <div class="temp-border">
           <ng-container *ngIf="profile">
-            <app-profile-pic></app-profile-pic>
-
+            <app-profile-pic 
+            [item]="profile.user.imageurl"
+            (newPicEvent)="updatePic($event)"
+            >
+          </app-profile-pic>
             <app-user
               [user]="profile.user"
               (newUserEvent)="updateUser($event)"
@@ -33,13 +36,13 @@
         </ng-container>
         <hr />
 
-        <!-- password -->
-        <ng-container *ngIf="profile">
+        <!-- password 
+        <ng-container *ngIf="profile"> 
         <app-change-password
           [passwordCred]="passwordCred"
           (newPasswordEvent)="changePassword($event)"
         ></app-change-password>
-        </ng-container>
+        </ng-container> -->
       </div>
     </div>
     <div class="d-flex justify-content-center">
