@@ -50,12 +50,8 @@ export class ProfileComponent implements OnInit{
     this.profileService.getProfileInfo().subscribe(
         (profile) => this.profile = profile,
         (err) => console.log(err),
-        () => console.log("Profile Retrieved"));
-        console.log(this.profile.user.imageurl);
-        this.currentItem = this.profile.user.imageurl;
-
-        
-
+        () => console.log("Profile Retrieved")
+        );
   }
 
   display(): void{
@@ -69,6 +65,11 @@ export class ProfileComponent implements OnInit{
   updateAddress(address: Address): void{
     this.profile.address = address;
     console.log(this.profile.address);
+  }
+
+  updatePic(picture: string): void{
+    this.profile.user.imageurl = picture;
+    console.log(this.profile.user.imageurl);
   }
 
   updateUser(user: User): void{

@@ -7,31 +7,24 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
   styleUrls: ['./profile-pic.component.css']
 })
 export class ProfilePicComponent implements OnInit {
-  @Input() item = ''; // decorate the property with @Input()
+  @Input() item = ""; // decorate the property with @Input()
   profilePic: string = "";
   isDisplayActive: boolean = true;
   isFormActive: boolean = false;
   panelOpenState = false;
 
+  @Output() newPicEvent = new EventEmitter<string>();
+
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.profilePic = this.item;
-    console.log(this.profilePic);
-  }
 
-  
+  }
 
   setProfilePic(choice: string) : void {
     console.log(choice);
-
-  }
-
-  getProfilePic() : string
-  {
-    //get profilepic from db
-    console.log("If you see me, getting the profile pic has not been implimented");
-    return "../../../assets/images/profile_pic/";
+    this.profilePic = "../../../assets/images/profile_pic/" + choice;
+    this.newPicEvent.emit(this.profilePic);
   }
 
   togglePicDisplay(): void {

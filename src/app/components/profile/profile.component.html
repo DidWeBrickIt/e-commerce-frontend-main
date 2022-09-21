@@ -2,13 +2,18 @@
 <ng-container *ngIf="profile != null">
   <h3>Welcome, {{ profile.user.firstName }}!</h3>
   
+  <img class="card-img-top" [src]="this.profile.user.imageurl" alt="Main Profile Pic" >
 
   <div class="container">
     <div class="row">
       <div class="col-4">
         <div class="temp-border">
           <ng-container *ngIf="profile">
-            <app-profile-pic [item]="currentItem"></app-profile-pic>
+            <app-profile-pic 
+            [item]="profile.user.imageurl"
+            (newPicEvent)="updatePic($event)"
+            >
+          </app-profile-pic>
             <app-user
               [user]="profile.user"
               (newUserEvent)="updateUser($event)"
