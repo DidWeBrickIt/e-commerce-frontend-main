@@ -125,6 +125,7 @@ export class CheckoutComponent implements OnInit {
           this.hasError = true;
         },
         () => {
+          const notifTotal = this.totalPrice;
           let cart = {
             cartCount: 0,
             products: [],
@@ -132,7 +133,7 @@ export class CheckoutComponent implements OnInit {
           };
           this.productService.setCart(cart);
           this.productService.setCartToLocalStorage();
-          this.createNotification();
+          this.createNotification(notifTotal);
           this.router.navigate(['/home']);
         } 
       );
@@ -158,9 +159,9 @@ export class CheckoutComponent implements OnInit {
       });
     }
 
-  createNotification():void {
+  createNotification(total:number):void {
     let currentTime: Date = new Date();
-    let message: string = "Your order has been processed";
+    let message: string = `Your order has been processed. Total: $${total}`;
     let notification: Notification = new Notification(message, currentTime);
     this.notificationService.addNotification(notification);
   }
