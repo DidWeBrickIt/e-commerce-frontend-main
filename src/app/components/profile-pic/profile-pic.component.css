@@ -1,0 +1,14 @@
+temp-border {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+  }
+  
+  img {
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 100px;
+  }
+  

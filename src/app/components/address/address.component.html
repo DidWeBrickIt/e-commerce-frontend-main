@@ -1,63 +1,132 @@
-<div class="mb-4 mt-4">
-    <form (ngSubmit)="updateAddress()">
-        <h3>Shipping/Billing</h3>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Shipping/Billing</h5>
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>View or edit your address.</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
+    <div
+      *ngIf="isDisplayActive"
+      id="address-readOnly"
+      [ngClass]="{ active: isDisplayActive }"
+    >
+      <label for="address1">Street Address</label>
+      <p>{{ address.address1 }}</p>
+
+      <label for="address2">Unit</label>
+      <p>{{ address.address2 }}</p>
+
+      <label for="city">City</label>
+      <p>{{ address.city }}</p>
+
+      <label for="state">State</label>
+      <p>{{ address.state }}</p>
+
+      <label for="zip">Zip</label>
+      <p>{{ address.zip }}</p>
+
+      <label for="country">Country</label>
+      <p>{{ address.country }}</p>
+
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          id="hideAddressBtn"
+          class="btn btn-outline-primary btn-block mb-4"
+          style="width: 32%"
+          (click)="toggleAddressDisplay()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+
+    <!-- Update Address form -->
+
+    <div class="mb-4 mt-4">
+      <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
         <label for="address-input">Street Address</label>
-        <input id="address-input"
-               name="address-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.address1"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="address-input"
+          name="address-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.address1"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="unit-input">Unit</label>
-        <input id="unit-input"
-               name="unit-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.address2"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="unit-input"
+          name="unit-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.address2"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="city-input">City</label>
-        <input id="city-input"
-               name="city-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.city"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="city-input"
+          name="city-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.city"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="state-input">State</label>
-        <input id="state-input"
-               name="state-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.state"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="state-input"
+          name="state-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.state"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="zip-input">Zip</label>
-        <input id="zip-input"
-               name="zip-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.zip"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="zip-input"
+          name="zip-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.zip"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="country-input">Country</label>
-        <input id="country-input"
-               name="country-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="address.country"
-               [ngModelOptions]="{ standalone: true }">
-
+        <input
+          id="country-input"
+          name="country-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="address.country"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <div class="d-flex justify-content-center">
-            <button type="submit" 
-                    class="btn btn-outline-primary btn-block mb-4 " 
-                    style="width: 32%;">
-                Update
-            </button>
+          <button
+            type="submit"
+            class="btn btn-outline-primary btn-block mb-4"
+            style="width: 32%"
+          >
+            Update
+          </button>
+          <button
+            type="click"
+            class="btn btn-outline-primary btn-block mb-4"
+            style="width: 32%"
+            (click)="toggleAddressDisplay()"
+          >
+            Cancel
+          </button>
         </div>
-
-    </form>
-</div>
+      </form>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

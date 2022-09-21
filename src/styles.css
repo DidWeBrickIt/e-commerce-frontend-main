@@ -1,87 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    --text-color: #222;
-    --bkg-color: #fff;
-    --btn-txt-color: white;
-    --btn-bg-color: rgb(11, 88, 160);
-    --bkg-nav-color: rgb(189, 185, 185);
-    --brder-color: black;
-    --bkg-slider-color: black;
-  }
-  body.dark-theme {
-    --text-color: #eee;
-    --bkg-color: #252222;
-    --btn-txt-color: rgb(46, 43, 43);
-    --btn-bg-color: rgb(20, 211, 195);
-    --bkg-nav-color: black;
-    --brder-color: white;
-    --bkg-slider-color: white;
-  }
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+  --bkg-nav-color: rgb(189, 185, 185);
+  --brder-color: black;
+  --bkg-slider-color: black;
+}
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #252222;
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+  --bkg-nav-color: black;
+  --brder-color: white;
+  --bkg-slider-color: white;
+}
 
-  
+body {
+  color: var(--text-color);
+  background: var(--bkg-color);
+}
+.navbar {
+  background: var(--bkg-nav-color);
+}
 
-  body {
-    background: var(--bkg-color);
-  }
-  .navbar{
-    background: var(--bkg-nav-color);
-  }
-  
-  h1, p, .word {
-    color: var(--text-color);
-  }
-  button {
-    padding: 10px;
-    border: none;
-    border-radius: 2px;
-    color: var(--btn-txt-color);
-    background-color: var(--btn-bg-color);
-  }
+h1,
+p,
+.word {
+  color: var(--text-color);
+}
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bg-color);
+}
 
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    top: 0;
-    margin: 0 5px;
-  }
-  .switch input { 
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:  rgba(0, 0, 0, 0.5);
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 50px;
-    left: 5px;
-    bottom: 4px;
-    background-color:var(--bkg-color);
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 0;
+  margin: 0 5px;
+}
+.switch input {
+  display: none;
+}
 
-  .slider {
-    background-color: var(--bkg-slider-color);
-  }
-  
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
 
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 50px;
+  left: 5px;
+  bottom: 4px;
+  background-color: var(--bkg-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
 
+.slider {
+  background-color: var(--bkg-slider-color);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
 
   .slider.round {
     border-radius: 34px;

@@ -1,39 +1,92 @@
-<div class="mb-4 mt-4">
-    <form (ngSubmit)="updatePayment()">
-        <h3>Payment</h3>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Payment Information</h5>
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>View or edit your payment information.</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
+    <div
+      *ngIf="isDisplayActive"
+      id="payment-readOnly"
+      [ngClass]="{ active: isDisplayActive }"
+    >
+      <label for="creditCardNumber">Credit Card Number</label>
+      <p>{{ payment.credit_card_number }}</p>
+
+      <label for="cvv">CVV</label>
+      <p>{{ payment.security_code }}</p>
+
+      <label for="expiration">Expiration</label>
+      <p>{{ payment.expiration }}</p>
+
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          id="hideUserBtn"
+          class="btn btn-outline-primary btn-block mb-4"
+          style="width: 32%"
+          (click)="togglePaymentDisplay()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+
+    <!-- Update Payment form -->
+    <div class="mb-4 mt-4">
+      <form *ngIf="isFormActive" (ngSubmit)="updatePayment()">
         <label for="ccn-input">Credit Card Number</label>
-        <input id="ccn-input"
-               name="ccn-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="payment.credit_card_number"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="ccn-input"
+          name="ccn-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="payment.credit_card_number"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="cvv-input">CVV</label>
-        <input id="cvv-input"
-               name="cvv-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="payment.security_code"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="cvv-input"
+          name="cvv-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="payment.security_code"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <label for="expiration-input">Expiration</label>
-        <input id="expiration-input"
-               name="expiration-input"
-               type="text"
-               class="form-control"
-               [(ngModel)]="payment.expiration"
-               [ngModelOptions]="{ standalone: true }">
+        <input
+          id="expiration-input"
+          name="expiration-input"
+          type="text"
+          class="form-control"
+          [(ngModel)]="payment.expiration"
+          [ngModelOptions]="{ standalone: true }"
+        />
 
         <div class="d-flex justify-content-center">
-            <button type="submit"
-                    class="btn btn-outline-primary btn-block mb-4 "
-                    style="width: 32%;">
-                Update
-            </button>
+          <button
+            type="submit"
+            class="btn btn-outline-primary btn-block mb-4"
+            style="width: 32%"
+          >
+            Update
+          </button>
+          <button
+            type="click"
+            class="btn btn-outline-primary btn-block mb-4"
+            style="width: 32%"
+            (click)="togglePaymentDisplay()"
+          >
+            Cancel
+          </button>
         </div>
-
-    </form>
-
-</div>
+      </form>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

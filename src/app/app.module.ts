@@ -29,6 +29,8 @@ import { DisplayProductReviewsComponent } from './components/display-product-rev
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -57,7 +59,9 @@ import {MatIconModule} from '@angular/material/icon';
     StarRatingPipe,
     DisplayProductReviewsComponent,
     CreateReviewComponent,
-    RatingComponent
+    RatingComponent,
+    ProfilePicComponent,
+
   ],
 
   imports: [
@@ -71,6 +75,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     ScrollingModule,
+    MatExpansionModule,
     MatBadgeModule,
     MatIconModule
   ],

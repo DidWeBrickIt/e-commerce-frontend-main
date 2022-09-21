@@ -20,7 +20,7 @@ import {Email} from "../../models/credential/email/email";
 export class ProfileComponent implements OnInit{
 
   profile: Profile={
-    user: new User('', ''),
+    user: new User('', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','','')
 
@@ -44,7 +44,15 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
-        (profile) => this.profile = profile,
+        (profile) => {
+          if(profile.address != null){
+            this.profile.address = profile.address;
+          }
+          if(profile.payment != null){
+            this.profile.payment = profile.payment;
+          }
+          this.profile.user = profile.user;
+        },
         (err) => console.log(err),
         () => console.log("Profile Retrieved"));
 
@@ -59,8 +67,8 @@ export class ProfileComponent implements OnInit{
   }
 
   updateAddress(address: Address): void{
-    this.profile.address = address;
     console.log(this.profile.address);
+    this.profile.address = address;
   }
 
   updateUser(user: User): void{
@@ -74,16 +82,9 @@ export class ProfileComponent implements OnInit{
     this.profileService.updateProfile(payload).subscribe();
   }
 
-  changePassword(): void{
-    const dialogRef = this.dialog.open(
-        ChangePasswordComponent,
-        {width: '50%', data: this.passwordCred }
-    );
-
-    dialogRef.afterClosed().subscribe(
-        (result) => this.passwordCred = result,
-        (err) => console.log(err),
-        () => console.log(this.passwordCred));
+  changePassword(password:Password): void{
+    this.passwordCred= password;
+  
   }
 
   changeEmail(): void{
