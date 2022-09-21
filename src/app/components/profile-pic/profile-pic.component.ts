@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
   selector: 'app-profile-pic',
@@ -6,15 +7,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./profile-pic.component.css']
 })
 export class ProfilePicComponent implements OnInit {
+  @Input() item = ''; // decorate the property with @Input()
   profilePic: string = "";
   isDisplayActive: boolean = true;
   isFormActive: boolean = false;
   panelOpenState = false;
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.profilePic = this.getProfilePic();
+    this.profilePic = this.item;
+    console.log(this.profilePic);
   }
 
   
@@ -28,7 +31,7 @@ export class ProfilePicComponent implements OnInit {
   {
     //get profilepic from db
     console.log("If you see me, getting the profile pic has not been implimented");
-    return "../../../assets/images/profile_pic/pepper_roni.png";
+    return "../../../assets/images/profile_pic/";
   }
 
   togglePicDisplay(): void {

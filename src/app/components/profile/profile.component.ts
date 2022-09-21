@@ -18,11 +18,15 @@ import {Email} from "../../models/credential/email/email";
 })
 
 export class ProfileComponent implements OnInit{
+  currentItem = '';
+
 
   profile: Profile={
-    user: new User('', '', ''),
+    user: new User('', '', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','','')
+    
+
 
   }
 
@@ -44,17 +48,13 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
-        (profile) => {
-          if(profile.address != null){
-            this.profile.address = profile.address;
-          }
-          if(profile.payment != null){
-            this.profile.payment = profile.payment;
-          }
-          this.profile.user = profile.user;
-        },
+        (profile) => this.profile = profile,
         (err) => console.log(err),
         () => console.log("Profile Retrieved"));
+        console.log(this.profile.user.imageurl);
+        this.currentItem = this.profile.user.imageurl;
+
+        
 
   }
 
@@ -67,8 +67,8 @@ export class ProfileComponent implements OnInit{
   }
 
   updateAddress(address: Address): void{
-    console.log(this.profile.address);
     this.profile.address = address;
+    console.log(this.profile.address);
   }
 
   updateUser(user: User): void{
@@ -82,9 +82,16 @@ export class ProfileComponent implements OnInit{
     this.profileService.updateProfile(payload).subscribe();
   }
 
-  changePassword(password:Password): void{
-    this.passwordCred= password;
-  
+  changePassword(): void{
+    const dialogRef = this.dialog.open(
+        ChangePasswordComponent,
+        {width: '50%', data: this.passwordCred }
+    );
+
+    dialogRef.afterClosed().subscribe(
+        (result) => this.passwordCred = result,
+        (err) => console.log(err),
+        () => console.log(this.passwordCred));
   }
 
   changeEmail(): void{
