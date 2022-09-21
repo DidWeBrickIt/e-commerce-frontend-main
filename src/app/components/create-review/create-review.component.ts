@@ -13,6 +13,8 @@ export class CreateReviewComponent implements OnInit {
 
   @Input() productInfo!: Product;
 
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to add your review, please try again later";
   description: string = "";
   rating: number = 0;
 
@@ -32,10 +34,10 @@ export class CreateReviewComponent implements OnInit {
         console.log(response);
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
           this.router.navigate(['home']));
+      },
+      (error) => {
+        this.hasError = true;
       }
-      // (error) => {
-      //   console.log(`Received error status: ${error.status}`);
-      // }
     );
   }
 }

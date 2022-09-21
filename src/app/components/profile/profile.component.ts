@@ -19,6 +19,9 @@ import {Email} from "../../models/credential/email/email";
 
 export class ProfileComponent implements OnInit{
 
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to load your profile information, please try again later";
+
   profile: Profile={
     user: new User('', '', ''),
     address: new Address('','','','','',''),
@@ -53,7 +56,10 @@ export class ProfileComponent implements OnInit{
           }
           this.profile.user = profile.user;
         },
-        (err) => console.log(err),
+        (err) => {
+          console.log(err)
+          this.hasError = true;
+        },
         () => console.log("Profile Retrieved"));
 
   }
@@ -79,7 +85,14 @@ export class ProfileComponent implements OnInit{
   updateProfile(): void {
     const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
     console.log(this.profile);
-    this.profileService.updateProfile(payload).subscribe();
+    this.profileService.updateProfile(payload).subscribe(
+      () => {},
+      (error) => {
+        console.log(error);
+        this.errorMessage = "Failed to update your profile informaiton, please try again later"
+        this.hasError = true;
+      }
+    );
   }
 
   changePassword(password:Password): void{

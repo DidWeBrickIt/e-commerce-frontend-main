@@ -19,6 +19,8 @@ import { Payment } from 'src/app/models/payment/payment';
 })
 export class CheckoutComponent implements OnInit {
 
+  hasError:boolean = false;
+  errorMessage:string = "Server error, please try again later";
   products: {
     product: Product,
     quantity: number
@@ -69,7 +71,10 @@ export class CheckoutComponent implements OnInit {
         this.checkoutForm.get("state")?.setValue(profile.address.state);
         this.checkoutForm.get("zipCode")?.setValue(profile.address.zip);
       },
-      (err) => console.log(err),
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+      },
       () => console.log("Profile Retrieved")
     );
 
@@ -102,7 +107,12 @@ export class CheckoutComponent implements OnInit {
           this.orders.push(order);
         });
         this.productService.makeOrder(this.orders).subscribe();
-      });
+      },
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+      }
+      );
     }
   }
 
@@ -110,7 +120,10 @@ export class CheckoutComponent implements OnInit {
     if(this.finalProducts.length > 0) {
       this.productService.purchase(this.finalProducts).subscribe(
         (resp) => console.log(resp),
-        (err) => console.log(err),
+        (err) => {
+          console.log(err)
+          this.hasError = true;
+        },
         () => {
           let cart = {
             cartCount: 0,

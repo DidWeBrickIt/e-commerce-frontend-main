@@ -9,6 +9,8 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class OrdersComponent implements OnInit {
 
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to retrieve your previous orders, please try again later";
   orderNum: number = 1;
   orders: {orderId: number, productName: string, productAmount: number, cost: number, time: string}[] = [];
   consolidatedOrders: {orderNumber: number, partsOfSameOrder: {productName: string, productAmount: number, cost: number, time: string}[], totalCost: number, matchingTime: string}[] = [];
@@ -41,6 +43,9 @@ export class OrdersComponent implements OnInit {
           });
         });
       });
+    },
+    (err) => {
+      this.hasError = true;
     });
   }
 
