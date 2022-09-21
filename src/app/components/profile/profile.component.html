@@ -33,12 +33,12 @@
         <hr />
 
         <!-- password -->
-        <!-- <ng-container *ngIf="profile"> -->
+        <ng-container *ngIf="profile">
         <app-change-password
           [passwordCred]="passwordCred"
           (newPasswordEvent)="changePassword($event)"
         ></app-change-password>
-        <!-- </ng-container> -->
+        </ng-container>
       </div>
     </div>
     <div class="d-flex justify-content-center">
