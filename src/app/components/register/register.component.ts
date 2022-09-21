@@ -36,7 +36,12 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log('form submitted');
-      this.authService.register(this.registerForm.get('fname')?.value, this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).subscribe(
+      this.authService.register(
+          this.registerForm.get('fname')?.value,
+          this.registerForm.get('lname')?.value,
+          this.registerForm.get('email')?.value,
+          this.registerForm.get('password')?.value)
+          .subscribe(
         () => {
         console.log("New user registered")
         this.hasError = false;

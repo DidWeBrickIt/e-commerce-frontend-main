@@ -1,13 +1,13 @@
 export class Password {
 
+    username: string;
     oldPass: string;
     newPass: string;
-    againPass: string;
 
-    constructor(oldP: string, newP: string, againP: string) {
-        this.oldPass = oldP;
-        this.newPass = newP;
-        this.againPass = againP;
+    constructor(oldPass: string, newPass: string, username: string) {
+        this.oldPass = oldPass;
+        this.newPass = newPass;
+        this.username = username;
     }
 
 }

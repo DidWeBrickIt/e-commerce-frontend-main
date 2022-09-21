@@ -5,7 +5,6 @@ import {User} from "../../models/user/user";
 import {Payment} from "../../models/payment/payment";
 import {Address} from "../../models/address/address";
 import {MatDialog} from "@angular/material/dialog";
-import {ChangePasswordComponent} from "../change-password/change-password.component";
 import {Password} from "../../models/credential/password/password";
 import {ChangeEmailComponent} from "../change-email/change-email.component";
 import {Email} from "../../models/credential/email/email";
@@ -20,7 +19,7 @@ import {Email} from "../../models/credential/email/email";
 export class ProfileComponent implements OnInit{
 
   profile: Profile={
-    user: new User('', '', ''),
+    user: new User('', '', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','','')
 
@@ -29,7 +28,7 @@ export class ProfileComponent implements OnInit{
   passwordCred: Password={
     oldPass: '',
     newPass: '',
-    againPass: ''
+    username: ''
   };
 
   emailCred: Email={
