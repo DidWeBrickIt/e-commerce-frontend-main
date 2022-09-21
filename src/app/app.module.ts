@@ -75,7 +75,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     ScrollingModule,
-    MatExpansionModule
+    MatExpansionModule,
     MatBadgeModule,
     MatIconModule
   ],
