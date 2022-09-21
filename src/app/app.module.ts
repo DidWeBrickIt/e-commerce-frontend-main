@@ -35,6 +35,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import {MatIconModule} from '@angular/material/icon';
     CreateReviewComponent,
     RatingComponent,
     ProfilePicComponent,
+    ResetPasswordComponent,
 
   ],
 
