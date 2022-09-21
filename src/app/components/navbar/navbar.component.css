@@ -23,3 +23,9 @@ button{
   top: 0;
   width: 100%;
 }
+
+.container {
+  padding-bottom: 5%;
+  margin-left: 0%;
+  padding-left: 0;
+}
