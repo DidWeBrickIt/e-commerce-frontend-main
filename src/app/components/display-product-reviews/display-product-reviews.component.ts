@@ -14,6 +14,8 @@ import { ReviewService } from 'src/app/services/review/review.service';
 export class DisplayProductReviewsComponent implements OnInit {
 
   @Input() productInfo!: Product;
+  hasError:boolean = false;
+  errorMessage:string = "Server error, unable to load product reviews, please try again later";
   reviews: ReadableReview[] = [];
   average: number = 0;
   ratingArray: number[] = [1, 2, 3, 4, 5];
@@ -50,6 +52,9 @@ export class DisplayProductReviewsComponent implements OnInit {
           this.reviews.push(element);
         });
         this.calculateAvgRating();
+      },
+      (error) => {
+        this.hasError = true;
       }
     );
   }

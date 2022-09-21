@@ -129,12 +129,12 @@
                     </div>
                 </div>
             </div>
-
+            <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
             <div class="mt-4 mb-4 d-flex justify-content-between">
 
                 <button class="btn btn-danger" [routerLink]="['/cart']">Back to Cart</button>
 
-                <button class="btn btn-success px-3" (click)="onSubmit();">Pay {{totalPrice | currency}}</button>
+                <button *ngIf="!hasError" class="btn btn-success px-3" (click)="onSubmit();">Pay {{totalPrice | currency}}</button>
 
             </div>
         </form>
