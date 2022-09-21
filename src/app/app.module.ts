@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CartComponent } from './components/cart/cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { OrdersComponent } from './components/orders/orders.component';
 import { UserComponent } from './components/user/user.component';
 import { ErrorPopupComponent } from "./components/error-popup/error-popup.component";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -32,6 +31,11 @@ import { CreateReviewComponent } from './components/create-review/create-review.
 import { RatingComponent } from './components/rating/rating.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
     CheckoutComponent,
     DisplayProductsComponent,
     ProfileComponent,
+    OrdersComponent,
     AddressComponent,
     PaymentComponent,
     UserComponent,
@@ -56,6 +61,7 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
     CreateReviewComponent,
     RatingComponent,
     ProfilePicComponent,
+
   ],
 
   imports: [
@@ -70,6 +76,8 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
     MatInputModule,
     ScrollingModule,
     MatExpansionModule
+    MatBadgeModule,
+    MatIconModule
   ],
 
   providers: [],

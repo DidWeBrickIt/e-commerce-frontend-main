@@ -24,4 +24,10 @@ describe('DisplayProductsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should search product', () => {
+    component.searchProduct();
+    expect(component.searchProducts).toEqual(component.allProducts);   
+  });
+
 });

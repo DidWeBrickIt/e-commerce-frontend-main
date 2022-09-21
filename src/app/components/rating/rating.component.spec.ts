@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StarRatingPipe } from 'src/app/pipes/star-rating.pipe';
 
 import { RatingComponent } from './rating.component';
 
@@ -8,7 +9,7 @@ describe('RatingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RatingComponent ]
+      declarations: [ RatingComponent, StarRatingPipe ]
     })
     .compileComponents();
 
@@ -19,5 +20,12 @@ describe('RatingComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit', () => {
+    const component = fixture.componentInstance;
+    spyOn(component.ratingUpdated, 'emit');
+    component.setRating(5);
+    expect(component.ratingUpdated.emit).toHaveBeenCalledOnceWith(5);
   });
 });

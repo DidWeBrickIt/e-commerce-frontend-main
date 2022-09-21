@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-5 px-5">
-
+    <br><br><br>
     <div class="mb-4">
 
         <h2 class="word">Confirm order and pay</h2>
@@ -9,26 +9,72 @@
         
     </div>
     <div class="row">
+        
         <div class="col-md-8">
-    
+            <form id="register-form" [formGroup]="checkoutForm">
+
             <div class="card p-3">
 
                 <h6 class="text-uppercase">Payment details</h6>
-                <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
+                <div class="inputbox mt-3"> 
+                    <input type="text" formControlName="cardName" class="form-control" required="required">
+                    <span class="control-label required">Name on card</span>
+                    <div *ngIf="f.cardName.touched && f.cardName.errors" >
+                        <div *ngIf="f.cardName.errors.required" class="error-msg">
+                          Please enter the name on card
+                        </div>
+                        <div *ngIf="f.cardName.errors.pattern" class="error-msg">
+                          Only letters are allowed
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
 
                     <div class="col-md-6">
 
-                        <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>Card Number</span> 
+                        <div class="inputbox mt-3 mr-2"> 
+                            <input type="text" formControlName="cardNum" class="form-control" required="required"> 
+                            <i class="fa fa-credit-card"></i> 
+                            <span class="control-label required">Card Number</span> 
+                            <div *ngIf="f.cardNum.touched && f.cardNum.errors" >
+                                <div *ngIf="f.cardNum.errors.required" class="error-msg">
+                                  Please enter card number
+                                </div>
+                                <div *ngIf="f.cardNum.errors.pattern" class="error-msg">
+                                  15-16 numbers are required
+                                </div>
+                            </div>
                         </div>
 
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex flex-row">
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Expiry</span> </div>
+                            <div class="inputbox mt-3 mr-2"> 
+                                <input type="text" formControlName="exp" class="form-control" required="required"> 
+                                <span class="control-label required">Expiry</span> 
+                                <div *ngIf="f.exp.touched && f.exp.errors" >
+                                    <div *ngIf="f.exp.errors.required" class="error-msg">
+                                      Please enter card number
+                                    </div>
+                                    <div *ngIf="f.exp.errors.pattern" class="error-msg">
+                                      Use format MM/YYYY or MM/YY
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CVV</span> </div>
+                        <div class="inputbox mt-3 mr-2"> 
+                            <input type="text" formControlName="cvv" class="form-control" required="required"> 
+                            <span class="control-label required">CVV</span> 
+                            <div *ngIf="f.cvv.touched && f.cvv.errors" >
+                                <div *ngIf="f.cvv.errors.required" class="error-msg">
+                                  Please enter card CVV
+                                </div>
+                                <div *ngIf="f.cvv.errors.pattern" class="error-msg">
+                                  3-4 digits only
+                                </div>
+                            </div>
+                        </div>
                         </div>                        
                     </div>                   
                 </div>
@@ -37,31 +83,47 @@
 
                     <h6 class="text-uppercase">Billing Address</h6>
                     <div class="row mt-3">
-
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Street Address</span> </div>
+                            <div class="inputbox mt-3 mr-2"> 
+                                <input type="text" formControlName="addOne" class="form-control" required="required"> 
+                                <span class="control-label required">Street Address</span> 
+                                
+                            </div>
                             
                         </div>
 
 
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>City</span> </div>
+                            <div class="inputbox mt-3 mr-2"> 
+                                <input type="text" formControlName="city" class="form-control" required="required"> 
+                                <span class="control-label required">City</span> 
+                            </div>
                             
                         </div>
                     </div>
 
                     <div class="row mt-2">
-
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>State/Province</span> </div>        
+                            <div class="inputbox mt-3 mr-2"> 
+                                <input type="text" formControlName="state" class="form-control" required="required"> 
+                                <span class="control-label required">State/Province</span> 
+                            </div>        
 
                         </div>
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Zip code</span> </div>              
+                            <div class="inputbox mt-3 mr-2"> 
+                                <input type="text" formControlName="zipCode" class="form-control" required="required"> 
+                                <span class="control-label required">Zip code</span> 
+                                <div *ngIf="f.zipCode.touched && f.zipCode.errors" >
+                                    <div *ngIf="f.zipCode.errors.pattern" class="error-msg">
+                                      Zipcode must be 5 digits
+                                    </div>
+                                </div>
+                            </div>              
 
                         </div>                      
                     </div>
@@ -72,11 +134,12 @@
 
                 <button class="btn btn-danger" [routerLink]="['/cart']">Back to Cart</button>
 
-                <button class="btn btn-success px-3" (click)="onSubmit();">Pay ${{totalPrice}}</button>
+                <button class="btn btn-success px-3" (click)="onSubmit();">Pay {{totalPrice | currency}}</button>
 
             </div>
-
+        </form>
         </div>
+        
 
         <div class="col-md-4">
 
@@ -84,12 +147,12 @@
 
             <span>You have to pay</span>
                 <div class="d-flex flex-row align-items-end mb-3">
-                    <h1 class="mb-0 yellow">${{totalPrice}}</h1>
+                    <h1 class="mb-0 yellow">{{totalPrice | currency}}</h1>
                 </div>
 
                 <div class="hightlight">
 
-                    <span>100% Guaranteed Satisfaction!</span>
+                    <span>.100% Guaranteed Satisfaction!</span>
                     
 
                 </div>

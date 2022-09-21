@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-    <input id="search" type="text" placeholder="enter seach here" [(ngModel)]="searchInput">
+    <input  id="search" type="text" placeholder="enter seach here" [(ngModel)]="searchInput">
     <button (click)="searchProduct()">Search</button>
     <div *ngIf="this.searchProducts.length == 0">
         <h3 style="color: blue;">Items could not be found.</h3>

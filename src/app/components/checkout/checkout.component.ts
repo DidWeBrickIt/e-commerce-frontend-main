@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { Notification } from 'src/app/models/notification';
+import { NotificationService } from 'src/app/services/notification.service';
+import { Order } from 'src/app/models/order/order';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+import { Profile } from 'src/app/models/profile/profile';
+import { User } from 'src/app/models/user/user';
+import { Address } from 'src/app/models/address/address';
+import { Payment } from 'src/app/models/payment/payment';
 
 @Component({
   selector: 'app-checkout',
@@ -18,21 +26,27 @@ export class CheckoutComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
   finalProducts: {id: number, quantity: number}[] = []; 
+  orders: Order[] = [];
+  userId!: number;
 
-  checkoutForm = new UntypedFormGroup({
-    fname: new UntypedFormControl('', Validators.required),
-    lname: new UntypedFormControl('', Validators.required),
-    cardName: new UntypedFormControl('', Validators.required),
-    detail: new UntypedFormControl('', Validators.required),
-    addOne: new UntypedFormControl('', Validators.required),
-    addTwo: new UntypedFormControl(''),
-    city: new UntypedFormControl('', Validators.required),
-    state: new UntypedFormControl('', Validators.required),
-    zipCode: new UntypedFormControl('', Validators.required),
-    country: new UntypedFormControl('', Validators.required)
+
+  checkoutForm: FormGroup = this.formBuilder.group({
+    cardName: ["", [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+    cardNum: ["", [Validators.required, Validators.pattern(/^([0-9]{16}|[0-9]{15})$/)]],
+    exp: ["", [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$/)]],
+    cvv: ["", [Validators.required, Validators.pattern(/^([0-9]{3}|[0-9]{4})$/)]],
+    addOne: ["", Validators.required],
+    city: ["", Validators.required],
+    state: ["", Validators.required],
+    zipCode: ["", [Validators.required, Validators.pattern(/^([0-9]{5})$/)]]
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(
+    private productService: ProductService,
+     private router: Router,
+      private formBuilder:FormBuilder,
+       private notificationService: NotificationService,
+       private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
@@ -44,17 +58,55 @@ export class CheckoutComponent implements OnInit {
         this.totalPrice = cart.totalPrice;
       }
     );
+
+    this.profileService.getProfileInfo().subscribe(
+      (profile) => {
+        this.checkoutForm.get("cardName")?.setValue(profile.user.firstName + " " + profile.user.lastName);
+        this.checkoutForm.get("cardNum")?.setValue(profile.payment.credit_card_number);
+        this.checkoutForm.get("exp")?.setValue(profile.payment.expiration);
+        this.checkoutForm.get("addOne")?.setValue(profile.address.address1 + " " + profile.address.address2);
+        this.checkoutForm.get("city")?.setValue(profile.address.city);
+        this.checkoutForm.get("state")?.setValue(profile.address.state);
+        this.checkoutForm.get("zipCode")?.setValue(profile.address.zip);
+      },
+      (err) => console.log(err),
+      () => console.log("Profile Retrieved")
+    );
+
+
   }
 
   onSubmit(): void {
-     this.products.forEach(
+    this.validateAllFormFields(this.checkoutForm); // leave this here nothing should happen if this fails
+    if(!this.checkoutForm.valid){ return; }        // this too. No touchy touchy!
+    this.makeOrder();
+    this.purchase();
+  }
+
+  makeOrder(){
+    
+    
+    this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity;
         this.finalProducts.push({id, quantity});
       } 
     );
+    
+    if(this.finalProducts.length > 0){
+      this.productService.getUserId().subscribe((response) => {
+        this.userId = response;
+        this.finalProducts.forEach((product) => {
+          let order: Order = new Order(0,this.userId,product.id,product.quantity,new Date().getTime()/1000);
+          this.orders.push(order);
+        });
+        this.productService.makeOrder(this.orders).subscribe();
+      });
+    }
+  }
 
+  purchase(){
     if(this.finalProducts.length > 0) {
       this.productService.purchase(this.finalProducts).subscribe(
         (resp) => console.log(resp),
@@ -66,6 +118,8 @@ export class CheckoutComponent implements OnInit {
             totalPrice: 0.00
           };
           this.productService.setCart(cart);
+          this.productService.setCartToLocalStorage();
+          this.createNotification();
           this.router.navigate(['/home']);
         } 
       );
@@ -75,4 +129,26 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+    //just makes accessing form easier
+    get f() { return this.checkoutForm.controls; }
+
+    //marks all fields as touched 
+    validateAllFormFields(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).forEach(field => {
+        console.log(field);
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+          control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {
+          this.validateAllFormFields(control);
+        }
+      });
+    }
+
+  createNotification():void {
+    let currentTime: Date = new Date();
+    let message: string = "Your order has been processed";
+    let notification: Notification = new Notification(message, currentTime);
+    this.notificationService.addNotification(notification);
+  }
 }
