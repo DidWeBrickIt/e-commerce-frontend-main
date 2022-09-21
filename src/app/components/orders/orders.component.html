@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
 <div *ngIf="!hasError">
-    <table>
+    <table *ngIf = "!showDetails">
         <thead>
             <tr>
                 <th>Order ID</th>
