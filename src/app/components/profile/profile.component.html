@@ -1,18 +1,29 @@
 <app-navbar></app-navbar>
-<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-<ng-container *ngIf="profile != null && !hasError">
-  <h3>Welcome, {{ profile.user.firstName }}!</h3>
 
-  <div class="container">
+<div class="title">
+  <div class="title-text">
+    <h1>Hello {{ profile.user.firstName }}!</h1>
+  </div>
+</div>
+
+<app-error-popup
+  *ngIf="hasError"
+  [errorMessage]="errorMessage"
+></app-error-popup>
+<ng-container *ngIf="profile != null && !hasError">
+  <div class="container profile-container temp-border">
     <div class="row">
       <div class="col-4">
         <div class="temp-border">
+          <!-- Profile pic -->
           <ng-container *ngIf="profile">
-            <app-profile-pic 
-            [item]="profile.user.imageurl"
-            (newPicEvent)="updatePic($event)"
+            <app-profile-pic
+              [item]="profile.user.imageurl"
+              (newPicEvent)="updatePic($event)"
             >
-          </app-profile-pic>
+            </app-profile-pic>
+
+            <!-- user info -->
             <app-user
               [user]="profile.user"
               (newUserEvent)="updateUser($event)"
@@ -20,7 +31,7 @@
           </ng-container>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-8 temp-border">
         <ng-container *ngIf="profile">
           <app-address
             [address]="profile.address"

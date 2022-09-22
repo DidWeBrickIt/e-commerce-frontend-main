@@ -1,6 +1,4 @@
 <div class="mb-4 mt-4">
-  <h3>User</h3>
-
   <div
     *ngIf="isDisplayActive"
     id="user-readOnly"
@@ -56,7 +54,6 @@
       [(ngModel)]="user.email"
       [ngModelOptions]="{ standalone: true }"
     />
-
 
     <div class="d-flex justify-content-center">
       <button

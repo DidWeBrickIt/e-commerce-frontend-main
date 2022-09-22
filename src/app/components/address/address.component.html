@@ -14,23 +14,26 @@
       id="address-readOnly"
       [ngClass]="{ active: isDisplayActive }"
     >
-      <label for="address1">Street Address</label>
-      <p>{{ address.address1 }}</p>
+      <div>
+        <label for="address1">Street Address</label>
+        <p>{{ address.address1 }}</p>
 
-      <label for="address2">Unit</label>
-      <p>{{ address.address2 }}</p>
+        <label for="address2">Unit</label>
+        <p>{{ address.address2 }}</p>
+      </div>
+      <div>
+        <label for="city">City</label>
+        <p>{{ address.city }}</p>
 
-      <label for="city">City</label>
-      <p>{{ address.city }}</p>
+        <label for="state">State</label>
+        <p>{{ address.state }}</p>
 
-      <label for="state">State</label>
-      <p>{{ address.state }}</p>
+        <label for="zip">Zip</label>
+        <p>{{ address.zip }}</p>
 
-      <label for="zip">Zip</label>
-      <p>{{ address.zip }}</p>
-
-      <label for="country">Country</label>
-      <p>{{ address.country }}</p>
+        <label for="country">Country</label>
+        <p>{{ address.country }}</p>
+      </div>
 
       <div class="d-flex justify-content-center">
         <button
@@ -47,7 +50,7 @@
 
     <!-- Update Address form -->
 
-    <div class="mb-4 mt-4">
+    <!-- <div class="mb-4 mt-4">
       <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
         <label for="address-input">Street Address</label>
         <input
@@ -127,6 +130,96 @@
           </button>
         </div>
       </form>
+    </div> -->
+
+    <div *ngIf="isFormActive" (ngSubmit)="updateAddress()">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Street Address</mat-label>
+          <input
+            matInput
+            id="address-input"
+            name="address-input"
+            type="text"
+            [(ngModel)]="address.address1"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Unit</mat-label>
+          <input
+            matInput
+            id="unit-input"
+            name="unit-input"
+            type="text"
+            [(ngModel)]="address.address2"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input
+          matInput
+          id="city-input"
+          name="city-input"
+          type="text"
+          [(ngModel)]="address.city"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <input
+          matInput
+          id="state-input"
+          name="state-input"
+          type="text"
+          [(ngModel)]="address.state"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Zip</mat-label>
+        <input
+          matInput
+          id="zip-input"
+          name="zip-input"
+          type="text"
+          [(ngModel)]="address.zip"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <input
+          id="country-input"
+          name="country-input"
+          type="text"
+          [(ngModel)]="address.country"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+      <div class="d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-outline-primary btn-block mb-4"
+          style="width: 32%"
+        >
+          Update
+        </button>
+        <button
+          type="click"
+          class="btn btn-outline-primary btn-block mb-4"
+          style="width: 32%"
+          (click)="toggleAddressDisplay()"
+        >
+          Cancel
+        </button>
+      </div>
     </div>
+
+    <!-- </form> -->
+    <!-- </div> -->
   </mat-expansion-panel>
 </mat-accordion>

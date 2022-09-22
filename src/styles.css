@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Futura Std Bold';
+  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura Std Book';
+  src: url('assets/fonts/Futura-Std-Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura Std Medium';
+  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+}
+
 body {
   --text-color: #222;
   --bkg-color: #fff;
@@ -7,8 +22,16 @@ body {
   --bkg-nav-color: rgb(189, 185, 185);
   --brder-color: black;
   --bkg-slider-color: black;
-  --bkg-title-color: linear-gradient(90deg, rgba(252,180,20,1) 0%, rgba(242,105,32,1) 100%);
-;
+  --bkg-title-color: linear-gradient(
+    90deg,
+    rgba(252, 180, 20, 1) 0%,
+    rgba(242, 105, 32, 1) 100%
+  );
+  --bkg-color: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 227, 164, 0.75) 100%
+  );
 }
 body.dark-theme {
   --text-color: #eee;
@@ -20,17 +43,17 @@ body.dark-theme {
   --bkg-slider-color: white;
 }
 
-.title{
+.title {
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 5%;
 }
-.title-text{
+.title-text {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
 }
-.card-title{
+.card-title {
   color: var(--bkg-title-color);
 }
 body {
@@ -98,12 +121,22 @@ button {
   border-radius: 34px;
 }
 
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.temp-border {
+  border: 2px solid red;
+}
