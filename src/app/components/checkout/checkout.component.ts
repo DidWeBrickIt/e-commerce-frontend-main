@@ -89,8 +89,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   makeOrder(){
-    
-    
     this.products.forEach(
       (element) => {
         const id = element.product.id;
