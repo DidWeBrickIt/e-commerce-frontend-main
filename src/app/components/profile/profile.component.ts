@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit{
   profile: Profile={
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
-    payment: new Payment('','','')
+    payment: new Payment('','')
     
 
 
