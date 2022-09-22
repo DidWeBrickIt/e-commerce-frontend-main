@@ -34,9 +34,8 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
 import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-
 
 @NgModule({
   declarations: [
@@ -63,7 +62,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
-
   ],
 
   imports: [
@@ -79,7 +77,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
   ],
 
   providers: [],
