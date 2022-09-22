@@ -4,7 +4,7 @@ body {
   --bkg-color: #fff;
   --btn-txt-color: white;
   --btn-bg-color: rgb(11, 88, 160);
-  --bkg-nav-color: rgb(189, 185, 185);
+  --bkg-nav-color: #B9B9BA;
   --brder-color: black;
   --bkg-slider-color: black;
   --bkg-title-color: linear-gradient(90deg, rgba(252,180,20,1) 0%, rgba(242,105,32,1) 100%);
@@ -15,7 +15,7 @@ body.dark-theme {
   --bkg-color: #252222;
   --btn-txt-color: rgb(46, 43, 43);
   --btn-bg-color: rgb(20, 211, 195);
-  --bkg-nav-color: black;
+  --bkg-nav-color: linear-gradient(143deg, rgba(71,76,85,1) 0%, rgba(0,0,0,1) 100%);
   --brder-color: white;
   --bkg-slider-color: white;
 }
@@ -23,7 +23,7 @@ body.dark-theme {
 .title{
   background: var(--bkg-title-color);
   padding-top: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 4%;
 }
 .title-text{
   margin-left: 20%;
