@@ -51,7 +51,6 @@ input.ng-valid.ng-touched{
     justify-content: center;
     align-items: center;
     width: 100%;
-    outline-style: solid;
     border-radius: 25px;
 }
 .form-group
