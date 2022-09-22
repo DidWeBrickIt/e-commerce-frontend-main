@@ -92,3 +92,9 @@ button {
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.temp-border
+{
+  border-style: 2px solid red;
+  outline-style: solid;
+}

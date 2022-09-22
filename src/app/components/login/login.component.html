@@ -1,40 +1,54 @@
-<div class="row">
-  <div class="col-md-8 offset-md-4">
-    <img src="../../../assets/images/rev-logo.png" width="30%" height="30%" alt="Revature">
-<form id="login-form" [formGroup]="loginForm">
-    
-  <div class="form-group">
+
+<div class="text-center">
+  <h2 id="login-h2">Welcome!</h2>
+  <p>Please Login</p>
+</div>
+<div class="container temp-border">
+<div class="inner-login-form">
+
+  <form id="login-form" [formGroup]="loginForm">
+    <div class="form-group">
       <label for="exampleInputEmail1" class="word">Email address</label>
       <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">Ensure you enter the correct email</small>
-
-      <div *ngIf="f.email.touched && f.email.errors" >
-        <div *ngIf="f.email.errors.required" class="error-msg">
-          Please enter your email
-        </div>
-        <div *ngIf="f.email.errors.email" class="error-msg">
-          This is not a valid email
-        </div>
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label for="exampleInputPassword1" class="word">Password</label>
-      <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
-    
-      <div *ngIf="f.password.touched && f.password.errors" >
-        <div *ngIf="f.password.errors.required" class="error-msg">
-          Please enter your password
+      
+  
+        <div *ngIf="f.email.touched && f.email.errors" >
+          <div *ngIf="f.email.errors.required" class="error-msg">
+            Please enter your email
+          </div>
+          <div *ngIf="f.email.errors.email" class="error-msg">
+            This is not a valid email
+          </div>
         </div>
       </div>
-    </div>
+      
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="word">Password</label>
+        <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+      
+        <div *ngIf="f.password.touched && f.password.errors" >
+          <div *ngIf="f.password.errors.required" class="error-msg">
+            Please enter your password
+          </div>
+        </div>
+        <small id="resetPassword" class="form-text text-muted"><a routerLink="/reset/">Reset Password</a></small>
+      </div>
+  
+      <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+      
+      <div>
+        <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+        <button class="btn btn-primary" [routerLink]="['/register']">Register</button>
+      </div>
+  
+      
+  </form>
 
-    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+</div>
+      <!--<img src="../../../assets/images/rev-logo.png" width="30%" height="30%" alt="Revature">-->
+  
+  
 
-    <button class="btn btn-primary" (click)="onSubmit()">Login</button>
-    <button class="btn btn-primary" [routerLink]="['/register']">Register</button>
-    <button class="btn btn-primary" routerLink="/reset/">Reset Password</button>
-</form>
-
-  </div>
+  
 </div>
