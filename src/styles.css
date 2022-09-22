@@ -41,8 +41,7 @@ body {
   background: var(--bkg-nav-color);
 }
 
-h1,
-p,
+
 .word {
   color: var(--text-color);
 }
