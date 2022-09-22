@@ -30,6 +30,7 @@ export class PaymentComponent implements OnInit {
   }
 
   updatePayment(): void {
+    this.updated = this.payment;
     this.newPaymentEvent.emit(this.updated);
     this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
