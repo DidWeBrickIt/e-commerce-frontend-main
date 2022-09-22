@@ -1,9 +1,13 @@
 #login-form
 {
     padding-top: 3%;
-    padding-left: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
     justify-content: center;
+    align-items: center;
     width: 40%;
+    outline-style: solid;
 }
 
 .btn
