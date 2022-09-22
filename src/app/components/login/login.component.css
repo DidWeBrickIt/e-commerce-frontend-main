@@ -8,7 +8,9 @@
     align-items: center;
     width: 40%;
     outline-style: solid;
+    outline-color: #F26925;
     border-radius: 25px;
+    
 }
 
 .btn
@@ -51,7 +53,7 @@ input.ng-valid.ng-touched{
     justify-content: center;
     align-items: center;
     width: 100%;
-    
+    border-color: #F26925;
     border-radius: 25px;
 }
 .form-group
@@ -61,10 +63,12 @@ input.ng-valid.ng-touched{
     padding-bottom: 10%;
     width: 100%;
     border-radius: 25px;
+    border-color: #F26925;
 }
 
 .container
 {
     padding-top: 5%;
+    border-color: #F26925;
 }
   
