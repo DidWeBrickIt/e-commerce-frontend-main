@@ -33,14 +33,15 @@
           </div>
         </div>
         <small id="resetPassword" class="form-text text-muted"><a routerLink="/reset/">Reset Password</a></small>
+        <div>
+          <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+          <button class="btn btn-primary" [routerLink]="['/register']">Register</button>
+        </div>
       </div>
   
       <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
       
-      <div>
-        <button class="btn btn-primary" (click)="onSubmit()">Login</button>
-        <button class="btn btn-primary" [routerLink]="['/register']">Register</button>
-      </div>
+      
   
       
   </form>

@@ -62,4 +62,9 @@ input.ng-valid.ng-touched{
     width: 100%;
     border-radius: 25px;
 }
+
+.container
+{
+    padding-top: 5%;
+}
   
