@@ -45,7 +45,7 @@ describe('CheckoutComponent', () => {
   });
 
   it('should retrieve profile', fakeAsync(() => {
-    let userProf: Profile = new Profile(new User("test", "tester", "test@test.test", "test"), new Payment("test", "test", "test"), new Address("test", "test", "test", "test", "test", "test"));
+    let userProf: Profile = new Profile(new User("test", "tester", "test@test.test", "test"), new Payment("test", "test"), new Address("test", "test", "test", "test", "test", "test"));
     let spy = spyOn(service2, 'getProfileInfo').and.returnValue(of(userProf));
     component.ngOnInit();
   }));

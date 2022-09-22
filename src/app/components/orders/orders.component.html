@@ -13,7 +13,7 @@
         <tbody>
             <p *ngIf = "isLoading">Loading...</p>
             <tr *ngFor = "let order of consolidatedOrders">
-                <th>{{order.orderNumber}}</th>
+                <th>{{consolidatedOrders.length + 1 - order.orderNumber}}</th>
                 <th>{{order.totalCost | currency}}</th>
                 <th>{{order.matchingTime}}</th>
                 <th><button (click) = "toggleDetails(order.orderNumber)">Details</button></th>
