@@ -1,7 +1,16 @@
 button{
   margin-left: 10px;
 }
-
+.home-button{
+  width: 20%;
+}
+.home-button h4:hover{
+  cursor: pointer;
+}
+.home-button img{
+  width: 10%;
+  height: 10%;
+}
 #infoBackground {
   position: fixed; 
   z-index: 1;

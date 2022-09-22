@@ -1,9 +1,21 @@
 #login-form
 {
     padding-top: 3%;
-    padding-left: 1%;
+    padding-left: 0%;
+    padding-right: 0%;
+    
     justify-content: center;
+    align-items: center;
     width: 40%;
+    outline-style: solid;
+    outline-color: #F26925;
+    border-radius: 25px;
+    
+}
+
+body{
+    height: 100%;
+    overflow-y: hidden;
 }
 
 .btn
@@ -36,3 +48,32 @@ input.ng-valid.ng-touched{
 .error-msg {
     color: #a94442;
   }
+
+.inner-login-form
+{
+    padding-top: 3%;
+    padding-left: 39%;
+    padding-right: 0%;
+    padding-bottom: 10%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-color: #F26925;
+    border-radius: 25px;
+}
+.form-group
+{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    width: 100%;
+    border-radius: 25px;
+    border-color: #F26925;
+}
+
+.container
+{
+    padding-top: 1%;
+    border-color: #F26925;
+}
+  

@@ -34,11 +34,8 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
 import { MatBadgeModule } from '@angular/material/badge';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-
 
 @NgModule({
   declarations: [
@@ -65,7 +62,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
-
   ],
 
   imports: [
@@ -81,8 +77,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule,
-    MatFormFieldModule
+    MatIconModule
   ],
 
   providers: [],

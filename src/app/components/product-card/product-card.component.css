@@ -11,6 +11,9 @@
   
   }
 
+  .card-title{
+    color: #F26925;
+  }
   .card-body{
     text-align: center;
   }
@@ -25,7 +28,7 @@
     justify-content: center;
     height: auto;
     width: auto;
-    max-height: 200px;
+    max-height: 175px;
     max-width: 307px;
     left:0;
   }

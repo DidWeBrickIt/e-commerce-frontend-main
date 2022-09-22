@@ -1,13 +1,73 @@
-.table 
-{
-    margin: 3%;
-}
+
+
 
 .btn
 {
     margin-left: 2%;
+    margin-bottom: 5%;
+}
+
+.btn-sm {
+    margin-top: 2%;
+}
+
+.btn-sm:hover{
+    cursor:pointer;
 }
 
 .table.table-striped{
     color: var(--text-color);
+}
+
+#header-row {
+    background: rgb(242, 105, 38)
+} 
+
+#product-image {
+    text-align: center;
+}
+
+#cart-table {
+    width: 75%;
+    left: 0;
+    margin-left: 10%;
+}
+
+#summary {
+    height: 100%;
+    width: 25%;
+    background-color: black;
+    position: fixed;
+    padding-top: 10%;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom right, rgb(72, 76, 86), rgb(106,109,116));
+}
+
+#summary h1 {
+    text-align: center;
+    padding: 2%;
+    margin-left: 10px;
+    color: rgb(242, 105, 38);
+}
+
+h3 {
+    padding: 2%;
+    margin-left: 10px;
+    color: rgb(242, 105, 38);
+}
+
+h5 {
+    padding: 2%;
+    margin-left: 10px;
+    color: rgb(242, 105, 38);
+}
+
+.btn {
+    margin-top: 70%;
+}
+
+#checkout {
+    background-color: rgb(242, 105, 38);
+    margin-left: 30%;
 }
