@@ -1,0 +1,70 @@
+div {
+    background-color: rgb(9, 81, 18);
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    height: 80%;
+    width: 45%;
+    box-shadow: 4px 4px  rgba(0, 0, 0), 0px -4px rgba(0, 0, 0);
+    text-align: center;
+}
+.t {
+    background-color: antiquewhite;
+    overflow-y: auto;
+    left: 27%;
+    top: 4%;
+    height: 70%;
+}
+textarea {
+    background-color: aquamarine;
+    position: absolute;
+    bottom: 2%;
+    left: 24%;
+    height: 90px;
+    width: 50%;
+    word-wrap: break-word;
+    word-break: keep-all;
+    text-align:left;
+    vertical-align: top;
+    overflow-y: auto ;
+    box-shadow: 2px 2px rgb(0, 0, 0), 0px -2px rgb(0, 0, 0);
+}
+table {
+    background-color: rgb(133, 249, 251);
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 2px 2px rebeccapurple, 0px -2px rebeccapurple;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow-y: auto;
+    font-size: 20px;
+}
+button {
+    background-color: seagreen;
+    height: 50px;
+    width:100px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    color: blanchedalmond;
+    border: 5px inset blueviolet;
+
+}
+input{
+    position: absolute;
+    bottom: 5%;
+}
+ul{
+    list-style: none;
+}
+
+.admin{
+    text-align: right;
+}
+
+p{
+    text-align: left;
+}

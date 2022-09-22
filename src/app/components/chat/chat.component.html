@@ -1,0 +1,12 @@
+<div>
+    <div class="t" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <ul>
+            <li *ngFor="let m of messages">
+                <p [ngClass]="{'admin': m.username === 'ADMIN'}"> {{m.username}}:</p>
+                {{m.message}}
+            </li>
+        </ul>
+    </div>
+    <input [(ngModel)]="reply" type="text">
+    <button (click)="send()">Send</button>
+</div>
