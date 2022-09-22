@@ -2,14 +2,24 @@
     size: auto;
     min-width: 275px;
     max-width: 200px;
-    height: fit-content;
+    height: 500px;
     transition: .2s ease-out;
     background: var(--bkg-color);
     border-color: var(--brder-color);
     color: var(--text-color);
+    margin-bottom: 5%;
   
   }
+
+  .card-body{
+    text-align: center;
+  }
   
+  .input-group.input-group-sm.mb-3{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   img
   {
     justify-content: center;

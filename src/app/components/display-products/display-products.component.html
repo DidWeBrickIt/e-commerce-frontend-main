@@ -1,9 +1,18 @@
 <app-navbar></app-navbar>
+
+<div class="title">
+    <div class="title-text">
+    <h1>Welcome to Did We Brick It</h1>
+    <h3>Your Dream Lego Set Destination</h3>
+    </div>
+</div>
 <div class="container">
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <div *ngIf="!hasError">
-        <input  id="search" type="text" placeholder="enter seach here" [(ngModel)]="searchInput">
-        <button (click)="searchProduct()">Search</button>
+        <div class="search-bar">
+        <input  class="search-input" type="text" placeholder="enter seach here" [(ngModel)]="searchInput">
+        <button class="search-button" (click)="searchProduct()">Search</button>
+        </div>
         <div *ngIf="this.searchProducts.length == 0">
             <h3 style="color: blue;">Items could not be found.</h3>
             <button (click)="searchProduct()">Okay</button>

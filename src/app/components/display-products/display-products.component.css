@@ -36,6 +36,9 @@
       column-gap: 60px;
     }
   }
+  .row.align-items-start{
+    row-gap: 50px;
+  }
 
 .container 
 {
@@ -47,9 +50,28 @@
   margin-bottom: 1%;
 }
 
-#search
-{
-  margin-top: 8%;
-  margin-right: 5px;
-  margin-bottom: 2%;
+.search-bar{
+  position: fixed;
+  top: 10px;
+  left: 40%;
+  z-index: 1001;
+  
+  
+
+}
+.search-button{
+  width: 30%;
+  padding: 2%;
+}
+.search-input{
+  width: 70%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.home{
+  text-align: center;
+  background-color: var(--bkg-title-color);
+  padding-top: 5%;
+  padding-bottom: 6%;
 }
