@@ -18,7 +18,7 @@ export class ChatService {
   profile: Profile={
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
-    payment: new Payment('','','')}
+    payment: new Payment('','')}
 
   constructor(private http: HttpClient) {
 
