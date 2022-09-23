@@ -42,7 +42,6 @@ import { PaypalComponent } from './components/paypal/paypal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,10 +67,10 @@ import { CreateProductComponent } from './components/create-product/create-produ
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
+    PaypalComponent,
     FooterComponent,
     ChatComponent,
     CreateProductComponent,
-    PaypalComponent,
   ],
 
   imports: [
