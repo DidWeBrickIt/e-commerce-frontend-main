@@ -36,9 +36,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
-
 
 
 @NgModule({
@@ -66,8 +66,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
+    CreateProductComponent,
     PaypalComponent,
-
   ],
 
   imports: [

@@ -18,6 +18,7 @@
     </div>
   <div class="card-body">
       <button class="btn btn-outline-success" [disabled] = "this.quantities.length === 0" (click)="addToCart(productInfo, $event)">Add to Cart</button>
+      <button class="btn btn-outline-success" (click)="sendProductInfo(productInfo, $event)">Update Product</button>
   </div>
 </div>
 <div id="infoBackground" *ngIf="showInfo" (click)="toggleInfo()">
