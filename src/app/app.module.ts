@@ -36,6 +36,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 @NgModule({
@@ -79,7 +81,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
 
   providers: [],

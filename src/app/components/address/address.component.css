@@ -7,3 +7,21 @@ label {
   flex-direction: column;
   align-items: flex-start;
 }
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-accordion {
+  width: 100%;
+}
+
+ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+.form-line {
+  width: 100%;
+  display: inline-block;
+}
