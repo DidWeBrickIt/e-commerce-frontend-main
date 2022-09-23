@@ -47,13 +47,16 @@ export class AuthService {
     localStorage.removeItem('username');
   }
 
-  register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
-    const payload = { firstName: firstName, lastName: lastName, email: email, password: password };
+  register(firstName: string, lastName: string, email: string, password: string, securityQuestion: string, answer: string): Observable<any> {
+    const user = {firstName: firstName, lastName: lastName, email: email, password: password};
+    const question = {securityQuestion, answer}
+    const payload = { user, question};
     return this.http.post<any>(`${this.authUrl}/register`, payload, { headers: environment.headers });
   }
 
-  resetPassword(username: string, password: string): Observable<any>{
-    const payload = {username: username, newPass: password};
+  resetPassword(username: string, password: string, answer:string): Observable<any>{
+
+    const payload = {username, password, answer};
     console.log(payload);
     return this.http.patch(`${this.authUrl}/reset`, payload, { headers: environment.headers })
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -12,9 +13,11 @@ export class ResetPasswordComponent implements OnInit {
 
   resetForm: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
-    password: [null, [Validators.required]]
+    password: [null, [Validators.required]],
+    answer: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]]
   })
 
+  question:string="";
   hasError:boolean = false;
   errorMessage:string = "Server error, please try again later";
 
@@ -22,6 +25,7 @@ export class ResetPasswordComponent implements OnInit {
       private auth: AuthService,
       private formBuilder: FormBuilder,
       private router: Router,
+      private profileService : ProfileService
   ) { }
 
   ngOnInit(): void {
@@ -37,14 +41,15 @@ export class ResetPasswordComponent implements OnInit {
 
     this.auth.resetPassword(
         this.resetForm.get('email')?.value,
-        this.resetForm.get('password')?.value )
+        this.resetForm.get('password')?.value,
+        this.resetForm.get('answer')?.value)
         .subscribe(
             () => console.log("Set Reset"),
             (err) => {
               console.log(err)
               this.hasError = true;
-              if(err.status === 400){
-                this.errorMessage = "User Not Found";}},
+              if(err.status === 400 || err.status === 404){
+                this.errorMessage = "User Not Found or the Answer to the Security Question is incorrect";}},
             () => this.router.navigate(['login']));
   }
 
@@ -58,8 +63,20 @@ export class ResetPasswordComponent implements OnInit {
         this.validateAllFormFields(control);
       }
     });
-
   }
 
+  getQuestion(username:string){
+    this.profileService.getSecurityQuestion(username).subscribe(
+      (data) => {
+        this.question = data.question;
+        this.hasError = false;
+      },
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+        if(err.status === 404){
+          this.errorMessage = "User Not Found";}}
+    )
+  }
 
 }
