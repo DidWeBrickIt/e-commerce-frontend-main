@@ -25,17 +25,17 @@ export class ProfileComponent implements OnInit{
     payment: new Payment('','')
   }
 
-  passwordCred: Password={
-    oldPass: '',
-    newPass: '',
-    againPass: ''
-  };
+  // passwordCred: Password={
+  //   oldPass: '',
+  //   newPass: '',
+  //   againPass: ''
+  // };
 
-  emailCred: Email={
-    oldEmail: '',
-    newEmail: '',
-    againEmail: ''
-  }
+  // emailCred: Email={
+  //   oldEmail: '',
+  //   newEmail: '',
+  //   againEmail: ''
+  // }
 
 
   constructor(

@@ -36,6 +36,7 @@ export class AddressComponent implements OnInit {
       state: this.address.state,
       zip: this.address.zip,
       country: this.address.country,})
+
   }
 
   updateAddress(): void {
