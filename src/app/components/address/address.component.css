@@ -13,7 +13,7 @@ mat-form-field {
 }
 
 mat-accordion {
-  width: 100%;
+  width: 150%;
 }
 
 ul li {
@@ -22,6 +22,24 @@ ul li {
 }
 
 .form-line {
-  width: 100%;
+  width: 150%;
   display: inline-block;
+}
+
+.addressPadding{
+  margin-top: 10%;
+}
+.my-buttons {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.mat-expansion-panel-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px 24px;
+  border-radius: inherit;
+  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
 }

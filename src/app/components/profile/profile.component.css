@@ -14,7 +14,10 @@ img {
 
 .profile-container {
   position: relative;
-  padding: 3em;
+  padding: 5em;
 }
 
-
+.rightColumn{
+  margin-left: 10%;
+  padding: 2%;
+}
