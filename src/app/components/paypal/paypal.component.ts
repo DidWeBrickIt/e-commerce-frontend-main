@@ -84,30 +84,29 @@ export class PaypalComponent implements OnInit {
   }
 
   purchase(){
-    if(this.finalProducts.length > 0) {
-      this.productService.purchase(this.finalProducts).subscribe(
-        () => {},
-        (err) => {
-          console.log(err)
-          this.hasError = true;
-        },
-        () => {
-          const notifTotal = this.totalCost;
-          let cart = {
-            cartCount: 0,
-            products: [],
-            totalPrice: 0.00
-          };
-          this.productService.setCart(cart);
-          this.productService.setCartToLocalStorage();
-          this.createNotification(notifTotal);
-          this.router.navigate(['/home']);
-        } 
-      );
-
-    } else {
-      this.router.navigate(['/home']);
-    }
+    console.log("inside make purchase");
+    console.log(this.productService);
+    this.productService.purchase([]);
+    this.productService.purchase(this.finalProducts).subscribe(
+      () => {},
+      (err) => {
+        console.log(err)
+        this.hasError = true;
+      },
+      () => {
+        console.log("inside make subscribe complete")
+        const notifTotal = this.totalCost;
+        let cart = {
+          cartCount: 0,
+          products: [],
+          totalPrice: 0.00
+        };
+        this.productService.setCart(cart);
+        this.productService.setCartToLocalStorage();
+        this.createNotification(notifTotal);
+        this.router.navigate(['/home']);
+      } 
+    );
   }
 
   createNotification(total:number):void {
@@ -128,30 +127,21 @@ export class PaypalComponent implements OnInit {
           amount: {
             currency_code: 'USD',
             value: this.totalCost.toString(),
-            breakdown: {
-              item_total: {
-                currency_code: 'USD',
-                value: this.totalCost.toString()
-              }
-            }
+            breakdown: { item_total: {currency_code: 'USD', value: this.totalCost.toString()}}
           },
           items: this.items
         }
       ]
     },
-    advanced: {
-      commit: 'true'
-    },
-    style: {
-      label: 'paypal',
-      layout: 'vertical'
-    },
+    advanced: { commit: 'true'},
+    style: { label: 'paypal', layout: 'vertical'},
     onApprove: () => {
-      setTimeout(() => {  
+     setTimeout(() => {  
+        console.log("calling make order");
         this.makeOrder();
+        console.log("calling make purchase")
         this.purchase(); 
-      }, 2000);
-      
+      }, 2000);   
     }
   };
   }

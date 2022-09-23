@@ -9,24 +9,25 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 import { Product } from 'src/app/models/product/product';
 import { Order } from 'src/app/models/order/order';
 import { FormBuilder } from '@angular/forms';
+import { PaypalComponent } from '../paypal/paypal.component';
 
 describe('OrdersComponent', () => {
   let component: OrdersComponent;
-  let component2: CheckoutComponent;
+  let component2: PaypalComponent;
   let fixture: ComponentFixture<OrdersComponent>;
-  let fixture2: ComponentFixture<CheckoutComponent>;
+  let fixture2: ComponentFixture<PaypalComponent>;
   let service: ProductService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrdersComponent, CheckoutComponent ],
+      declarations: [ OrdersComponent, PaypalComponent ],
       imports: [HttpClientModule, HttpClientTestingModule],
       providers: [ ProductService, FormBuilder ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(OrdersComponent);
-    fixture2 = TestBed.createComponent(CheckoutComponent);
+    fixture2 = TestBed.createComponent(PaypalComponent);
     component = fixture.componentInstance;
     component2 = fixture2.componentInstance;
     service = TestBed.inject(ProductService);
