@@ -19,9 +19,13 @@ body{
 
 }
 
-
+span{
+    color: var(--place-holder-color);
+}
 .card{
-    border:none;
+    border-color: var(--brder-color);
+    background: var(--bkg-color);
+    color: var(--text-color);
 }
 
 .form-control {
@@ -80,9 +84,9 @@ input::-webkit-inner-spin-button {
     font-size: 12px
 }
 
-.card-blue{
+.col-md-4 .card{
 
-    background-color: #F26925;
+    background: #F26925;
 }
 
 .hightlight{

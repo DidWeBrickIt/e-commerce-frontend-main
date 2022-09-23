@@ -67,7 +67,7 @@
 }
 .search-input{
   width: 70%;
-  background: var(--bkg-color);
+  
   color: var(--text-color);
 }
 ::placeholder{

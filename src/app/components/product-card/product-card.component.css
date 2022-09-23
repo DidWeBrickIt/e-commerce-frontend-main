@@ -4,7 +4,7 @@
     max-width: 200px;
     height: 500px;
     transition: .2s ease-out;
-    background: var(--bkg-color);
+    background: var(--input-field-bkg);
     border-color: var(--brder-color);
     color: var(--text-color);
     margin-bottom: 5%;
