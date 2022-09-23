@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../models/product/product';
 import { environment } from 'src/environments/environment';
 import { Order } from '../../models/order/order';
-import { Jwt } from '../../models/jwt/jwt';
 
 interface Cart {
   cartCount: number;
@@ -59,6 +58,11 @@ export class ProductService {
   }
 
   constructor(private http: HttpClient) { }
+
+  public createProduct(product: Product): Observable<Product> {
+    const payload = JSON.stringify(product);
+    return this.http.post<Product>(environment.baseUrl + `/api/product/`, payload, { headers: environment.headers, withCredentials: environment.withCredentials });
+  }
 
   public getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.baseUrl + this.productUrl, { headers: environment.headers, withCredentials: environment.withCredentials });

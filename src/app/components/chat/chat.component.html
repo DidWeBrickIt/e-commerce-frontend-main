@@ -1,0 +1,14 @@
+<button (click)="toggleChat()">Toggle Chat</button>
+
+<div *ngIf="showChat">
+    <div class="t" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <ul>
+            <li *ngFor="let m of messages">
+                <p [ngClass]="{'admin': m.username === 'ADMIN'}"> {{m.username}}:</p>
+                <p [ngClass]="{'admin': m.username === 'ADMIN'}">{{m.message}}<p></p>
+            </li>
+        </ul>
+    </div>
+    <input [(ngModel)]="reply" type="text">
+    <button (click)="send()">Send</button>
+</div>
