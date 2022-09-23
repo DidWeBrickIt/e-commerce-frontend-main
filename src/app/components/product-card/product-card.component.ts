@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -23,8 +23,11 @@ export class ProductCardComponent implements OnInit{
 
   @Input() productInfo!: Product;
 
+  @Output() newProductEvent = new EventEmitter<Product>();
+  @Output() updateProductEvent = new EventEmitter<string>();
+
   constructor(private productService: ProductService) { }
-  
+
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
       (cart) => {
@@ -34,6 +37,11 @@ export class ProductCardComponent implements OnInit{
       }
     );
     this.updateQuantity();
+  }
+
+  sendProductInfo(prod:Product, ev:Event){
+    ev.stopPropagation();
+    this.newProductEvent.emit(this.productInfo);
   }
 
   updateQuantity(){

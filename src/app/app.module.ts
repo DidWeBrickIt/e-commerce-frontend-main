@@ -40,6 +40,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { PaypalComponent } from './components/paypal/paypal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+
 
 @NgModule({
   declarations: [
@@ -68,8 +70,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     ResetPasswordComponent,
     FooterComponent,
     ChatComponent,
-    PaypalComponent
-
+    CreateProductComponent,
+    PaypalComponent,
   ],
 
   imports: [
