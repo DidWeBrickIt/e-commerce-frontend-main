@@ -1,9 +1,11 @@
-<div>
+<button (click)="toggleChat()">Toggle Chat</button>
+
+<div *ngIf="showChat">
     <div class="t" #scrollMe [scrollTop]="scrollMe.scrollHeight">
         <ul>
             <li *ngFor="let m of messages">
                 <p [ngClass]="{'admin': m.username === 'ADMIN'}"> {{m.username}}:</p>
-                {{m.message}}
+                <p [ngClass]="{'admin': m.username === 'ADMIN'}">{{m.message}}<p></p>
             </li>
         </ul>
     </div>

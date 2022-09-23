@@ -13,7 +13,7 @@ import {Payment} from "../../models/payment/payment";
 })
 export class ChatService {
 
-  messageUrl = '';
+  messageUrl = 'https://dwbi-e-commerce-tech-chat-2.icyflower-b4d66cd7.westus.azurecontainerapps.io/';
 
   profile: Profile={
     user: new User('', '', '', ''),
@@ -35,15 +35,15 @@ export class ChatService {
 
   getMessages(): Observable<Message[]>{
     const username = this.profile.user.email;
-    return this.http.get<Message[]>(this.messageUrl + `${username}`);
+    return this.http.get<Message[]>(this.messageUrl + "adriano/retrieve");
   }
 
   postMessage(reply: string): void{
 
     const username = this.profile.user.email;
     const payload = new Message(username, reply);
-
-    this.http.post(this.messageUrl + `${username}`, payload);
+    console.log(payload);
+    this.http.post(this.messageUrl + "adriano/post", payload).subscribe();
 
   }
 }

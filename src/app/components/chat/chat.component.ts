@@ -12,6 +12,7 @@ export class ChatComponent implements OnInit {
   messages: Message[] = []
   reply: string = '';
   interval: any;
+  showChat: boolean = false;
 
   constructor(private chat: ChatService,) { }
 
@@ -22,6 +23,9 @@ export class ChatComponent implements OnInit {
     }, 2500);
   }
 
+  toggleChat(): void{
+    this.showChat = !this.showChat;
+  }
   refreshData(): void{
     this.chat.getMessages().subscribe(data => this.messages = data);
   }
