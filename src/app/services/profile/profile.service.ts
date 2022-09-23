@@ -25,4 +25,10 @@ export class ProfileService {
         profile,
         {headers: environment.headers, withCredentials: environment.withCredentials});
   }
+
+  public getSecurityQuestion(username:string): Observable<any>{
+    const payload = {username};
+    return this.http.post<any>(
+      environment.baseUrl+"/question", payload);
+  }
 }

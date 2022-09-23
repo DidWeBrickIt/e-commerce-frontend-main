@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-
 <div class="title">
     <div class="title-text">
     <h1>Welcome to Did We Brick It</h1>
@@ -7,6 +6,7 @@
         
     </div>
 </div>
+<app-create-product [productInfo]="updatedProductInfo.product" [productName]="updatedProductInfo.product.name" [toggleAcc]="updatedProductInfo.toggleAcc" (boolEvent)="recieveBool($event)"></app-create-product>
 <div class="container">
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <div *ngIf="!hasError">
@@ -20,7 +20,7 @@
         </div>
         <div class="row align-items-start">
             <div class="col" *ngFor="let product of searchProducts">
-                <app-product-card class="cardListItem" [productInfo]="product"></app-product-card>
+                <app-product-card class="cardListItem" (newProductEvent)="updateCreateProduct($event)" [productInfo]="product"></app-product-card>
             </div>
         </div>
     </div>

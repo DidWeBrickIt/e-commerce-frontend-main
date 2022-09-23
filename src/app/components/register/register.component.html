@@ -12,7 +12,6 @@
     <label for="inputFirstName" class="control-label required">First Name</label>
     <input type="text" id="inputFirstName" class="form-control" formControlName="fname"  placeholder="Enter First Name">
     
-    
     <div *ngIf="f.fname.touched && f.fname.errors" >
       <div *ngIf="f.fname.errors.required" class="error-msg">
         Please enter your first name
@@ -22,7 +21,6 @@
       </div>
     </div>
   </div>
-
 
     <div class="form-group">
       <label for="inputLastName" class="control-label required">Last Name</label>
@@ -39,7 +37,6 @@
         
     </div>
 
-
     <div class="form-group">
         <label for="inputEmail" class="control-label required">Email address</label>
         <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
@@ -54,8 +51,6 @@
           </div>
         </div>
     </div>
-
-
 
     <div class="form-group">
       <label for="inputPassword" class="control-label required">Password</label>
@@ -74,11 +69,42 @@
         <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
         <button class="btn btn-primary" (click)="onSubmit()">Register</button>
       </div>
-
-
+    </div>
+  
+    <div class="form-group">
+      <label for="inputSecurityQuestion" class="control-label required">Security Question</label>
+      <input type="text" class="form-control" formControlName="securityQuestion" id="input-security-question" placeholder="Enter a Security Questions">
+    
+      <div *ngIf="f.securityQuestion.touched && f.securityQuestion.errors" >
+        <div *ngIf="f.securityQuestion.errors.required" class="error-msg">
+          Please enter your security question
+        </div>
+        <div *ngIf="f.securityQuestion.errors.pattern" class="error-msg">
+          Only letters and numbers are allowed
+        </div>
+      </div>
     </div>
 
+    <div class="form-group">
+      <label for="answer" class="control-label required">Answer</label>
+      <input type="text" class="form-control" formControlName="answer" id="input-answer" placeholder="Enter an Answer">
     
+      <div *ngIf="f.answer.touched && f.answer.errors" >
+        <div *ngIf="f.answer.errors.required" class="error-msg">
+          Please enter your Answer to your security question
+        </div>
+        <div *ngIf="f.answer.errors.pattern" class="error-msg">
+          Only letters and numbers are allowed
+        </div>
+      </div>
+    </div>
+
+
+
+ 
+    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+    <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+
 </form>
     </div>
 </div>

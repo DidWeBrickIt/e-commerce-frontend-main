@@ -36,6 +36,11 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +67,10 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
+    PaypalComponent,
+    FooterComponent,
+    ChatComponent,
+    CreateProductComponent,
   ],
 
   imports: [
@@ -77,7 +86,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    NgxPayPalModule
   ],
 
   providers: [],

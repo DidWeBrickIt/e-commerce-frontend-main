@@ -12,8 +12,20 @@ export class PaymentComponent implements OnInit {
   isDisplayActive: boolean = true;
   isFormActive: boolean = false;
 
+
+  //Unsure if needed
   @Input() payment!: Payment;
   public paymentForm: FormGroup;
+  
+  //@Input() payment = {
+  //  credit_card_number: '',
+  //  expiration: ''
+  //};
+
+  updated: Payment = {
+    credit_card_number: '',
+    expiration: ''
+  };
   
   @Output() newPaymentEvent = new EventEmitter<Payment>();
 

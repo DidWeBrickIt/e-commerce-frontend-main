@@ -36,7 +36,6 @@
 
     <div class="mb-4 mt-4">
       <form *ngIf="isFormActive" [formGroup]="paymentForm" (ngSubmit)="updatePayment()">
-
         <mat-form-field appearance="fill">
           <mat-label>Credit Card Number</mat-label>
           <input matInput

@@ -19,6 +19,25 @@ export class ProfileComponent implements OnInit{
   hasError:boolean = false;
   errorMessage:string = "Server error, unable to load your profile information, please try again later";
 
+  profile: Profile={
+    user: new User('', '', '', ''),
+    address: new Address('','','','','',''),
+    payment: new Payment('','')
+  }
+
+  passwordCred: Password={
+    oldPass: '',
+    newPass: '',
+    againPass: ''
+  };
+
+  emailCred: Email={
+    oldEmail: '',
+    newEmail: '',
+    againEmail: ''
+  }
+
+
   constructor(
       private profileService: ProfileService,
       public dialog: MatDialog) {
