@@ -36,6 +36,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { PaypalComponent } from './components/paypal/paypal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 
 @NgModule({
@@ -63,6 +66,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
+    PaypalComponent,
 
   ],
 
@@ -79,7 +83,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    NgxPayPalModule
   ],
 
   providers: [],

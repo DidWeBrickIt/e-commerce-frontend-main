@@ -1,0 +1,5 @@
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<div ng-if="paypalButtonVisible">
+    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+</div>
+<p *ngIf="showSuccess">Successful Transaction!</p>
