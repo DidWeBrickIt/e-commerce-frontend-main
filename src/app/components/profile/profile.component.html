@@ -1,63 +1,48 @@
 <app-navbar></app-navbar>
-
-<div class="title">
-  <div class="title-text">
-    <h1>Hello {{ profile.user.firstName }}!</h1>
-  </div>
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<div>
+<ng-container *ngIf="profile$ | async as profile">
+  <div class="title">
+    <div class="title-text">
+      <h1>Welcome, {{ profile.user.firstName }}!</h1>
+    </div>
 </div>
-
-<app-error-popup
-  *ngIf="hasError"
-  [errorMessage]="errorMessage"
-></app-error-popup>
-<ng-container *ngIf="profile != null && !hasError">
-  <div class="container profile-container temp-border">
+  <div class="container profile-container">
     <div class="row">
       <div class="col-4">
-        <div class="temp-border">
-          <!-- Profile pic -->
-          <ng-container *ngIf="profile">
+        <div>
             <app-profile-pic
-              [item]="profile.user.imageurl"
-              (newPicEvent)="updatePic($event)"
+                    *ngIf="profile$ | async as profile"
+            [item]="profile.user.imageurl"
+            (newPicEvent)="updatePic($event)"
             >
-            </app-profile-pic>
+          </app-profile-pic>
 
-            <!-- user info -->
             <app-user
+                    *ngIf="profile$ | async as profile"
               [user]="profile.user"
               (newUserEvent)="updateUser($event)"
             ></app-user>
-          </ng-container>
         </div>
       </div>
-      <div class="col-8 temp-border">
-        <ng-container *ngIf="profile">
-          <app-address
+      <div class="col-6 rightColumn">
+        <div class="d-flex">
+          <button class="tn btn-primary mb-4 alignRight" (click)="updateProfile()">Save All Changes</button>
+        </div>
+          <app-address 
+                  *ngIf="profile$ | async as profile"
             [address]="profile.address"
             (newAddressEvent)="updateAddress($event)"
           ></app-address>
-        </ng-container>
         <hr />
-        <ng-container *ngIf="profile">
           <app-payment
+                  *ngIf="profile$ | async as profile"
             [payment]="profile.payment"
             (newPaymentEvent)="updatePayment($event)"
           ></app-payment>
-        </ng-container>
         <hr />
-
-        <!-- password 
-        <ng-container *ngIf="profile"> 
-        <app-change-password
-          [passwordCred]="passwordCred"
-          (newPasswordEvent)="changePassword($event)"
-        ></app-change-password>
-        </ng-container> -->
       </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <button mat-button (click)="updateProfile()">Save All Changes</button>
     </div>
   </div>
 </ng-container>
+</div>

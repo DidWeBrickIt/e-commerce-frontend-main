@@ -1,3 +1,5 @@
+<div class="userPadding">
+
 <div class="mb-4 mt-4">
   <div
     *ngIf="isDisplayActive"
@@ -14,58 +16,58 @@
       <button
         type="button"
         id="hideUserBtn"
-        class="btn btn-outline-primary btn-block mb-4"
+        class="btn btn-primary btn-block mb-4"
         style="width: 32%"
-        (click)="toggleUserDisplay()"
-      >
+        (click)="toggleUserDisplay()">
         Update
       </button>
     </div>
   </div>
 
   <!-- Update User form -->
-  <form *ngIf="isFormActive" (ngSubmit)="updateUser()">
-    <label for="firstname-input">First Name</label>
-    <input
-      id="firstname-input"
-      name="firstname-input"
-      type="text"
-      class="form-control"
-      [(ngModel)]="user.firstName"
-      [ngModelOptions]="{ standalone: true }"
-    />
+  <form *ngIf="isFormActive" [formGroup]="userForm"  (ngSubmit)="updateUser()">
 
-    <label for="lastname-input">Last Name</label>
-    <input
-      id="lastname-input"
-      name="lastname-input"
-      type="text"
-      class="form-control"
-      [(ngModel)]="user.lastName"
-      [ngModelOptions]="{ standalone: true }"
-    />
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput
+             id="first-input"
+             placeholder="Name"
+             formControlName="firstName">
+      <mat-icon matSuffix>info</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
 
-    <label for="email-input">Email</label>
-    <input
-      id="email-input"
-      name="email-input"
-      type="text"
-      class="form-control"
-      [(ngModel)]="user.email"
-      [ngModelOptions]="{ standalone: true }"
-    />
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput
+             id="last-input"
+             placeholder="Name"
+             formControlName="lastName">
+      <mat-icon matSuffix>info</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput
+             id="email-input"
+             placeholder="name@example.com"
+             formControlName="email">
+      <mat-icon matSuffix>info</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
 
     <div class="d-flex justify-content-center">
       <button
         type="submit"
-        class="btn btn-outline-primary btn-block mb-4"
+        class="btn btn-primary btn-block mb-4"
         style="width: 32%"
       >
         Save
       </button>
       <button
         type="click"
-        class="btn btn-outline-primary btn-block mb-4"
+        class="btn btn-primary btn-block mb-4"
         style="width: 32%"
         (click)="toggleUserDisplay()"
       >
@@ -73,4 +75,5 @@
       </button>
     </div>
   </form>
+</div>
 </div>

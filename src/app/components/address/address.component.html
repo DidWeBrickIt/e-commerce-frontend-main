@@ -1,4 +1,4 @@
-<mat-accordion>
+<mat-accordion class="addressPadding">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -8,246 +8,169 @@
         <p>View or edit your address.</p>
       </mat-panel-description>
     </mat-expansion-panel-header>
-
     <div
       *ngIf="isDisplayActive"
       id="address-readOnly"
-      [ngClass]="{ active: isDisplayActive }"
-    >
-      <div>
-        <ul>
-          <li>
+      [ngClass]="{ active: isDisplayActive }">
+
+      <ul>
+        <li>
+          <div>
             <label for="address1">Street Address</label>
-            <p>{{ address.address1 }}</p>
-          </li>
-          <li>
+            <p id="address1">{{ address.address1 }}</p>
+          </div>
+        </li>
+        <li>
+          <div style="margin-left: 15em;">
             <label for="address2">Unit</label>
-            <p>{{ address.address2 }}</p>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li>
+            <p id="address2">{{ address.address2 }}</p>
+          </div>
+        </li>
+        
+        <br>
+        <li>
+          <div>
             <label for="city">City</label>
-            <p>{{ address.city }}</p>
-          </li>
-          <li>
+            <p id="city">{{ address.city }}</p>
+          </div>
+        </li>
+        <li>
+          <div style="margin-left: 18em;">
             <label for="state">State</label>
-            <p>{{ address.state }}</p>
-          </li>
-          <li>
+            <p id="state">{{ address.state }}</p>
+          </div>
+        </li>
+        <br>
+        <li>
+          <div>
             <label for="zip">Zip</label>
-            <p>{{ address.zip }}</p>
-          </li>
-          <li>
+            <p id="zip">{{ address.zip }}</p>
+          </div>
+        </li>
+        <li>
+          <div style="margin-left: 19em;">
             <label for="country">Country</label>
-            <p>{{ address.country }}</p>
-          </li>
-        </ul>
-      </div>
+            <p id="country">{{ address.country }}</p>
+          </div>
+        </li>
+        
+      </ul>
+
 
       <div class="d-flex justify-content-center">
         <button
           type="button"
           id="hideAddressBtn"
-          class="btn btn-outline-primary btn-block mb-4"
+          class="btn btn-primary btn-block mb-4"
           style="width: 32%"
-          (click)="toggleAddressDisplay()"
-        >
+          (click)="toggleAddressDisplay()">
           Update
         </button>
       </div>
     </div>
 
-    <!-- Update Address form -->
-    <div class="mb-4 mt-4">
-      <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
-        <div class="form-line">
-          <ul>
-            <li style="width: 65%">
-              <label for="address-input">Street Address</label>
-              <input
-                id="address-input"
-                name="address-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.address1"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-            <li style="width: 20%; padding-left: 5%">
-              <label for="unit-input">Unit</label>
-              <input
-                id="unit-input"
-                name="unit-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.address2"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <label for="city-input">City</label>
-              <input
-                id="city-input"
-                name="city-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.city"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-            <li>
-              <label for="state-input">State</label>
-              <input
-                id="state-input"
-                name="state-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.state"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-            <li>
-              <label for="zip-input">Zip</label>
-              <input
-                id="zip-input"
-                name="zip-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.zip"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-            <li>
-              <label for="country-input">Country</label>
-              <input
-                id="country-input"
-                name="country-input"
-                type="text"
-                class="form-control"
-                [(ngModel)]="address.country"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </li>
-          </ul>
-        </div>
+    <form *ngIf="isFormActive" [formGroup]="addressForm" (ngSubmit)="updateAddress()">
+      <ul>
+        <li>
+          <div style="width:150%">
+            <mat-form-field appearance="fill">
+              <mat-label>Street Address</mat-label>
+              <input matInput 
+                     id="address-input" 
+                     placeholder="123 example st" 
+                     formControlName="address1"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+        </li>
+        <li>
+          <div style="width:30%; margin-left: 10em;">
+            <mat-form-field appearance="fill">
+              <mat-label>Unit</mat-label>
+              <input matInput
+                     id="address2-input"
+                     placeholder="Apt 1"
+                     formControlName="address2"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+        </li>
+        <br>
+        <li>
+          <div style="width:150%">
+            <mat-form-field appearance="fill">
+              <mat-label>City</mat-label>
+              <input matInput
+                     id="city-input"
+                     placeholder="Portland"
+                     formControlName="city"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+        </li>
+        <li>
+          <div style="width:30%; margin-left: 10em;">
+            <mat-form-field appearance="fill">
+              <mat-label>State</mat-label>
+              <input matInput
+                     id="state-input"
+                     placeholder="OR"
+                     formControlName="state"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+        </li>
+        <br>
+        <li>
+          <div style="width:100%">
+            <mat-form-field appearance="fill">
+              <mat-label>Zip</mat-label>
+              <input matInput
+                     id="zip-input"
+                     placeholder="97210"
+                     formControlName="zip"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+        </li>
+        <li>
+          <div style="width:61%; margin-left: 5em;">
+            <mat-form-field appearance="fill">
+              <mat-label>Country</mat-label>
+              <input matInput
+                     id="country-input"
+                     placeholder="United States"
+                     formControlName="country"/>
+              <mat-icon matSuffix>info</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field> 
+          </div>
+        </li>
+      </ul>
+      
+      <div class="d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-primary mb-4"
+          style="width: 32%">
+          Update
+        </button>
+        <button
+          type="click"
+          class="btn btn-primary mb-4"
+          style="width: 32%; margin-left: 2em;"
+          (click)="toggleAddressDisplay()">
+          Cancel
+        </button>
+      </div>
 
-        <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-          >
-            Update
-          </button>
-          <button
-            type="click"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-            (click)="toggleAddressDisplay()"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <!-- <div>
-      <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
-        <div>
-          <mat-form-field style="width: 70%" appearance="fill">
-            <mat-label for="address-input">Street Address</mat-label>
-            <input
-              matInput
-              id="address-input"
-              name="address-input"
-              type="text"
-              [(ngModel)]="address.address1"
-              [ngModelOptions]="{ standalone: true }"
-            />
-          </mat-form-field>
-          <mat-form-field
-            style="width: 20%; margin-left: 10%"
-            appearance="fill"
-          >
-            <mat-label>Unit</mat-label>
-            <input
-              matInput
-              id="unit-input"
-              name="unit-input"
-              type="text"
-              [(ngModel)]="address.address2"
-              [ngModelOptions]="{ standalone: true }"
-            />
-          </mat-form-field>
-        </div>
-        <mat-form-field appearance="fill">
-          <mat-label>City</mat-label>
-          <input
-            matInput
-            id="city-input"
-            name="city-input"
-            type="text"
-            [(ngModel)]="address.city"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>State</mat-label>
-          <input
-            matInput
-            id="state-input"
-            name="state-input"
-            type="text"
-            [(ngModel)]="address.state"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Zip</mat-label>
-          <input
-            matInput
-            id="zip-input"
-            name="zip-input"
-            type="text"
-            [(ngModel)]="address.zip"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Country</mat-label>
-          <input
-            id="country-input"
-            name="country-input"
-            type="text"
-            [(ngModel)]="address.country"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </mat-form-field>
-        <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-          >
-            Update
-          </button>
-          <button
-            type="click"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-            (click)="toggleAddressDisplay()"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div> -->
+      
+    </form>
+    
   </mat-expansion-panel>
 </mat-accordion>
