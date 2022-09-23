@@ -17,13 +17,13 @@ button{
   right: 15%;
   top: 8%;
   border-style: solid;
-  background-color: var(--bkg-color);
-  background-color:  var(--bkg-color);
+  background: var(--bkg-nav-color);
   inline-size: 200px;
   overflow-wrap: break-word;
   overflow-y: auto; 
   padding-top: 1%;
   padding-bottom: 1%;
+  border-radius: 25px;
 }
 
 .navbar{
