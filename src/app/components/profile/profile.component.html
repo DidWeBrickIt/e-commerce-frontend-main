@@ -1,59 +1,45 @@
 <app-navbar></app-navbar>
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<ng-container *ngIf="profile$ | async as profile">
+  <h3>Welcome, {{ profile.user.firstName }}!</h3>
 
-<div class="title">
-  <div class="title-text">
-    <h1>Hello {{ profile.user.firstName }}!</h1>
-  </div>
-</div>
-
-<app-error-popup
-  *ngIf="hasError"
-  [errorMessage]="errorMessage"
-></app-error-popup>
-<ng-container *ngIf="profile != null && !hasError">
-  <div class="container profile-container temp-border">
+  <div class="container">
     <div class="row">
       <div class="col-4">
         <div class="temp-border">
-          <!-- Profile pic -->
-          <ng-container *ngIf="profile">
             <app-profile-pic
-              [item]="profile.user.imageurl"
-              (newPicEvent)="updatePic($event)"
+                    *ngIf="profile$ | async as profile"
+            [item]="profile.user.imageurl"
+            (newPicEvent)="updatePic($event)"
             >
-            </app-profile-pic>
-
-            <!-- user info -->
+          </app-profile-pic>
             <app-user
+                    *ngIf="profile$ | async as profile"
               [user]="profile.user"
               (newUserEvent)="updateUser($event)"
             ></app-user>
-          </ng-container>
         </div>
       </div>
-      <div class="col-8 temp-border">
-        <ng-container *ngIf="profile">
+      <div class="col-6">
           <app-address
+                  *ngIf="profile$ | async as profile"
             [address]="profile.address"
             (newAddressEvent)="updateAddress($event)"
           ></app-address>
-        </ng-container>
         <hr />
-        <ng-container *ngIf="profile">
           <app-payment
+                  *ngIf="profile$ | async as profile"
             [payment]="profile.payment"
             (newPaymentEvent)="updatePayment($event)"
           ></app-payment>
-        </ng-container>
         <hr />
 
-        <!-- password 
-        <ng-container *ngIf="profile"> 
-        <app-change-password
-          [passwordCred]="passwordCred"
-          (newPasswordEvent)="changePassword($event)"
-        ></app-change-password>
-        </ng-container> -->
+<!--        <ng-container *ngIf="profile"> -->
+<!--        <app-change-password-->
+<!--          [passwordCred]="passwordCred"-->
+<!--          (newPasswordEvent)="changePassword($event)"-->
+<!--        ></app-change-password>-->
+<!--        </ng-container> -->
       </div>
     </div>
     <div class="d-flex justify-content-center">

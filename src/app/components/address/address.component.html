@@ -12,27 +12,26 @@
     <div
       *ngIf="isDisplayActive"
       id="address-readOnly"
-      [ngClass]="{ active: isDisplayActive }"
-    >
+      [ngClass]="{ active: isDisplayActive }">
       <div>
         <label for="address1">Street Address</label>
-        <p>{{ address.address1 }}</p>
+        <p id="address1">{{ address.address1 }}</p>
 
         <label for="address2">Unit</label>
-        <p>{{ address.address2 }}</p>
+        <p id="address2">{{ address.address2 }}</p>
       </div>
       <div>
         <label for="city">City</label>
-        <p>{{ address.city }}</p>
+        <p id="city">{{ address.city }}</p>
 
         <label for="state">State</label>
-        <p>{{ address.state }}</p>
+        <p id="state">{{ address.state }}</p>
 
         <label for="zip">Zip</label>
-        <p>{{ address.zip }}</p>
+        <p id="zip">{{ address.zip }}</p>
 
         <label for="country">Country</label>
-        <p>{{ address.country }}</p>
+        <p id="country">{{ address.country }}</p>
       </div>
 
       <div class="d-flex justify-content-center">
@@ -41,185 +40,91 @@
           id="hideAddressBtn"
           class="btn btn-outline-primary btn-block mb-4"
           style="width: 32%"
-          (click)="toggleAddressDisplay()"
-        >
+          (click)="toggleAddressDisplay()">
           Update
         </button>
       </div>
     </div>
 
-    <!-- Update Address form -->
-
-    <!-- <div class="mb-4 mt-4">
-      <form *ngIf="isFormActive" (ngSubmit)="updateAddress()">
-        <label for="address-input">Street Address</label>
-        <input
-          id="address-input"
-          name="address-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.address1"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="unit-input">Unit</label>
-        <input
-          id="unit-input"
-          name="unit-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.address2"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="city-input">City</label>
-        <input
-          id="city-input"
-          name="city-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.city"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="state-input">State</label>
-        <input
-          id="state-input"
-          name="state-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.state"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="zip-input">Zip</label>
-        <input
-          id="zip-input"
-          name="zip-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.zip"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="country-input">Country</label>
-        <input
-          id="country-input"
-          name="country-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="address.country"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-          >
-            Update
-          </button>
-          <button
-            type="click"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
-            (click)="toggleAddressDisplay()"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div> -->
-
-    <div *ngIf="isFormActive" (ngSubmit)="updateAddress()">
-      <div>
+    <form *ngIf="isFormActive" [formGroup]="addressForm" (ngSubmit)="updateAddress()">
+      
         <mat-form-field appearance="fill">
           <mat-label>Street Address</mat-label>
-          <input
-            matInput
-            id="address-input"
-            name="address-input"
-            type="text"
-            [(ngModel)]="address.address1"
-            [ngModelOptions]="{ standalone: true }"
-          />
+          <input matInput 
+                 id="address-input" 
+                 placeholder="123 example st" 
+                 formControlName="address1"/>
+          <mat-icon matSuffix>info</mat-icon>
+          <mat-hint>Hint</mat-hint>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Unit</mat-label>
-          <input
-            matInput
-            id="unit-input"
-            name="unit-input"
-            type="text"
-            [(ngModel)]="address.address2"
-            [ngModelOptions]="{ standalone: true }"
-          />
-        </mat-form-field>
-      </div>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Unit</mat-label>
+        <input matInput
+               id="address2-input"
+               placeholder="Apt 1"
+               formControlName="address2"/>
+        <mat-icon matSuffix>info</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>City</mat-label>
-        <input
-          matInput
-          id="city-input"
-          name="city-input"
-          type="text"
-          [(ngModel)]="address.city"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <input matInput
+               id="city-input"
+               placeholder="Portland"
+               formControlName="city"/>
+        <mat-icon matSuffix>info</mat-icon>
+        <mat-hint>Hint</mat-hint>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
-        <input
-          matInput
-          id="state-input"
-          name="state-input"
-          type="text"
-          [(ngModel)]="address.state"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <input matInput
+               id="state-input"
+               placeholder="OR"
+               formControlName="state"/>
+        <mat-icon matSuffix>info</mat-icon>
+        <mat-hint>Hint</mat-hint>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Zip</mat-label>
-        <input
-          matInput
-          id="zip-input"
-          name="zip-input"
-          type="text"
-          [(ngModel)]="address.zip"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <input matInput
+               id="zip-input"
+               placeholder="97210"
+               formControlName="zip"/>
+        <mat-icon matSuffix>info</mat-icon>
+        <mat-hint>Hint</mat-hint>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Country</mat-label>
-        <input
-          id="country-input"
-          name="country-input"
-          type="text"
-          [(ngModel)]="address.country"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <input matInput
+               id="country-input"
+               placeholder="United States"
+               formControlName="country"/>
+        <mat-icon matSuffix>info</mat-icon>
+        <mat-hint>Hint</mat-hint>
       </mat-form-field>
+      
       <div class="d-flex justify-content-center">
         <button
           type="submit"
           class="btn btn-outline-primary btn-block mb-4"
-          style="width: 32%"
-        >
+          style="width: 32%">
           Update
         </button>
         <button
           type="click"
           class="btn btn-outline-primary btn-block mb-4"
           style="width: 32%"
-          (click)="toggleAddressDisplay()"
-        >
+          (click)="toggleAddressDisplay()">
           Cancel
         </button>
       </div>
-    </div>
-
-    <!-- </form> -->
-    <!-- </div> -->
+      
+    </form>
+    
   </mat-expansion-panel>
 </mat-accordion>

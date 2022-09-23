@@ -1,37 +1,37 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Payment } from '../../models/payment/payment';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css'],
 })
+
 export class PaymentComponent implements OnInit {
   isDisplayActive: boolean = true;
   isFormActive: boolean = false;
 
-  @Input() payment = {
-    credit_card_number: '',
-    security_code: '',
-    expiration: '',
-  };
-
-  updated: Payment = {
-    credit_card_number: '',
-    security_code: '',
-    expiration: '',
-  };
+  @Input() payment!: Payment;
+  public paymentForm: FormGroup;
+  
   @Output() newPaymentEvent = new EventEmitter<Payment>();
 
-  constructor() {}
+  constructor(private fb: FormBuilder,) {
+    this.paymentForm = this.fb.group({
+      credit_card_number: '', 
+      expiration: '',
+    })
+  }
 
   ngOnInit(): void {
-    this.updated = this.payment;
+    this.paymentForm.setValue({
+      credit_card_number: this.payment.credit_card_number,
+      expiration: this.payment.expiration,})
   }
 
   updatePayment(): void {
-    this.updated = this.payment;
-    this.newPaymentEvent.emit(this.updated);
+    this.newPaymentEvent.emit(this.paymentForm.value);
     this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
   }
