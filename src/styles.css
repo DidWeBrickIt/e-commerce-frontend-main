@@ -18,11 +18,6 @@ body {
   --text-color: #222;
   --bkg-color: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(255, 227, 164, 0.75) 100%);
   --btn-txt-color: white;
-  --bkg-color: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 227, 164, 0.75) 100%
-  );
   --btn-bg-color: rgb(11, 88, 160);
   --bkg-nav-color: #B9B9BA;
   --brder-color: black;
@@ -107,7 +102,7 @@ button {
   width: 50px;
   left: 5px;
   bottom: 4px;
-  background-color: var(--bkg-color);
+  background: var(--bkg-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }

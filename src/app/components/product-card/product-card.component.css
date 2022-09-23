@@ -51,14 +51,14 @@
     width: 100%;
     height: 100%; 
     overflow: hidden;
-    background-color: var(--bkg-color);
-    background-color:  var(--bkg-color);
+    background: var(--bkg-color);
+   
   }
 
   #infoContent {
     position: relative;
     z-index: 2;
-    background-color: var(--bkg-color);
+    background: var(--bkg-color);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid var(--bkg-color);
