@@ -12,14 +12,12 @@ export class PaymentComponent implements OnInit {
 
   @Input() payment = {
     credit_card_number: '',
-    security_code: '',
-    expiration: '',
+    expiration: ''
   };
 
   updated: Payment = {
     credit_card_number: '',
-    security_code: '',
-    expiration: '',
+    expiration: ''
   };
   @Output() newPaymentEvent = new EventEmitter<Payment>();
 
@@ -30,6 +28,7 @@ export class PaymentComponent implements OnInit {
   }
 
   updatePayment(): void {
+    this.updated = this.payment;
     this.newPaymentEvent.emit(this.updated);
     this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;

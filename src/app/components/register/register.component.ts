@@ -14,7 +14,9 @@ export class RegisterComponent implements OnInit {
     fname: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
     lname: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
     email: [null, [Validators.required, Validators.email]],
-    password: [null, [Validators.required]]
+    password: [null, [Validators.required]],
+    securityQuestion: [null, [Validators.required, Validators.pattern(/^[a-zA-Z' _]*$/)]],
+    answer: [null, [Validators.required, Validators.pattern(/^[a-zA-Z0-9' _]*$/)]]
     //add this validator or something like it to password later
     //Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
 
@@ -36,11 +38,14 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log('form submitted');
-      this.authService.register(this.registerForm.get('fname')?.value, this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).subscribe(
+      this.authService.register(this.registerForm.get('fname')?.value, 
+      this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, 
+      this.registerForm.get('password')?.value, this.registerForm.get('securityQuestion')?.value, 
+      this.registerForm.get('answer')?.value).subscribe(
         () => {
         console.log("New user registered")
         this.hasError = false;
-    },
+        },
         (err) => {
         console.log(err)
         this.hasError = true;

@@ -17,8 +17,6 @@
       <label for="creditCardNumber">Credit Card Number</label>
       <p>{{ payment.credit_card_number }}</p>
 
-      <label for="cvv">CVV</label>
-      <p>{{ payment.security_code }}</p>
 
       <label for="expiration">Expiration</label>
       <p>{{ payment.expiration }}</p>
@@ -46,16 +44,6 @@
           type="text"
           class="form-control"
           [(ngModel)]="payment.credit_card_number"
-          [ngModelOptions]="{ standalone: true }"
-        />
-
-        <label for="cvv-input">CVV</label>
-        <input
-          id="cvv-input"
-          name="cvv-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="payment.security_code"
           [ngModelOptions]="{ standalone: true }"
         />
 

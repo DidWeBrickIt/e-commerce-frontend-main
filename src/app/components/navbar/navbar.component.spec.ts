@@ -10,12 +10,14 @@ import { NavbarComponent } from './navbar.component';
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  let service: ProductService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
       //providers: [AuthService, Router, ProductService],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [ProductService]
     })
     .compileComponents();
   });
@@ -43,5 +45,9 @@ describe('NavbarComponent', () => {
     component.clearButton();
     expect(component.notificationList.length).toBe(0);
     expect(component.listSize).toBe(0);
+  });
+
+  it('should get cart from local storage', () => {
+    component.ngOnInit();
   });
 });

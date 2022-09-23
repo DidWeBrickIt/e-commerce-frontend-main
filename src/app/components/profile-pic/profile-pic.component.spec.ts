@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ProfilePicComponent } from './profile-pic.component';
 
 describe('ProfilePicComponent', () => {
@@ -8,7 +8,8 @@ describe('ProfilePicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilePicComponent ]
+      declarations: [ ProfilePicComponent ],
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
 

@@ -38,7 +38,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ChatComponent } from './components/chat/chat.component';
-
+import { PaypalComponent } from './components/paypal/paypal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ChatComponent } from './components/chat/chat.component';
     ResetPasswordComponent,
     FooterComponent,
     ChatComponent,
+    PaypalComponent
 
   ],
 
@@ -83,7 +85,8 @@ import { ChatComponent } from './components/chat/chat.component';
     ScrollingModule,
     MatExpansionModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    NgxPayPalModule
   ],
 
   providers: [],
