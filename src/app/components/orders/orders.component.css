@@ -14,3 +14,24 @@ div {
     background-color: var(--bkg-color);
     background-color:  var(--bkg-color);
 }
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+#header-row {
+    background: rgb(185, 185, 186)
+}
+
+.btn {
+    background-color: rgb(72, 76, 86);
+}
+
+.btn-danger {
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -64,10 +64,10 @@ h5 {
 }
 
 .btn {
-    margin-top: 70%;
+    margin-top: 10%;
 }
 
 #checkout {
     background-color: rgb(242, 105, 38);
-    margin-left: 30%;
+    /* margin-left: 20%; */
 }
