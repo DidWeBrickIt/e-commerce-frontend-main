@@ -76,4 +76,6 @@ input.ng-valid.ng-touched{
     padding-top: 1%;
     border-color: #F26925;
 }
-  
+* {
+    font-family: 'Futura Std Book';
+}
