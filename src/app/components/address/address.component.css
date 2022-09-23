@@ -1,5 +1,6 @@
 label {
   font-weight: 600;
+  font-family: 'Futura Std Bold';
 }
 
 :host {
@@ -19,9 +20,12 @@ mat-accordion {
 ul li {
   display: inline-block;
   list-style: none;
+  font-family: 'Futura Std Book';
 }
 
 .form-line {
   width: 100%;
   display: inline-block;
 }
+
+

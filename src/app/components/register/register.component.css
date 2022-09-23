@@ -70,3 +70,7 @@ input.ng-valid.ng-touched{
     border-radius: 25px;
     border-color: #F26925;
 }
+
+* {
+    font-family: 'Futura Std Book';
+}

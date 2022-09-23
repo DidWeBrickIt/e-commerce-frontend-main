@@ -49,14 +49,19 @@ input{
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
+  font-family: 'Futura Std Bold';
+
 }
 .title-text {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
+  font-family: 'Futura Std Bold';
+
 }
 .card-title {
   color: var(--bkg-title-color);
+  font-family: 'Futura Std Bold';
 }
 body {
   color: var(--text-color);
@@ -145,9 +150,11 @@ body {
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
+  font-family: 'Futura Std Bold';
 }
 .title-text{
   margin-left: 20%;
   text-align: right;
   width: fit-content;
+  font-family: 'Futura Std Bold';
 }
