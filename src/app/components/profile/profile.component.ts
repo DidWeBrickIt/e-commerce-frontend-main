@@ -5,11 +5,6 @@ import {User} from "../../models/user/user";
 import {Payment} from "../../models/payment/payment";
 import {Address} from "../../models/address/address";
 import {MatDialog} from "@angular/material/dialog";
-import {ChangePasswordComponent} from "../change-password/change-password.component";
-import {Password} from "../../models/credential/password/password";
-import {ChangeEmailComponent} from "../change-email/change-email.component";
-import {Email} from "../../models/credential/email/email";
-
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +13,9 @@ import {Email} from "../../models/credential/email/email";
 })
 
 export class ProfileComponent implements OnInit{
-  currentItem = '';
 
-
+  public profile$ = this.profileService.getProfileInfo();
+  saved: Profile;
   hasError:boolean = false;
   errorMessage:string = "Server error, unable to load your profile information, please try again later";
 
@@ -28,103 +23,61 @@ export class ProfileComponent implements OnInit{
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
     payment: new Payment('','')
-    
-
-
   }
 
-  passwordCred: Password={
-    oldPass: '',
-    newPass: '',
-    againPass: ''
-  };
+  // passwordCred: Password={
+  //   oldPass: '',
+  //   newPass: '',
+  //   againPass: ''
+  // };
 
-  emailCred: Email={
-    oldEmail: '',
-    newEmail: '',
-    againEmail: ''
-  }
+  // emailCred: Email={
+  //   oldEmail: '',
+  //   newEmail: '',
+  //   againEmail: ''
+  // }
+
 
   constructor(
       private profileService: ProfileService,
-      public dialog: MatDialog) {}
+      public dialog: MatDialog) {
+    this.saved = new Profile(
+        new User('','','',''),
+        new Payment('',''),
+        new Address('','','','','',''));
 
-  ngOnInit(): void {
-    this.profileService.getProfileInfo().subscribe(
-        (profile) => {
-          if(profile.address != null){
-            this.profile.address = profile.address;
-          }
-          if(profile.payment != null){
-            this.profile.payment = profile.payment;
-          }
-          this.profile.user = profile.user;
-        },
-        (err) => {
-          console.log(err)
-          this.hasError = true;
-        },
-        () => console.log("Profile Retrieved"));
   }
 
-  display(): void{
-    console.log(this.profile);
-  }
+  ngOnInit(): void {}
+
   updatePayment(payment: Payment): void{
-    this.profile.payment = payment;
-    console.log(this.profile.payment);
+    this.saved.payment = payment;
   }
 
   updateAddress(address: Address): void{
-    this.profile.address = address;
-    console.log(this.profile.address);
+    this.saved.address = address;
   }
 
   updatePic(picture: string): void{
-    this.profile.user.imageurl = picture;
-    console.log(this.profile.user.imageurl);
+    this.saved.user.imageurl = picture;
   }
 
   updateUser(user: User): void{
-    this.profile.user = user;
-    console.log(this.profile.user);
+    this.saved.user = user;
   }
 
   updateProfile(): void {
-    const payload =  new Profile(this.profile.user, this.profile.payment, this.profile.address);
-    console.log(this.profile);
+
+    const payload =  this.saved
+    console.log(payload);
     this.profileService.updateProfile(payload).subscribe(
       () => {},
       (error) => {
         console.log(error);
-        this.errorMessage = "Failed to update your profile informaiton, please try again later"
+        this.errorMessage = "Failed to update your profile information, please try again later"
         this.hasError = true;
       }
     );
-  }
-
-  changePassword(): void{
-    const dialogRef = this.dialog.open(
-        ChangePasswordComponent,
-        {width: '50%', data: this.passwordCred }
-    );
-
-    dialogRef.afterClosed().subscribe(
-        (result) => this.passwordCred = result,
-        (err) => console.log(err),
-        () => console.log(this.passwordCred));
-  }
-
-  changeEmail(): void{
-    const dialogRef = this.dialog.open(
-        ChangeEmailComponent,
-        {width: '50%', data: this.emailCred }
-    );
-
-    dialogRef.afterClosed().subscribe(
-        (result) => this.emailCred = result,
-        (err) => console.log(err),
-        () => console.log(this.emailCred));
   }
 
 

@@ -12,63 +12,62 @@
     <div
       *ngIf="isDisplayActive"
       id="payment-readOnly"
-      [ngClass]="{ active: isDisplayActive }"
-    >
-      <label for="creditCardNumber">Credit Card Number</label>
-      <p>{{ payment.credit_card_number }}</p>
-
-
-      <label for="expiration">Expiration</label>
-      <p>{{ payment.expiration }}</p>
+      [ngClass]="{ active: isDisplayActive }">
+      <div>
+        <label for="creditCardNumber">Credit Card Number</label>
+        <p id="creditCardNumber">{{ payment.credit_card_number }}</p>
+      </div>
+      <div>
+        <label for="expiration">Expiration</label>
+        <p id="expiration">{{ payment.expiration }}</p>
+      </div>
 
       <div class="d-flex justify-content-center">
         <button
           type="button"
           id="hideUserBtn"
-          class="btn btn-outline-primary btn-block mb-4"
+          class="btn btn-primary btn-block mb-4"
           style="width: 32%"
-          (click)="togglePaymentDisplay()"
-        >
+          (click)="togglePaymentDisplay()">
           Update
         </button>
       </div>
     </div>
 
-    <!-- Update Payment form -->
     <div class="mb-4 mt-4">
-      <form *ngIf="isFormActive" (ngSubmit)="updatePayment()">
-        <label for="ccn-input">Credit Card Number</label>
-        <input
-          id="ccn-input"
-          name="ccn-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="payment.credit_card_number"
-          [ngModelOptions]="{ standalone: true }"
-        />
+      <form *ngIf="isFormActive" [formGroup]="paymentForm" (ngSubmit)="updatePayment()">
+        <mat-form-field appearance="fill">
+          <mat-label>Credit Card Number</mat-label>
+          <input matInput
+                 id="ccn-input"
+                 placeholder="1234-1234-1234-1234"
+                 formControlName="credit_card_number"/>
+          <mat-icon matSuffix>info</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
 
-        <label for="expiration-input">Expiration</label>
-        <input
-          id="expiration-input"
-          name="expiration-input"
-          type="text"
-          class="form-control"
-          [(ngModel)]="payment.expiration"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <mat-form-field appearance="fill">
+          <mat-label>Expiration</mat-label>
+          <input matInput
+                 id="expiration-input"
+                 placeholder="10/25"
+                 formControlName="expiration"/>
+          <mat-icon matSuffix>info</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
 
         <div class="d-flex justify-content-center">
           <button
             type="submit"
-            class="btn btn-outline-primary btn-block mb-4"
+            class="btn btn-primary mb-4"
             style="width: 32%"
           >
             Update
           </button>
           <button
             type="click"
-            class="btn btn-outline-primary btn-block mb-4"
-            style="width: 32%"
+            class="btn btn-primary mb-4 "
+            style="width: 32%; margin-left: 2em;"
             (click)="togglePaymentDisplay()"
           >
             Cancel

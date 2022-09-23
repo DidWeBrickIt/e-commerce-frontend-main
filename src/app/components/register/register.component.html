@@ -1,11 +1,16 @@
-<img src="../../../assets/images/rev-logo.png" width="30%" height="30%" alt="Revature">
+<div class="text-center">
+  <img src="../../../assets/images/Group_1987.png" width="15%" height="15%" alt="Did We Brick It">
+</div> 
+<div class="container">
+<div class="inner-login-form">
+  
 
+    <div class="form-group">
 <form id="register-form" [formGroup]="registerForm">
     
   <div class="form-group">
     <label for="inputFirstName" class="control-label required">First Name</label>
     <input type="text" id="inputFirstName" class="form-control" formControlName="fname"  placeholder="Enter First Name">
-    
     
     <div *ngIf="f.fname.touched && f.fname.errors" >
       <div *ngIf="f.fname.errors.required" class="error-msg">
@@ -16,7 +21,6 @@
       </div>
     </div>
   </div>
-
 
     <div class="form-group">
       <label for="inputLastName" class="control-label required">Last Name</label>
@@ -33,7 +37,6 @@
         
     </div>
 
-
     <div class="form-group">
         <label for="inputEmail" class="control-label required">Email address</label>
         <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
@@ -49,8 +52,6 @@
         </div>
     </div>
 
-
-
     <div class="form-group">
       <label for="inputPassword" class="control-label required">Password</label>
       <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password">
@@ -63,11 +64,13 @@
           Password requires typical password stuff
         </div>
       </div>
+      <div class="reg-btn">
 
+        <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+        <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+      </div>
     </div>
-
   
-
     <div class="form-group">
       <label for="inputSecurityQuestion" class="control-label required">Security Question</label>
       <input type="text" class="form-control" formControlName="securityQuestion" id="input-security-question" placeholder="Enter a Security Questions">
@@ -101,6 +104,9 @@
  
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <button class="btn btn-primary" (click)="onSubmit()">Register</button>
-    
+
 </form>
+    </div>
+</div>
+</div>
 

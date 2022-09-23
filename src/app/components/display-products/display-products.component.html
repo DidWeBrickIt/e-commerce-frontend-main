@@ -1,10 +1,19 @@
 <app-navbar></app-navbar>
+<div class="title">
+    <div class="title-text">
+    <h1>Welcome to Did We Brick It</h1>
+    <h3>Your Dream Lego Set Destination</h3>
+        
+    </div>
+</div>
 <app-create-product [productInfo]="updatedProductInfo.product" [productName]="updatedProductInfo.product.name" [toggleAcc]="updatedProductInfo.toggleAcc" (boolEvent)="recieveBool($event)"></app-create-product>
 <div class="container">
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <div *ngIf="!hasError">
-        <input  id="search" type="text" placeholder="enter seach here" [(ngModel)]="searchInput">
-        <button (click)="searchProduct()">Search</button>
+        <div class="search-bar input-group mb-3">
+        <input matInput class="search-input form-control" type="text" placeholder="enter seach here" [(ngModel)]="searchInput" (keyup.enter)="searchProduct()">
+        <button class="search-button btn btn-outline-secondary" (click)="searchProduct()" (keyup.enter)="searchInput">Search</button>
+        </div>
         <div *ngIf="this.searchProducts.length == 0">
             <h3 style="color: blue;">Items could not be found.</h3>
             <button (click)="searchProduct()">Okay</button>

@@ -1,36 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Futura Std Bold';
+  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura Std Book';
+  src: url('assets/fonts/Futura-Std-Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Futura Std Medium';
+  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+}
+
 body {
   --text-color: #222;
-  --bkg-color: #fff;
+  --bkg-color: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(255, 227, 164, 0.75) 100%);
+  --bkg2-color:white;
   --btn-txt-color: white;
   --btn-bg-color: rgb(11, 88, 160);
-  --bkg-nav-color: rgb(189, 185, 185);
+  --bkg-nav-color: linear-gradient(143deg, rgba(71,76,85,1) 0%, rgba(0,0,0,1) 100%);
   --brder-color: black;
   --bkg-slider-color: black;
+  --bkg-title-color: linear-gradient(90deg, rgba(252,180,20,1) 0%, rgba(242,105,32,1) 100%);
+  --place-holder-color: black;
+  --input-field-bkg: white;
 }
+
 body.dark-theme {
   --text-color: #eee;
   --bkg-color: #252222;
+  --bkg2-color: #252222;
   --btn-txt-color: rgb(46, 43, 43);
   --btn-bg-color: rgb(20, 211, 195);
-  --bkg-nav-color: black;
+  --bkg-nav-color: linear-gradient(143deg, rgba(71,76,85,1) 0%, rgba(0,0,0,1) 100%);
   --brder-color: white;
   --bkg-slider-color: white;
+  --place-holder-color: silver;
+  --input-field-bkg: black;
 }
 
+input{
+  background: var(--input-field-bkg);
+}
+
+.title {
+  background: var(--bkg-title-color);
+  padding-top: 5%;
+  padding-bottom: 4%;
+  font-family: 'Futura Std Bold';
+
+}
+.title-text {
+  margin-left: 20%;
+  text-align: right;
+  width: fit-content;
+  font-family: 'Futura Std Bold';
+
+}
+
+.card-title {
+  color: var(--bkg-title-color);
+  font-family: 'Futura Std Bold';
+}
 body {
   color: var(--text-color);
   background: var(--bkg-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 .navbar {
   background: var(--bkg-nav-color);
+  color: white;
 }
 
-h1,
-p,
-.word {
-  color: var(--text-color);
-}
+
 button {
   padding: 10px;
   border: none;
@@ -70,7 +116,7 @@ button {
   width: 50px;
   left: 5px;
   bottom: 4px;
-  background-color: var(--bkg-color);
+  background: var(--bkg-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -83,12 +129,33 @@ button {
   border-radius: 34px;
 }
 
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  height: 100%;
+}
+
+.temp-border
+{
+  border-style: 2px solid red;
+  outline-style: solid;
+} 
+
+.title{
+  background: var(--bkg-title-color);
+  padding-top: 5%;
+  padding-bottom: 4%;
+  font-family: 'Futura Std Bold';
+}
+.title-text{
+  margin-left: 20%;
+  text-align: right;
+  width: fit-content;
+  font-family: 'Futura Std Bold';
+}
