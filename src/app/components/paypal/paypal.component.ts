@@ -14,10 +14,11 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class PaypalComponent implements OnInit {
 
+  paypalButtonVisible: boolean = true;
   hasError:boolean = false;
   errorMessage:string = "Server error, please try again later";
   @Input() totalCost = 0.01;
-  public payPalConfig?: IPayPalConfig;
+  public payPalConfig: IPayPalConfig = {clientId:"",onApprove: (data,actions) =>{}};
   showSuccess: boolean = false;
   products: {
     product: Product,
@@ -32,13 +33,11 @@ export class PaypalComponent implements OnInit {
     private router: Router,
     private notificationService: NotificationService
     ){
-
   }
 
   ngOnInit(): void {
     this.productService.getCart().subscribe(
       (cart) => {
-        console.log(cart)
         this.products = cart.products;
         this.totalCost = cart.totalPrice;
         cart.products.forEach(
@@ -55,7 +54,6 @@ export class PaypalComponent implements OnInit {
         })
       }
     );
-    console.log(this.items)
     this.initConfig();
   }
 
@@ -86,10 +84,9 @@ export class PaypalComponent implements OnInit {
   }
 
   purchase(){
-    console.log(this.finalProducts)
     if(this.finalProducts.length > 0) {
       this.productService.purchase(this.finalProducts).subscribe(
-        (resp) => console.log(resp),
+        () => {},
         (err) => {
           console.log(err)
           this.hasError = true;
@@ -101,8 +98,6 @@ export class PaypalComponent implements OnInit {
             products: [],
             totalPrice: 0.00
           };
-          console.log("hey")
-          console.log(cart)
           this.productService.setCart(cart);
           this.productService.setCartToLocalStorage();
           this.createNotification(notifTotal);
@@ -122,7 +117,7 @@ export class PaypalComponent implements OnInit {
     this.notificationService.addNotification(notification);
   }
 
-  private initConfig(): void {
+  public initConfig(): void {
     this.payPalConfig = {
     currency: 'USD',
     clientId: 'sb',
@@ -151,27 +146,13 @@ export class PaypalComponent implements OnInit {
       label: 'paypal',
       layout: 'vertical'
     },
-    onApprove: (data, actions) => {
-      console.log('onApprove - transaction was approved, but not authorized', data, actions);
-      actions.order.get().then((details: string) => {
-        console.log('onApprove - you can get full order details inside onApprove: ', details);
-      });
-      this.makeOrder();
-      this.purchase();
-    },
-    onClientAuthorization: (data) => {
-      console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-      this.showSuccess = true;
-    },
-    onCancel: (data, actions) => {
-      console.log('OnCancel', data, actions);
-    },
-    onError: err => {
-      console.log('OnError', err);
-    },
-    onClick: (data, actions) => {
-      console.log('onClick', data, actions);
-    },
+    onApprove: () => {
+      setTimeout(() => {  
+        this.makeOrder();
+        this.purchase(); 
+      }, 2000);
+      
+    }
   };
   }
 }
