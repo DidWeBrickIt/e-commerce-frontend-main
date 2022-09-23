@@ -3,6 +3,8 @@ button{
 }
 .home-button{
   width: 20%;
+  font-size: large; 
+  margin-left: 1%;
 }
 .home-button h4:hover{
   cursor: pointer;
@@ -42,4 +44,13 @@ button{
 
 ul {
   list-style: none;
+}
+
+#profile-button {
+  background-color: white;
+  color: #000;
+}
+
+.btn {
+  font-weight: 500;
 }
