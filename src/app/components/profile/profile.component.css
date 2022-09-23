@@ -16,8 +16,10 @@ img {
   position: relative;
   padding: 5em;
 }
-
 .rightColumn{
   margin-left: 10%;
   padding: 2%;
+}
+.container{
+  margin-top: 3%;
 }

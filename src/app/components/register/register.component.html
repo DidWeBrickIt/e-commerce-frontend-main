@@ -1,5 +1,11 @@
-<img src="../../../assets/images/rev-logo.png" width="30%" height="30%" alt="Revature">
+<div class="text-center">
+  <img src="../../../assets/images/Group_1987.png" width="15%" height="15%" alt="Did We Brick It">
+</div> 
+<div class="container">
+<div class="inner-login-form">
+  
 
+    <div class="form-group">
 <form id="register-form" [formGroup]="registerForm">
     
   <div class="form-group">
@@ -63,10 +69,18 @@
           Password requires typical password stuff
         </div>
       </div>
+      <div class="reg-btn">
+
+        <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+        <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+      </div>
+
 
     </div>
-    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-    <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+
     
 </form>
+    </div>
+</div>
+</div>
 

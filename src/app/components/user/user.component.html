@@ -4,9 +4,9 @@
   <div
     *ngIf="isDisplayActive"
     id="user-readOnly"
-    [ngClass]="{ active: isDisplayActive }">
-
-    <h5>Name</h5>
+    [ngClass]="{ active: isDisplayActive }"
+  >
+    <h5 class="label">Name</h5>
     <p>{{ user.firstName }} {{ user.lastName }}</p>
 
     <h5>E-mail</h5>

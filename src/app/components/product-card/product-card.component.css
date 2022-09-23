@@ -4,13 +4,16 @@
     max-width: 200px;
     height: 500px;
     transition: .2s ease-out;
-    background: var(--bkg-color);
+    background: var(--input-field-bkg);
     border-color: var(--brder-color);
     color: var(--text-color);
     margin-bottom: 5%;
   
   }
 
+  .card-title{
+    color: #F26925;
+  }
   .card-body{
     text-align: center;
   }
@@ -25,9 +28,10 @@
     justify-content: center;
     height: auto;
     width: auto;
-    max-height: 200px;
+    max-height: 175px;
     max-width: 307px;
     left:0;
+    padding: 20px;
   }
   
   div {
@@ -48,14 +52,14 @@
     width: 100%;
     height: 100%; 
     overflow: hidden;
-    background-color: var(--bkg-color);
-    background-color:  var(--bkg-color);
+    background: var(--bkg-color);
+   
   }
 
   #infoContent {
     position: relative;
     z-index: 2;
-    background-color: var(--bkg-color);
+    background: var(--bkg-color);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid var(--bkg-color);
