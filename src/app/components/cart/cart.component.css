@@ -65,12 +65,21 @@ h5 {
 
 .btn {
     margin-top: 10%;
+    font-family: 'Futura Std Book';
 }
 
 #checkout {
     background-color: rgb(242, 105, 38);
     /* margin-left: 20%; */
 }
-*{
-    font-family: 'Futura Std Book';
-  }
+
+.title-text
+{
+    font-family: 'Futura Std Bold';
+}
+.container
+{
+    font-family: 'Futura Std Bold';
+}
+
+

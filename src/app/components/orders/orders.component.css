@@ -35,6 +35,7 @@ td {
     padding-left: 20px;
     padding-right: 20px;
 }
-*{
-    font-family: 'Futura Std Book';
-  }
+.title-text
+{
+    font-family: 'Futura Std Bold';
+}
