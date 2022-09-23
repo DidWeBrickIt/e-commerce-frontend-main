@@ -60,6 +60,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  public createProduct(product: Product): Observable<Product> {
+    const payload = JSON.stringify(product);
+    return this.http.post<Product>(environment.baseUrl + `/api/product/`, payload, { headers: environment.headers, withCredentials: environment.withCredentials });
+  }
+
   public getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.baseUrl + this.productUrl, { headers: environment.headers, withCredentials: environment.withCredentials });
   }

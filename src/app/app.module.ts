@@ -36,6 +36,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
+    CreateProductComponent,
 
   ],
 
