@@ -67,7 +67,7 @@ import { CreateProductComponent } from './components/create-product/create-produ
     RatingComponent,
     ProfilePicComponent,
     ResetPasswordComponent,
-    PaypalComponent
+    PaypalComponent,
     FooterComponent,
     ChatComponent,
     CreateProductComponent,
