@@ -17,13 +17,20 @@ export class ChatComponent implements OnInit {
   constructor(private chat: ChatService,) { }
 
   ngOnInit(): void {
-    this.refreshData();
-    this.interval = setInterval(() => {
-      this.refreshData();
-    }, 2500);
+
   }
 
   toggleChat(): void{
+    if (!this.showChat){
+      this.refreshData();
+      this.interval = setInterval(() => {
+        this.refreshData();
+      }, 2500);
+    } else{
+      clearInterval(this.interval);
+      this.interval = null;
+    }
+
     this.showChat = !this.showChat;
   }
   refreshData(): void{
