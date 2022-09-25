@@ -9,7 +9,7 @@
 
     <div class="title">
       <div class="title-text">
-        <h1>Welcome, {{ profile.user.firstName }}!</h1>
+        <!-- <h1>Welcome, {{ profile.user.firstName }}!</h1> -->
       </div>
     </div>
 
@@ -22,13 +22,13 @@
 
           <!-- Profile P ic -->
 
+          <!-- <div class="icon-circle"></div> -->
           <app-profile-pic
             *ngIf="profile$ | async as profile"
             [item]="profile.user.imageurl"
             (newPicEvent)="updatePic($event)"
           >
           </app-profile-pic>
-
           <!-- User  -->
           <div>
             <app-user
