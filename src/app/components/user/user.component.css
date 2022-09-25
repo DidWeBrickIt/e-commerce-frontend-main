@@ -1,9 +1,20 @@
-
-.userPadding{
-    margin-top: 25%;
+p {
+  font-family: 'Futura Std Book';
+  font-size: 1.25rem;
+  margin-left: 20%;
+  margin-bottom: 2em;
 }
 
-.label{
-    font-family: 'Futura Std Medium';
-  }
+.userPadding {
+  margin-top: 20%;
+}
+
+.label {
+  font-family: 'Futura Std Medium';
+}
+
+#user-info {
+  margin-left: 10%;
+}
+
 

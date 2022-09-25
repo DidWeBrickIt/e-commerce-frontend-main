@@ -16,14 +16,26 @@
 
 body {
   --text-color: #222;
-  --bkg-color: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(255, 227, 164, 0.75) 100%);
-  --bkg2-color:white;
+  --bkg-color: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 227, 164, 0.75) 100%
+  );
+  --bkg2-color: white;
   --btn-txt-color: white;
   --btn-bg-color: rgb(11, 88, 160);
-  --bkg-nav-color: linear-gradient(143deg, rgba(71,76,85,1) 0%, rgba(0,0,0,1) 100%);
+  --bkg-nav-color: linear-gradient(
+    143deg,
+    rgba(71, 76, 85, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
   --brder-color: black;
   --bkg-slider-color: black;
-  --bkg-title-color: linear-gradient(90deg, rgba(252,180,20,1) 0%, rgba(242,105,32,1) 100%);
+  --bkg-title-color: linear-gradient(
+    90deg,
+    rgba(252, 180, 20, 1) 0%,
+    rgba(242, 105, 32, 1) 100%
+  );
   --place-holder-color: black;
   --input-field-bkg: white;
 }
@@ -34,14 +46,18 @@ body.dark-theme {
   --bkg2-color: #252222;
   --btn-txt-color: rgb(46, 43, 43);
   --btn-bg-color: rgb(20, 211, 195);
-  --bkg-nav-color: linear-gradient(143deg, rgba(71,76,85,1) 0%, rgba(0,0,0,1) 100%);
+  --bkg-nav-color: linear-gradient(
+    143deg,
+    rgba(71, 76, 85, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
   --brder-color: white;
   --bkg-slider-color: white;
   --place-holder-color: silver;
   --input-field-bkg: black;
 }
 
-input{
+input {
   background: var(--input-field-bkg);
 }
 
@@ -50,14 +66,12 @@ input{
   padding-top: 5%;
   padding-bottom: 4%;
   font-family: 'Futura Std Bold';
-
 }
 .title-text {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
   font-family: 'Futura Std Bold';
-
 }
 
 .card-title {
@@ -75,7 +89,6 @@ body {
   background: var(--bkg-nav-color);
   color: white;
 }
-
 
 button {
   padding: 10px;
@@ -129,7 +142,6 @@ button {
   border-radius: 34px;
 }
 
-
 .slider.round:before {
   border-radius: 50%;
 }
@@ -141,21 +153,23 @@ body {
   height: 100%;
 }
 
-.temp-border
+/* .temp-border
 {
   border-style: 2px solid red;
   outline-style: solid;
-} 
+}  */
 
-.title{
+.title {
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
   font-family: 'Futura Std Bold';
 }
-.title-text{
+.title-text {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
   font-family: 'Futura Std Bold';
 }
+
+
