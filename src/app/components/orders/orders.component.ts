@@ -48,7 +48,9 @@ export class OrdersComponent implements OnInit {
       });
   }
 
+
   consolidateOrders(orders: { orderId: number, productName: string, productAmount: number, cost: number, time: string }[]) {
+
     while (orders.length > 0) {
       let partsOfSameOrder: { orderId: number, productName: string, productAmount: number, cost: number, time: string }[] = [];
       let orderNumber = this.orderNum;
@@ -56,12 +58,11 @@ export class OrdersComponent implements OnInit {
       let totalCost = comparedOrder[0].cost;
       let matchingTime = comparedOrder[0].time;
       partsOfSameOrder.push(comparedOrder[0]);
-
-      for (let order of orders) {
-        if (order.time === comparedOrder[0].time) {
-          let matchingOrder = order;
-          partsOfSameOrder.push(matchingOrder);
-          totalCost += matchingOrder.cost;
+      for (let i = orders.length - 1; i >= 0; i--) {
+        if (orders[i].time === comparedOrder[0].time) {
+          let matchingOrder = orders.splice(i, 1);
+          partsOfSameOrder.push(matchingOrder[0]);
+          totalCost += matchingOrder[0].cost;
         }
       }
       this.consolidatedOrders.push({ orderNumber, partsOfSameOrder, totalCost, matchingTime });

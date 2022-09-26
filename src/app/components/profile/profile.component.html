@@ -4,36 +4,27 @@
   [errorMessage]="errorMessage"
 ></app-error-popup>
 <div>
-  <ng-container *ngIf="profile$ | async as profile">
-    <!-- Banner -->
-
-    <div class="title">
-      <div class="title-text">
-        <!-- <h1>Welcome, {{ profile.user.firstName }}!</h1> -->
-        <br><br>
-      </div>
+<ng-container *ngIf="profile$ | async as profile">
+  <div class="title">
+    <div class="title-text">
+      <h1>Welcome, {{ saved.user.firstName }}!</h1>
     </div>
-
-    <!-- Profile Main -->
-
-    <div class="container profile-container">
-      <div class="row">
-        <div class="col-4">
-          <!-- Left-column -->
-
-          <!-- Profile P ic -->
-
-          <app-profile-pic
-            *ngIf="profile$ | async as profile"
-            [item]="profile.user.imageurl"
+</div>
+  <div class="container profile-container">
+    <div class="row">
+      <div class="col-4">
+        <div>
+            <app-profile-pic
+                    *ngIf="profile$ | async as profile"
+            [item]="saved.user.imageurl"
             (newPicEvent)="updatePic($event)"
           >
           </app-profile-pic>
           <!-- User  -->
           <div>
-            <app-user
-              *ngIf="profile$ | async as profile"
-              [user]="profile.user"
+            <app-user *ngIf="profile$ | async as profile"
+              [user]="saved.user"
+
               (newUserEvent)="updateUser($event)"
             ></app-user>
           </div>
@@ -61,6 +52,11 @@
           <h3 class="">Past Orders</h3>
           <app-orders></app-orders>
         </div>
+          <app-address 
+                  *ngIf="profile$ | async as profile"
+            [address]="saved.address"
+            (newAddressEvent)="updateAddress($event)"
+          ></app-address>
       </div>
     </div>
   </ng-container>
