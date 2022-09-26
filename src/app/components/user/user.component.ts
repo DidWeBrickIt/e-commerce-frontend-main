@@ -22,7 +22,6 @@ export class UserComponent implements OnInit {
       firstName: '',
       lastName: '',
       email: '',
-      imageUrl: '',
     })
   }
 
@@ -30,8 +29,7 @@ export class UserComponent implements OnInit {
     this.userForm.setValue({
       firstName: this.user.firstName,
       lastName: this.user.lastName,
-      email: this.user.email,
-      imageUrl: this.user.imageurl
+      email: this.user.email
     })
   }
 
@@ -39,6 +37,9 @@ export class UserComponent implements OnInit {
     this.newUserEvent.emit(this.userForm.value);
     this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
+    this.user.email = this.userForm.value.email;
+    this.user.firstName = this.userForm.value.firstName;
+    this.user.lastName = this.userForm.value.lastName;
   }
 
   toggleUserDisplay(): void {

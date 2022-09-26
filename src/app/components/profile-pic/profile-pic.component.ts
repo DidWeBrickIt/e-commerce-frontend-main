@@ -21,6 +21,7 @@ export class ProfilePicComponent implements OnInit {
   setProfilePic(choice: string) : void {
     console.log(choice);
     this.profilePic = "../../../assets/images/profile_pic/" + choice;
+    this.item = this.profilePic;
     this.newPicEvent.emit(this.profilePic);
   }
 

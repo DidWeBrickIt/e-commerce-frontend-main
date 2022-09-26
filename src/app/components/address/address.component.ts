@@ -43,6 +43,12 @@ export class AddressComponent implements OnInit {
     this.newAddressEvent.emit(this.addressForm.value);
     this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
+    this.address.address1 = this.addressForm.value.address1;
+    this.address.address2 = this.addressForm.value.address2;
+    this.address.city = this.addressForm.value.city;
+    this.address.country = this.addressForm.value.country;
+    this.address.state = this.addressForm.value.state;
+    this.address.zip = this.addressForm.value.zip;
   }
 
   toggleAddressDisplay(): void {
