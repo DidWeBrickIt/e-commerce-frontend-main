@@ -19,7 +19,7 @@
             <tbody>
                 <p *ngIf="isLoading">Loading...</p>
                 <tr *ngFor="let order of consolidatedOrders">
-                    <td>{{order.orderNumber}}</td>
+                    <td>{{consolidatedOrders.length + 1 - order.orderNumber}}</td>
                     <td style="text-align: right;">{{order.totalCost | currency}}</td>
                     <td>{{order.matchingTime}}</td>
                     <td><button class="btn" (click)="toggleDetails(order.orderNumber)">Details</button></td>
