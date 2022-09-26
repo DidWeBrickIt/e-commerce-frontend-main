@@ -24,7 +24,7 @@ export class CreateReviewComponent {
   }
 
   submitReview() {
-    let review: Review = { id: 0, userId: 0, prodId: this.productInfo.id, timestamp: new Date().getTime() / 1000, description: this.description, rating: this.rating };
+    let review: Review = { userId: 0, prodId: this.productInfo.id, timestamp: new Date().getTime() / 1000, description: this.description, rating: this.rating };
     this.reviewService.registerProductReview(review).subscribe(
       (response: Review) => {
         console.log(response);
