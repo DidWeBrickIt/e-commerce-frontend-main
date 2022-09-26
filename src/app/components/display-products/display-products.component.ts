@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -10,21 +10,21 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class DisplayProductsComponent implements OnInit {
 
   allProducts: Product[] = [];
-  hasError:boolean = false;
-  errorMessage:string = "Server error, unable to retrieve the products, please try again later";
+  hasError: boolean = false;
+  errorMessage: string = "Server error, unable to retrieve the products, please try again later";
   searchProducts: Product[] = [];
   searchInput: string = "";
 
   updatedProductInfo = {
-    product:{
-      id:0,
-      quantity:0,
-      price:0,
-      description:"",
-      image:"",
-      name:""
+    product: {
+      id: 0,
+      quantity: 0,
+      price: 0,
+      description: "",
+      image: "",
+      name: ""
     },
-    toggleAcc:false
+    toggleAcc: false
   };
 
 
@@ -33,7 +33,7 @@ export class DisplayProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
       (resp) => {
-       resp.sort((p1:Product, p2:Product) => p1.name.localeCompare(p2.name));
+        resp.sort((p1: Product, p2: Product) => p1.name.localeCompare(p2.name));
         this.allProducts = resp;
         this.searchProducts = resp;
       },
@@ -45,18 +45,18 @@ export class DisplayProductsComponent implements OnInit {
     );
   }
 
-  recieveBool($event:boolean){
+  recieveBool($event: boolean) {
     this.updatedProductInfo.toggleAcc = $event;
   }
 
-  updateCreateProduct(prod:Product){
+  updateCreateProduct(prod: Product) {
     //This is where we scroll to top of page
     //We also send the information from the event to the form.
     // console.log(prod);
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
 
     this.updatedProductInfo.toggleAcc = true;

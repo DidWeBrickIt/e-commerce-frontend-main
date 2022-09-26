@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ReadableReview } from '../../models/readable-review/readable-review';
 import { environment } from 'src/environments/environment';
 import { Review } from '../../models/review/review';
@@ -12,16 +12,14 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
-  reviewUrl :string = "/reviews";
+  reviewUrl: string = "/reviews";
 
-  registerProductReview(review : Review) : Observable<Review>
-  {
+  registerProductReview(review: Review): Observable<Review> {
     const payload = JSON.stringify(review);
-    return this.http.post<Review>(`${environment.baseUrl}${this.reviewUrl}/register`, payload, {headers: environment.headers, withCredentials: environment.withCredentials})
+    return this.http.post<Review>(`${environment.baseUrl}${this.reviewUrl}/register`, payload, { headers: environment.headers, withCredentials: environment.withCredentials })
   }
 
-  getReviewsForProduct(id :number) : Observable<ReadableReview[]>
-  {
-    return this.http.get<ReadableReview[]>(`${environment.baseUrl}${this.reviewUrl}/${id}`, {headers: environment.headers, withCredentials: environment.withCredentials});
+  getReviewsForProduct(id: number): Observable<ReadableReview[]> {
+    return this.http.get<ReadableReview[]>(`${environment.baseUrl}${this.reviewUrl}/${id}`, { headers: environment.headers, withCredentials: environment.withCredentials });
   }
 }

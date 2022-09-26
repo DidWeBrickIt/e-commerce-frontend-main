@@ -1,4 +1,3 @@
-import { pipe } from 'rxjs';
 import { EpochToDatePipe } from './epoch-to-date.pipe';
 
 describe('EpochToDatePipe', () => {

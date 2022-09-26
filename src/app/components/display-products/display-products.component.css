@@ -1,86 +1,84 @@
 /* Item sizing */
 .cardListItem {
-    flex: 0 0 307px;
-    padding-bottom: 6%;
-    max-width: 400px;
-    /* margin-left: 6%; */
-  }
-    
-  
-    /* small size viewport */
-  @media screen and (max-width: 640px) {
-    /* Item sizing */
-    .cardListItem {
-      flex: 0 0 307px;
-      margin-left: 4%;
-      padding-left: 3%;
-    }
-  }
-    /* medium size viewport */
-  @media screen and (max-width: 959px) {
-    /* Item sizing */
-    .cardListItem {
-      /* flex: 0 0 307px; */
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-  }
-    
-  @supports (display: grid) {
-    .product-cards { 
-      max-width: 10000px;
-      margin: 0; 
-      padding: 3%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      column-gap: 60px;
-    }
-  }
-  .row.align-items-start{
-    row-gap: 50px;
-  }
+  flex: 0 0 307px;
+  padding-bottom: 6%;
+  max-width: 400px;
+  /* margin-left: 6%; */
+}
 
-.container 
-{
+/* small size viewport */
+@media screen and (max-width: 640px) {
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 0 307px;
+    margin-left: 4%;
+    padding-left: 3%;
+  }
+}
+/* medium size viewport */
+@media screen and (max-width: 959px) {
+  /* Item sizing */
+  .cardListItem {
+    /* flex: 0 0 307px; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@supports (display: grid) {
+  .product-cards {
+    max-width: 10000px;
+    margin: 0;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 60px;
+  }
+}
+.row.align-items-start {
+  row-gap: 50px;
+}
+
+.container {
   margin-top: 1%;
 }
 
-.col-4
-{
+.col-4 {
   margin-bottom: 1%;
 }
 
-.search-bar{
+#searchBox {
+  width: 100%;
+  background: var(--bkg-nav-color);
+  padding-bottom: 1%;
+  padding-top: 1%;
+}
+
+.search-bar {
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  
-  
-  
 }
-.search-button{
+
+.search-button {
   width: 30%;
   background: var(--btn-bg-color);
   color: var(--btn-txt-color);
-  margin-bottom: 5%;
-  
 }
-.search-input{
+.search-input {
   width: 70%;
   background: var(--input-field-bkg);
   color: var(--text-color);
 }
-::placeholder{
+::placeholder {
   color: var(--text-color);
 }
-.home{
+.home {
   text-align: center;
   background-color: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 6%;
 }
-.title
-{
-  font-family: 'Futura Std Bold';
-
+.title {
+  font-family: 'Futura Std Bold', sans-serif;
 }

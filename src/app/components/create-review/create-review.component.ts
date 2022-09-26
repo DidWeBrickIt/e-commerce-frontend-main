@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { Review } from 'src/app/models/review/review';
@@ -9,20 +9,16 @@ import { ReviewService } from 'src/app/services/review/review.service';
   templateUrl: './create-review.component.html',
   styleUrls: ['./create-review.component.css']
 })
-export class CreateReviewComponent implements OnInit {
+export class CreateReviewComponent {
 
   @Input() productInfo!: Product;
 
-  hasError:boolean = false;
-  errorMessage:string = "Server error, unable to add your review, please try again later";
+  hasError: boolean = false;
+  errorMessage: string = "Server error, unable to add your review, please try again later";
   description: string = "";
   rating: number = 0;
 
   constructor(private reviewService: ReviewService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
   onRatingChanged(rating: number) {
     this.rating = rating;
   }

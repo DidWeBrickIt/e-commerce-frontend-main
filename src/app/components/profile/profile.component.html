@@ -1,4 +1,4 @@
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
 <app-error-popup
   *ngIf="hasError"
   [errorMessage]="errorMessage"
@@ -10,6 +10,7 @@
     <div class="title">
       <div class="title-text">
         <!-- <h1>Welcome, {{ profile.user.firstName }}!</h1> -->
+        <br><br>
       </div>
     </div>
 
@@ -22,7 +23,6 @@
 
           <!-- Profile P ic -->
 
-          <!-- <div class="icon-circle"></div> -->
           <app-profile-pic
             *ngIf="profile$ | async as profile"
             [item]="profile.user.imageurl"
@@ -61,12 +61,7 @@
           <h3 class="">Past Orders</h3>
           <app-orders></app-orders>
         </div>
-        <!-- Right-column -->
       </div>
-
-      <!-- end right -->
-
-      <!-- Shipping/Billing -->
     </div>
   </ng-container>
 </div>

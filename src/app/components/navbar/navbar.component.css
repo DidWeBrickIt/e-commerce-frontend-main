@@ -1,46 +1,88 @@
-button{
-  margin-left: 10px;
-}
-.home-button{
-  width: 20%;
-  font-size: large; 
-  margin-left: 1%;
-}
-.home-button h4:hover{
-  cursor: pointer;
-}
-.home-button img{
-  width: 10%;
-  height: 10%;
-}
-#infoBackground {
-  position: fixed; 
-  z-index: 1;
-  right: 15%;
-  top: 8%;
-  border-style: solid;
-  background: var(--bkg-nav-color);
-  inline-size: 200px;
-  overflow-wrap: break-word;
-  overflow-y: auto; 
-  padding-top: 1%;
-  padding-bottom: 1%;
-  border-radius: 25px;
+nav {
+  position: relative;
+  margin: 0;
 }
 
-.navbar{
-  overflow: hidden;
-  z-index: 2;
+button {
+  margin-left: 1em;
+}
+
+form {
+  margin: 5px;
+}
+
+.navbar {
+  margin: 0;
+  height: 70px;
+  /* overflow: hidden; */
+  z-index: 1;
   position: fixed;
   top: 0;
   width: 100%;
+  height: auto;
 }
 
 .container {
   padding-bottom: 1%;
-  margin-left: 0%;
+  margin-left: 0;
   padding-left: 0;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
+}
+
+.home-button {
+  width: 20%;
+  font-size: large;
+  margin-left: 1%;
+}
+.home-button h4:hover {
+  cursor: pointer;
+}
+.home-button img {
+  width: 10%;
+  height: 10%;
+}
+
+#notificationIcon {
+  margin-left: 2em;
+  margin-right: 1em;
+}
+
+#infoBackground {
+  position: fixed;
+  z-index: 1;
+  right: 2%;
+  top: 7%;
+  width: 400px;
+  height: auto;
+  border-style: solid;
+  background: var(--bkg-nav-color);
+  overflow-y: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#infoBackground p {
+  text-align: center;
+  font-family: 'Futura Std Bold', sans-serif;
+  margin-top: 10px;
+}
+
+#infoBackground ul {
+  margin: 10px;
+  padding-right: 40px;
+}
+
+#infoBackground button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#darkModeToggle {
+  margin-right: 2rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 ul {

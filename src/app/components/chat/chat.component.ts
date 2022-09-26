@@ -7,18 +7,17 @@ import { Message } from '../../models/message/message';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })
-export class ChatComponent implements OnInit {
-  messages: Message[] = [];
+export class ChatComponent {
+
+  messages: Message[] = []
   reply: string = '';
   interval: any;
   showChat: boolean = false;
 
   constructor(private chat: ChatService) {}
 
-  ngOnInit(): void {}
-
-  toggleChat(): void {
-    if (!this.showChat) {
+  toggleChat(): void{
+    if (!this.showChat){
       this.refreshData();
       this.interval = setInterval(() => {
         this.refreshData();

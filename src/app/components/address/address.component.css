@@ -1,6 +1,6 @@
 label {
   font-weight: 600;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
 
 :host {
@@ -21,8 +21,7 @@ mat-accordion {
 ul li {
   /* display: inline-block; */
   list-style: none;
-  width: 90%;
-  font-family: 'Futura Std Book';
+  font-family: 'Futura Std Book', sans-serif;
 }
 
 /* .form-line {
