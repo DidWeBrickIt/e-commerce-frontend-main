@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ChatService} from "../../services/chat/chat.service";
 import {Message} from "../../models/message/message";
 
