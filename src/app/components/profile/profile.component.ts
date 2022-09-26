@@ -48,7 +48,21 @@ export class ProfileComponent implements OnInit{
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.profileService.getProfileInfo().subscribe(
+      (profile) => {
+        this.saved.user = profile.user;
+        this.saved.address = profile.address;
+        this.saved.payment = profile.payment;
+      },
+      (error) => {
+        console.log(error);
+        this.errorMessage = "Server error, unable to load your profile information, please try again later"
+        this.hasError = true;
+      }
+    );
+    console.log(this.saved);
+  }
 
   updatePayment(payment: Payment): void{
     this.saved.payment = payment;
@@ -63,6 +77,9 @@ export class ProfileComponent implements OnInit{
   }
 
   updateUser(user: User): void{
+    if(user.imageurl == null){
+      user.imageurl = this.saved.user.imageurl;
+    }
     this.saved.user = user;
   }
 
