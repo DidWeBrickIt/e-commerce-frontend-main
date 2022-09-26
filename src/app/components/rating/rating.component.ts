@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
@@ -12,7 +12,6 @@ export class RatingComponent {
   @Output() ratingUpdated = new EventEmitter();
 
   ratingArray: number[] = [1, 2, 3, 4, 5];
-
 
   setRating(i: number) {
     this.rating = i;

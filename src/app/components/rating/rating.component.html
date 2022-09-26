@@ -1,5 +1,5 @@
 <div class="container">
     <div *ngFor="let star of ratingArray">
-        <img (click)="setRating(star)" [src]="this.rating >= star ? (1 | starRating) : (0 | starRating)", alt="{{this.rating}}">
+        <img (click)="setRating(star)" [src]="this.rating >= star ? (1 | starRating) : (0 | starRating)" alt="{{this.rating}}">
     </div>
  </div>
