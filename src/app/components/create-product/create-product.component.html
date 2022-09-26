@@ -3,15 +3,16 @@
   <mat-expansion-panel [expanded]="toggleAcc" (closed)="closeAcc()" (opened)="openAcc()">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h5>Create or Update a Product</h5>
+        <h5 *ngIf="toggleAcc == false">Create or Update a Product</h5>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <div>
+    <div class="container">
 
-      <p *ngIf="productName !== ''">Currently Updating Product: {{productName}}</p>
-  
+      <h1 style="text-align:center">Create/Update a product</h1>
+      <h4 style="text-align:center" *ngIf="productName !== ''">Currently Updating Product: {{productName}}</h4>
       <form *ngIf="showForm == true" (ngSubmit)="createProduct()">
-          <label for="product-name">Product Name</label>
+
+          <label class="mt-3" for="product-name">Product Name</label>
           <input
             id="product-name"
             name="product-name"
@@ -21,7 +22,7 @@
             [ngModelOptions]="{ standalone: true }"
           />
       
-          <label for="product-desc">Product Description</label>
+          <label class="mt-3" for="product-desc">Product Description</label>
           <input
             id="product-desc"
             name="product-desc"
@@ -31,7 +32,7 @@
             [ngModelOptions]="{ standalone: true }"
           />
       
-          <label for="product-quantity">Product Quantity</label>
+          <label class="mt-3" for="product-quantity">Product Quantity</label>
           <input
             id="product-quantity"
             name="product-quantity"
@@ -41,7 +42,7 @@
             [ngModelOptions]="{ standalone: true }"
           />
       
-          <label for="product-price">Product Price</label>
+          <label class="mt-3" for="product-price">Product Price</label>
           <input
             id="product-price"
             name="product-price"
@@ -51,7 +52,7 @@
             [ngModelOptions]="{ standalone: true }"
           />
       
-          <label for="product-image">Product Image</label>
+          <label class="mt-3" for="product-image">Product Image</label>
           <input
             id="product-image"
             name="product-image"
@@ -61,40 +62,43 @@
             [ngModelOptions]="{ standalone: true }"
           />
       
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center mt-3">
             <button
-            class="btn btn-outline-primary btn-block mb-4"
+            class="btn btn-outline-primary mb-4"
             style="width: 32%"
             type="reset"
             (click)="cancel()"
-          >
+            >
             Cancel
-          </button>
+            </button>
+
             <button *ngIf="productName === ''"
               type="submit"
-              class="btn btn-outline-primary btn-block mb-4"
+              class="btn btn-outline-primary mb-4 ml-3"
               style="width: 32%"
               [disabled]="productInfo.name === '' || productInfo.image === '' || productInfo.price === 0 || productInfo.description === ''"
               (click)="createProduct()"
             >
               Create
             </button>
+
             <button *ngIf="productName !== ''"
             type="submit"
-            class="btn btn-outline-primary btn-block mb-4"
+            class="btn btn-outline-primary mb-4 ml-3"
             style="width: 32%"
             [disabled]="productInfo.name === '' || productInfo.image === '' || productInfo.price === 0 || productInfo.description === ''"
             (click)="createProduct()"
-          >
+            >
             Update
-          </button>
+            </button>
+
           </div>
         </form>
   </div>
   <div *ngIf="showForm == false && hasError == false">
     <p>Successfully {{word}} the product!</p>
     <button
-    class="btn btn-outline-primary btn-block mb-4"
+    class="btn btn-outline-primary mb-4"
     style="width: 32%"
     (click)="closeDiv()"
   >
@@ -104,7 +108,7 @@
   <div *ngIf="hasError">
     <app-error-popup [errorMessage]="errorMessage"></app-error-popup>
     <button
-    class="btn btn-outline-primary btn-block mb-4"
+    class="btn btn-outline-primary mb-4"
     style="width: 32%"
     (click)="closeDiv()"
   >
