@@ -57,9 +57,9 @@ export class OrdersComponent implements OnInit {
       let matchingTime = comparedOrder[0].time;
       partsOfSameOrder.push(comparedOrder[0]);
 
-      for (let i = 0; i < orders.length; i++) {
-        if (orders[i].time === comparedOrder[0].time) {
-          let matchingOrder = orders[i];
+      for (let order of orders) {
+        if (order.time === comparedOrder[0].time) {
+          let matchingOrder = order;
           partsOfSameOrder.push(matchingOrder);
           totalCost += matchingOrder.cost;
         }
