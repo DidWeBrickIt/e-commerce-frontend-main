@@ -64,11 +64,7 @@
           Password requires typical password stuff
         </div>
       </div>
-      <div class="reg-btn">
-
-        <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-        <button class="btn btn-primary" (click)="onSubmit()">Register</button>
-      </div>
+      
     </div>
   
     <div class="form-group">
@@ -97,13 +93,19 @@
           Only letters and numbers are allowed
         </div>
       </div>
+
+      <div class="reg-btn">
+
+        <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+        <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+        
+      </div>
     </div>
 
 
 
  
-    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-    <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+
 
 </form>
     </div>
