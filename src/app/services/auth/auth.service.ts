@@ -31,12 +31,12 @@ export class AuthService {
       return;
     }
     let jwt: Jwt = JSON.parse(storedJwt);
-    environment.headers.auth = jwt.jwt;
+    environment.headers.auth = jwt.jwtData;
     this.userAccess = jwt.userAccess;
   }
 
   setJWT(jwt: Jwt): void {
-    environment.headers.auth = jwt.jwt;
+    environment.headers.auth = jwt.jwtData;
     this.userAccess = jwt.userAccess;
     localStorage.setItem("jwt", JSON.stringify(jwt));
   }
