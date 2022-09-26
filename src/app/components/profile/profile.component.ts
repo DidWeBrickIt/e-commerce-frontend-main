@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 import {Profile} from "../../models/profile/profile";
 import {User} from "../../models/user/user";
-import {Payment} from "../../models/payment/payment";
 import {Address} from "../../models/address/address";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -22,7 +21,6 @@ export class ProfileComponent implements OnInit{
   profile: Profile={
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
-    payment: new Payment('','')
   }
 
   // passwordCred: Password={
@@ -43,16 +41,25 @@ export class ProfileComponent implements OnInit{
       public dialog: MatDialog) {
     this.saved = new Profile(
         new User('','','',''),
-        new Payment('',''),
         new Address('','','','','',''));
 
   }
 
-  ngOnInit(): void {}
-
-  updatePayment(payment: Payment): void{
-    this.saved.payment = payment;
+  ngOnInit(): void {
+    this.profileService.getProfileInfo().subscribe(
+      (profile) => {
+        this.saved.user = profile.user;
+        this.saved.address = profile.address;
+      },
+      (error) => {
+        console.log(error);
+        this.errorMessage = "Server error, unable to load your profile information, please try again later"
+        this.hasError = true;
+      }
+    );
+    console.log(this.saved);
   }
+
 
   updateAddress(address: Address): void{
     this.saved.address = address;
@@ -63,6 +70,9 @@ export class ProfileComponent implements OnInit{
   }
 
   updateUser(user: User): void{
+    if(user.imageurl == null){
+      user.imageurl = this.saved.user.imageurl;
+    }
     this.saved.user = user;
   }
 

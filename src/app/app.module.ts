@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddressComponent } from './components/address/address.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { UserComponent } from './components/user/user.component';
 import { ErrorPopupComponent } from "./components/error-popup/error-popup.component";
@@ -55,7 +54,6 @@ import { CreateProductComponent } from './components/create-product/create-produ
     ProfileComponent,
     OrdersComponent,
     AddressComponent,
-    PaymentComponent,
     UserComponent,
     ErrorPopupComponent,
     ChangePasswordComponent,

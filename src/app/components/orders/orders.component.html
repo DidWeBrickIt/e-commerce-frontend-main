@@ -1,60 +1,46 @@
 <div class="container">
-  <app-error-popup
-    *ngIf="hasError"
-    [errorMessage]="errorMessage"
-  ></app-error-popup>
-  <div *ngIf="!hasError" >
-    <table class="table table-striped table-hover" *ngIf="!showDetails">
-      <thead>
-        <tr id="header-row">
-          <th style="width: 10%">Order ID</th>
-          <th style="text-align: right; width: 20%">Total Cost</th>
-          <th style="width: 55%">Time Purchased</th>
-          <th style="width: 15%">View Order Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        <p *ngIf="isLoading">Loading...</p>
-        <tr *ngFor="let order of consolidatedOrders">
-          <td>{{ order.orderNumber }}</td>
-          <td style="text-align: right">{{ order.totalCost | currency }}</td>
-          <td>{{ order.matchingTime }}</td>
-          <td>
-            <button class="btn" (click)="toggleDetails(order.orderNumber)">
-              Details
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div id="orderBackground" *ngIf="showDetails">
-      <div id="infoContent" (click)="stopProp($event)">
-        <button class="btn-danger" id="closeBtn" (click)="toggleDetails()">
-          Back
-        </button>
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr id="header-row">
-              <th style="text-align: left">Product Name</th>
-              <th>Product Amount</th>
-              <th style="text-align: right">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="
-                let order of consolidatedOrders[orderDetails - 1]
-                  .partsOfSameOrder
-              "
-            >
-              <td style="text-align: left">{{ order.productName }}</td>
-              <td>{{ order.productAmount }}</td>
-              <td style="text-align: right">{{ order.cost | currency }}</td>
-            </tr>
-          </tbody>
+    <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+    <div *ngIf="!hasError">
+        <table class="table table-striped table-hover" *ngIf="!showDetails" aria-describedby="Past Orders">
+            <thead>
+                <tr id="header-row">
+                    <th style="width: 10%;">Order ID</th>
+                    <th style="text-align: right; width: 20%;">Total Cost</th>
+                    <th style="width: 55%;">Time Purchased</th>
+                    <th style="width: 15%;">View Order Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <p *ngIf="isLoading">Loading...</p>
+                <tr *ngFor="let order of consolidatedOrders">
+                    <td>{{order.orderNumber}}</td>
+                    <td style="text-align: right;">{{order.totalCost | currency}}</td>
+                    <td>{{order.matchingTime}}</td>
+                    <td><button class="btn" (click)="toggleDetails(order.orderNumber)">Details</button></td>
+                </tr>
+            </tbody>
         </table>
-      </div>
+
+        <div id="orderBackground" *ngIf="showDetails">
+            <div id="infoContent" (click)="stopProp($event)">
+                <button class="btn-danger" id="closeBtn" (click)="toggleDetails()">Back</button>
+                <table class="table table-striped table-hover" aria-describedby="Order Details">
+                    <thead>
+                        <tr id="header-row">
+                            <th style="text-align: left;">Product Name</th>
+                            <th>Product Amount</th>
+                            <th style="text-align: right;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of consolidatedOrders[orderDetails-1].partsOfSameOrder">
+                            <td style="text-align: left;">{{order.productName}}</td>
+                            <td>{{order.productAmount}}</td>
+                            <td style="text-align: right;">{{order.cost | currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
   </div>
-</div>

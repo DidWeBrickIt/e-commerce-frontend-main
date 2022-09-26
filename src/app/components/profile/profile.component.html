@@ -22,7 +22,6 @@
 
           <!-- Profile P ic -->
 
-          <!-- <div class="icon-circle"></div> -->
           <app-profile-pic
             *ngIf="profile$ | async as profile"
             [item]="profile.user.imageurl"
@@ -61,12 +60,8 @@
           <h3 class="">Past Orders</h3>
           <app-orders></app-orders>
         </div>
-        <!-- Right-column -->
       </div>
 
-      <!-- end right -->
-
-      <!-- Shipping/Billing -->
     </div>
   </ng-container>
 </div>

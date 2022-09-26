@@ -77,5 +77,5 @@ input.ng-valid.ng-touched{
     border-color: #F26925;
 }
 * {
-    font-family: 'Futura Std Book';
+    font-family: 'Futura Std Book', sans-serif;
 }

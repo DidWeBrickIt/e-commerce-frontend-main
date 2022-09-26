@@ -5,8 +5,6 @@ import { Notification } from '../models/notification';
 export class NotificationService {    
   
   private notificationList: Notification[] = [];    
-  
-  constructor() { }
 
   addNotification(notification: Notification) {
     this.notificationList.unshift(notification);

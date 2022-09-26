@@ -1,10 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Notification } from 'src/app/models/notification';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProductService } from 'src/app/services/product/product.service';
-
 import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {
@@ -14,12 +11,11 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ],
-      //providers: [AuthService, Router, ProductService],
+      declarations: [NavbarComponent],
       imports: [HttpClientTestingModule],
       providers: [ProductService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -40,7 +36,7 @@ describe('NavbarComponent', () => {
 
   it('should clear list', () => {
     const date = new Date();
-    const notif = new Notification("test",date);
+    const notif = new Notification("test", date);
     component.notificationList.push(notif);
     component.clearButton();
     expect(component.notificationList.length).toBe(0);

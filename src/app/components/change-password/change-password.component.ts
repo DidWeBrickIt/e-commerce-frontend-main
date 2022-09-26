@@ -1,12 +1,10 @@
 import {
   Component,
   EventEmitter,
-  Inject,
   Input,
   OnInit,
   Output,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Password } from '../../models/credential/password/password';
 
 @Component({
@@ -32,7 +30,6 @@ export class ChangePasswordComponent implements OnInit {
 
   @Output() newPasswordEvent = new EventEmitter<Password>();
 
-  constructor() {}
 
   ngOnInit(): void {
     this.updated = this.passwordCred;

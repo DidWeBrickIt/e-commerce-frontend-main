@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Futura Std Book';
+  font-family: 'Futura Std Book', sans-serif;
   src: url('assets/fonts/Futura-Std-Book.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Futura Std Medium';
+  font-family: 'Futura Std Medium', sans-serif;
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
@@ -38,6 +38,12 @@ body {
   );
   --place-holder-color: black;
   --input-field-bkg: white;
+
+  color: var(--text-color);
+  background: var(--bkg-color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body.dark-theme {
@@ -65,26 +71,21 @@ input {
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
+
 .title-text {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
 
 .card-title {
   color: var(--bkg-title-color);
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
-body {
-  color: var(--text-color);
-  background: var(--bkg-color);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 .navbar {
   background: var(--bkg-nav-color);
   color: white;
@@ -106,6 +107,7 @@ button {
   top: 0;
   margin: 0 5px;
 }
+
 .switch input {
   display: none;
 }
@@ -117,9 +119,9 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  background-color: var(--bkg-slider-color);
 }
 
 .slider:before {
@@ -132,10 +134,6 @@ button {
   background: var(--bkg-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
-}
-
-.slider {
-  background-color: var(--bkg-slider-color);
 }
 
 .slider.round {

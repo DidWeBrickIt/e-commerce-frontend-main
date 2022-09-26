@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit{
 
   cartCount!: number;
   subscription!: Subscription;
-  isDark: Boolean = false;
+  isDark: boolean = false;
   isHidden: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService, private notificationService: NotificationService) { }
