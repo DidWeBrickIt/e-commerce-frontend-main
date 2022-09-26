@@ -20,6 +20,7 @@ export class ProductCardComponent implements OnInit{
   showInfo: boolean = false;
   quantities: number[] = [];
   amount: number = 1;
+  userAccess: string = "";
 
   @Input() productInfo!: Product;
 
@@ -29,6 +30,9 @@ export class ProductCardComponent implements OnInit{
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("jwt") != null){
+      this.userAccess = JSON.parse(String(localStorage.getItem("jwt"))).userAccess;
+    } 
     this.subscription = this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;

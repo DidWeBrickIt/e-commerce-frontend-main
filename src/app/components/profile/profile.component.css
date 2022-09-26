@@ -1,5 +1,12 @@
-temp-border {
-  border-width: 2px;
+h3 {
+  font-family: 'Futura Std Bold';
+  font-size: 1.953rem;
+  text-align: center;
+  padding: 1.75rem;
+}
+
+.temp-border {
+  border-width: 3px;
   border-style: solid;
   border-color: red;
 }
@@ -13,13 +20,51 @@ img {
 }
 
 .profile-container {
+  background: rgba(255, 255, 255, 0.75);
   position: relative;
-  padding: 5em;
+  padding-left: 4em;
 }
-.rightColumn{
+
+.rightColumn {
+  margin-left: 5%;
+  padding: 1.25em;
+  border-left: 2px solid #b9b9ba;
+  /* padding: 2%; */
+}
+/* .container {
+  width: 100%;
   margin-left: 10%;
-  padding: 2%;
+  margin-right: 10%;
+} */
+
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
 }
-.container{
-  margin-top: 3%;
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1440px;
+  }
 }
+
+#updateLink a {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+/* .icon-circle {
+  margin: 0;
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: black;
+  border: 5px solid white;
+  border-style: solid;
+  border-width: 5px;
+} */

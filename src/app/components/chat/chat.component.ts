@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import {ChatService} from "../../services/chat/chat.service";
-import {Message} from "../../models/message/message";
+import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../services/chat/chat.service';
+import { Message } from '../../models/message/message';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent {
 
@@ -14,7 +14,7 @@ export class ChatComponent {
   interval: any;
   showChat: boolean = false;
 
-  constructor(private chat: ChatService,) { }
+  constructor(private chat: ChatService) {}
 
   toggleChat(): void{
     if (!this.showChat){
@@ -22,18 +22,19 @@ export class ChatComponent {
       this.interval = setInterval(() => {
         this.refreshData();
       }, 2500);
-    } else{
+    } else {
       clearInterval(this.interval);
       this.interval = null;
     }
 
     this.showChat = !this.showChat;
   }
-  refreshData(): void{
-    this.chat.getMessages().subscribe(data => this.messages = data);
+  refreshData(): void {
+    this.chat.getMessages().subscribe((data) => (this.messages = data));
   }
 
-  send(): void{
-    this.chat.postMessage(this.reply)
+  send(): void {
+    this.chat.postMessage(this.reply);
+    this.refreshData();
   }
 }

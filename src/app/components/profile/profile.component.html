@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
-<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
+<app-error-popup
+  *ngIf="hasError"
+  [errorMessage]="errorMessage"
+></app-error-popup>
 <div>
-<ng-container *ngIf="profile$ | async as profile">
+<div *ngIf="profile$ | async as profile">
   <div class="title">
     <div class="title-text">
       <h1>Welcome, {{ saved.user.firstName }}!</h1>
@@ -15,19 +18,39 @@
                     *ngIf="profile$ | async as profile"
             [item]="saved.user.imageurl"
             (newPicEvent)="updatePic($event)"
-            >
+          >
           </app-profile-pic>
-
-            <app-user
-                    *ngIf="profile$ | async as profile"
+          <!-- User  -->
+          <div>
+            <app-user *ngIf="profile$ | async as profile"
               [user]="saved.user"
+
               (newUserEvent)="updateUser($event)"
             ></app-user>
+          </div>
+
+          <div>
+            <app-address
+              *ngIf="profile$ | async as profile"
+              [address]="profile.address"
+              (newAddressEvent)="updateAddress($event)"
+            ></app-address>
+          </div>
+          <div class="d-flex">
+            <button
+              class="btn btn-primary btn-block mb-4 mt-4"
+              (click)="updateProfile()"
+            >
+              Save All Changes
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="col-6 rightColumn">
-        <div class="d-flex">
-          <button class="tn btn-primary mb-4 alignRight" (click)="updateProfile()">Save All Changes</button>
+        <div class="d-flex" style="height: 200px">
+          <div class="vr"></div>
+        </div>
+        <div class="col-7 rightColumn">
+          <h3 class="">Past Orders</h3>
+          <app-orders></app-orders>
         </div>
           <app-address 
                   *ngIf="profile$ | async as profile"
@@ -36,6 +59,5 @@
           ></app-address>
       </div>
     </div>
-  </div>
-</ng-container>
+ </div>
 </div>
