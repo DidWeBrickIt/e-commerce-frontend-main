@@ -1,39 +1,56 @@
-<div class="container">
 <nav class="navbar">
   <div class="home-button">
-    
-  <h4 [routerLink]="['/home']" >
-      <img src="../../../assets/images/favicon.png" alt="Did We Brick It">
+    <h4 [routerLink]="['/home']">
+      <img src="../../../assets/images/favicon.png" alt="Did We Brick It" />
       Did We Brick It
-  </h4>
+    </h4>
   </div>
   <form class="form-inline">
-    <span class="word">Light</span>
-    <label class="switch">
-      <input type="checkbox" (click)="toggleDarkTheme()" >
-      <span class="slider round"></span>
-    </label>
-    <span class="word">Dark</span>
+    <div id="darkModeToggle">
+      <span class="word">Light</span>
+      <label class="switch">
+        <input type="checkbox" (click)="toggleDarkTheme()" />
+        <span class="slider round"></span>
+      </label>
+      <span class="word">Dark</span>
+    </div>
 
-    <div *ngIf="notificationList.length !== 0">
-      <mat-icon type="button" matBadge="{{listSize}}" *ngIf="notificationList.length !== 0" [matBadgeHidden]="isHidden || listSize == 0" (click)="toggleBadgeVisibility()" [ngStyle]="{'color':'red'}">notifications</mat-icon>
+    <div
+      *ngIf="notificationList.length !== 0"
+      id="notificationIcon"
+      class="temp-border"
+    >
+      <mat-icon
+        type="button"
+        matBadge="{{ listSize }}"
+        *ngIf="notificationList.length !== 0"
+        [matBadgeHidden]="isHidden || listSize == 0"
+        (click)="toggleBadgeVisibility()"
+        [ngStyle]="{ color: 'red' }"
+        >notifications</mat-icon
+      >
       <div *ngIf="isHidden" id="infoBackground">
+        <!-- <div id="infoBackground"> -->
         <ul *ngFor="let notification of notificationList">
-          <li>{{notification.date | date :'short'}}<br>{{notification.message}}</li>
+          <li>
+            <strong> {{ notification.date | date: 'short' }}</strong>
+          </li>
+          <li>{{ notification.message }}</li>
         </ul>
         <p *ngIf="notificationList.length === 0">No new notifications</p>
-        <button (click)="clearButton()">Clear</button>
+        <button class="btn btn-primary" (click)="clearButton()">Clear</button>
       </div>
     </div>
-   
-    <button class= "btn btn-light" [routerLink] = "['/orders']">Past Orders</button>
-      <button class="btn btn-light" [routerLink]="['/cart']">
-          Cart
-          <span class="badge badge-info">{{cartCount}}</span>
-      </button>
-      <button id="profile-button" class="btn" routerLink="/profile">Profile</button>
-      <button class="btn btn-danger my-2 my-sm-0" (click)="logout();">Logout</button>
-    
 
+    <button class="btn btn-light" [routerLink]="['/cart']">
+      Cart
+      <span class="badge badge-info">{{ cartCount }}</span>
+    </button>
+    <button id="profile-button" class="btn" routerLink="/profile">
+      Profile
+    </button>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="logout()">
+      Logout
+    </button>
   </form>
 </nav>

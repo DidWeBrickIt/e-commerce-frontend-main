@@ -67,7 +67,16 @@ input {
   background: var(--input-field-bkg);
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Futura Std Bold', sans-serif;
+}
+
 .title {
+  margin: 0;
+  position: relative;
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
@@ -169,5 +178,3 @@ body {
   width: fit-content;
   font-family: 'Futura Std Bold';
 }
-
-
