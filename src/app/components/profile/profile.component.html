@@ -1,63 +1,45 @@
 <app-navbar></app-navbar>
-<app-error-popup
-  *ngIf="hasError"
-  [errorMessage]="errorMessage"
-></app-error-popup>
+<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
 <div>
-<div *ngIf="profile$ | async as profile">
-  <div class="title">
-    <div class="title-text">
-      <h1>Welcome, {{ saved.user.firstName }}!</h1>
+  <div class="" *ngIf="profile$ | async as profile">
+    <div class="title">
+      <div class="title-text">
+        <h1>Welcome, {{ saved.user.firstName }}!</h1>
+      </div>
     </div>
-</div>
-  <div class="container profile-container">
-    <div class="row">
-      <div class="col-4">
-        <div>
-            <app-profile-pic
-                    *ngIf="profile$ | async as profile"
-            [item]="saved.user.imageurl"
-            (newPicEvent)="updatePic($event)"
-          >
-          </app-profile-pic>
-          <!-- User  -->
-          <div>
-            <app-user *ngIf="profile$ | async as profile"
-              [user]="saved.user"
+    <div class="container profile-container">
+      <div class="row">
+        <div class="col-4">
+          <div style="margin-top: 7em;">
+            <app-profile-pic *ngIf="profile$ | async as profile" [item]="saved.user.imageurl"
+              (newPicEvent)="updatePic($event)">
+            </app-profile-pic>
+            <!-- User  -->
+            <div>
+              <app-user *ngIf="profile$ | async as profile" [user]="saved.user" (newUserEvent)="updateUser($event)">
+              </app-user>
+            </div>
 
-              (newUserEvent)="updateUser($event)"
-            ></app-user>
+            <div>
+              <app-address *ngIf="profile$ | async as profile" [address]="profile.address"
+                (newAddressEvent)="updateAddress($event)"></app-address>
+            </div>
+            <div class="d-flex">
+              <button class="btn btn-primary btn-block mb-4 mt-4" (click)="updateProfile()">
+                Save All Changes
+              </button>
+            </div>
+            <h4 style="text-align:center; color: green;" *ngIf="hasError==false && successful==true">Successfully submitted changes!</h4>
           </div>
-
-          <div>
-            <app-address
-              *ngIf="profile$ | async as profile"
-              [address]="profile.address"
-              (newAddressEvent)="updateAddress($event)"
-            ></app-address>
+          <div class="d-flex" style="height: 200px">
+            <div class="vr"></div>
           </div>
-          <div class="d-flex">
-            <button
-              class="btn btn-primary btn-block mb-4 mt-4"
-              (click)="updateProfile()"
-            >
-              Save All Changes
-            </button>
-          </div>
-        </div>
-        <div class="d-flex" style="height: 200px">
-          <div class="vr"></div>
         </div>
         <div class="col-7 rightColumn">
           <h3 class="">Past Orders</h3>
           <app-orders></app-orders>
         </div>
-          <app-address 
-                  *ngIf="profile$ | async as profile"
-            [address]="saved.address"
-            (newAddressEvent)="updateAddress($event)"
-          ></app-address>
       </div>
     </div>
- </div>
+  </div>
 </div>

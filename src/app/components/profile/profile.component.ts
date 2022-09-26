@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit{
   public profile$ = this.profileService.getProfileInfo();
   saved: Profile;
   hasError:boolean = false;
+  successful:boolean = false;
   errorMessage:string = "Server error, unable to load your profile information, please try again later";
 
 
@@ -67,9 +68,12 @@ export class ProfileComponent implements OnInit{
     const payload =  this.saved
     console.log(payload);
     this.profileService.updateProfile(payload).subscribe(
-      () => {},
+      () => {
+        this.successful = true;
+      },
       (error) => {
         console.log(error);
+        this.successful = false;
         this.errorMessage = "Failed to update your profile information, please try again later"
         this.hasError = true;
       }

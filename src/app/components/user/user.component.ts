@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class UserComponent implements OnInit {
 
-  isDisplayActive: boolean = true;
+  // isDisplayActive: boolean = true;
   isFormActive: boolean = false;
 
   @Input() user!: User;
@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
 
   updateUser(): void {
     this.newUserEvent.emit(this.userForm.value);
-    this.isDisplayActive = !this.isDisplayActive;
+    // this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
     this.user.email = this.userForm.value.email;
     this.user.firstName = this.userForm.value.firstName;
@@ -43,7 +43,7 @@ export class UserComponent implements OnInit {
   }
 
   toggleUserDisplay(): void {
-    this.isDisplayActive = !this.isDisplayActive;
+    // this.isDisplayActive = !this.isDisplayActive;
     this.isFormActive = !this.isFormActive;
   }
 }
