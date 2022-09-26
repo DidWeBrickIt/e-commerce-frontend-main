@@ -18,23 +18,6 @@ export class ProfileComponent implements OnInit{
   hasError:boolean = false;
   errorMessage:string = "Server error, unable to load your profile information, please try again later";
 
-  profile: Profile={
-    user: new User('', '', '', ''),
-    address: new Address('','','','','',''),
-  }
-
-  // passwordCred: Password={
-  //   oldPass: '',
-  //   newPass: '',
-  //   againPass: ''
-  // };
-
-  // emailCred: Email={
-  //   oldEmail: '',
-  //   newEmail: '',
-  //   againEmail: ''
-  // }
-
 
   constructor(
       private profileService: ProfileService,
@@ -48,8 +31,11 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(
       (profile) => {
+        if(profile.address != null){
+          this.saved.address = profile.address;
+        }
         this.saved.user = profile.user;
-        this.saved.address = profile.address;
+
       },
       (error) => {
         console.log(error);

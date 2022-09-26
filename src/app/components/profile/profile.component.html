@@ -4,7 +4,7 @@
 <ng-container *ngIf="profile$ | async as profile">
   <div class="title">
     <div class="title-text">
-      <h1>Welcome, {{ profile.user.firstName }}!</h1>
+      <h1>Welcome, {{ saved.user.firstName }}!</h1>
     </div>
 </div>
   <div class="container profile-container">
@@ -13,14 +13,14 @@
         <div>
             <app-profile-pic
                     *ngIf="profile$ | async as profile"
-            [item]="profile.user.imageurl"
+            [item]="saved.user.imageurl"
             (newPicEvent)="updatePic($event)"
             >
           </app-profile-pic>
 
             <app-user
                     *ngIf="profile$ | async as profile"
-              [user]="profile.user"
+              [user]="saved.user"
               (newUserEvent)="updateUser($event)"
             ></app-user>
         </div>
@@ -31,7 +31,7 @@
         </div>
           <app-address 
                   *ngIf="profile$ | async as profile"
-            [address]="profile.address"
+            [address]="saved.address"
             (newAddressEvent)="updateAddress($event)"
           ></app-address>
       </div>
