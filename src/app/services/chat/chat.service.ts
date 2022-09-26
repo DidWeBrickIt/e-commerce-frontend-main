@@ -6,7 +6,6 @@ import {Profile} from "../../models/profile/profile";
 import {environment} from "../../../environments/environment";
 import {User} from "../../models/user/user";
 import {Address} from "../../models/address/address";
-import {Payment} from "../../models/payment/payment";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class ChatService {
   profile: Profile={
     user: new User('', '', '', ''),
     address: new Address('','','','','',''),
-    payment: new Payment('','')}
+   }
 
   constructor(private http: HttpClient) {
 
