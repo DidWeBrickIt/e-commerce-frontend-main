@@ -47,7 +47,6 @@ export class OrdersComponent implements OnInit {
         this.hasError = true;
       });
   }
-
   consolidateOrders(orders: { orderId: number, productName: string, productAmount: number, cost: number, time: string }[]) {
     while (orders.length > 0) {
       let partsOfSameOrder: { orderId: number, productName: string, productAmount: number, cost: number, time: string }[] = [];
@@ -56,12 +55,12 @@ export class OrdersComponent implements OnInit {
       let totalCost = comparedOrder[0].cost;
       let matchingTime = comparedOrder[0].time;
       partsOfSameOrder.push(comparedOrder[0]);
-
-      for (let order of orders) {
-        if (order.time === comparedOrder[0].time) {
-          let matchingOrder = order;
-          partsOfSameOrder.push(matchingOrder);
-          totalCost += matchingOrder.cost;
+      for (let i = 0; i < orders.length; i++) {
+        if (orders[i].time === comparedOrder[0].time) {
+          let matchingOrder = orders.splice(i, 1);
+          partsOfSameOrder.push(matchingOrder[0]);
+          totalCost += matchingOrder[0].cost;
+          i--; // showing up as a code smell. Still
         }
       }
       this.consolidatedOrders.push({ orderNumber, partsOfSameOrder, totalCost, matchingTime });

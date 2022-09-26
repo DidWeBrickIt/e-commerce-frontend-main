@@ -12,7 +12,6 @@ div {
     height: 100%; 
     overflow: hidden;
     background-color: var(--bkg-color);
-    background-color:  var(--bkg-color);
 }
 
 th {
