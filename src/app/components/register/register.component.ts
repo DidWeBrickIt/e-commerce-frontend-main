@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   registerForm: FormGroup = this.formBuilder.group({
     fname: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]],
@@ -22,40 +22,38 @@ export class RegisterComponent implements OnInit {
 
   })
 
-  hasError:boolean = false;
-  errorMessage:string = "Server error, please try again later";
+  hasError: boolean = false;
+  errorMessage: string = "Server error, please try again later";
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder:FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
-  }
-  
+
   onSubmit(): void {
     this.validateAllFormFields(this.registerForm);
-    
+
     if (!this.registerForm.valid) {
       return;
     }
 
     console.log('form submitted');
-      this.authService.register(this.registerForm.get('fname')?.value, 
-      this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value, 
-      this.registerForm.get('password')?.value, this.registerForm.get('securityQuestion')?.value, 
+    this.authService.register(this.registerForm.get('fname')?.value,
+      this.registerForm.get('lname')?.value, this.registerForm.get('email')?.value,
+      this.registerForm.get('password')?.value, this.registerForm.get('securityQuestion')?.value,
       this.registerForm.get('answer')?.value).subscribe(
         () => {
-        console.log("New user registered")
-        this.hasError = false;
+          console.log("New user registered")
+          this.hasError = false;
         },
         (err) => {
-        console.log(err)
-        this.hasError = true;
-        if(err.status === 400){
-          this.errorMessage = "Email address already in use";
-        }
-        if(err.status !== 400){
-          this.errorMessage = "Server error, please try again later";
-        }
-      },
+          console.log(err)
+          this.hasError = true;
+          if (err.status === 400) {
+            this.errorMessage = "Email address already in use";
+          }
+          if (err.status !== 400) {
+            this.errorMessage = "Server error, please try again later";
+          }
+        },
         () => this.router.navigate(['login'])
       );
 

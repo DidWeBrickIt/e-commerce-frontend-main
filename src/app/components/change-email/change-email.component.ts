@@ -7,15 +7,13 @@ import {Email} from "../../models/credential/email/email";
   templateUrl: './change-email.component.html',
   styleUrls: ['./change-email.component.css']
 })
-export class ChangeEmailComponent implements OnInit {
+export class ChangeEmailComponent{
 
   constructor(
       public dialogRef: MatDialogRef<ChangeEmailComponent>,
       @Inject(MAT_DIALOG_DATA) public credential: Email
   ) { }
 
-  ngOnInit(): void {
-  }
 
   onCancel(): void{
     this.dialogRef.close();

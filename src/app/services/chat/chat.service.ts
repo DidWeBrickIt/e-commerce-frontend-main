@@ -34,7 +34,6 @@ export class ChatService {
   }
 
   getMessages(): Observable<Message[]>{
-    const username = this.profile.user.email;
     return this.http.get<Message[]>(this.messageUrl + "adriano/retrieve");
   }
 

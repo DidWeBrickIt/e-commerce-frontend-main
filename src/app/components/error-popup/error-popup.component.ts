@@ -5,12 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './error-popup.component.html',
   styleUrls: ['./error-popup.component.css']
 })
-export class ErrorPopupComponent implements OnInit {
-
-  constructor() { }
+export class ErrorPopupComponent {
   @Input() errorMessage!: string;
-
-  ngOnInit(): void {
-  }
 
 }

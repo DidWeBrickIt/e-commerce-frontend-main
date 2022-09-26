@@ -5,6 +5,8 @@
 {
     margin-left: 2%;
     margin-bottom: 5%;
+    margin-top: 10%;
+    font-family: 'Futura Std Book';
 }
 
 .btn-sm {
@@ -61,11 +63,6 @@ h5 {
     padding: 2%;
     margin-left: 10px;
     color: rgb(242, 105, 38);
-}
-
-.btn {
-    margin-top: 10%;
-    font-family: 'Futura Std Book';
 }
 
 #checkout {

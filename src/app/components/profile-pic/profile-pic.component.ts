@@ -5,20 +5,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './profile-pic.component.html',
   styleUrls: ['./profile-pic.component.css']
 })
-export class ProfilePicComponent implements OnInit {
+export class ProfilePicComponent {
 
   @Input() item = ""; // decorate the property with @Input()
   profilePic: string = "";
 
   @Output() newPicEvent = new EventEmitter<string>();
 
-  constructor() { }
 
-  ngOnInit(): void {
 
-  }
-
-  setProfilePic(choice: string) : void {
+  setProfilePic(choice: string): void {
     console.log(choice);
     this.profilePic = "../../../assets/images/profile_pic/" + choice;
     this.item = this.profilePic;
