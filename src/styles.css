@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Futura Std Book';
+  font-family: 'Futura Std Book', sans-serif;
   src: url('assets/fonts/Futura-Std-Book.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'Futura Std Medium';
+  font-family: 'Futura Std Medium', sans-serif;
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
@@ -55,7 +55,7 @@ input {
   background: var(--bkg-title-color);
   padding-top: 5%;
   padding-bottom: 4%;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 
 
 
@@ -65,13 +65,13 @@ input {
   margin-left: 20%;
   text-align: right;
   width: fit-content;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 
 }
 
 .card-title {
   color: var(--bkg-title-color);
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
 
 .navbar {

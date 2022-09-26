@@ -1,6 +1,6 @@
 label {
   font-weight: 600;
-  font-family: 'Futura Std Bold';
+  font-family: 'Futura Std Bold', sans-serif;
 }
 
 :host {

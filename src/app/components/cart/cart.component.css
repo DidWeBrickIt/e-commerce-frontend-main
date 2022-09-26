@@ -6,7 +6,7 @@
     margin-left: 2%;
     margin-bottom: 5%;
     margin-top: 10%;
-    font-family: 'Futura Std Book';
+    font-family: 'Futura Std Book', sans-serif;
 }
 
 .btn-sm {
@@ -72,11 +72,11 @@ h5 {
 
 .title-text
 {
-    font-family: 'Futura Std Bold';
+    font-family: 'Futura Std Bold', sans-serif;
 }
 .container
 {
-    font-family: 'Futura Std Bold';
+    font-family: 'Futura Std Bold', sans-serif;
 }
 
 
