@@ -30,8 +30,6 @@ describe('ProductCardComponent', () => {
       return testCart;
     }
 
-    setCart(latestValue: Cart) {} // showing up as code smell. Double check after tests working if this is part of coverage.
-
   }
 
 
