@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 
 import { ReadableReview } from 'src/app/models/readable-review/readable-review';
-import { ProfileService } from 'src/app/services/profile/profile.service';
 import { ReviewService } from 'src/app/services/review/review.service';
 
 @Component({
@@ -14,8 +12,8 @@ import { ReviewService } from 'src/app/services/review/review.service';
 export class DisplayProductReviewsComponent implements OnInit {
 
   @Input() productInfo!: Product;
-  hasError:boolean = false;
-  errorMessage:string = "Server error, unable to load product reviews, please try again later";
+  hasError: boolean = false;
+  errorMessage: string = "Server error, unable to load product reviews, please try again later";
   reviews: ReadableReview[] = [];
   average: number = 0;
   ratingArray: number[] = [1, 2, 3, 4, 5];

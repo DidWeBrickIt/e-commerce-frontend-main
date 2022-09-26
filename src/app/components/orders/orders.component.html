@@ -7,7 +7,7 @@
 <div class="container">
     <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
     <div *ngIf="!hasError">
-        <table class="table table-striped table-hover" *ngIf="!showDetails">
+        <table class="table table-striped table-hover" *ngIf="!showDetails" aria-describedby="Past Orders">
             <thead>
                 <tr id="header-row">
                     <th style="width: 10%;">Order ID</th>
@@ -30,7 +30,7 @@
         <div id="orderBackground" *ngIf="showDetails">
             <div id="infoContent" (click)="stopProp($event)">
                 <button class="btn-danger" id="closeBtn" (click)="toggleDetails()">Back</button>
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover" aria-describedby="Order Details">
                     <thead>
                         <tr id="header-row">
                             <th style="text-align: left;">Product Name</th>

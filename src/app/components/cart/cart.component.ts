@@ -82,12 +82,10 @@ export class CartComponent implements OnInit {
             totalPrice: this.totalPrice - x * product.price
           };
           if (element.quantity === 0) {
-            cart.products = cart.products.filter(p => !(p.product == product));
+            cart.products = cart.products.filter(p => (p.product != product));
           }
           this.productService.setCart(cart);
           this.productService.setCartToLocalStorage();
-          inCart = true;
-          return;
         }
       }
     );

@@ -78,9 +78,9 @@ export class ProductCardComponent implements OnInit{
           return;
         };
       }
-    );
+    )
 
-    if(inCart == false){
+    if(!inCart){
       let newProduct = {
         product: product,
         quantity: this.amount

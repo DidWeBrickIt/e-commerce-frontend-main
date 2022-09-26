@@ -1,9 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from 'src/app/models/product/product';
-import { ProductService } from 'src/app/services/product/product.service';
 
 import { ProductCardComponent } from './product-card.component';
 
@@ -32,8 +30,6 @@ describe('ProductCardComponent', () => {
       return testCart;
     }
 
-    setCart(latestValue: Cart) {}
-
   }
 
 
@@ -41,7 +37,6 @@ describe('ProductCardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductCardComponent ],
       imports: [HttpClientModule]
-      //providers: [{provide: ProductService, useClass: MockProductService}]
     })
     .compileComponents();
   });
