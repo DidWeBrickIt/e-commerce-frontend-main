@@ -38,9 +38,13 @@ Features on the front-end
 
 
 Supplementary technologies used to run the application
- - Swagger
-    -> Alternate means of directly interacting with routes to test for functionality in the event that the login screen will not permit access to the rest of the application 
-    -> http://localhost:8080/swagger-ui/index.html#/
+
+ - Sonar Cloud
+   -> Means of testing the application to remove any code smells that may be present, which may include: 
+       -> Bugs and security risks
+       -> Commented out code
+       -> Inconsistent naming conventions
+       -> Redundant edundant code
     
  - Azure Static Websites
     -> Means of hosting the front-end of the application on Azure with it's functionality intact so that the contents of the database can be accessed on the users own machine
