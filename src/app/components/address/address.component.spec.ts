@@ -26,4 +26,18 @@ describe('AddressComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should toggle display', () => {
+    component.isDisplayActive = true;
+    component.isFormActive = true;
+    component.toggleAddressDisplay();
+    expect(component.isDisplayActive).toBeFalsy();
+    expect(component.isFormActive).toBeFalsy();
+  });
+
+  it('should update form', () => {
+    component.addressForm.value.address1 = "test";
+    component.updateAddress();
+    expect(component.address.address1).toBe("test");
+  });
 });

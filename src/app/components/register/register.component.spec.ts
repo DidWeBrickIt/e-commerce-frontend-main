@@ -26,4 +26,27 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should register', () => {
+    component.registerForm.get('fname')?.setValue("Dillon");
+    component.registerForm.get('lname')?.setValue("Conner");
+    component.registerForm.get('email')?.setValue("No@gmail.com");
+    component.registerForm.get('password')?.setValue("password");
+    component.registerForm.get('securityQuestion')?.setValue("Yes");
+    component.registerForm.get('answer')?.setValue("No");
+    component.onSubmit();
+    expect(component.hasError).toBeFalse();
+  });
+
+  it('should no be valid form', () => {
+    component.registerForm.get('fname')?.setValue("Dillon");
+    component.registerForm.get('lname')?.setValue("Conner");
+    component.registerForm.get('email')?.setValue("invalid");
+    component.registerForm.get('password')?.setValue("password");
+    component.registerForm.get('securityQuestion')?.setValue("Yes");
+    component.registerForm.get('answer')?.setValue("No");
+    component.onSubmit();
+    expect(component.registerForm.valid).toBeFalse();
+  });
+
 });
