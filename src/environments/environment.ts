@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   withCredentials: false,
-  baseUrl: "http://localhost:8080",
+  baseUrl: "https://project3backend.prouddune-0de8f704.centralus.azurecontainerapps.io/",
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://localhost:4200',
