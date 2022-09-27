@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit{
     this.profileService.getProfileInfo().subscribe(
       (profile) => {
         if(profile.address != null){
+          console.log(profile.address)
           this.saved.address = profile.address;
         }
         this.saved.user = profile.user;

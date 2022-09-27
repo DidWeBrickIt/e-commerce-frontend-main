@@ -21,7 +21,7 @@
             </div>
 
             <div>
-              <app-address *ngIf="profile$ | async as profile" [address]="profile.address"
+              <app-address *ngIf="profile$ | async as profile" [address]="saved.address"
                 (newAddressEvent)="updateAddress($event)"></app-address>
             </div>
             <div class="d-flex">
