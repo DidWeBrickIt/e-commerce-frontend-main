@@ -1,20 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
+
 @font-face {
-  font-family: 'Futura Std Bold', sans-serif;
-  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+  font-family: 'Futura Std Bold';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v28/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVsEpbCIPrE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Futura Std Medium';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v28/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVsEpbCGPrEHJA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
-  font-family: 'Futura Std Book', sans-serif;
-  src: url('assets/fonts/Futura-Std-Book.otf') format('opentype');
+  font-family: 'Futura Std Book';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v28/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+
+
+
+/*
+These fonts do not work
 @font-face {
   font-family: 'Futura Std Medium', sans-serif;
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
+*/
+
+
 
 body {
+    font-family: 'Futura Std Bold', !important;
   --text-color: #222;
   --bkg-color: linear-gradient(
     180deg,
@@ -38,12 +70,18 @@ body {
   );
   --place-holder-color: black;
   --input-field-bkg: white;
+  --product-detail-bkg: rgba(255, 252, 246, 0.95);
+
+  --lego-blue: #0B79D9;
+  --lego-yellow: #F2B90C;
+  --lego-orange: #F27405;
 
   color: var(--text-color);
   background: var(--bkg-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  
 }
 
 body.dark-theme {
@@ -61,6 +99,7 @@ body.dark-theme {
   --bkg-slider-color: white;
   --place-holder-color: silver;
   --input-field-bkg: black;
+  --product-detail-bkg: #252222f3;
 }
 
 input {
@@ -77,8 +116,8 @@ h4 {
 .title {
   margin-top: 50px;
   background: var(--bkg-title-color);
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 3em;
+  padding-bottom: 2.5em;
   font-family: 'Futura Std Bold', sans-serif;
 }
 
@@ -100,11 +139,36 @@ h4 {
 }
 
 button {
+  --btn-dwbi-primary: #72a4c2;
+  --btn-dwbi-primary-lt: #75cdd9;
+  --btn-dwbi-primary-dk: #364e78;
+  --btn-dwbi-remove: #c9283e;
+  --btn-dwbi-remove-lt: #f0433a;
+  --btn-dwbi-remove-dk: #820333;
+
   padding: 10px;
   border: none;
   border-radius: 2px;
   color: var(--btn-txt-color);
   background-color: var(--btn-bg-color);
+}
+
+.btn-dwbi-primary {
+  background-color: var(--btn-dwbi-primary-lt);
+  color: white;
+}
+.btn-dwbi-primary:hover {
+  background-color: var(--btn-dwbi-primary);
+  border-color: #364e78;
+}
+
+.btn-dwbi-remove {
+  background-color: var(--btn-dwbi-remove-lt);
+  color: white;
+}
+.btn-dwbi-remove:hover {
+  background-color: var(--btn-dwbi-remove);
+  border-color: var(--btn-dwbi-remove-dk);
 }
 
 .switch {
@@ -157,4 +221,10 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   height: 100%;
+}
+
+.temp-border {
+  border-style: solid;
+  border-width: 2px;
+  border-color: hotpink;
 }

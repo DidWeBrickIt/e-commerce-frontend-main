@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Futura Std Bold', sans-serif;
+    src: url('Futura-Std-Bold.otf') format('opentype');
+  }
+  
+  @font-face {
+    font-family: 'Futura Std Book', sans-serif;
+    src: url('Futura-Std-Book.otf') format('opentype');
+  }
+  
+  @font-face {
+    font-family: 'Futura Std Medium', sans-serif;
+    src: url('Futura-Std-Bold.otf') format('opentype');
+  }

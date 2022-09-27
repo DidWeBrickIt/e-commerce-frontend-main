@@ -1,38 +1,74 @@
-<br><br><br><br>
-<app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-<div *ngIf="!hasError">
-  <h3 class="word">Reviews for {{this.productInfo.name}}</h3>
-  <button *ngIf="!this.reviewWritten" (click)="toggleWriteReview()">{{this.showReviews === true ? 'Write a Review' :
-    'Cancel'}}</button>
+<app-error-popup
+  *ngIf="hasError"
+  [errorMessage]="errorMessage"
+></app-error-popup>
+<div id="">
+  <div *ngIf="!hasError">
+    <h2 class="word">Reviews for {{ this.productInfo.name }}</h2>
+    <button *ngIf="!this.reviewWritten" (click)="toggleWriteReview()">
+      {{ this.showReviews === true ? 'Write a Review' : 'Cancel' }}
+    </button>
 
-  <div *ngIf="this.showReviews; then displayReviews else createReview"></div>
-  <ng-template #displayReviews>
-    <div *ngIf="this.reviews.length > 0; then reviewList else noReviews"></div>
-  </ng-template>
+    <div *ngIf="this.showReviews; then displayReviews; else createReview"></div>
+    <ng-template #displayReviews>
+      <div
+        *ngIf="this.reviews.length > 0; then reviewList; else noReviews"
+      ></div>
+    </ng-template>
 
-  <ng-template #createReview>
-    <app-create-review [productInfo]="this.productInfo"></app-create-review>
-  </ng-template>
+    <ng-template #createReview>
+      <app-create-review [productInfo]="this.productInfo"></app-create-review>
+    </ng-template>
 
-  <ng-template #reviewList>
-    <br>
-    <h4> Average Rating for {{this.reviews.length}} reviews:</h4>
-    <img *ngFor="let star of ratingArray"
-      [src]="this.average >= star ? (1 | starRating) : this.average+1 > star ? (2 | starRating) : (0 | starRating)"
-      width="32" height="32" alt="{{this.average}}">
-    <cdk-virtual-scroll-viewport itemSize="50" class="review-viewport">
-      <div *cdkVirtualFor="let review of reviews; let odd = odd; let even = even" [class.review-alternate]="odd">
-        <h5>{{review.username}}</h5>
-        <img *ngFor="let star of ratingArray"
-          [src]="review.rating >= star ? (1 | starRating) : review.rating+1 > star ? (2 | starRating) : (0 | starRating)"
-          width="16" height="16" alt="{{review.rating}}">
-        <h6>{{review.timestamp | epochToDate}}</h6>
-        <p>{{review.description}}</p>
+    <ng-template #reviewList>
+      <br />
+      <h4>Average Rating for {{ this.reviews.length }} reviews:</h4>
+      <br />
+      <div class="starGroup">
+        <img
+          *ngFor="let star of ratingArray"
+          [src]="
+            this.average >= star
+              ? (1 | starRating)
+              : this.average + 1 > star
+              ? (2 | starRating)
+              : (0 | starRating)
+          "
+          width="32"
+          height="32"
+          alt="{{ this.average }}"
+        />
       </div>
-    </cdk-virtual-scroll-viewport>
-  </ng-template>
+      <cdk-virtual-scroll-viewport itemSize="50" class="review-viewport">
+        <div
+          *cdkVirtualFor="let review of reviews; let odd = odd; let even = even"
+          [class.review-alternate]="even"
+        >
+          <div class="review-item-detail">
+            <!-- <hr /> -->
+            <h5>{{ review.username }}</h5>
+            <img
+              *ngFor="let star of ratingArray"
+              [src]="
+                review.rating >= star
+                  ? (1 | starRating)
+                  : review.rating + 1 > star
+                  ? (2 | starRating)
+                  : (0 | starRating)
+              "
+              width="16"
+              height="16"
+              alt="{{ review.rating }}"
+            />
+            <h6>{{ review.timestamp | epochToDate }}</h6>
+            <p>{{ review.description }}</p>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </ng-template>
 
-  <ng-template #noReviews>
-    <h2>Be the first to review this product!</h2>
-  </ng-template>
+    <ng-template #noReviews>
+      <h2>Be the first to review this product!</h2>
+    </ng-template>
+  </div>
 </div>

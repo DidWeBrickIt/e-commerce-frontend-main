@@ -1,38 +1,56 @@
-  h3 {
-    display: inline-block;
-    margin-right: 20px;
-  }
+h3 {
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+  font-family: 'Futura Std Bold';
+}
 
-  h4 {
-    margin-bottom: 20px;
-    display: inline-block;
-  }
+h4 {
+  margin-bottom: 20px;
+  display: inline-block;
+  font-family: 'Futura Std Bold';
+}
 
-  h2 {
-    margin-top: 100px;
-    text-align: center;
-  }
+h2 {
+  margin-top: 10%;
+  text-align: left;
+  font-family: 'Futura Std Bold';
+}
 
-  button {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
+button {
+  margin-top: 2%;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-family: 'Futura Std Book';
+}
 
-  .review-viewport {
-    height: 200px;
-    width: 1000px;
-    border: 1px solid rgb(255, 255, 255);
-  }
+.review-viewport {
+  position: relative;
+  height: 400px;
+  width: auto;
+  /* border: 1px solid rgb(255, 255, 255); */
+}
 
-  .review-item-detail {
-    height: 18px;
-  }
+.review-item-detail {
+  padding-top: 2.55%;
+  padding-bottom: 2.55%;
+  padding-left: 5%;
+}
 
-  .review-alternate {
-    background: rgba(127, 127, 127, 0.3);
-  }
+.review-alternate {
+  background: rgba(127, 127, 127, 0.2);
+}
 
-  image {
-    display: inline-block;
-  }
+.starGroup {
+  display: inline-block;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+image {
+  display: inline-block;
+}
+*
+{
+  font-family: 'Futura Std Book';
+}

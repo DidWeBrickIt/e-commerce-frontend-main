@@ -8,7 +8,7 @@
     font-size: 13px;
     line-height: 19px;
     color: rgb(198, 193, 185);
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     box-sizing: border-box;
     display: block;
     border-radius: 4px;
@@ -28,7 +28,7 @@
     font-size: 13px;
     line-height: 19px;
     color: rgb(198, 193, 185);
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     box-sizing: border-box;
     border-radius: 4px;
     position: relative;
@@ -53,7 +53,7 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 1.255;
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     color: rgb(212, 74, 71);
 }
 
@@ -67,7 +67,7 @@
     font-size: 13px;
     line-height: 19px;
     color: rgb(198, 193, 185);
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     box-sizing: border-box;
 }
 
@@ -80,7 +80,7 @@
     --darkreader-selection-text: #d0cbc4;
     font-size: 13px;
     line-height: 19px;
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     box-sizing: border-box;
     margin: 0 0 18px 18px;
     padding: 0;
@@ -98,7 +98,7 @@
     --darkreader-selection-text: #d0cbc4;
     font-size: 13px;
     line-height: 19px;
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     color: rgb(198, 193, 185);
     box-sizing: border-box;
     word-wrap: break-word;
@@ -116,7 +116,7 @@
     --darkreader-selection-text: #d0cbc4;
     font-size: 13px;
     line-height: 19px;
-    font-family: "Amazon Ember",Arial,sans-serif;
+    font-family: 'Futura Std Book';
     word-wrap: break-word;
     list-style: none;
     list-style-image: initial;

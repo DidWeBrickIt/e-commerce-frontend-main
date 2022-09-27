@@ -1,166 +1,83 @@
 <div class="icon-circle">
-  <div class="profile-pic">
-    <img class="card-img-top" [src]="this.item" alt="Main Profile Pic" />
+  <div class="profile-pic ">
+    <img class="" [src]="this.item" alt="Main Profile Pic" />
   </div>
 </div>
+<br>
+<div style="margin-top: 5em">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        Change Profile Picture
+      </mat-expansion-panel-header>
+  
+      <div class="card-group">
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/the_infomaniac-head.png"
+            alt="Infomaniac"
+            (click)="setProfilePic('the_infomaniac-head.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/info-f.png"
+            alt="Female-Infomaniac"
+            (click)="setProfilePic('info-f.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/nick_brick.png"
+            alt="Nick-brick"
+            (click)="setProfilePic('nick_brick.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/laura_brick-head.png"
+            alt="laura-Brick"
+            (click)="setProfilePic('laura_brick-head.png')"
+          />
+        </div>
 
-<mat-accordion>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title> Change Profile Picture </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <div class="card-group">
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/the_infomaniac-head.png"
-          alt="Infomaniac"
-          (click)="setProfilePic('the_infomaniac-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/snap_lockitt.png"
+            alt="snap_lockitt"
+            (click)="setProfilePic('snap_lockitt.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/valerie_stubbins.png"
+            alt="valerie_stubbins"
+            (click)="setProfilePic('valerie_stubbins.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/rhoda_hogg-head.png"
+            alt="rhoda_hogg"
+            (click)="setProfilePic('rhoda_hogg-head.png')"
+          />
+        </div>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="../../../assets/images/profile_pic/studs_linkin-head.png"
+            alt="studs_linkin"
+            (click)="setProfilePic('studs_linkin-head.png')"
+          />
+        </div>
       </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/info-f.png"
-          alt="Female-Infomaniac"
-          (click)="setProfilePic('info-f.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/nick_brick.png"
-          alt="Nick-brick"
-          (click)="setProfilePic('nick_brick.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/laura_brick-head.png"
-          alt="laura-Brick"
-          (click)="setProfilePic('laura_brick-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/mama_brickolini-head.png"
-          alt="mama_brickolini"
-          (click)="setProfilePic('mama_brickolini-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/papa_brickolini-head.png"
-          alt="papa_brickolini"
-          (click)="setProfilePic('papa_brickolini-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/snap_lockitt.png"
-          alt="snap_lockitt"
-          (click)="setProfilePic('snap_lockitt.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/valerie_stubbins.png"
-          alt="valerie_stubbins"
-          (click)="setProfilePic('valerie_stubbins.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/rhoda_hogg-head.png"
-          alt="rhoda_hogg"
-          (click)="setProfilePic('rhoda_hogg-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-      <div class="card">
-        <img
-          class="card-img-top"
-          src="../../../assets/images/profile_pic/studs_linkin-head.png"
-          alt="studs_linkin"
-          (click)="setProfilePic('studs_linkin-head.png')"
-          style="
-            border-radius: 50%;
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 100px;
-          "
-        />
-      </div>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

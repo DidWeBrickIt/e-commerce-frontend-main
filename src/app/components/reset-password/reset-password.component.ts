@@ -17,6 +17,8 @@ export class ResetPasswordComponent implements OnInit {
     answer: [null, [Validators.required, Validators.pattern(/^[a-zA-Z]*$/)]]
   })
 
+  foundEmail:boolean = false;
+
   question:string="";
   hasError:boolean = false;
   errorMessage:string = "Server error, please try again later";
@@ -49,7 +51,7 @@ export class ResetPasswordComponent implements OnInit {
               console.log(err)
               this.hasError = true;
               if(err.status === 400 || err.status === 404){
-                this.errorMessage = "User Not Found or the Answer to the Security Question is incorrect";}},
+                this.errorMessage = "Answer to the Security Question is incorrect.";}},
             () => this.router.navigate(['login']));
   }
 
@@ -68,12 +70,14 @@ export class ResetPasswordComponent implements OnInit {
       (data) => {
         this.question = data.question;
         this.hasError = false;
+        this.foundEmail = true;
       },
       (err) => {
         console.log(err)
+        this.foundEmail = false;
         this.hasError = true;
         if(err.status === 404){
-          this.errorMessage = "User Not Found";}}
+          this.errorMessage = "User was not found.";}}
     )
   }
 

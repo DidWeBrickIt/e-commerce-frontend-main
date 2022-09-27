@@ -8,8 +8,9 @@ img {
   border-radius: 50%;
   width: auto;
   height: auto;
-  max-width: 120px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 145px;
+  margin-top: 10px;
 }
 
 mat-accordion {
@@ -41,4 +42,31 @@ mat-accordion {
 
 .mat-expansion-panel-header {
   width: 50%;
+}
+
+.mat-content.mat-content-hide-toggle {
+  margin-right: 0;
+}
+
+.card-img-top {
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+  max-width: 120px;
+  max-height: 100px;
+}
+.card {
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+  max-width: 120px;
+  max-height: 100px;
+}
+.card-img {
+  border-radius: 50%;
+}
+
+*
+{
+  font-family: 'Futura Std Bold';
 }

@@ -3,7 +3,7 @@
   flex: 0 0 307px;
   padding-bottom: 6%;
   max-width: 400px;
-  /* margin-left: 6%; */
+  margin-right: 2%;
 }
 
 /* small size viewport */
@@ -39,10 +39,6 @@
   row-gap: 50px;
 }
 
-.container {
-  margin-top: 1%;
-}
-
 .col-4 {
   margin-bottom: 1%;
 }
@@ -50,8 +46,12 @@
 #searchBox {
   width: 100%;
   background: var(--bkg-nav-color);
-  padding-bottom: 1%;
-  padding-top: 1%;
+  padding-bottom: 1.5%;
+  padding-top: 1.5%;
+}
+
+#productDisplayMain {
+  margin-top: 5%;
 }
 
 .search-bar {
@@ -81,4 +81,15 @@
 }
 .title {
   font-family: 'Futura Std Bold', sans-serif;
+}
+
+.temp-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
+
+
+* {
+  font-family: 'Futura Std Bold';
 }
