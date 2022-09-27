@@ -7,51 +7,55 @@
 </div>
 
 <div id="searchBox">
-  <div *ngIf="!hasError">
-    <div class="search-bar input-group">
-      <input
-        matInput
-        class="search-input form-control"
-        type="text"
-        placeholder="enter seach here"
-        [(ngModel)]="searchInput"
-        (keyup.enter)="searchProduct()"
-      />
-      <button
-        class="search-button btn btn-outline-secondary"
-        (click)="searchProduct()"
-        (keyup.enter)="(searchInput)"
-      >
-        Search
-      </button>
+  <div class="container">
+    <div *ngIf="!hasError">
+      <div class="search-bar input-group">
+        <input
+          matInput
+          class="search-input form-control"
+          type="text"
+          placeholder="enter seach here"
+          [(ngModel)]="searchInput"
+          (keyup.enter)="searchProduct()"
+        />
+        <button
+          class="search-button btn btn-outline-secondary"
+          (click)="searchProduct()"
+          (keyup.enter)="(searchInput)"
+        >
+          Search
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<app-create-product
-  [productInfo]="updatedProductInfo.product"
-  [productName]="updatedProductInfo.product.name"
-  [toggleAcc]="updatedProductInfo.toggleAcc"
-  (boolEvent)="recieveBool($event)"
-></app-create-product>
+<div id="productDisplayMain">
+  <app-create-product
+    [productInfo]="updatedProductInfo.product"
+    [productName]="updatedProductInfo.product.name"
+    [toggleAcc]="updatedProductInfo.toggleAcc"
+    (boolEvent)="recieveBool($event)"
+  ></app-create-product>
 
-<div class="container">
-  <app-error-popup
-    *ngIf="hasError"
-    [errorMessage]="errorMessage"
-  ></app-error-popup>
+  <div class="container">
+    <app-error-popup
+      *ngIf="hasError"
+      [errorMessage]="errorMessage"
+    ></app-error-popup>
 
-  <div *ngIf="this.searchProducts.length == 0">
-    <h3 style="color: blue">Items could not be found.</h3>
-    <button (click)="searchProduct()">Okay</button>
-  </div>
-  <div class="row align-items-start">
-    <div class="col" *ngFor="let product of searchProducts">
-      <app-product-card
-        class="cardListItem"
-        (newProductEvent)="updateCreateProduct($event)"
-        [productInfo]="product"
-      ></app-product-card>
+    <div *ngIf="this.searchProducts.length == 0">
+      <h3 style="color: blue">Items could not be found.</h3>
+      <button (click)="searchProduct()">Okay</button>
+    </div>
+    <div class="row align-items-start">
+      <div class="col" *ngFor="let product of searchProducts">
+        <app-product-card
+          class="cardListItem"
+          (newProductEvent)="updateCreateProduct($event)"
+          [productInfo]="product"
+        ></app-product-card>
+      </div>
     </div>
   </div>
 </div>
