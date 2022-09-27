@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   })
 
   hasError:boolean = false;
-  errorMessage:string = "Your profile could not be verified. Please check your information and try again.";
+  errorMessage:string = "Test";
   constructor(private authService: AuthService, private router: Router, private formBuilder:FormBuilder) { }
 
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         if(err.status === 400 || err.status === 403 || err.status === 404){
           this.errorMessage = "Your profile could not be verified. Please check your information and try again.";
         }
-        if(err.status !== 400 && err.status !== 403 && err.status !== 404){
+        if(err.status != 400 && err.status != 403 && err.status != 404){
           this.errorMessage = "Server error, please try again later";
         }
       },
@@ -63,8 +63,6 @@ export class LoginComponent implements OnInit {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
         control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
       }
     });
   }
