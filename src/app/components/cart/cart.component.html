@@ -35,8 +35,8 @@
             <option *ngFor='let in of counter(product.product.quantity) ;let i = index'>{{i+1}}</option>
           </select>
         </td>
-        <td>{{product.product.price}}</td>
-        <td>{{product.product.price * product.quantity}}</td>
+        <td>{{product.product.price | currency}}</td>
+        <td>{{product.product.price * product.quantity | currency}}</td>
       </tr>
     </tbody>
   </table>
