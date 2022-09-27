@@ -25,4 +25,18 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle display', () => {
+    component.isDisplayActive = true;
+    component.isFormActive = true;
+    component.toggleUserDisplay();
+    expect(component.isDisplayActive).toBeFalsy();
+    expect(component.isFormActive).toBeFalsy();
+  });
+
+  it('should update form', () => {
+    component.userForm.value.firstName = "test";
+    component.updateUser();
+    expect(component.user.firstName).toBe("test");
+  });
 });

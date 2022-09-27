@@ -50,9 +50,6 @@ export class DisplayProductsComponent implements OnInit {
   }
 
   updateCreateProduct(prod: Product) {
-    //This is where we scroll to top of page
-    //We also send the information from the event to the form.
-    // console.log(prod);
     window.scroll({
       top: 0,
       left: 0,
@@ -60,7 +57,6 @@ export class DisplayProductsComponent implements OnInit {
     });
 
     this.updatedProductInfo.toggleAcc = true;
-
     this.updatedProductInfo.product = prod;
   }
 

@@ -21,4 +21,11 @@ describe('ProfilePicComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should update profile pic', () => {
+    let test: string = "test";
+    component.setProfilePic(test);
+    expect(component.item).toEqual(component.profilePic);
+  })
+
 });

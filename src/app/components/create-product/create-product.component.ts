@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -42,7 +43,7 @@ export class CreateProductComponent implements OnInit {
 
   @Output() boolEvent = new EventEmitter<boolean>();
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router : Router) { }
 
   sendBoolean(toSend: boolean) {
     this.boolEvent.emit(toSend);
@@ -115,7 +116,8 @@ export class CreateProductComponent implements OnInit {
     this.showForm = true;
     this.productName = "";
     this.closeAcc();
-    window.location.reload();
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+    this.router.navigate(['home']));
   }
 
 }
