@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+* 
+{
+  font-family: 'Futura Std Bold', !important;
+}
+
 @font-face {
   font-family: 'Futura Std Bold', sans-serif;
-  src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
+  src: url('/src/assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
 @font-face {
@@ -14,7 +19,10 @@
   src: url('assets/fonts/Futura-Std-Bold.otf') format('opentype');
 }
 
+
+
 body {
+    font-family: 'Futura Std Bold', !important;
   --text-color: #222;
   --bkg-color: linear-gradient(
     180deg,
@@ -38,12 +46,14 @@ body {
   );
   --place-holder-color: black;
   --input-field-bkg: white;
+  --product-detail-bkg: rgba(255, 252, 246, 0.95);
 
   color: var(--text-color);
   background: var(--bkg-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  
 }
 
 body.dark-theme {
@@ -61,6 +71,7 @@ body.dark-theme {
   --bkg-slider-color: white;
   --place-holder-color: silver;
   --input-field-bkg: black;
+  --product-detail-bkg: #252222f3;
 }
 
 input {

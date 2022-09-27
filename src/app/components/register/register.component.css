@@ -1,5 +1,6 @@
 #register-form
 {
+    font-family: 'Futura Std Book ';
     padding-top: 3%;
     
     justify-content: center;
@@ -27,6 +28,7 @@
 .reg-btn
 {
     padding-top: 10%;
+    font-family: 'Futura Std Book';
 }
 
 input.ng-invalid.ng-touched{
