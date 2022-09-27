@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 * 
 {
-  font-family: 'Futura Std Bold', !important;
+  font-family: Raleway /* Replace with your custom font */, sans-serif !important; 
 }
 
 @font-face {
