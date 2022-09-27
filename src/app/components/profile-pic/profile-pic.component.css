@@ -46,24 +46,22 @@ mat-accordion {
 
 .mat-content.mat-content-hide-toggle {
   margin-right: 0;
+}
 
-.card-img-top
-{
+.card-img-top {
   border-radius: 50%;
   width: auto;
   height: auto;
   max-width: 120px;
   max-height: 100px;
 }
-.card
-{
+.card {
   border-radius: 50%;
   width: auto;
   height: auto;
   max-width: 120px;
   max-height: 100px;
 }
-.card-img
-{
+.card-img {
   border-radius: 50%;
 }

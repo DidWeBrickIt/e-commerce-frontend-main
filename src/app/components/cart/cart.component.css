@@ -3,7 +3,6 @@
   margin-bottom: 5%;
   margin-top: 10%;
   font-family: 'Futura Std Book', sans-serif;
- 
 }
 
 .btn-sm {
@@ -35,6 +34,7 @@
 }
 
 #summary {
+  font-family: 'Futura Std Book';
   height: 100%;
   width: 25%;
   background-color: black;
@@ -50,6 +50,7 @@
 }
 
 #summary h1 {
+  font-family: 'Futura Std Bold';
   text-align: center;
   padding: 2%;
   margin-left: 10px;
@@ -57,16 +58,17 @@
 }
 
 h3 {
+  font-family: 'Futura Std Bold';
   padding: 2%;
   margin-left: 10px;
   color: rgb(242, 105, 38);
 }
 
 h5 {
+  font-family: 'Futura Std Bold';
   padding: 2%;
   margin-left: 10px;
   color: rgb(242, 105, 38);
-
 }
 
 #checkout {
