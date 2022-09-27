@@ -65,13 +65,11 @@ div {
 #infoContent {
   position: relative;
   z-index: 2;
-  /* background: var(--bkg-color); */
-  background: rgba(255, 252, 246, 0.95);
+  background: var(--product-detail-bkg);
   border-radius: 25px;
   margin: auto;
   margin-top: 10%;
   padding: 20px;
-  /* border: 1px solid var(--bkg-color); */
   width: 80%;
   height: 75%;
 }
@@ -93,5 +91,4 @@ div {
   color: var(--text-color);
 }
 
-.card-img-top {
-}
+

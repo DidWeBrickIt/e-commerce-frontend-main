@@ -38,12 +38,14 @@ body {
   );
   --place-holder-color: black;
   --input-field-bkg: white;
+  --product-detail-bkg: rgba(255, 252, 246, 0.95);
 
   color: var(--text-color);
   background: var(--bkg-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  
 }
 
 body.dark-theme {
@@ -61,6 +63,7 @@ body.dark-theme {
   --bkg-slider-color: white;
   --place-holder-color: silver;
   --input-field-bkg: black;
+  --product-detail-bkg: #252222f3;
 }
 
 input {
