@@ -30,13 +30,14 @@
   </div>
 </div>
 
+<app-create-product
+[productInfo]="updatedProductInfo.product"
+[productName]="updatedProductInfo.product.name"
+[toggleAcc]="updatedProductInfo.toggleAcc"
+(boolEvent)="recieveBool($event)"
+></app-create-product>
+
 <div id="productDisplayMain">
-  <app-create-product
-    [productInfo]="updatedProductInfo.product"
-    [productName]="updatedProductInfo.product.name"
-    [toggleAcc]="updatedProductInfo.toggleAcc"
-    (boolEvent)="recieveBool($event)"
-  ></app-create-product>
 
   <div class="container">
     <app-error-popup
