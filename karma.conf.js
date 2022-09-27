@@ -25,12 +25,12 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ecommerce'),
-      subdir: '.',
+     
+
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        { type: 'text' }
       ],
+
       check: {
         global: {
           statements: 70,
@@ -38,9 +38,15 @@ module.exports = function (config) {
           functions: 70,
           lines: 70
         }
+      },
+       watermarks: {
+        statements: [ 50, 70 ],
+        functions: [ 50, 70 ],
+        branches: [ 50, 70 ],
+        lines: [ 50, 70 ]
       }
-    }
-    ,
+      
+    },
     // port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
