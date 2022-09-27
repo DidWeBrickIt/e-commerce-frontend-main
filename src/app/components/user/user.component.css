@@ -20,4 +20,8 @@ p {
 .label{
     font-family: 'Futura Std Medium', sans-serif;
   }
+*
+{
+  font-family: 'Futura Std Book';
+}
 

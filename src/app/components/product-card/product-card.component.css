@@ -15,9 +15,11 @@
 
 .card-title {
   color: #f26925;
+  font-family: 'Futura Std Bold';
 }
 .card-body {
   text-align: center;
+  font-family: 'Futura Std Book';
 }
 
 .input-group.input-group-sm.mb-3 {
@@ -83,6 +85,7 @@ div {
   float: right;
   padding: 1.5%;
   margin: 1% 1% 0 0;
+  font-family: 'Futura Std Bold';
 }
 
 .input-group-text,
@@ -90,5 +93,7 @@ div {
   background: var(--bkg-color);
   color: var(--text-color);
 }
+
+
 
 
