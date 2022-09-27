@@ -66,8 +66,9 @@
           <!-- RIGHT HERE -->
           <div class="card-body">
             <h5 class="card-title">{{ productInfo.name }}</h5>
+            <p><b>{{ productInfo.price | currency }}</b></p>
             <p class="card-text">{{ productInfo.description }}</p>
-            <p>Product quantity: {{ productInfo.quantity }}</p>
+            <p>Quantity: {{ productInfo.quantity }}</p>
             <select
               [(ngModel)]="amount"
               *ngIf="this.quantities.length > 0"
