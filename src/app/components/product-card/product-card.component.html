@@ -34,7 +34,7 @@
   </div>
   <div class="card-body">
     <button
-      class="btn btn-outline-success"
+      class="btn btn-dwbi-primary"
       [disabled]="this.quantities.length === 0"
       (click)="addToCart(productInfo, $event)"
     >
@@ -51,7 +51,9 @@
 </div>
 <div id="infoBackground" *ngIf="showInfo" (click)="toggleInfo()">
   <div id="infoContent" (click)="stopProp($event)">
-    <button id="closeBtn" (click)="toggleInfo()">X</button>
+    <button id="closeBtn" class="btn btn-dwbi-remove" (click)="toggleInfo()">
+      X
+    </button>
     <div class="row justify-content-center">
       <div class="col-4">
         <div class="detailDisplay">
@@ -60,35 +62,39 @@
             [src]="productInfo.image"
             alt="Extra Info Picture"
           />
-          <h5 class="word">{{ productInfo.name }}</h5>
-          <p>{{ productInfo.description }}</p>
-          <p>Product quantity: {{ productInfo.quantity }}</p>
-          <select
-            [(ngModel)]="amount"
-            *ngIf="this.quantities.length > 0"
-            required
-            (click)="stopProp($event)"
-          >
-            <option
-              [ngValue]="1"
-              value=""
-              [hidden]="true"
-              [selected]="true"
+
+          <!-- RIGHT HERE -->
+          <div class="card-body">
+            <h5 class="card-title">{{ productInfo.name }}</h5>
+            <p class="card-text">{{ productInfo.description }}</p>
+            <p>Product quantity: {{ productInfo.quantity }}</p>
+            <select
+              [(ngModel)]="amount"
+              *ngIf="this.quantities.length > 0"
+              required
               (click)="stopProp($event)"
             >
-              1
-            </option>
-            <option *ngFor="let num of quantities" (click)="stopProp($event)">
-              {{ num }}
-            </option>
-          </select>
-          <button
-            class="btn btn-outline-success"
-            [disabled]="this.quantities.length === 0"
-            (click)="addToCart(productInfo, $event)"
-          >
-            Add to Cart
-          </button>
+              <option
+                [ngValue]="1"
+                value=""
+                [hidden]="true"
+                [selected]="true"
+                (click)="stopProp($event)"
+              >
+                1
+              </option>
+              <option *ngFor="let num of quantities" (click)="stopProp($event)">
+                {{ num }}
+              </option>
+            </select>
+            <br /><button
+              class="btn btn-dwbi-primary mt-3"
+              [disabled]="this.quantities.length === 0"
+              (click)="addToCart(productInfo, $event)"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-6">

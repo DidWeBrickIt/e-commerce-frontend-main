@@ -53,6 +53,10 @@ img {
   background-color: transparent;
 }
 
+.saveChangesBtn {
+  background-color: var(--lego-yellow);
+}
+
 /* .icon-circle {
   margin: 0;
   position: absolute;

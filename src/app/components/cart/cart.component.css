@@ -1,84 +1,82 @@
-
-.btn
-{
-    margin-left: 2%;
-    margin-bottom: 5%;
-    margin-top: 10%;
-    font-family: 'Futura Std Book', sans-serif;
+.btn {
+  margin-left: 2%;
+  margin-bottom: 5%;
+  margin-top: 10%;
+  font-family: 'Futura Std Book', sans-serif;
+ 
 }
 
 .btn-sm {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
-.btn-sm:hover{
-    cursor:pointer;
+.btn-sm:hover {
+  cursor: pointer;
 }
 
-.table.table-striped{
-    color: var(--text-color);
+.table.table-striped {
+  color: var(--text-color);
 }
 
 #header-row {
-    background: rgb(242, 105, 38)
-} 
+  background: rgb(242, 105, 38);
+}
 
 #product-image {
-    text-align: center;
+  text-align: center;
+  padding: 1em;
 }
 
 #cart-table {
-    width: 75%;
-    left: 0;
-    margin-left: 10%;
+  width: 95%;
+  margin-top: 1em;
+  left: 0;
+  margin-left: 5%;
 }
 
 #summary {
-    font-family: 'Futura Std Book';
-    height: 100%;
-    width: 25%;
-    background-color: black;
-    position: fixed;
-    padding-top: 10%;
-    top: 0;
-    right: 0;
-    background-image: linear-gradient(to bottom right, rgb(72, 76, 86), rgb(106,109,116));
+  height: 100%;
+  width: 25%;
+  background-color: black;
+  position: fixed;
+  padding-top: 10%;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(72, 76, 86),
+    rgb(106, 109, 116)
+  );
 }
 
 #summary h1 {
-    font-family: 'Futura Std Bold';
-    text-align: center;
-    padding: 2%;
-    margin-left: 10px;
-    color: rgb(242, 105, 38);
+  text-align: center;
+  padding: 2%;
+  margin-left: 10px;
+  color: rgb(242, 105, 38);
 }
 
 h3 {
-    font-family: 'Futura Std Bold';
-    padding: 2%;
-    margin-left: 10px;
-    color: rgb(242, 105, 38);
+  padding: 2%;
+  margin-left: 10px;
+  color: rgb(242, 105, 38);
 }
 
 h5 {
-    font-family: 'Futura Std Bold';
-    padding: 2%;
-    margin-left: 10px;
-    color: rgb(242, 105, 38);
+  padding: 2%;
+  margin-left: 10px;
+  color: rgb(242, 105, 38);
+
 }
 
 #checkout {
-    background-color: rgb(242, 105, 38);
-    /* margin-left: 20%; */
+  background-color: rgb(242, 105, 38);
+  /* margin-left: 20%; */
 }
 
-.title-text
-{
-    font-family: 'Futura Std Bold', sans-serif;
+.title-text {
+  font-family: 'Futura Std Bold', sans-serif;
 }
-.container
-{
-    font-family: 'Futura Std Bold', sans-serif;
+.container {
+  font-family: 'Futura Std Bold', sans-serif;
 }
-
-
