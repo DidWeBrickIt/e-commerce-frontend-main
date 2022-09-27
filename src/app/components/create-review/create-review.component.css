@@ -6,3 +6,7 @@ textarea {
 button:disabled {
   background-color: grey;
 }
+*
+{
+  font-family: 'Futura Std Book';
+}

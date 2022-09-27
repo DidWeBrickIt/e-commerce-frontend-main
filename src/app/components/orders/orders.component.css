@@ -2,9 +2,10 @@ div {
   position: relative;
   transition: 0.2s ease-out;
 }
-
+.container{
+    color: black;
+}
 #orderBackground {
-  /* position: fixed;  */
   z-index: 1;
   left: 0;
   top: 0;

@@ -2,22 +2,26 @@ h3 {
   text-align: center;
   display: inline-block;
   margin-right: 20px;
+  font-family: 'Futura Std Bold';
 }
 
 h4 {
   margin-bottom: 20px;
   display: inline-block;
+  font-family: 'Futura Std Bold';
 }
 
 h2 {
   margin-top: 10%;
   text-align: left;
+  font-family: 'Futura Std Bold';
 }
 
 button {
   margin-top: 2%;
   margin-bottom: 20px;
   display: inline-block;
+  font-family: 'Futura Std Book';
 }
 
 .review-viewport {
@@ -45,4 +49,8 @@ button {
 
 image {
   display: inline-block;
+}
+*
+{
+  font-family: 'Futura Std Book';
 }
