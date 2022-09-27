@@ -25,4 +25,12 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle display', () => {
+    let before = component.isDisplayActive;
+    let formActive = component.isFormActive;
+    component.toggleUserDisplay();
+    expect(component.isDisplayActive).toBe(!before);
+    expect(component.isFormActive).toBe(!formActive);
+  });
 });

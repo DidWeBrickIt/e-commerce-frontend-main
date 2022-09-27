@@ -84,7 +84,6 @@ export class PaypalComponent implements OnInit {
   }
 
   purchase(){
-    console.log("inside make purchase");
     console.log(this.productService);
     this.productService.purchase([]);
     this.productService.purchase(this.finalProducts).subscribe(
@@ -94,7 +93,6 @@ export class PaypalComponent implements OnInit {
         this.hasError = true;
       },
       () => {
-        console.log("inside make subscribe complete")
         const notifTotal = this.totalCost;
         let cart = {
           cartCount: 0,
