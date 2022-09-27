@@ -38,6 +38,9 @@ body {
   );
   --place-holder-color: black;
   --input-field-bkg: white;
+  --lego-blue: #0B79D9;
+  --lego-yellow: #F2B90C;
+  --lego-orange: #F27405;
 
   color: var(--text-color);
   background: var(--bkg-color);
@@ -100,11 +103,36 @@ h4 {
 }
 
 button {
+  --btn-dwbi-primary: #72a4c2;
+  --btn-dwbi-primary-lt: #75cdd9;
+  --btn-dwbi-primary-dk: #364e78;
+  --btn-dwbi-remove: #c9283e;
+  --btn-dwbi-remove-lt: #f0433a;
+  --btn-dwbi-remove-dk: #820333;
+
   padding: 10px;
   border: none;
   border-radius: 2px;
   color: var(--btn-txt-color);
   background-color: var(--btn-bg-color);
+}
+
+.btn-dwbi-primary {
+  background-color: var(--btn-dwbi-primary-lt);
+  color: white;
+}
+.btn-dwbi-primary:hover {
+  background-color: var(--btn-dwbi-primary);
+  border-color: #364e78;
+}
+
+.btn-dwbi-remove {
+  background-color: var(--btn-dwbi-remove-lt);
+  color: white;
+}
+.btn-dwbi-remove:hover {
+  background-color: var(--btn-dwbi-remove);
+  border-color: var(--btn-dwbi-remove-dk);
 }
 
 .switch {

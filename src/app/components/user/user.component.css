@@ -6,7 +6,7 @@ p {
 }
 
 .userPadding {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .label {
@@ -17,7 +17,6 @@ p {
   margin-left: 10%;
 }
 
-.label{
-    font-family: 'Futura Std Medium', sans-serif;
-  }
-
+.label {
+  font-family: 'Futura Std Medium', sans-serif;
+}

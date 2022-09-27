@@ -6,58 +6,123 @@
 </div>
 
 <div id="cart-table" class="container">
-  <table class="table table-striped table-hover" id="cart-table" aria-describedby="Shopping Cart">
+  <table
+    class="table table-striped table-hover"
+    id="cart-table"
+    aria-describedby="Shopping Cart"
+  >
     <thead>
       <tr id="header-row">
-        <th scope="col" style="width: 15%;">Lego Set</th>
-        <th scope="col" style="width: 62.5%;"></th>
-        <th scope="col" style="width: 7.5%;">Quantity</th>
-        <th scope="col" style="width: 7.5%;">Price</th>
-        <th scope="col" style="width: 7.5%;">Total</th>
+        <th scope="col" style="width: 15%">Lego Set</th>
+        <th scope="col" style="width: 50%"></th>
+        <th scope="col" style="width: 10%">Quantity</th>
+        <th scope="col" style="width: 10%">Price</th>
+        <th scope="col" style="width: 10%">Total</th>
       </tr>
     </thead>
     <tbody id="cart-table-body">
-      <tr id="body-row" *ngFor="let product of products;">
+      <tr id="body-row" *ngFor="let product of products">
         <td id="product-image">
-          <div><img src={{product.product.image}} height="100" alt=""></div>
+          <div>
+            <img src="{{ product.product.image }}" height="100" alt="" />
+          </div>
         </td>
         <td>
           <div class="container">
-            <div><strong>{{product.product.name}}</strong></div>
-            <div>{{product.product.description}}</div>
-            <div><button class="btn-danger btn-sm" (click)="removeFromCart(product.product)">Remove</button>
+            <div>
+              <strong>{{ product.product.name }}</strong>
+            </div>
+            <div>{{ product.product.description }}</div>
+            <div>
+              <button
+                class="btn btn-danger"
+                (click)="removeFromCart(product.product)"
+              >
+                Remove
+              </button>
             </div>
           </div>
         </td>
         <td>
-          <select [(ngModel)]="product.quantity" (ngModelChange)="updateQuantity($event, product.product)">
-            <option [ngValue]="product.quantity" [hidden]="true" [selected]="true">{{product.quantity}}</option>
-            <option *ngFor='let in of counter(product.product.quantity) ;let i = index'>{{i+1}}</option>
+          <select
+            [(ngModel)]="product.quantity"
+            (ngModelChange)="updateQuantity($event, product.product)"
+          >
+            <option
+              [ngValue]="product.quantity"
+              [hidden]="true"
+              [selected]="true"
+            >
+              {{ product.quantity }}
+            </option>
+            <option
+              *ngFor="
+                let in of counter(product.product.quantity);
+                let i = index
+              "
+            >
+              {{ i + 1 }}
+            </option>
           </select>
         </td>
-        <td>{{product.product.price}}</td>
-        <td>{{product.product.price * product.quantity}}</td>
+        <td>{{ product.product.price }}</td>
+        <td>{{ product.product.price * product.quantity }}</td>
       </tr>
     </tbody>
   </table>
 
   <div id="summary" class="container">
     <h1>Summary</h1>
-    <hr style="border-width: 5px">
-    <table style="width: 100%;" aria-describedby="Summary">
+    <hr style="border-width: 5px" />
+    <table style="width: 100%" aria-describedby="Summary">
       <thead>
-        <tr style="width: 100%;"><th scope="col" style="width: 70%;"></th><th  style="text-align:right; width: 30%;" scope="col"></th></tr>
+        <tr style="width: 100%">
+          <th scope="col" style="width: 70%"></th>
+          <th style="text-align: right; width: 30%" scope="col"></th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td><h3>Subtotal</h3></td><td style="text-align:right; color: white;"><strong>{{totalPrice | currency}}</strong></td></tr>
-        <tr><td><h5>Shipping</h5></td><td style="text-align:right; color: white;"><strong>FREE!</strong></td></tr>
-        <tr><td><h5>Sales Tax</h5></td><td id="tax" style="text-align:right; color: white;"><strong>{{totalPrice * .07 | currency}}</strong></td></tr>
-        <tr><td><hr style="border-width: 5px"></td><td><hr style="border-width: 5px"></td></tr>
-        <tr><td><h3>Total</h3></td><td style="text-align:right; color: white;"><strong>{{totalPrice + (totalPrice * .07) | currency}}</strong></td></tr>
-        <tr><td><button id="empty" class="btn btn-danger" (click)="emptyCart()">Empty Cart</button></td><td><button id="checkout" class="btn" [routerLink]="['/checkout']">Proceed to Checkout</button></td></tr>
+        <tr>
+          <td><h3>Subtotal</h3></td>
+          <td style="text-align: right; color: white">
+            <strong>{{ totalPrice | currency }}</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Shipping</h5></td>
+          <td style="text-align: right; color: white">
+            <strong>FREE!</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Sales Tax</h5></td>
+          <td id="tax" style="text-align: right; color: white">
+            <strong>{{ totalPrice * 0.07 | currency }}</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><hr style="border-width: 5px" /></td>
+          <td><hr style="border-width: 5px" /></td>
+        </tr>
+        <tr>
+          <td><h3>Total</h3></td>
+          <td style="text-align: right; color: white">
+            <strong>{{ totalPrice + totalPrice * 0.07 | currency }}</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="empty" class="btn btn-danger" (click)="emptyCart()">
+              Empty Cart
+            </button>
+          </td>
+          <td>
+            <button id="checkout" class="btn" [routerLink]="['/checkout']">
+              Proceed to Checkout
+            </button>
+          </td>
+        </tr>
       </tbody>
     </table>
-    
-    
   </div>
 </div>

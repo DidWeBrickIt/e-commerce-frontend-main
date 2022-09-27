@@ -41,6 +41,18 @@ img {
   padding: 20px;
 }
 
+.btn-dwbi-primary {
+  /* background-color: var(--btn-dwbi-primary); */
+  background-color: #75cdd9;
+}
+
+.btn-dwbi-primary:hover {
+  color: #fff;
+  /* background-color: #75cdd9; */
+  background-color: var(--btn-dwbi-primary);
+  border-color: #364e78;
+}
+
 div {
   position: relative;
   transition: 0.2s ease-out;
@@ -68,8 +80,8 @@ div {
   /* background: var(--bkg-color); */
   background: rgba(255, 252, 246, 0.95);
   border-radius: 25px;
+  top: 10%;
   margin: auto;
-  margin-top: 10%;
   padding: 20px;
   /* border: 1px solid var(--bkg-color); */
   width: 80%;
@@ -91,7 +103,4 @@ div {
 .form-control {
   background: var(--bkg-color);
   color: var(--text-color);
-}
-
-.card-img-top {
 }

@@ -43,3 +43,7 @@ mat-accordion {
 .mat-expansion-panel-header {
   width: 50%;
 }
+
+.mat-content.mat-content-hide-toggle {
+  margin-right: 0;
+}
