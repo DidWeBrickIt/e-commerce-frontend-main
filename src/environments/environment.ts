@@ -3,12 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   withCredentials: false,
-  baseUrl: "http://localhost:8080",
+  baseUrl: "https://project3backend.prouddune-0de8f704.centralus.azurecontainerapps.io/",
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:4200',
+    'Access-Control-Allow-Origin': 'https://green-plant-0ac64be10.1.azurestaticapps.net/',
     'auth': ''
   },
 };
