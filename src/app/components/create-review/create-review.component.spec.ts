@@ -42,7 +42,7 @@ describe('CreateReviewComponent', () => {
   });
 
   it('should create review', fakeAsync(() => {
-    let review: Review = { id: 0, userId: 0, prodId: 0, timestamp: 0, description: "", rating: 0 };
+    let review: Review = {userId: 0, prodId: 0, timestamp: 0, description: "", rating: 0 };
     let spy = spyOn(service, 'registerProductReview').and.returnValue(of(review));
     let urlSpy = spyOn(router, 'navigateByUrl').and.returnValue(of(true).toPromise());
 
