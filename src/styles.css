@@ -66,6 +66,16 @@ body {
     rgba(252, 180, 20, 1) 0%,
     rgba(242, 105, 32, 1) 100%
   );
+  --bkg-title-profile-color: linear-gradient(
+    90deg,
+    rgba(184, 199, 209, 1) 0%,
+    rgba(114, 164, 194, 1) 100%
+  );
+  --bkg-neutral-color: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(244, 243, 236, 1) 100%
+  );
   --place-holder-color: black;
   --input-field-bkg: white;
   --product-detail-bkg: rgba(255, 252, 246, 0.95);
@@ -116,6 +126,9 @@ h4 {
   padding-top: 3.5em;
   padding-bottom: 2.5em;
   font-family: 'Futura Std Bold', sans-serif;
+}
+.title-profile {
+  background: var(--bkg-title-profile-color);
 }
 
 .title-text {

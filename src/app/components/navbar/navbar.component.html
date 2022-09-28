@@ -15,11 +15,7 @@
       <span class="word">Dark</span>
     </div>
 
-    <div
-      *ngIf="notificationList.length !== 0"
-      id="notificationIcon"
-      class="temp-border"
-    >
+    <div *ngIf="notificationList.length !== 0" id="notificationIcon">
       <mat-icon
         type="button"
         matBadge="{{ listSize }}"
