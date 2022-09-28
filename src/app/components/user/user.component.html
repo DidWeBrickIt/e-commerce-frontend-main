@@ -29,7 +29,9 @@
     <div *ngIf="isFormActive">
       <form [formGroup]="userForm" (ngSubmit)="updateUser()">
         <mat-form-field appearance="outline">
-          <mat-label  source="font-family: 'Futura Std Bold';">First Name</mat-label>
+          <mat-label source="font-family: 'Futura Std Bold';"
+            >First Name</mat-label
+          >
           <input
             matInput
             id="first-input"
@@ -39,10 +41,15 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label source="font-family: 'Futura Std Bold';">Last Name</mat-label>
-          <input matInput id="last-input" placeholder="Name" formControlName="lastName" />
-          <mat-icon matSuffix>info</mat-icon>
-          <mat-hint>Hint</mat-hint>
+          <mat-label source="font-family: 'Futura Std Bold';"
+            >Last Name</mat-label
+          >
+          <input
+            matInput
+            id="last-input"
+            placeholder="Name"
+            formControlName="lastName"
+          />
         </mat-form-field>
         <div class="d-flex justify-content-center">
           <button
