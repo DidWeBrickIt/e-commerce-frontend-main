@@ -1,82 +1,76 @@
-#login-form
-{
-    padding-top: 3%;
-    
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    outline-style: solid;
-    outline-color: #F26925;
-    border-radius: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    
+#login-form {
+  padding-top: 3%;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  outline-style: solid;
+  outline-color: #f26925;
+  background-color: rgb(255, 255, 255, 0.75);
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.logo{
-    margin-top: 1%;
-}
-
-.input-fields{
-    width:60%;
-    margin: auto;
-    margin-top: 2em;
+.logo {
+  max-height: 200px;
+  margin-top: 2%;
 }
 
-.center{
-    text-align: center;
+.input-fields {
+  width: 60%;
+  margin: auto;
+  /* margin-top: 1em; */
 }
 
-body{
-    height: 100%;
-    overflow-y: hidden;
+.center {
+  text-align: center;
 }
 
-.btn
-{
-    margin-right: 2%;
+body {
+  height: 100%;
+  overflow-y: hidden;
 }
 
-.control-label.required:after { 
-    color: #d00;
-    content: "*";
-    position: absolute;
-    margin-left: 5px;
-    top:1px;
+.btn {
+  margin-right: 2%;
 }
 
-input.ng-invalid.ng-touched{
-    border: red 2px solid;
+.control-label.required:after {
+  color: #d00;
+  content: '*';
+  position: absolute;
+  margin-left: 5px;
+  top: 1px;
 }
 
-input.ng-valid.ng-touched{
-    border: green 2px solid;
+input.ng-invalid.ng-touched {
+  border: red 2px solid;
+}
+
+input.ng-valid.ng-touched {
+  border: green 2px solid;
 }
 
 .error-msg {
-    color: #a94442;
-  }
-
-.inner-login-form
-{
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-radius: 25px;
-}
-.form-group
-{
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 10%;
-    width: 100%;
-    border-radius: 25px;
+  color: #a94442;
 }
 
-.container
-{
-    padding-top: 3%;
+.inner-login-form {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 25px;
+}
+.form-group {
+  /* padding-left: 10%;
+  padding-right: 10%; */
+  /* padding-bottom: 10%; */
+  width: 100%;
+  border-radius: 25px;
+}
 
+.container {
+  padding-top: 2%;
 }
 * {
-    font-family: 'Futura Std Book', sans-serif;
+  font-family: 'Futura Std Book', sans-serif;
 }

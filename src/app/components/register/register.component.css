@@ -1,68 +1,62 @@
-#register-form
-{
-    font-family: 'Futura Std Book ';
-    padding-top: 3%;
-    
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    
-    outline-style: solid;
-    outline-color: #F26925;
-    border-radius: 25px;
-    margin-left: auto;
-    margin-right: auto;
+#register-form {
+  margin-top: 1%;
+  padding-top: 3%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  outline-style: solid;
+  outline-color: #f26925;
+  background-color: rgb(255, 255, 255, 0.75);
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.logo{
-    margin-top: 1%;
-    width: auto;
-    height: auto;
+.logo {
+  max-height: 200px;
+  margin-top: 2%;
 }
 
-.btn
-{
-    margin-right: 2%;
+.btn {
+  margin-right: 2%;
 }
 
-.reg-btn
-{
-    padding-top: 10%;
-    font-family: 'Futura Std Book';
+.reg-btn {
+  padding-top: 2%;
+  font-family: 'Futura Std Book';
 }
 
-input.ng-invalid.ng-touched{
-    border: red 2px solid;
+input.ng-invalid.ng-touched {
+  border: red 2px solid;
 }
 
-input.ng-valid.ng-touched{
-    border: green 2px solid;
+input.ng-valid.ng-touched {
+  border: green 2px solid;
 }
 
 .error-msg {
-    color: #a94442;
-  }
-
-
-  .container
-{
-    padding-top: 3%;
+  color: #a94442;
 }
 
-.inner-login-form
-{
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.container {
+  padding-top: 3%;
 }
-.form-group
-{
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 5%;
-    width: 100%;
+
+.inner-login-form {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-group {
+  padding-left: 10%;
+  padding-right: 10%;
+  /* padding-bottom: 5%; */
+  width: 100%;
 }
 
 * {
-    font-family: 'Futura Std Book', sans-serif;
+  font-family: 'Futura Std Book', sans-serif;
 }
