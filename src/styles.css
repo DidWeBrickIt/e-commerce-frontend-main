@@ -45,7 +45,6 @@ These fonts do not work
 */
 
 body {
-  font-family: 'Futura Std Bold' !important;
   --text-color: #222;
   --bkg-color: linear-gradient(
     180deg,
