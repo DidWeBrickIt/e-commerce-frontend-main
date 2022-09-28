@@ -107,6 +107,7 @@ body.dark-theme {
   --place-holder-color: silver;
   --input-field-bkg: black;
   --product-detail-bkg: #252222f3;
+  --bkg-neutral-color: #252222f3;
 }
 
 input {
