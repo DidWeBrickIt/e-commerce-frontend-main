@@ -1,36 +1,26 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-5 px-5">
-    <br><br><br>
-    <div class="mb-4">
-
-        <h2 class="word">Confirm order and pay</h2>
-    <span class="word">You're almost ready to recieve your awesome legos!</span>
-        
+  <br /><br /><br />
+  <div class="mb-4">
+    <h2 class="word">Confirm order and pay</h2>
+    <span class="word">You're almost ready to receive your awesome legos!</span>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <app-paypal></app-paypal>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <app-paypal></app-paypal>
+    <div class="col-md-4">
+      <div class="card card-blue p-3 text-white mb-3">
+        <span>Amount Due:</span>
+        <div class="d-flex flex-row align-items-end mb-3">
+          <h1 class="mb-0 yellow">{{ totalPrice | currency }}</h1>
         </div>
-        <div class="col-md-4">
 
-            <div class="card card-blue p-3 text-white mb-3">
-
-            <span>Amount Due:</span>
-                <div class="d-flex flex-row align-items-end mb-3">
-                    <h1 class="mb-0 yellow">{{totalPrice | currency}}</h1>
-                </div>
-
-                <div class="hightlight">
-
-                    <span>100% Guaranteed Satisfaction!</span>
-                    
-
-                </div>
-                
-            </div>
-            
+        <div class="hightlight">
+          <span>100% Guaranteed Satisfaction!</span>
         </div>
-        
+      </div>
     </div>
+  </div>
 </div>

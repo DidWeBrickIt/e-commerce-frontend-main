@@ -14,7 +14,7 @@
           matInput
           class="search-input form-control"
           type="text"
-          placeholder="enter seach here"
+          placeholder="enter search here"
           [(ngModel)]="searchInput"
           (keyup.enter)="searchProduct()"
         />
@@ -31,14 +31,13 @@
 </div>
 
 <app-create-product
-[productInfo]="updatedProductInfo.product"
-[productName]="updatedProductInfo.product.name"
-[toggleAcc]="updatedProductInfo.toggleAcc"
-(boolEvent)="recieveBool($event)"
+  [productInfo]="updatedProductInfo.product"
+  [productName]="updatedProductInfo.product.name"
+  [toggleAcc]="updatedProductInfo.toggleAcc"
+  (boolEvent)="recieveBool($event)"
 ></app-create-product>
 
 <div id="productDisplayMain">
-
   <div class="container">
     <app-error-popup
       *ngIf="hasError"

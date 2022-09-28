@@ -45,9 +45,9 @@
 
 #searchBox {
   width: 100%;
-  background: var(--bkg-nav-color);
-  padding-bottom: 1.5%;
-  padding-top: 1.5%;
+  background: rgba(71, 76, 85);
+  padding-bottom: 1.1%;
+  padding-top: 1.1%;
 }
 
 #productDisplayMain {
@@ -88,7 +88,6 @@
   border-style: solid;
   border-color: red;
 }
-
 
 * {
   font-family: 'Futura Std Bold';
