@@ -1,22 +1,38 @@
-<div class="text-center">
-  <img class="logo" src="../../../assets/images/Group_1987.png" width="15%" height="15%" alt="Did We Brick It">
-</div>
+<!-- <div class="text-center">
+  <img
+    class="logo"
+    src="../../../assets/images/logo-large.png"
+    alt="Did We Brick It"
+  />
+</div> -->
 <div class="container">
   <div class="inner-login-form">
-
     <div class="form-group">
-
       <form id="register-form" [formGroup]="registerForm">
+        <h3
+          style="
+            text-align: center;
+            color: rgb(242, 105, 38);
+            margin-bottom: 2em;
+            margin-top: 1em;
+            font-family: 'Futura Std Bold', sans-serif;
+          "
+        >
+          Register an Account
+        </h3>
 
-        <h4 style="text-align: center; color: rgb(242, 105, 38)">Register an Account</h4>
-
-        <div class="input-fields">
-          
-        </div>
+        <div class="input-fields"></div>
         <div class="form-group">
-          <label for="inputFirstName" class="control-label required">First Name</label>
-          <input type="text" id="inputFirstName" class="form-control" formControlName="fname"
-            placeholder="Enter First Name">
+          <label for="inputFirstName" class="control-label required"
+            >First Name</label
+          >
+          <input
+            type="text"
+            id="inputFirstName"
+            class="form-control"
+            formControlName="fname"
+            placeholder="Enter First Name"
+          />
 
           <div *ngIf="f.fname.touched && f.fname.errors">
             <div *ngIf="f.fname.errors.required" class="error-msg">
@@ -29,9 +45,16 @@
         </div>
 
         <div class="form-group">
-          <label for="inputLastName" class="control-label required">Last Name</label>
-          <input type="text" class="form-control" formControlName="lname" id="inputLastName"
-            placeholder="Enter Last Name">
+          <label for="inputLastName" class="control-label required"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lname"
+            id="inputLastName"
+            placeholder="Enter Last Name"
+          />
 
           <div *ngIf="f.lname.touched && f.lname.errors">
             <div *ngIf="f.lname.errors.required" class="error-msg">
@@ -41,14 +64,23 @@
               Only letters are allowed
             </div>
           </div>
-
         </div>
 
         <div class="form-group">
-          <label for="inputEmail" class="control-label required">Email address</label>
-          <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp"
-            placeholder="Enter Email">
-          <small id="emailHelp" class="form-text text-muted">Ensure you enter the correct email</small>
+          <label for="inputEmail" class="control-label required"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            id="inputEmail"
+            aria-describedby="emailHelp"
+            placeholder="Enter Email"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >Ensure you enter the correct email</small
+          >
 
           <div *ngIf="f.email.touched && f.email.errors">
             <div *ngIf="f.email.errors.required" class="error-msg">
@@ -61,9 +93,16 @@
         </div>
 
         <div class="form-group">
-          <label for="inputPassword" class="control-label required">Password</label>
-          <input type="password" class="form-control" formControlName="password" id="inputPassword"
-            placeholder="Enter Password">
+          <label for="inputPassword" class="control-label required"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            id="inputPassword"
+            placeholder="Enter Password"
+          />
 
           <div *ngIf="f.password.touched && f.password.errors">
             <div *ngIf="f.password.errors.required" class="error-msg">
@@ -73,13 +112,19 @@
               Password requires typical password stuff
             </div>
           </div>
-
         </div>
-
+        <hr />
         <div class="form-group">
-          <label for="inputSecurityQuestion" class="control-label required">Security Question</label>
-          <input type="text" class="form-control" formControlName="securityQuestion" id="input-security-question"
-            placeholder="Enter a Security Questions">
+          <label for="inputSecurityQuestion" class="control-label required"
+            >Security Question</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="securityQuestion"
+            id="input-security-question"
+            placeholder="Enter a Security Questions"
+          />
 
           <div *ngIf="f.securityQuestion.touched && f.securityQuestion.errors">
             <div *ngIf="f.securityQuestion.errors.required" class="error-msg">
@@ -93,8 +138,13 @@
 
         <div class="form-group">
           <label for="answer" class="control-label required">Answer</label>
-          <input type="text" class="form-control" formControlName="answer" id="input-answer"
-            placeholder="Enter an Answer">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="answer"
+            id="input-answer"
+            placeholder="Enter an Answer"
+          />
 
           <div *ngIf="f.answer.touched && f.answer.errors">
             <div *ngIf="f.answer.errors.required" class="error-msg">
@@ -104,13 +154,20 @@
               Only letters and numbers are allowed
             </div>
           </div>
+        </div>
+        <div class="reg-btn">
+          <app-error-popup
+            *ngIf="hasError"
+            [errorMessage]="errorMessage"
+          ></app-error-popup>
 
-          <div class="reg-btn">
-
-            <app-error-popup *ngIf="hasError" [errorMessage]="errorMessage"></app-error-popup>
-            <a routerLink="/login"><button class="btn btn-danger" >Back</button></a>
-            <button class="btn btn-primary" (click)="onSubmit()">Register</button>
-
+          <div style="text-align: center" class="mt-3">
+            <a routerLink="/login"
+              ><button class="btn btn-danger">Back</button></a
+            >
+            <button class="btn btn-dwbi-primary" (click)="onSubmit()">
+              Register
+            </button>
           </div>
         </div>
       </form>

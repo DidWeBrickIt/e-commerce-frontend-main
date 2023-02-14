@@ -81,7 +81,7 @@ div {
   z-index: 2;
   background: var(--product-detail-bkg);
   border-radius: 25px;
-  top: 10%;
+  top: 15%;
   margin: auto;
   padding: 20px;
   width: 80%;
@@ -101,6 +101,6 @@ div {
 
 .input-group-text,
 .form-control {
-  background: var(--bkg-color);
+  background: var(--bkg-neutral-color);
   color: var(--text-color);
 }

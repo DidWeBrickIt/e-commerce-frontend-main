@@ -38,8 +38,8 @@ form {
   cursor: pointer;
 }
 .home-button img {
-  width: 10%;
-  height: 10%;
+  margin-left: 10%;
+  margin-right: 5%;
 }
 
 #notificationIcon {

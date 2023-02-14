@@ -55,7 +55,7 @@
       X
     </button>
     <div class="row justify-content-center">
-      <div class="col-4">
+      <div class="col-4 mt-5">
         <div class="detailDisplay">
           <img
             class="infoImg"
@@ -66,7 +66,9 @@
           <!-- RIGHT HERE -->
           <div class="card-body">
             <h5 class="card-title">{{ productInfo.name }}</h5>
-            <p><b>{{ productInfo.price | currency }}</b></p>
+            <p>
+              <strong>{{ productInfo.price | currency }}</strong>
+            </p>
             <p class="card-text">{{ productInfo.description }}</p>
             <p>Quantity: {{ productInfo.quantity }}</p>
             <select
